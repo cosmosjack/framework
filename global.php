@@ -17,7 +17,7 @@ if (!is_file(BASE_ROOT_PATH."/install/lock") && is_file(BASE_ROOT_PATH."/install
 define('BASE_CORE_PATH',BASE_ROOT_PATH.'/core');  // 核心目录
 define('BASE_DATA_PATH',BASE_ROOT_PATH.'/data');   // 数据目录
 define('DS','/');   // 斜杠
-define('InCosmos',true);   // 定义InShopNC  为 真的存在  以确定 以后的文件都有加载此global文件
+define('InCosmos',true);   // 定义Incosmos  为 真的存在  以确定 以后的文件都有加载此global文件
 define('StartTime',microtime(true));  //当前 时间戳
 define('TIMESTAMP',time());   //当前时间
 define('DIR_SHOP','shop');   // 定义商城文件名 为shop
