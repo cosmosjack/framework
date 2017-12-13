@@ -17,7 +17,13 @@ class indexControl extends BaseManger{
         parent::__construct();
     }
     public function indexOp(){
-        echo 'hello word';
+       $test = C('db.master');
+        print_r($test) ;
+        $slave = C('db.slave');
+        print_r($slave);
+        echo '<br>';
+        echo '<hr>';
+//       P($GLOBALS['setting_config']) ;
     }
     // 员工个人主页
     public function userinfoOp(){

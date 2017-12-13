@@ -37,6 +37,7 @@ define('APP_SITE_URL',VIDEO_SITE_URL);
 define('TPL_NAME', 'default');
 define('AGENT_TEMPLATES_URL', AGENT_SITE_URL.'/templates/default');
 define('AGENT_RESOURCE_SITE_URL',AGENT_SITE_URL.'/resource');
+//echo BASE_PATH;
 require(BASE_PATH.'/framework/function/function.php');
 require(BASE_PATH.'/control/control.php');
 Base::run();

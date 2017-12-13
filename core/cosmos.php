@@ -7,7 +7,9 @@ if (file_exists(BASE_PATH.'/config/config.ini.php')){
 	include(BASE_PATH.'/config/config.ini.php');
 }
 global $config;
-
+//echo '<pre>';
+//print_r($config);
+//echo '</pre>';
 //默认平台店铺id
 define('DEFAULT_PLATFORM_STORE_ID', $config['default_store_id']);
 

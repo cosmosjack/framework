@@ -51,10 +51,14 @@ final class Base{
 	 */
 	private static function parse_conf(&$setting_config){
 		$nc_config = $GLOBALS['config'];
+//        echo '<pre>';
+//print_r($nc_config);
+//echo '</pre>';
 		if(is_array($nc_config['db']['slave']) && !empty($nc_config['db']['slave'])){
 			$dbslave = $nc_config['db']['slave'];
-			$sid     = array_rand($dbslave);
-			$nc_config['db']['slave'] = $dbslave[$sid];
+//			$sid     = array_rand($dbslave);
+//			$nc_config['db']['slave'] = $dbslave[$sid];
+//
 		}else{
 			$nc_config['db']['slave'] = $nc_config['db'][1];
 		}
