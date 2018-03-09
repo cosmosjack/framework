@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/data/api/jpush/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpoffice/common/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cosmos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/doctrine/instantiator/tests" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpword/src" isTestSource="false" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpoffice/phpword/tests" isTestSource="true" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpoffice/common/src" isTestSource="false" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpoffice/common/tests" isTestSource="true" packagePrefix="PhpOffice" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/vendor/phpspec/prophecy" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
