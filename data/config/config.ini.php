@@ -31,13 +31,15 @@ $config['db']['1']['dbpwd']        = 'root';
 $config['db']['1']['dbname']       = '33hao';
 $config['db']['1']['dbcharset']    = 'UTF-8';
 
-$config['db']['slave']['dbhost']       = '192.168.2.11';
+// 主从的开关
+/*$config['db']['slave']['dbhost']       = '192.168.2.11';
 $config['db']['slave']['dbport']       = '3306';
 $config['db']['slave']['dbuser']       = 'fuxuan';
 $config['db']['slave']['dbpwd']        = '123456';
 $config['db']['slave']['dbname']       = '33hao';
-$config['db']['slave']['dbcharset']    = 'UTF-8';
-//$config['db']['slave']             = $config['db']['master'];
+$config['db']['slave']['dbcharset']    = 'UTF-8';*/
+
+$config['db']['slave']             = $config['db']['master'];
 $config['session_expire'] 	= 3600; //回话过期时间 3600毫秒
 $config['lang_type'] 		= 'zh_cn';
 $config['cookie_pre'] 		= 'B847_';  //cookie 前缀

@@ -13,6 +13,9 @@ class indexControl extends BaseControl{
     }
     public function indexOp(){
         echo 'this is bbs index';
+        $db_goods = Model('goods');
+        $data_goods = $db_goods->select();
+//        p($data_goods);
         Tpl::output("test",array('ddd','bbb'));
         Tpl::showpage("index");
     }
