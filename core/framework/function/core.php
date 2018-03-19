@@ -2704,4 +2704,37 @@ function http($url, $data='', $method='GET'){
     return $tmpInfo; // 返回数据
 }
 
+// 模拟 IP 访问
+// 调用
+/*$url = 'http://www.example.com/server.php';
+$data = array();
+// 设置IP
+$header = array(
+    'CLIENT-IP: 192.168.1.100',
+    'X-FORWARDED-FOR: 192.168.1.100'
+);
+// 设置来源
+$referer = 'http://www.csdn.net/';
+$response = doCurl($url, $data, $header, $referer, 5);
+echo $response;*/
+ function doCurl($url, $data=array(), $header=array(), $referer='', $timeout=30){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 对认证证书来源的检查
+     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // 从证书中检查SSL加密算法是否存在
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+    // 模拟来源
+    curl_setopt($ch, CURLOPT_REFERER, $referer);
+    $response = curl_exec($ch);
+    if($error=curl_error($ch)){
+        die($error);
+    }
+    curl_close($ch);
+    return $response;
+}
+
 

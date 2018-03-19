@@ -15,7 +15,8 @@ class Sms {
      * @param unknown $content 短信内容
     */
     public function send($mobile,$content) {
-		$mobile_host_type=C('mobile_host_type');
+//		$mobile_host_type=C('mobile_host_type');
+        $mobile_host_type = 2;
 		if($mobile_host_type==1)
 		{
 			return $this->mysend_smsbao($mobile,$content);

@@ -12,10 +12,6 @@ $yunpian_config['APIKEY'] = "5adb12b13c1bf221070b9ba51ca1a8c8";
 $yunpian_config['API_SECRET'] = "xxxxxx";
 
 
-
-
-
-
 //System
 $yunpian_config['SMS_HOST'] = 'https://sms.yunpian.com';
 $yunpian_config['VOICE_HOST'] = 'https://voice.yunpian.com';

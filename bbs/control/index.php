@@ -16,6 +16,12 @@ class indexControl extends BaseControl{
         $db_goods = Model('goods');
         $data_goods = $db_goods->select();
 //        p($data_goods);
+        $number = '18675778621';
+        $message = "【时刻需】您的验证码是8888";
+        $sms = new Sms();
+        $result = $sms->send($number, $message);
+        p($result);
+
         Tpl::output("test",array('ddd','bbb'));
         Tpl::showpage("index");
     }
