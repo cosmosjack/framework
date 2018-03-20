@@ -71,4 +71,12 @@ $config['queue']['host'] = '127.0.0.1';
 $config['queue']['port'] = 6379;
 $config['cache_open'] = false;
 $config['delivery_site_url']    = 'http://shaonian.net/delivery';
+
+$config['oss']['open'] = true;
+$config['oss']['img_url'] = 'fuxuan.oss-cn-shenzhen.aliyuncs.com';
+$config['oss']['api_url'] = 'oss-cn-shenzhen.aliyuncs.com';
+$config['oss']['bucket'] = 'haoshaonian';
+$config['oss']['access_id'] = 'LTAIJdTtL1hzbViq';
+$config['oss']['access_key'] = 'R5FmNAlsjdQcMYfFwDfF8ON55xjT6q';
+
 return $config;

@@ -8,4 +8,5 @@
  * QQ:  997823131 
  */
 ?>
-<h2>首页测试</h2>
+<link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL."/bootstrap/css/tpl/index.css"; ?>" />
+<h2 class="index">首页测试</h2>

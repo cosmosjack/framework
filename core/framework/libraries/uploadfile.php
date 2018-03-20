@@ -4,7 +4,6 @@
  *
  *
  *
- * @package    library*  专业团队 提供售后服务
  */
 
 
@@ -89,6 +88,7 @@ class UploadFile{
 	private $filling = true;
 
 	private $config;
+    private $is_img = true;
 	/**
 	 * 初始化
 	 *
@@ -137,7 +137,7 @@ class UploadFile{
 	 * @param string $field 上传表单名
 	 * @return bool
 	 */
-	public function upfile($field){
+	public function upfile($field,$oss = false){
 
 		//上传文件
 		$this->upload_file = $_FILES[$field];
@@ -187,15 +187,30 @@ class UploadFile{
 			$this->setError($error);
 			return false;
 		}
-
-		//设置图片路径
-		$this->save_path = $this->setPath();
-
-		//设置文件名称
+       //设置文件名称
 		if(empty($this->file_name)){
 			$this->setFileName();
 		}
+        if ($oss === true && C('oss.open')) {
 
+            if ($this->error != '') return false;
+            $result = oss::upload($this->upload_file['tmp_name'],$this->default_dir.$this->file_name);
+            if ($result == false) {
+                echo '上传失败';
+                die();
+                $this->error = '上传失败'.(C('debug') ? '，详细信息请查看系统日志data/log/oss' : '');
+            }else{
+                return true;
+
+            }
+//            var_dump($result);
+//            var_dump($this->default_dir.$this->file_name);
+//            die();
+        }
+
+
+        //设置图片路径
+        $this->save_path = $this->setPath();
 		//是否需要生成缩略图
 		$ifresize = false;
 		if ($this->thumb_width && $this->thumb_height && $this->thumb_ext){
