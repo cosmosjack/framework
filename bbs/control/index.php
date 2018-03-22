@@ -69,15 +69,16 @@ class indexControl extends BaseControl{
     		ajaxReturn(array('code'=>'0','msg'=>'60秒内只能发送一次短信','control'=>'sendMessage'));
      	//手机号验证
      	$type = !empty($_POST['type'])?$_POST['type']:1;
-     	$code = rand(999,10000);
+     	$code = random(4,1);
      	$type = !empty($_POST['type'])?$_POST['type']:1;
      	if(yunpian_sms($_POST['phone'],$type,$code)){
+     		$data['phone'] = $_POST['phone'];
      		$data['remote_addr'] = $_SERVER['REMOTE_ADDR'];
 	     	$data['code'] = $code;
 	     	$data['send_time'] = time();
 	     	$result = $db_tmp->insert($data);
 	     	if($result)
-	     		ajaxReturn(array('code'=>'200','msg'=>'短信发送成功,2分钟内有效','control'=>'sendMessage','messageCode'=>$code));
+	     		ajaxReturn(array('code'=>'200','msg'=>'短信发送成功,2分钟内有效','control'=>'sendMessage'));
 	     	else
 	     		ajaxReturn(array('code'=>'0','msg'=>'短信存储失败','control'=>'sendMessage'));
      	}else{
@@ -102,12 +103,13 @@ class indexControl extends BaseControl{
     		ajaxReturn(array('code'=>'0','msg'=>'验证码不能为空','control'=>'register'));
     	$db_user = Model('bbs_user');
     	$db_tmp = Model('bbs_tmp');
-    	if($db_user->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->find()){
-    		$db_tmp->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->delete();
+    	if($db_user->where(array('member_phone'=>array('eq',$_POST['phone'])))->find()){
+    		//$db_tmp->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->delete();
     		ajaxReturn(array('code'=>'0','msg'=>'手机号已经注册','control'=>'register'));
     	}
     	//验证短信验证码
     	$map = array();
+    	$map['phone'] = array('eq',$_POST['phone']);
     	$map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
     	$map['code'] = array('eq',$_POST['code']);
     	$info = $db_tmp->where($map)->order('send_time desc')->find();
@@ -177,6 +179,7 @@ class indexControl extends BaseControl{
     	//验证短信验证码
     	$db_tmp = Model('bbs_tmp');
     	$map = array();
+    	$map['phone'] = array('eq',$_POST['phone']);
     	$map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
     	$map['code'] = array('eq',$_POST['code']);
     	$info = $db_tmp->where($map)->order('send_time desc')->find();
@@ -254,11 +257,12 @@ class indexControl extends BaseControl{
     	$db_tmp = Model('bbs_tmp');
     	$userinfo = $db_user->where(array('member_phone'=>array('eq',$_POST['phone'])))->find();
     	if($userinfo){
-    		$db_tmp->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->delete();
+    		//$db_tmp->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->delete();
     		ajaxReturn(array('code'=>'0','msg'=>'手机号已经绑定','control'=>'bind_wx'));
     	}
     	///验证短信验证码
     	$map = array();
+    	$map['phone'] = array('eq',$_POST['phone']);
     	$map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
     	$map['code'] = array('eq',$_POST['code']);
     	$info = $db_tmp->where($map)->order('send_time desc')->find();
@@ -266,9 +270,10 @@ class indexControl extends BaseControl{
     		ajaxReturn(array('code'=>'0','msg'=>'验证码不正确','control'=>'bind_wx'));
     	if(time()-$info['send_time'] > 120)
     		ajaxReturn(array('code'=>'0','msg'=>'验证码失效','control'=>'bind_wx'));
+    	$password = random(6,0);
     	$data['member_name'] = 'hsn_'.$_POST['phone'];//账号用 hsn_手机号
     	$data['member_phone'] = $_POST['phone'];
-    	$data['member_passwd'] = encrypt($_POST['password']);
+    	$data['member_passwd'] = encrypt($password);
     	$data['last_login_ip'] = getIp();
     	$data['add_time'] = time();
 
@@ -276,11 +281,19 @@ class indexControl extends BaseControl{
     	$data['member_sex'] = $_SESSION['userInfo_wx']['sex'];
     	$data['province'] = $_SESSION['userInfo_wx']['province'];
     	$data['city'] = $_SESSION['userInfo_wx']['city'];
-    	$data['headimgurl'] = $_SESSION['userInfo_wx']['headimgurl'];
+    	$data['headimgurl'] = $_SESSION['userInfo_wx']['headimgurl']?$_SESSION['userInfo_wx']['headimgurl']:BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
+    	$data['wx_openid'] = $_SESSION['userInfo_wx']['openid'];
     	$result = $db_user->insert($data);
     	if($result){
+    		//删掉临时表的验证码
     		$db_tmp->where(array('id'=>array('eq',$info['id'])))->delete();
-    		ajaxReturn(array('code'=>'200','msg'=>'绑定成功','control'=>'bind_wx','url'=>urlBBS('index','index')));
+    		//保存用户信息
+    		$this->saveUserInfo($db_user->where('id='.$result)->find());
+    		//发短信通知
+    		if(yunpian_sms($_POST['phone'],6,$password))
+    			ajaxReturn(array('code'=>'200','msg'=>'绑定成功','control'=>'bind_wx','url'=>urlBBS('index','index')));
+    		else
+    			ajaxReturn(array('code'=>'200','msg'=>'绑定成功,但短信发送失败','control'=>'bind_wx','url'=>urlBBS('index','index')));
     	}else{
     		ajaxReturn(array('code'=>'0','msg'=>'绑定失败','control'=>'bind_wx'));
     	}
@@ -309,6 +322,7 @@ class indexControl extends BaseControl{
 		//验证短信验证码
     	$db_tmp = Model('bbs_tmp');
     	$map = array();
+    	$map['phone'] = array('eq',$_POST['phone']);
     	$map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
     	$map['code'] = array('eq',$_POST['code']);
     	$data = $db_tmp->where($map)->order('send_time desc')->find();
@@ -368,5 +382,6 @@ class indexControl extends BaseControl{
     	p(decrypt($_GET['passwd']));
     	p(encrypt($_GET['password']));
     	p(time());
+    	p(random(6,0));
     }
 }

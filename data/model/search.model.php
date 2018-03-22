@@ -373,7 +373,7 @@ class searchModel{
             $tag_list = rkcache('class_tag', true);
             if (!empty($tag_list) && is_array($tag_list)) {
                 foreach($tag_list as $key => $val) {
-                    $tag_value = str_replace(',', '==ShopNC==', $val['gc_tag_value']);
+                    $tag_value = str_replace(',', '==cosmos==', $val['gc_tag_value']);
                     if (strpos($tag_value, $keyword)) {
                         $data[] = $val['gc_id'];
                     }

@@ -2,9 +2,9 @@
 /**
  * aliyun oss
  *
- * @好商城提供技术支持 授权请购买shopnc授权
- * @license    http://www.33hao.com
- * @link       交流群号：138182377
+ * @cosmos提供技术支持 授权请购买cosmos授权
+ * @license    http://www.shikexu.com
+ * @link       交流群号：997823131
 
  */
 defined('InCosmos') or exit('Access Invalid!');
