@@ -28,7 +28,7 @@ $config['db']['1']['dbhost']       = 'localhost';
 $config['db']['1']['dbport']       = '3306';
 $config['db']['1']['dbuser']       = 'root';
 $config['db']['1']['dbpwd']        = 'root';
-$config['db']['1']['dbname']       = '33hao';
+$config['db']['1']['dbname']       = 'shaonian';
 $config['db']['1']['dbcharset']    = 'UTF-8';
 
 // 主从的开关
@@ -53,7 +53,7 @@ $config['cache']['type'] 			= 'file';
 //$config['redis']['slave']      	    = array();
 //$config['fullindexer']['open']      = false;
 //$config['fullindexer']['appname']   = '33hao';
-$config['debug'] 			= false;
+$config['debug'] 			= true;
 $config['default_store_id'] = '1';
 $config['url_model'] = false;  //URL 类型
 $config['subdomain_suffix'] = '';

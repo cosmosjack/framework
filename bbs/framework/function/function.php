@@ -23,3 +23,50 @@ function yunpian_sms($number,$type='1',$code){
         return false;
     }
 }
+/**
+ * 是否是AJAx提交的
+ * @return bool
+ */
+function isAjax(){
+  if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
+    return true;
+  }else{
+    return false;
+  }
+}
+/**
+ * 手机号验证
+ * @param $phone 手机号
+ * @return bool
+ */
+function isPhone($phone){
+	$reg = '/(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/';
+	return preg_match($reg,$phone);
+}
+/**
+ * 检测字符串是否是电子邮件地址格式
+ * @param  $email    待检测字符串
+ */
+function isEmail($email){
+    $reg = '/^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/';
+    return preg_match($reg,$email);
+}
+/**
+ * bbs使用的URL链接函数，强制使用动态传参数模式
+ *
+ * @param string $act control文件名
+ * @param string $op op方法名
+ * @param array $args URL其它参数
+ * @return string
+ */
+function urlBBS($act = '', $op = '', $args = array()){
+    return url($act, $op, $args, false, BBS_SITE_URL);
+}
+/**
+ * 手机号用-连接
+ * @param  $phone    手机号
+ * @return string
+ */
+function phoneLink($phone){
+	return substr($phone, 0,3).'-'.substr($phone, 3,4).'-'.substr($phone, 7);
+}
