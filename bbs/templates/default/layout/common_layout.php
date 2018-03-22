@@ -1,4 +1,3 @@
-
 <!--公共-->
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/jquery.min.js"></script>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/bootstrap.min.js"></script>
