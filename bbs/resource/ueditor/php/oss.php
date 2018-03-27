@@ -7,16 +7,15 @@
  * @link       交流群号：997823131
 
  */
-defined('InCosmos') or exit('Access Invalid!');
 final class oss {
     private static $oss_sdk_service;
     private static $bucket;
     private static function _init() {
         require_once('oss/sdk.class.php');
-        self::$oss_sdk_service = new ALIOSS(null,null,C('oss.api_url'));
+        self::$oss_sdk_service = new ALIOSS(null,null,"oss-cn-shenzhen.aliyuncs.com");
         //设置是否打开curl调试模式
         self::$oss_sdk_service->set_debug_mode(false);
-        self::$bucket = C('oss.bucket');
+        self::$bucket = "haoshaonian";
 
     }
 
@@ -40,6 +39,8 @@ final class oss {
         self::_init();
         try{
             $response = self::$oss_sdk_service->upload_file_by_file(self::$bucket,$new_file,$src_file);
+//            echo "oss.42";
+//            die();
             if ($response->status == '200') {
                 return true;
             } else {

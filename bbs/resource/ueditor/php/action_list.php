@@ -22,8 +22,8 @@ switch ($_GET['action']) {
         $listSize = $CONFIG['imageManagerListSize'];
         $path = $CONFIG['imageManagerListPath'];
 }
-$allowFiles = substr(str_replace(".", "|", join("", $allowFiles)), 1);
 
+$allowFiles = substr(str_replace(".", "|", join("", $allowFiles)), 1);
 /* 获取参数 */
 $size = isset($_GET['size']) ? htmlspecialchars($_GET['size']) : $listSize;
 $start = isset($_GET['start']) ? htmlspecialchars($_GET['start']) : 0;
@@ -51,13 +51,47 @@ for ($i = min($end, $len) - 1, $list = array(); $i < $len && $i >= 0 && $i >= $s
 //    $list[] = $files[$i];
 //}
 
-/* 返回数据 */
+
+// 以上是 原来的 数据 请注释
+
+/* 定义 PDO start */
+define('InCosmos',true);
+define('DS','/');   // 斜杠
+
+//定义我的PDO
+define("HOST","localhost");
+define("USER","root");
+define("PASS","root");
+define("DBNAME","shaonian");
+define("TABPREFIX","33hao_");
+define("DEBUG","0");
+///* 定义 PDO end */
+$pdo_path = $_SERVER['DOCUMENT_ROOT'].DS."core".DS."framework".DS."libraries".DS."dpdo.php";
+include_once($pdo_path);
+$db_ueditor = new Dpdo();
+$db_ueditor->setTable("bbs_ueditor_pic");
+$data_ueditor = $db_ueditor->limit($_GET['start'],20)->select();
+
+$data_total = $db_ueditor->total();
+//print_r($data_ueditor);
+
+/* 新的数据返回  start */
 $result = json_encode(array(
+    "state" => "SUCCESS",
+    "list" => $data_ueditor,
+    "start" => $start,
+    "total" => $data_total
+));
+/* 新的数据返回  end */
+
+/* 原来的 返回数据 */
+
+/*$result = json_encode(array(
     "state" => "SUCCESS",
     "list" => $list,
     "start" => $start,
     "total" => count($files)
-));
+));*/
 
 return $result;
 

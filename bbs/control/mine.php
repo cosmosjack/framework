@@ -11,7 +11,6 @@ class mineControl extends BaseControl{
     public function __construct(){
         parent::__construct();
         Tpl::setLayout("common_login_layout");
-        $this->checkLogin();
     }
     //首页
     public function indexOp(){
@@ -28,101 +27,21 @@ class mineControl extends BaseControl{
         Tpl::output("count",$count);
         Tpl::showpage("mine");
     }
-    //设置
-    public function setUpOp(){
-    	$this->checkLogin();
-        if(!isAjax()){
-            Tpl::showpage("setUp");
-            exit();
-        }
+    //成长相册
+    public function xiangceOp(){
+
     }
-    //设置个人信息
-    public function mineInfoOp(){
-    	$this->checkLogin();
-    	if(!isAjax()){
-    		Tpl::showpage("mineInfo");
-    		exit();
-    	}
+    //成长记录
+    public function jiluOp(){
+
     }
-    //解绑手机
-    public function unBindOp(){
-        $this->checkLogin();
-        if(!isAjax()){
-            Tpl::showpage("unBind");
-            exit();
-        }
-        if(empty($_POST['phone']))
-            ajaxReturn(array('code'=>'0','msg'=>'手机号不能为空','control'=>'unBind'));
-        //验证手机格式
-        if(!isPhone($_POST['phone']))
-            ajaxReturn(array('code'=>'0','msg'=>'手机号格式不正确','control'=>'unBind'));
-        //检查手机
-        if($_POST['phone'] != $_SESSION['userInfo']['member_phone'])
-            ajaxReturn(array('code'=>'0','msg'=>'请输入之前绑定的手机','control'=>'unBind'));
-        ///验证短信验证码
-        $db_tmp = Model('bbs_tmp');
-        $map = array();
-        $map['phone'] = array('eq',$_POST['phone']);
-        $map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
-        $map['code'] = array('eq',$_POST['code']);
-        $info = $db_tmp->where($map)->order('send_time desc')->find();
-        if(!$info)
-            ajaxReturn(array('code'=>'0','msg'=>'验证码不正确','control'=>'unBind'));
-        if(time()-$info['send_time'] > 120)
-            ajaxReturn(array('code'=>'0','msg'=>'验证码失效','control'=>'unBind'));
-        $db_tmp->where('id='.$info['id'])->delete();
-        ajaxReturn(array('code'=>'200','msg'=>'成功，绑定新的手机号','control'=>'unBind','url'=>urlBBS('mine','bind')));
+    //我的收藏
+    public function coleccetOp(){
+
     }
-    //绑定手机
-    public function bindOp(){
-        $this->checkLogin();
-        if(!isAjax()){
-            Tpl::showpage("bind");
-            exit();
-        }
-        if(empty($_POST['phone']))
-            ajaxReturn(array('code'=>'0','msg'=>'手机号不能为空','control'=>'bind'));
-        //验证手机格式
-        if(!isPhone($_POST['phone']))
-            ajaxReturn(array('code'=>'0','msg'=>'手机号格式不正确','control'=>'bind'));
-        $db_user = Model('bbs_user');
-        if($db_user->where('member_phone='.$_POST['phone'])->find()){
-            //$db_tmp->where(array('remote_addr'=>array('eq',$_SERVER['REMOTE_ADDR'])))->delete();
-            ajaxReturn(array('code'=>'0','msg'=>'手机号已经绑定,请重新输入','control'=>'bind'));
-        }
-        ///验证短信验证码
-        $db_tmp = Model('bbs_tmp');
-        $map = array();
-        $map['phone'] = array('eq',$_POST['phone']);
-        $map['remote_addr'] = array('eq',$_SERVER['REMOTE_ADDR']);
-        $map['code'] = array('eq',$_POST['code']);
-        $info = $db_tmp->where($map)->order('send_time desc')->find();
-        if(!$info)
-            ajaxReturn(array('code'=>'0','msg'=>'验证码不正确','control'=>'bind'));
-        if(time()-$info['send_time'] > 120)
-            ajaxReturn(array('code'=>'0','msg'=>'验证码失效','control'=>'bind'));
-        $update = array();
-        //$update['member_name'] = 'hsn_'.$_POST['phone'];
-        $update['member_phone'] = $_POST['phone'];
-        $result = $db_user->where('id='.$_SESSION['userInfo']['id'])->update($update);
-        if($result){
-            //删掉验证码
-            $db_tmp->where('id='.$info['id'])->delete();
-            //修改session
-            //$_SESSION['userInfo']['member_name'] = 'hsn_'.$_POST['phone'];
-            $_SESSION['userInfo']['member_phone'] = $_POST['phone'];
-            ajaxReturn(array('code'=>'200','msg'=>'绑定成功','control'=>'bind','url'=>urlBBS('mine','index')));
-        }else{
-            ajaxReturn(array('code'=>'0','msg'=>'绑定失败','control'=>'bind','url'=>urlBBS('mine','index')));
-        }
-    }
-    //修改密码
-    public function editPw(){
-        echo "editPw";
-    }
-    //关于我们
-    public function aboutUs(){
-        echo "aboutUs";
+    //优惠券
+    public function couponOp(){
+        Tpl::showpage("coupon");
     }
     //退出
     public function signOutOp(){
@@ -136,10 +55,11 @@ class mineControl extends BaseControl{
     public function checkLogin(){
     	if(empty($_SESSION['is_login'])){
     		if(isAjax())
-    			ajaxReturn(array('code'=>'0','msg'=>'请先登录','control'=>'checkLogin'));
+    			ajaxReturn(array('code'=>'200','msg'=>'请先登录','control'=>'checkLogin','url'=>urlBBS('index','login')));
     		else
     			header("Location: ".urlBBS('index','login'));
     			//showDialog('请先登录',urlBBS('index','login'));
     	}
     }
+    
 }

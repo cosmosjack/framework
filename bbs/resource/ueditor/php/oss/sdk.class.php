@@ -45,7 +45,7 @@ class OSS_Exception extends Exception {
 	    echo $message;exit;
 	}
 	public function __toString() {
-// 	    return __CLASS__.':['.$this->code.']:'.$this->message.'\n';
+ 	    return __CLASS__.':['.$this->code.']:'.$this->message.'\n';
 	}
 }
 
@@ -310,8 +310,8 @@ class ALIOSS{
 			$this->hostname = $hostname;
 		}
 
-//        p($this);
-//        echo '####### sdk.class.php ######';
+//        print_r($this);
+//        echo '####### sdk.class.php.314';
 //        die();
 	}
 
@@ -410,8 +410,8 @@ class ALIOSS{
 //        die();
 		//验证Bucket,list_bucket时不需要验证
 		if(!( ('/' == $options[self::OSS_OBJECT]) && ('' == $options[self::OSS_BUCKET]) && ('GET' == $options[self::OSS_METHOD])) && !$this->validate_bucket($options[self::OSS_BUCKET])){
-            echo '######## sdn.class.php auth_function 410 #######';
-            die();
+//            echo '######## sdn.class.php auth_function 410 #######';
+//            die();
 			throw new OSS_Exception('"'.$options[self::OSS_BUCKET].'"'.OSS_BUCKET_NAME_INVALID);
 		}
 	
@@ -440,10 +440,10 @@ class ALIOSS{
 
         // 获得当次请求使用的hostname，如果是公共域名或者专有域名，bucket拼在前面构成三级域名
         if($this->enable_domain_style){
-            echo '&&&&&';
+//            echo '&&&&&';
 			$hostname = $this->vhost ? $this->vhost : (($options[self::OSS_BUCKET] =='')?$this->hostname:($options[self::OSS_BUCKET].'.').$this->hostname);
 		}else{
-            echo '*******';
+//            echo '*******';
 			$hostname = (isset($options[self::OSS_BUCKET]) && ''!==$options[self::OSS_BUCKET])?$this->hostname.'/'.$options[self::OSS_BUCKET]:$this->hostname;
 		}
 
@@ -463,10 +463,10 @@ class ALIOSS{
 			self::OSS_DATE => isset($options[self::OSS_DATE])? $options[self::OSS_DATE]: gmdate('D, d M Y H:i:s \G\M\T'),
 			self::OSS_HOST => $this->enable_domain_style?$hostname:$this->hostname,
 		); // header参数
-        echo '####  header #####';
-        echo '<pre>';
-        var_dump($headers);
-        echo '</pre>';
+//        echo '####  header #####';
+//        echo '<pre>';
+//        var_dump($headers);
+//        echo '</pre>';
 //        die();
 
 		if(isset ( $options [self::OSS_OBJECT] ) && '/' !== $options [self::OSS_OBJECT]){
@@ -517,28 +517,31 @@ class ALIOSS{
 		}
 		
 		$this->request_url = 	 $scheme . $hostname . $signable_resource . $signable_query_string . $non_signable_resource;
-        echo '####  request #####';
-        print_r($scheme);
-        echo '#';
-        print_r($hostname);
-        echo '#';
-
-        print_r($signable_resource);
-        echo '#';
-
-        print_r($signable_query_string);
-        echo '#';
-
-        print_r($non_signable_resource);
-        echo '<pre>';
-        var_dump($this->request_url);
-        echo '</pre>';
+//        echo '####  request #####';
+//        print_r($scheme);
+//        echo '#';
+//        print_r($hostname);
+//        echo '#';
+//
+//        print_r($signable_resource);
+//        echo '#';
+//
+//        print_r($signable_query_string);
+//        echo '#';
+//
+//        print_r($non_signable_resource);
+//        echo '<pre>';
+//        var_dump($this->request_url);
+//        echo '</pre>';
+//        echo 'sdk.536';
 //        die();
 		$msg .= "--REQUEST URL:----------------------------------------------\n".$this->request_url."\n";
 		
 		//创建请求
 		$request = new RequestCore($this->request_url);
-		 
+//        print_r($request);
+//        echo 'sdk.543';
+//        die();
 		// Streaming uploads
 		if (isset($options[self::OSS_FILE_UPLOAD])){
 			if (is_resource($options[self::OSS_FILE_UPLOAD])){
@@ -653,10 +656,10 @@ class ALIOSS{
 
 		$msg .= "REQUEST HEADERS:----------------------------------------------\n".serialize($request->request_headers)."\n";
 
-        p($request);
+//        print_r($request);
+//        echo 'sdk.660';
 //        die();
 		$request->send_request();
-
 		$response_header = $request->get_response_header();
 		$response_header['x-oss-request-url'] = $this->request_url;
 		$response_header['x-oss-redirects'] = $this->redirects;
@@ -666,7 +669,6 @@ class ALIOSS{
 		$msg .= "RESPONSE HEADERS:----------------------------------------------\n".serialize($response_header)."\n";
 		
 		$data =  new ResponseCore ( $response_header , $request->get_response_body (), $request->get_response_code () );
-	
 		if((integer)$request->get_response_code() === 400 /*Bad Request*/ || (integer)$request->get_response_code() === 500 /*Internal Error*/ || (integer)$request->get_response_code() === 503 /*Service Unavailable*/){	
 		   if($this->redirects <= $this->max_retries ){
 		   		//设置休眠
@@ -1358,12 +1360,15 @@ class ALIOSS{
 		$options[self::OSS_OBJECT] = $object;
 		$options[self::OSS_CONTENT_TYPE] = $content_type;
 		$options[self::OSS_CONTENT_LENGTH] = $filesize;
-
-        echo '<pre>';
+//
+       /* echo '<pre>';
         var_dump($options);
-        echo '</pre>';
+        echo '</pre>';*/
 //        die();
 		$response = $this->auth($options);
+       /* print_r($response);
+        echo 'ddd';
+        die();*/
 		return $response;
 	}
 	
@@ -2365,9 +2370,10 @@ class ALIOSS{
 	 * @return void
 	 */
 	private function log($msg){
-		if(defined('ALI_LOG_PATH') ){
+
+        if(defined('ALI_LOG_PATH') ){
 			$log_path = ALI_LOG_PATH;
-			if(empty($log_path) || !file_exists($log_path)){
+            if(empty($log_path) || !file_exists($log_path)){
 				throw new OSS_Exception($log_path.OSS_LOG_PATH_NOT_EXIST);
 			}
 		}else{

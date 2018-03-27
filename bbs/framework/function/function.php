@@ -70,3 +70,13 @@ function urlBBS($act = '', $op = '', $args = array()){
 function phoneLink($phone){
 	return substr($phone, 0,3).'-'.substr($phone, 3,4).'-'.substr($phone, 7);
 }
+/**
+ * 根据区域id获取区域名称
+ * @param  $area_id    区域id
+ * @return string
+ */
+function getAreaName($area_id){
+    $db_area = Model('area');
+    $info = $db_area->field('area_name')->where('area_id='.$area_id)->find();
+    return $info['area_name'];
+}

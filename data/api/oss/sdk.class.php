@@ -440,7 +440,7 @@ class ALIOSS{
 
         // 获得当次请求使用的hostname，如果是公共域名或者专有域名，bucket拼在前面构成三级域名
         if($this->enable_domain_style){
-            echo '&&&&&';
+//            echo '&&&&&';
 			$hostname = $this->vhost ? $this->vhost : (($options[self::OSS_BUCKET] =='')?$this->hostname:($options[self::OSS_BUCKET].'.').$this->hostname);
 		}else{
             echo '*******';
@@ -463,10 +463,10 @@ class ALIOSS{
 			self::OSS_DATE => isset($options[self::OSS_DATE])? $options[self::OSS_DATE]: gmdate('D, d M Y H:i:s \G\M\T'),
 			self::OSS_HOST => $this->enable_domain_style?$hostname:$this->hostname,
 		); // header参数
-        echo '####  header #####';
+        /*echo '####  header #####';
         echo '<pre>';
         var_dump($headers);
-        echo '</pre>';
+        echo '</pre>';*/
 //        die();
 
 		if(isset ( $options [self::OSS_OBJECT] ) && '/' !== $options [self::OSS_OBJECT]){
@@ -517,7 +517,7 @@ class ALIOSS{
 		}
 		
 		$this->request_url = 	 $scheme . $hostname . $signable_resource . $signable_query_string . $non_signable_resource;
-        echo '####  request #####';
+       /* echo '####  request #####';
         print_r($scheme);
         echo '#';
         print_r($hostname);
@@ -532,13 +532,13 @@ class ALIOSS{
         print_r($non_signable_resource);
         echo '<pre>';
         var_dump($this->request_url);
-        echo '</pre>';
+        echo '</pre>';*/
 //        die();
 		$msg .= "--REQUEST URL:----------------------------------------------\n".$this->request_url."\n";
 		
 		//创建请求
 		$request = new RequestCore($this->request_url);
-		 
+
 		// Streaming uploads
 		if (isset($options[self::OSS_FILE_UPLOAD])){
 			if (is_resource($options[self::OSS_FILE_UPLOAD])){
@@ -1359,9 +1359,9 @@ class ALIOSS{
 		$options[self::OSS_CONTENT_TYPE] = $content_type;
 		$options[self::OSS_CONTENT_LENGTH] = $filesize;
 
-        echo '<pre>';
+       /* echo '<pre>';
         var_dump($options);
-        echo '</pre>';
+        echo '</pre>';*/
 //        die();
 		$response = $this->auth($options);
 		return $response;

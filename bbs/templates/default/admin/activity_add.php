@@ -43,30 +43,91 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 <div class="ibox-content">
                     <form method="get" class="form-horizontal">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">普通</label>
-
+                            <label class="col-sm-2 control-label">活动标题</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">带说明信息</label>
+                            <label class="col-sm-2 control-label">活动简单介绍</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control"> <span class="help-block m-b-none">帮助文本，可能会超过一行，以块级元素显示</span>
+                                <input type="text" class="form-control"> <span class="help-block m-b-none">填写简单的活动介绍</span>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">密码</label>
+                            <label class="col-sm-2 control-label">活动封面图</label>
 
                             <div class="col-sm-10">
-                                <input type="password" class="form-control" name="password">
+                                <label>
+                                    <input type="file" multiple="multiple" id="input_img" style="display: none;" name="cover_img[]" value="" onchange="javascript:setImagePreview('input_img','preview','localImage','375px','222px');">
+                                    <a style="text-align: center">
+                                        <div id="localImage">
+                                            <img id="preview" src="<?php echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?>img/vcs.jpg" style="margin:0 auto .1rem;display: block; width: 375px; height: 222px;">
+                                        </div>
+                                        <h4>选择封面图 <span style="color: red;">尺寸为 750x445像素</span></h4>
+                                        <div style="clear: both;"></div>
+                                    </a>
+                                </label>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
+
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">提示</label>
+                            <label class="col-sm-2 control-label">活动介绍图</label>
+
+                            <div class="col-sm-10">
+
+                                <label>
+                                    <input type="file" multiple="multiple" id="detail_img1" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img1','preview1','localImage1','320px','190px');">
+                                    <a style="text-align: center">
+                                        <div id="localImage1">
+                                            <img id="preview1" src="<?php echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?>img/banner1.jpg" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                        </div>
+                                        <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
+                                        <div style="clear: both;"></div>
+                                    </a>
+                                </label>
+
+                                <label>
+                                    <input type="file" multiple="multiple" id="detail_img2" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img2','preview2','localImage2','320px','190px');">
+                                    <a style="text-align: center">
+                                        <div id="localImage2">
+                                            <img id="preview2" src="<?php echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?>img/banner1.jpg" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                        </div>
+                                        <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
+                                        <div style="clear: both;"></div>
+                                    </a>
+                                </label>
+
+                                <label>
+                                    <input type="file" multiple="multiple" id="detail_img3" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img3','preview3','localImage3','320px','190px');">
+                                    <a style="text-align: center">
+                                        <div id="localImage3">
+                                            <img id="preview3" src="<?php echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?>img/banner1.jpg" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                        </div>
+                                        <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
+                                        <div style="clear: both;"></div>
+                                    </a>
+                                </label>
+
+                                <label>
+                                    <input type="file" multiple="multiple" id="detail_img4" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img4','preview4','localImage4','320px','190px');">
+                                    <a style="text-align: center">
+                                        <div id="localImage4">
+                                            <img id="preview4" src="<?php echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?>img/banner1.jpg" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                        </div>
+                                        <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
+                                        <div style="clear: both;"></div>
+                                    </a>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">活动介绍轮播图</label>
 
                             <div class="col-sm-10">
                                 <input type="text" placeholder="提示信息" class="form-control">
@@ -91,6 +152,18 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         <div class="hr-line-dashed"></div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">详细介绍</label>
+
+                            <div class="col-sm-10">
+                                <div>
+                                    <script id="editor" type="text/plain" style="width:1080px;height:500px;"></script>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+                        <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
                                 <button class="btn btn-primary" type="submit">保存内容</button>
                                 <button class="btn btn-white" type="submit">取消</button>
@@ -103,48 +176,6 @@ defined('InCosmos') or exit('Access Invalid!');?>
     </div>
 </div>
 
-<div>
-    <h1>完整demo</h1>
-    <script id="editor" type="text/plain" style="width:1024px;height:500px;"></script>
-</div>
-<div id="btns">
-    <div>
-        <button onclick="getAllHtml()">获得整个html的内容</button>
-        <button onclick="getContent()">获得内容</button>
-        <button onclick="setContent()">写入内容</button>
-        <button onclick="setContent(true)">追加内容</button>
-        <button onclick="getContentTxt()">获得纯文本</button>
-        <button onclick="getPlainTxt()">获得带格式的纯文本</button>
-        <button onclick="hasContent()">判断是否有内容</button>
-        <button onclick="setFocus()">使编辑器获得焦点</button>
-        <button onmousedown="isFocus(event)">编辑器是否获得焦点</button>
-        <button onmousedown="setblur(event)" >编辑器失去焦点</button>
-
-    </div>
-    <div>
-        <button onclick="getText()">获得当前选中的文本</button>
-        <button onclick="insertHtml()">插入给定的内容</button>
-        <button id="enable" onclick="setEnabled()">可以编辑</button>
-        <button onclick="setDisabled()">不可编辑</button>
-        <button onclick=" UE.getEditor('editor').setHide()">隐藏编辑器</button>
-        <button onclick=" UE.getEditor('editor').setShow()">显示编辑器</button>
-        <button onclick=" UE.getEditor('editor').setHeight(300)">设置高度为300默认关闭了自动长高</button>
-    </div>
-
-    <div>
-        <button onclick="getLocalData()" >获取草稿箱内容</button>
-        <button onclick="clearLocalData()" >清空草稿箱</button>
-    </div>
-
-</div>
-<div>
-    <button onclick="createEditor()">
-        创建编辑器</button>
-    <button onclick="deleteEditor()">
-        删除编辑器</button>
-</div>
-
-
 <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/content.min.js?v=1.0.0"></script>
 <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/plugins/iCheck/icheck.min.js"></script>
 <script>
@@ -152,117 +183,10 @@ defined('InCosmos') or exit('Access Invalid!');?>
 </script>
 
 <script type="text/javascript">
-
     //实例化编辑器
     //建议使用工厂方法getEditor创建和引用编辑器实例，如果在某个闭包下引用该编辑器，直接调用UE.getEditor('editor')就能拿到相关的实例
     var ue = UE.getEditor('editor');
 
-
-    function isFocus(e){
-        alert(UE.getEditor('editor').isFocus());
-        UE.dom.domUtils.preventDefault(e)
-    }
-    function setblur(e){
-        UE.getEditor('editor').blur();
-        UE.dom.domUtils.preventDefault(e)
-    }
-    function insertHtml() {
-        var value = prompt('插入html代码', '');
-        UE.getEditor('editor').execCommand('insertHtml', value)
-    }
-    function createEditor() {
-        enableBtn();
-        UE.getEditor('editor');
-    }
-    function getAllHtml() {
-        alert(UE.getEditor('editor').getAllHtml())
-    }
-    function getContent() {
-        var arr = [];
-        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
-        arr.push("内容为：");
-        arr.push(UE.getEditor('editor').getContent());
-        alert(arr.join("\n"));
-    }
-    function getPlainTxt() {
-        var arr = [];
-        arr.push("使用editor.getPlainTxt()方法可以获得编辑器的带格式的纯文本内容");
-        arr.push("内容为：");
-        arr.push(UE.getEditor('editor').getPlainTxt());
-        alert(arr.join('\n'))
-    }
-    function setContent(isAppendTo) {
-        var arr = [];
-        arr.push("使用editor.setContent('欢迎使用ueditor')方法可以设置编辑器的内容");
-        UE.getEditor('editor').setContent('欢迎使用ueditor', isAppendTo);
-        alert(arr.join("\n"));
-    }
-    function setDisabled() {
-        UE.getEditor('editor').setDisabled('fullscreen');
-        disableBtn("enable");
-    }
-
-    function setEnabled() {
-        UE.getEditor('editor').setEnabled();
-        enableBtn();
-    }
-
-    function getText() {
-        //当你点击按钮时编辑区域已经失去了焦点，如果直接用getText将不会得到内容，所以要在选回来，然后取得内容
-        var range = UE.getEditor('editor').selection.getRange();
-        range.select();
-        var txt = UE.getEditor('editor').selection.getText();
-        alert(txt)
-    }
-
-    function getContentTxt() {
-        var arr = [];
-        arr.push("使用editor.getContentTxt()方法可以获得编辑器的纯文本内容");
-        arr.push("编辑器的纯文本内容为：");
-        arr.push(UE.getEditor('editor').getContentTxt());
-        alert(arr.join("\n"));
-    }
-    function hasContent() {
-        var arr = [];
-        arr.push("使用editor.hasContents()方法判断编辑器里是否有内容");
-        arr.push("判断结果为：");
-        arr.push(UE.getEditor('editor').hasContents());
-        alert(arr.join("\n"));
-    }
-    function setFocus() {
-        UE.getEditor('editor').focus();
-    }
-    function deleteEditor() {
-        disableBtn();
-        UE.getEditor('editor').destroy();
-    }
-    function disableBtn(str) {
-        var div = document.getElementById('btns');
-        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-        for (var i = 0, btn; btn = btns[i++];) {
-            if (btn.id == str) {
-                UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-            } else {
-                btn.setAttribute("disabled", "true");
-            }
-        }
-    }
-    function enableBtn() {
-        var div = document.getElementById('btns');
-        var btns = UE.dom.domUtils.getElementsByTagName(div, "button");
-        for (var i = 0, btn; btn = btns[i++];) {
-            UE.dom.domUtils.removeAttributes(btn, ["disabled"]);
-        }
-    }
-
-    function getLocalData () {
-        alert(UE.getEditor('editor').execCommand( "getlocaldata" ));
-    }
-
-    function clearLocalData () {
-        UE.getEditor('editor').execCommand( "clearlocaldata" );
-        alert("已清空草稿箱")
-    }
 </script>
 
 </body>

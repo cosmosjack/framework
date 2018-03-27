@@ -21,6 +21,7 @@ class fileControl extends BaseControl{
             // 上传图片
             $upload = new UploadFile();
             $upload->set('default_dir', ATTACH_GOODS . DS . '1' . DS . $upload->getSysSetPath());
+            $upload->set('default_dir', 'uedit' . DS . $upload->getSysSetPath());
             $upload->set('max_size', C('image_max_filesize'));
 
             $upload->set('thumb_width', GOODS_IMAGES_WIDTH);

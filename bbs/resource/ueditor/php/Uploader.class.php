@@ -118,15 +118,71 @@ class Uploader
         }
 
         //本地 移动文件
-        if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
+       /* if (!(move_uploaded_file($file["tmp_name"], $this->filePath) && file_exists($this->filePath))) { //移动失败
             $this->stateInfo = $this->getStateInfo("ERROR_FILE_MOVE");
         } else { //移动成功
             $this->stateInfo = $this->stateMap[0];
-        }
-
+        }*/
         // 阿里云上传文件
+        include_once("oss.php");
+        include_once("uploadfile.php");
+//        print_r($_FILES);
 
+        /**
+         * 商品图片
+         */
+        define("ALY_URL","http://haoshaonian.oss-cn-shenzhen.aliyuncs.com");
+        define('UEDITOR_PATH',"ueditor");
+        define('DS','/');   // 斜杠
+        define('GOODS_IMAGES_WIDTH', '60,240,360,1280');
+        define('GOODS_IMAGES_HEIGHT', '60,240,360,12800');
+        define('GOODS_IMAGES_EXT', '_60,_240,_360,_1280');
+        // 上传图片
+        $upload = new UploadFile();
+        $upload->set('default_dir', UEDITOR_PATH . DS . $upload->getSysSetPath());
+        $upload->set('max_size', "2048");
 
+//        $upload->set('thumb_width', '906');
+//        $upload->set('thumb_height', "480");
+//        $upload->set('thumb_ext', false);//名称扩展 $upload->set('thumb_ext',	'_small,_mid,_max,_tiny');
+        $upload->set('fprefix', 1); //前缀
+        $upload->set('allow_type', array('gif', 'jpg', 'jpeg', 'png'));
+        header("Content-type: text/html; charset=utf-8");
+        $result = $upload->upfile('upfile',true);
+        if($result){
+            $this->fullName = ALY_URL.DS.UEDITOR_PATH . DS .$upload->getSysSetPath() . $upload->file_name;
+            $this->fileName = $upload->file_name;
+            /* 上传成功存入数据库 start  */
+            define('InCosmos',true);
+            //定义我的PDO
+            define("HOST","localhost");
+            define("USER","root");
+            define("PASS","root");
+            define("DBNAME","shaonian");
+            define("TABPREFIX","33hao_");
+            define("DEBUG","0");
+
+            $pdo_path = $_SERVER['DOCUMENT_ROOT'].DS."core".DS."framework".DS."libraries".DS."dpdo.php";
+            include_once($pdo_path);
+            $db_ueditor = new Dpdo();
+            $db_ueditor->setTable("bbs_ueditor_pic");
+            $insert['url'] = $this->fullName;
+            $insert['mtime'] = time();
+            $insert['size'] = $this->fileSize;
+            $row = $db_ueditor->insert($insert);
+            if($row){
+                $this->stateInfo = "SUCCESS";
+            }else{
+                $this->stateInfo = "数据不完整";
+            }
+            /* 上传成功存入数据库 end  */
+        }else{
+            $this->stateInfo = $result;
+        }
+        /*print_r($file["tmp_name"]);
+        $result = oss::upload($file["tmp_name"], 'ueditor/aa.jpg');
+        print_r($result);
+        die();*/
     }
 
     /**
@@ -365,8 +421,8 @@ class Uploader
     {
         return array(
             "state" => $this->stateInfo,
-            "url" => $this->fullName,
-            "title" => $this->fileName,
+            "url" => $this->fullName, // 换成阿里云的
+            "title" => $this->fileName, // 换成最新的
             "original" => $this->oriName,
             "type" => $this->fileType,
             "size" => $this->fileSize

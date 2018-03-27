@@ -1,6 +1,7 @@
 <?php
 //个人测试
 //ACCESS_ID
+
 define('OSS_ACCESS_ID',C('oss.access_id'));
 
 //ACCESS_KEY
@@ -12,6 +13,7 @@ define('ALI_LOG', true);
 
 //自定义日志路径，如果没有设置，则使用系统默认路径，在./logs/
 define('ALI_LOG_PATH',BASE_DATA_PATH.'/log/oss/');
+
 
 //是否显示LOG输出
 define('ALI_DISPLAY_LOG', false);

@@ -41,13 +41,16 @@ function ajax_form(form_id,act,op,url){
 /* 表单提交 end */
 
 /* 图片预览 start */
-function setImagePreview(input_img,preview,localImage) {
+function setImagePreview(input_img,preview,localImage,new_width,new_height) {
     /*
     <input id='input_img' />
     <div id='localImage>
         <img id='preview' />
     </div>
      */
+
+    new_width = new_width || "200px";
+    new_height = new_height || "200px";
     var docObj=document.getElementById(input_img); //input 框
 
     var imgObjPreview=document.getElementById(preview); //img 展示框
@@ -55,8 +58,8 @@ function setImagePreview(input_img,preview,localImage) {
     {
 //火狐下，直接设img属性
         imgObjPreview.style.display = 'block';
-        imgObjPreview.style.width = '200px';//1rem
-        imgObjPreview.style.height = '200px';//1.3rem
+        imgObjPreview.style.width = new_width;//1rem
+        imgObjPreview.style.height = new_height;//1.3rem
 //imgObjPreview.src = docObj.files[0].getAsDataURL();
 
 //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
@@ -69,8 +72,8 @@ function setImagePreview(input_img,preview,localImage) {
         var imgSrc = document.selection.createRange().text;
         var localImagId = document.getElementById(localImage); //展示图片的div
 //必须设置初始大小
-        localImagId.style.width = "200px";//1rem
-        localImagId.style.height = "200px";//1.3rem
+        localImagId.style.width = new_width;//1rem
+        localImagId.style.height = new_height;//1.3rem
 //图片异常的捕捉，防止用户修改后缀来伪造图片
         try{
             localImagId.style.filter="progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";

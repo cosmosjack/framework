@@ -46,7 +46,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </li>
 
                 <li>
-                    <a class="J_menuItem" href="#"><i class="fa fa-columns"></i> <span class="nav-label">平台设置</span></a>
+                    <a class="J_menuItem" href=""><i class="fa fa-columns"></i> <span class="nav-label">平台设置</span></a>
                 </li>
 
                 <li>
