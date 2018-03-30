@@ -23,6 +23,7 @@
 
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/jquery.min.js?v=2.1.4"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/bootstrap.min.js?v=3.3.5"></script>
+    <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/content.min.js?v=1.0.0"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/common.js"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/function.js"></script>
 

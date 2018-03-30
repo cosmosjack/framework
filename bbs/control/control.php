@@ -23,6 +23,7 @@ class BaseControl{
  */
 class BaseAdminControl{
     public function __construct(){
+
         Tpl::setLayout("admin_layout");
         Tpl::setDir("admin");
     }

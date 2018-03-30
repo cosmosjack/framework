@@ -194,7 +194,7 @@ class UploadFile{
         if ($oss === true && C('oss.open')) {
 
             if ($this->error != '') return false;
-            $result = oss::upload($this->upload_file['tmp_name'],$this->default_dir.$this->file_name);
+            $result = oss::upload($this->upload_file['tmp_name'],$this->default_dir.DS.$this->file_name);
             if ($result == false) {
                 echo '上传失败';
                 die();
@@ -468,5 +468,11 @@ class UploadFile{
 		}
 		return $subpath;
 	}
+    /*
+     *  更新文件名字
+     * */
+    public function change_file_name(){
+        $this->setFileName();
+    }
 
 }

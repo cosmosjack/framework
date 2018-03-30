@@ -443,7 +443,7 @@ class ALIOSS{
 //            echo '&&&&&';
 			$hostname = $this->vhost ? $this->vhost : (($options[self::OSS_BUCKET] =='')?$this->hostname:($options[self::OSS_BUCKET].'.').$this->hostname);
 		}else{
-            echo '*******';
+//            echo '*******';
 			$hostname = (isset($options[self::OSS_BUCKET]) && ''!==$options[self::OSS_BUCKET])?$this->hostname.'/'.$options[self::OSS_BUCKET]:$this->hostname;
 		}
 
@@ -653,7 +653,7 @@ class ALIOSS{
 
 		$msg .= "REQUEST HEADERS:----------------------------------------------\n".serialize($request->request_headers)."\n";
 
-        p($request);
+//        p($request);
 //        die();
 		$request->send_request();
 

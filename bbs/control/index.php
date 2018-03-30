@@ -137,7 +137,7 @@ class indexControl extends BaseControl{
     	$data['member_phone'] = $_POST['phone'];
     	$data['member_passwd'] = encrypt($_POST['password']);
     	$data['last_login_ip'] = getIp();
-    	$data['headimgurl'] = BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
+    	//$data['headimgurl'] = BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
     	$data['add_time'] = time();
     	$result = $db_user->insert($data);
     	if($result){

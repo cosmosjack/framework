@@ -58,7 +58,7 @@ define('COOKIE_PRE',$config['cookie_pre']);
 define("HOST","localhost");
 define("USER","root");
 define("PASS","root");
-define("DBNAME","33hao");
+define("DBNAME","shaonian");
 define("TABPREFIX","33hao_");
 define("DEBUG","0");
 

@@ -12,14 +12,13 @@
 <body>
     <div class="home">
     	<div class="home_top">
-    	     <div class="row">
-    	     	<!-- <span class="col-xs-3 text-center">惠州<span class="glyphicon glyphicon-menu-down"></span></span> -->
-    	     	<div class="inp row col-xs-12">
-    	     		<input type="text" name="" class="col-xs-12" />
-    	     		<span class="glyphicon glyphicon-search"></span>
-    	     	</div>
-    	     </div>
-    	</div>
+             <div class="overflow">
+                <div class="inp overflow">
+                    <input type="text" name="" id="keyword" />
+                    <span class="glyphicon glyphicon-search"></span>
+                </div>
+             </div>
+        </div>
         <div class="swiper-container">
 		    <div class="swiper-wrapper">
 		        <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>

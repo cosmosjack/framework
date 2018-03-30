@@ -13,6 +13,7 @@ class adminControl extends BaseAdminControl{
     }
 //    后台主页界面
     public function indexOp(){
+
         Tpl::showpage("index");
 
     }

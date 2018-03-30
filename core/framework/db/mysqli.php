@@ -46,7 +46,7 @@ class Db{
 		                 COLLATION_CONNECTION = utf8_general_ci,
 		                 COLLATION_DATABASE = utf8_general_ci,
 		                 COLLATION_SERVER = utf8_general_ci,
-		                 sql_mode=''";
+		                 sql_mode='STRICT_TRANS_TABLES,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION'";
 				break;
 			case 'GBK':
 				$query_string = "
