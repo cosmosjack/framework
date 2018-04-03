@@ -243,7 +243,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         </ul>
                     </li>
                     <li class="hidden-xs">
-                        <a href="index_v1.html" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>
+                        <a href="" class="J_menuItem" data-index="0"><i class="fa fa-cart-arrow-down"></i> 购买</a>
                     </li>
                     <li class="dropdown hidden-xs">
                         <a class="right-sidebar-toggle" aria-expanded="false">
@@ -253,7 +253,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </ul>
             </nav>
         </div>
-        <div class="row content-tabs">
+        <!--<div class="row content-tabs">
             <button class="roll-nav roll-left J_tabLeft"><i class="fa fa-backward"></i>
             </button>
             <nav class="page-tabs J_menuTabs">
@@ -278,12 +278,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </ul>
             </div>
             <a href="login.html" class="roll-nav roll-right J_tabExit"><i class="fa fa fa-sign-out"></i> 退出</a>
-        </div>
+        </div>-->
         <div class="row J_mainContent" id="content-main">
             <iframe class="J_iframe" name="iframe0" width="100%" height="100%" src="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=web_info';?>" frameborder="0" data-id="index_v3.html" seamless></iframe>
         </div>
         <div class="footer">
-            <div class="pull-right">&copy; 2014-2015 <a href="http://www.zi-han.net/" target="_blank">zihan's blog</a>
+            <div class="pull-left">&copy; 2018-2028 <a href="http://www.wh2013.net/" target="_blank">惠州万鸿</a>
             </div>
         </div>
     </div>

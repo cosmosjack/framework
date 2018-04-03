@@ -18,30 +18,6 @@ class indexControl extends BaseControl{
     	Tpl::setLayout("common_layout");
         Tpl::showpage("index");
     }
-    //推荐活动列表页
-    public function listPageOp(){
-    	if(!isAjax())
-    		ajaxReturn(array('code'=>'0','msg'=>'使用ajax提交','control'=>'listPage'));
-		$pageSize = !empty($_POST['pageSize'])?$_POST['pageSize']:3;
-        $map = array();
-        $map['is_recommend'] = array('eq',1);
-        $db_activity = Model('bbs_activity');
-        //$_GET['curpage'] = 2;
-        $field = 'id,activity_title,activity_index_pic,activity_tag,address,min_age,max_age,activity_begin_time,activity_end_time,total_number';
-        $list = array();
-        $list = $db_activity
-        		->field('')
-        		->where($map)
-        		->order('activity_click desc')
-        		->page($pageSize)
-        		->select();
-	    //p($db_activity->showpage());
-        //p($list);
-        if(!empty($list))
-        	ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'listPage','list'=>$list));
-        else
-        	ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'listPage'));
-    }
     //检查登录
     public function checkLogin(){
     	if(!empty($_SESSION['is_login'])){

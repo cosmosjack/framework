@@ -1,0 +1,7 @@
+.pagination { padding: 2px; float:right; +float:none; +position: absolute; +right:6px;}
+.pagination ul { margin: 0; padding: 0; }
+.pagination ul li { line-height: 22px; color: #AAA; display: inline !important; list-style-type: none; width: auto !important; height: auto !important; float: left; padding: 0px; margin: 0 1px !important;}
+.pagination li span {font-size: 13px;  list-style-type: none; display: inline; float: left; padding: 3px 10px; margin: 0 1px 0 0; }
+.pagination li a span , .pagination li a:visited span { color: #0D93BF; text-decoration: none;  cursor:pointer; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;/*Firefox\Chrome\Safari\IE9\元素圆角效果*/}
+.pagination li a:hover span, .pagination li a:active span{ color: #000; background-color: #FFF;  cursor:pointer; -khtml-opacity: .9; -moz-opacity: 0.9; -moz-box-shadow:0 0 3px rgba(204, 204, 204, 0.5); -webkit-box-shadow: 0 0 3px rgba(204, 204, 204, 0.5); box-shadow: 0 0 3px rgba(204, 204, 204, 0.5);}
+.pagination li span.currentpage{ color:#FFF; font-weight: bold;  background-color: #099ACF; -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px;/*Firefox\Chrome\Safari\IE9\元素圆角效果*/}

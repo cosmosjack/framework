@@ -16,10 +16,14 @@
     <![endif]-->
 
     <link rel="shortcut icon" href="favicon.ico">
+
     <link href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/bootstrap.min.css?v=3.3.5" rel="stylesheet">
     <link href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/font-awesome.min.css?v=4.4.0" rel="stylesheet">
     <link href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/animate.min.css" rel="stylesheet">
     <link href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/style.min.css?v=4.0.0" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/css/fpage.css" />
+
 
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/jquery.min.js?v=2.1.4"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/bootstrap.min.js?v=3.3.5"></script>

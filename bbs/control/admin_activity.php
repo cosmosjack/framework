@@ -40,12 +40,14 @@ class admin_activityControl extends BaseAdminControl{
             $insert['activity_city'] = $_POST['city'];
             $insert['activity_area'] = $_POST['position'];
 
-            $insert['activity_begin_time'] = $_POST['start_time'];
-            $insert['activity_end_time'] = $_POST['end_time'];
+            $insert['activity_begin_time'] = strtotime($_POST['start_time']);
+            $insert['activity_end_time'] = strtotime($_POST['end_time']." 23:59:59");
             $insert['every_group_num'] = ceil($_POST['total_number']/$_POST['group_number']);
             $insert['activity_add_time'] = time();
 
             $insert['activity_desc'] = $_POST['activity_body'];
+
+            $insert['activity_no'] = "bbs_".time();
 
 
             $db_bbs_activity = new Model("bbs_activity");
@@ -72,7 +74,7 @@ class admin_activityControl extends BaseAdminControl{
                 if($cover_img_result){
 
                     $cover_img_url = $this->img_pre_url.$this->bbs_upload_path.DS.$upload_file->file_name;
-                    p($cover_img_url);
+//                    p($cover_img_url);
                 }else{
                     $img_error = $upload_file->error;
                     // 删除 插入的数据  $row
@@ -158,9 +160,6 @@ class admin_activityControl extends BaseAdminControl{
 
         }
 
-
-
-
     }
 
         /*
@@ -184,6 +183,55 @@ class admin_activityControl extends BaseAdminControl{
         }
         return $result_arr;
     }
+
+    /* 整理小组的详情 start */
+    public function calc_groupOp(){
+        if(!is_numeric($_GET['id'])){
+            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'非法请求'),"JSON");
+            die();
+        }
+        // 根据活动的id 来查找 申请通过的 儿童信息  并分组
+        $db_bbs_apply = new Model();
+        // 第一次先按 分组 查询出 所有小组
+        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_id`={$_GET['id']} GROUP BY `group_id`");
+        if(!$data_group_info){
+            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
+            die();
+        }
+        ajaxReturn(array('control'=>'calc_group','code'=>200,'msg'=>'成功','data'=>$data_group_info),"JSON");
+
+    }
+    /* 整理小组的详情 end */
+
+    /* 查出小组人数大于1 的数组 start */
+    public function list_group_infoOp(){
+        if(!is_numeric($_GET['id'])){
+            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'非法请求'),"JSON");
+            die();
+        }
+        // 根据活动的id 来查找 申请通过的 儿童信息  并分组
+        $db_bbs_apply = new Model();
+        // 第一次先按 分组 查询出 所有小组
+        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_id`={$_GET['id']} GROUP BY `group_id`");
+        if(!$data_group_info){
+            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
+            die();
+        }
+        $apply_id_arr = array();
+        foreach($data_group_info as $k=>$v){
+            if($v['total_num'] > 1){
+                $apply_id_arr[] = $v['group_id'];
+            }
+        }
+        if(empty($apply_id_arr)){
+            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'没有任何一个小组人数大于1的'),"JSON");
+            die();
+        }
+        $data_apply = $db_bbs_apply->table('bbs_apply')->where(array("activity_id"=>$_GET['id'],'group_id'=>array("in",$apply_id_arr)))->select();
+        ajaxReturn(array('control'=>'calc_group','code'=>200,'msg'=>'成功','data'=>$data_apply),"JSON");
+
+    }
+    /* 查出小组人数大于1 的数组 end */
 
 
 }

@@ -80,3 +80,38 @@ function getAreaName($area_id){
     $info = $db_area->field('area_name')->where('area_id='.$area_id)->find();
     return $info['area_name'];
 }
+/* 计算当前活动是否有结束的 start */
+function calc_activity(){
+    $now_time = time();
+    $where = array("activity_end_time"=>array("lt",$now_time));
+    $db_activity = new Model("bbs_activity");
+    $data_activity = $db_activity->where($where)->select();
+//    p($data_activity);
+    /* 如果有应该已结束的活动 那么就 复制他到 activity_periods 表中 然后 结束他 start */
+    if($data_activity){
+        $db_activity_periods = new Model("bbs_activity_periods");
+        foreach($data_activity as $key=>$val){
+            $tmp_data_insert = $val;
+            unset($tmp_data_insert['id']);
+            @$result = $db_activity_periods->insert($tmp_data_insert);
+            /* 根据相应的 activity_no 插入新的最新一期 如果没有则不删除当前这一期的 start */
+            $data_activity_periods = $db_activity_periods->where(array("activity_no"=>$val['activity_no'],"activity_periods"=>array("eq",intval($val['activity_periods']+1)),"activity_end_time"=>array("gt",$now_time)))->find();
+//            p($data_activity_periods);
+            if($data_activity_periods){
+                unset($data_activity_periods['id']);
+                @$result_new_insert = $db_activity->insert($data_activity_periods);
+                if($result_new_insert){
+                    @$result_old_del = $db_activity->where(array("id"=>$val['id']))->delete();// 删除 activity表的已过期的活动
+
+                }
+            }
+            /* 根据相应的 activity_no 插入新的最新一期 如果没有则不删除当前这一期的 end */
+        }
+    }
+    /* 如果有应该已结束的活动 那么就 复制他到 activity_periods 表中 然后 结束他 end */
+
+
+
+}
+/* 计算当前活动是否有结束的 end */
+

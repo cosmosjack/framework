@@ -13,6 +13,7 @@
  */
 class BaseControl{
     public function __construct(){
+        calc_activity();
         Tpl::setLayout("common_layout");
         Tpl::setDir('home');
     }
@@ -23,7 +24,7 @@ class BaseControl{
  */
 class BaseAdminControl{
     public function __construct(){
-
+        calc_activity();// 自动计算 活动是否已过期
         Tpl::setLayout("admin_layout");
         Tpl::setDir("admin");
     }
