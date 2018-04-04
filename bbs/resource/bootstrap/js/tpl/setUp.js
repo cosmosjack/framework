@@ -1,0 +1,30 @@
+$(function(){
+	var set = {
+		//跳转页面函数
+		load:function(){
+			$('.content>div').click(function(){
+				Href($(this).attr('href_url'));
+			})
+		},
+		//退出按钮
+		out_btn:function(){
+			$('.out_btn').click(function(){
+				$('.point_txt').html('是否退出登录');
+				$('.modal').modal('show');
+			})
+		},
+		//取消按钮
+		Hide_u:function(){
+			$('.Hide_u').click(function(){
+		     	$('.modal').modal('hide');
+		     })
+		},	
+		//所有函数的调用
+		event:function(){
+			this.load();
+			this.out_btn();
+			this.Hide_u();
+		}
+	};
+	set.event();
+})

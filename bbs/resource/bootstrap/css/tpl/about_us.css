@@ -1,0 +1,64 @@
+html,body{
+	height: 100%;
+}
+.about_us{
+	font-family: '微软雅黑';
+	height: 100%;
+	background: #EEE;
+}
+.about_us .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.about_us .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.about_us .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+  font-size: 5vw;
+}
+.about_us .title,.about_us .txt,.about_us .contact{
+	background: #FFF;
+}
+.about_us .title>h5,.about_us .contact>h5{
+  padding: 5px 0;
+  color:#f48c12;
+  border-bottom:1px solid #EEE;
+  font-size: 4vw;
+}
+.about_us .txt>p{
+	text-indent: 2em;
+    font-size: 4vw;
+    padding-bottom: 20px;
+}
+.about_us .contact{
+	background: #FFF;
+	margin-top: 10px;
+}
+.about_us .phone_address{
+	background: #FFF;
+}
+.about_us .phone_address>h5{
+	font-size: 4vw;
+}
+.about_us .platform{
+   width: 100%;
+   position: fixed;
+   bottom: 5vw;
+   left: 0;
+}
+.about_us .platform h4{
+	font-size: 4.5vw;
+   color:#f48c12;
+}

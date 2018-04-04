@@ -1,0 +1,38 @@
+.star_leader .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.star_leader .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.star_leader .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+  font-size: 5vw;
+}
+.star_leader .type_content>div>div{
+  padding: 10px 5px;
+  font-size: 3.5vw;
+}
+.star_leader .type_content img{
+  max-width: 80%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.star_leader .type_content span{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

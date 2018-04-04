@@ -1,0 +1,164 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+h1{
+  margin-top:0 !important;
+}
+.modify_data{
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+.modify_data .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.modify_data .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.modify_data .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+  font-size: 5vw;
+}
+.modify_data .avatar{
+  margin: 10px 0;
+  background: #FFF;
+  padding: 10px 15px;
+  border-bottom: 2vw solid #EEE;
+  position: relative;
+}
+.modify_data .avatar>div{
+  font-size: 5vw;
+  position: absolute;
+  top: calc(50% - 2.5vw - 5px);
+  right: 0;
+}
+.modify_data .avatar img{
+  border: 1px solid #f3aa53;
+  border-radius: 50%;
+  margin-left: 5vw;
+  width: 18vw;
+  padding: 0 !important;
+}
+.modify_data .avatar>span{
+  line-height: 18vw;
+  padding-left:15px;
+  font-size: 3.5vw;
+  color:#000; 
+}
+.modify_data .test>span{
+    margin-left: 8px;
+    vertical-align: middle;
+}
+.modify_data .mo_content>div>div{
+    background: #FFF;
+}
+.modify_data .name{
+  line-height: 20px;
+  color:#a0a0a0;
+}
+.modify_data .name input{
+   border:none;
+   color:#000;
+   padding:2vw 0;
+   font-size: 3.5vw;
+} 
+.modify_data .name>div{
+  margin: 0 5px;
+  padding: 10px;
+  border-bottom: 1px solid #EEE;
+}
+.modify_data .name span{
+  font-size: 3.5vw;
+  padding: 2vw 0 !important;
+}
+.modify_data .city{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.modify_data .alter{
+  padding: 0 10px;
+}
+.modify_data .data{
+  margin-top: 10px;
+  padding: 0;
+  border: 1px solid #EEE !important;
+  resize: none;
+}
+.modify_data .management{
+  margin-top: 10px;
+  background: #FFF;
+  font-size: 3.5vw;
+}
+.modify_data .management img{
+   width: 12vw;
+}
+.modify_data .management span{
+  line-height: 12vw;
+  color:#a0a0a0;
+}
+.modify_data .mo_btn{
+    border: none;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    color:#FFF;
+    vertical-align: 4px;
+    font-size: 4.5vw;
+    border-radius: 20px;
+    padding: 10px 0;
+    margin-top: 10px;
+}
+.modify_data .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.modify_data .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.modify_data .point_txt{
+  padding: 10px 0;
+}
+.modify_data .file-box{
+    display: inline-block;
+    position: relative;
+    padding: 3px 5px;
+    overflow: hidden;
+    color:#000;
+    z-index: 500;
+}
+.modify_data .file-box>span{
+  font-size: 4vw;
+  padding: 5px 10px;
+}
+.modify_data .file-btn{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+  background-color: transparent;
+  filter:alpha(opacity=0);
+  -moz-opacity:0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.modify_data .mo_form{
+  background: #FFF;
+}

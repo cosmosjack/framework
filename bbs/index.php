@@ -24,4 +24,5 @@ define('BBS_RESOURCE_SITE_URL',BBS_SITE_URL.'/resource');
 //echo BASE_PATH;
 require(BASE_PATH.'/framework/function/function.php');
 require(BASE_PATH.'/control/control.php');
+
 Base::run();

@@ -1,0 +1,85 @@
+.sms{
+  width: 100%;
+  height: 100%;
+}
+.sms .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.sms .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.sms .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+   font-size: 5vw;
+}
+.sms .form div>input{
+    background: #eeeeee;
+    line-height: 10vw;
+    border: none;
+    margin-top: 8vw;
+    box-shadow: 0 0 10px #e5e5e5 inset;
+    border-radius: 30px;
+    outline:none;
+    color:#a0a0a0;
+}
+.sms .form .code{
+    position: relative;
+}
+.sms .code>.code_btn{
+    color:#FFF;
+    border: none;
+    padding: 0 35px;
+    position: absolute;
+    top: calc(50% - 1vw);
+    right: 16px;
+    line-height: 10vw;
+    font-size: 3.5vw;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    border-radius: 30px;
+    z-index: 100;
+}
+.sms .sms_btn>div{
+    margin-top: 30px;
+    color:#FFF;
+    line-height: 10vw;
+    outline:none;
+    font-size: 3.5vw;
+    border-radius: 30px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+}
+.sms .sms_txt{
+    font-size: 4vw;
+    position: fixed;
+    bottom: 50px;
+    left: 0;
+    color:#f48c12;
+    letter-spacing: 2px;
+}
+.sms .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.sms .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.sms .point>h5{
+  padding: 10px;
+}
+.sms .point_txt{
+  padding: 10px 0;
+}

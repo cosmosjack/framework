@@ -1,0 +1,875 @@
+2018-04-02 15:40:03 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759988032410866.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:40:03 GMT
+/haoshaonian/data/upload/member/photo_1_05759988032410866.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:40:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:kDGMICnHRnyzB2ynfgq+snzlp04=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:41:02 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DE8E7046DF04251EB21B";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:3:"148";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759988032410866.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.23400000000000001;s:15:"namelookup_time";d:0.063;s:12:"connect_time";d:0.078;s:16:"pretransfer_time";d:0.078;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:175188;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.078;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52665;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759988032410866.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:40:03 GMT
+/haoshaonian/data/upload/member/photo_1_05759988032410866.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:40:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:kDGMICnHRnyzB2ynfgq+snzlp04=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:41:02 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DE8E7046DF04251EB21B";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:3:"148";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759988032410866.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.23400000000000001;s:15:"namelookup_time";d:0.063;s:12:"connect_time";d:0.078;s:16:"pretransfer_time";d:0.078;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:175188;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.078;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52665;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759988032410866.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:40:03 GMT
+/haoshaonian/data/upload/member/photo_1_05759988032410866.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:40:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:kDGMICnHRnyzB2ynfgq+snzlp04=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 15:40:03:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 15:42:22 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989425531043.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759989425531043.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:5VbGPNK3JTkY5fTejpqcMvCCsO4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:43:21 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DF1934F3CDD27FE00B5E";s:4:"etag";s:34:""FDA4C17B8CC96AF54D4C86629747CCCB"";s:20:"x-oss-hash-crc64ecma";s:20:"16984993953089312327";s:11:"content-md5";s:24:"/aTBe4zJavVNTIZil0fMyw==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989425531043.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:41355;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:379403;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:41355;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52888;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989425531043.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759989425531043.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:5VbGPNK3JTkY5fTejpqcMvCCsO4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:43:21 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DF1934F3CDD27FE00B5E";s:4:"etag";s:34:""FDA4C17B8CC96AF54D4C86629747CCCB"";s:20:"x-oss-hash-crc64ecma";s:20:"16984993953089312327";s:11:"content-md5";s:24:"/aTBe4zJavVNTIZil0fMyw==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989425531043.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:41355;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:379403;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:41355;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52888;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989425531043.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759989425531043.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:5VbGPNK3JTkY5fTejpqcMvCCsO4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 15:42:22:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 15:42:37 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989577797396.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:37 GMT
+/haoshaonian/data/upload/member/photo_1_05759989577797396.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:37 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:H82hy+2iQBR+q1v5vdULVWO/9+s=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:43:36 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DF28C84D1CE128E1A71C";s:4:"etag";s:34:""FDA4C17B8CC96AF54D4C86629747CCCB"";s:20:"x-oss-hash-crc64ecma";s:20:"16984993953089312327";s:11:"content-md5";s:24:"/aTBe4zJavVNTIZil0fMyw==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989577797396.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.094;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:41355;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:439946;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:41355;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52916;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989577797396.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:37 GMT
+/haoshaonian/data/upload/member/photo_1_05759989577797396.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:37 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:H82hy+2iQBR+q1v5vdULVWO/9+s=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:43:36 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1DF28C84D1CE128E1A71C";s:4:"etag";s:34:""FDA4C17B8CC96AF54D4C86629747CCCB"";s:20:"x-oss-hash-crc64ecma";s:20:"16984993953089312327";s:11:"content-md5";s:24:"/aTBe4zJavVNTIZil0fMyw==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989577797396.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.094;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:41355;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:439946;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:41355;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52916;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759989577797396.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:42:37 GMT
+/haoshaonian/data/upload/member/photo_1_05759989577797396.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:42:37 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:H82hy+2iQBR+q1v5vdULVWO/9+s=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 15:42:37:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 15:55:24 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:/2GpCFY37/Lp+X62ZbYwOf/PqAE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:56:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1E2259BB45CA1A424C5A3";s:4:"etag";s:34:""C7F148B2A45D68E1F2BABA730DCA2C78"";s:20:"x-oss-hash-crc64ecma";s:20:"11032475201464624600";s:11:"content-md5";s:24:"x/FIsqRdaOHyurpzDcoseA==";s:17:"x-oss-server-time";s:3:"114";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:336;s:12:"request_size";i:484;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.3090000000000002;s:15:"namelookup_time";d:0.062;s:12:"connect_time";d:0.078;s:16:"pretransfer_time";d:0.078;s:11:"size_upload";d:8039;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:3481;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:8039;s:18:"starttransfer_time";d:0.092999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54305;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:/2GpCFY37/Lp+X62ZbYwOf/PqAE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:56:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1E2259BB45CA1A424C5A3";s:4:"etag";s:34:""C7F148B2A45D68E1F2BABA730DCA2C78"";s:20:"x-oss-hash-crc64ecma";s:20:"11032475201464624600";s:11:"content-md5";s:24:"x/FIsqRdaOHyurpzDcoseA==";s:17:"x-oss-server-time";s:3:"114";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:336;s:12:"request_size";i:484;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.3090000000000002;s:15:"namelookup_time";d:0.062;s:12:"connect_time";d:0.078;s:16:"pretransfer_time";d:0.078;s:11:"size_upload";d:8039;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:3481;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:8039;s:18:"starttransfer_time";d:0.092999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54305;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:22 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:/2GpCFY37/Lp+X62ZbYwOf/PqAE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 15:55:24:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 15:55:27 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:24 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:NQORHI4JrReHdCMeIBjulLmu3zE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:56:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1E227FDA0D8D147365E69";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:2:"85";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.2930000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:7097;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54311;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:24 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:NQORHI4JrReHdCMeIBjulLmu3zE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 07:56:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1E227FDA0D8D147365E69";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:2:"85";s:5:"_info";a:27:{s:3:"url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:485;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.2930000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:7097;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54311;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:96:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_1_05759997225893479.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:121:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 07:55:24 GMT
+/haoshaonian/data/upload/member/photo_1_05759997225893479.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 07:55:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:NQORHI4JrReHdCMeIBjulLmu3zE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 15:55:27:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:39:49 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760023890756615.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:39:49 GMT
+/haoshaonian/data/upload/member/photo_26_05760023890756615.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:39:49 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KWlcWohkZlVO4LTqK4mJbQZVQC0=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:40:47 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EC8F7870B74EEE3C546E";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760023890756615.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.15600000000000003;s:15:"namelookup_time";d:0.045999999999999999;s:12:"connect_time";d:0.062;s:16:"pretransfer_time";d:0.062;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:262782;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.078;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:59440;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760023890756615.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:39:49 GMT
+/haoshaonian/data/upload/member/photo_26_05760023890756615.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:39:49 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KWlcWohkZlVO4LTqK4mJbQZVQC0=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:40:47 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EC8F7870B74EEE3C546E";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760023890756615.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.15600000000000003;s:15:"namelookup_time";d:0.045999999999999999;s:12:"connect_time";d:0.062;s:16:"pretransfer_time";d:0.062;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:262782;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.078;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:59440;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760023890756615.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:39:49 GMT
+/haoshaonian/data/upload/member/photo_26_05760023890756615.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:39:49 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KWlcWohkZlVO4LTqK4mJbQZVQC0=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:39:49:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:45:27 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE18A0E9235AA2A82E0";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:3:"103";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.031;s:16:"pretransfer_time";d:0.031;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:292814;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.045999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60047;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE18A0E9235AA2A82E0";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:3:"103";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.031;s:16:"pretransfer_time";d:0.031;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:292814;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.045999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60047;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:45:27:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:45:27 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE2AEFD3A4F9647DEC9";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:3:"116";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:336;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:116242;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.014999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60048;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE2AEFD3A4F9647DEC9";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:3:"116";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:336;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:116242;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.014999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60048;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:45:27:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:45:27 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE2D7E66BF19C524B6D";s:4:"etag";s:34:""9053BB860FB23722497DF4BC2C25EAA3"";s:20:"x-oss-hash-crc64ecma";s:20:"10855672624491541723";s:11:"content-md5";s:24:"kFO7hg+yNyJJffS8LCXqow==";s:17:"x-oss-server-time";s:2:"91";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:13416;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:107328;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:13416;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60051;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:46:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EDE2D7E66BF19C524B6D";s:4:"etag";s:34:""9053BB860FB23722497DF4BC2C25EAA3"";s:20:"x-oss-hash-crc64ecma";s:20:"10855672624491541723";s:11:"content-md5";s:24:"kFO7hg+yNyJJffS8LCXqow==";s:17:"x-oss-server-time";s:2:"91";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:13416;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:107328;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:13416;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60051;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760027271838215.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:45:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760027271838215.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:45:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:KaLpLURvK+4Q4xtAIqgI/mxX/+I=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:45:27:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:48:11 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760028917992965.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:48:11 GMT
+/haoshaonian/data/upload/member/photo_26_05760028917992965.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:48:11 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:3R4kD4lew1K3OkMKZGXdNMVFsi4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:49:10 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EE86C84D1CE1280B3732";s:4:"etag";s:34:""9B6ADF5C5F23FF87B3D9873809052831"";s:20:"x-oss-hash-crc64ecma";s:19:"4741716914284895378";s:11:"content-md5";s:24:"m2rfXF8j/4ez2Yc4CQUoMQ==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760028917992965.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0.014999999999999999;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:50346;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:402768;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:50346;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60348;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760028917992965.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:48:11 GMT
+/haoshaonian/data/upload/member/photo_26_05760028917992965.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:48:11 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:3R4kD4lew1K3OkMKZGXdNMVFsi4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:49:10 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EE86C84D1CE1280B3732";s:4:"etag";s:34:""9B6ADF5C5F23FF87B3D9873809052831"";s:20:"x-oss-hash-crc64ecma";s:19:"4741716914284895378";s:11:"content-md5";s:24:"m2rfXF8j/4ez2Yc4CQUoMQ==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760028917992965.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0.014999999999999999;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:50346;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:402768;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:50346;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60348;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760028917992965.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:48:11 GMT
+/haoshaonian/data/upload/member/photo_26_05760028917992965.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:48:11 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:3R4kD4lew1K3OkMKZGXdNMVFsi4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:48:11:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:49:19 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760029591077622.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:49:19 GMT
+/haoshaonian/data/upload/member/photo_27_05760029591077622.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:49:19 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:pZbuVXCcgfT9VUGOG4A5Cr1wsYI=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:50:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EEC9FDA0D8D147586E10";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760029591077622.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:376091;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60474;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760029591077622.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:49:19 GMT
+/haoshaonian/data/upload/member/photo_27_05760029591077622.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:49:19 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:pZbuVXCcgfT9VUGOG4A5Cr1wsYI=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:50:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EEC9FDA0D8D147586E10";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760029591077622.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:376091;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60474;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760029591077622.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:49:19 GMT
+/haoshaonian/data/upload/member/photo_27_05760029591077622.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:49:19 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:pZbuVXCcgfT9VUGOG4A5Cr1wsYI=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:49:19:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:51:22 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:21 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:21 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:TDojc+igPUKB/3j7S52HDZXixnE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF445E29FF419D2298F8";s:4:"etag";s:34:""C435098CCF06E4248D918F91ED0992C8"";s:20:"x-oss-hash-crc64ecma";s:20:"12623794057663317470";s:11:"content-md5";s:24:"xDUJjM8G5CSNkY+R7QmSyA==";s:17:"x-oss-server-time";s:2:"96";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.031;s:16:"pretransfer_time";d:0.031;s:11:"size_upload";d:18357;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:131121;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:18357;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60703;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:21 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:21 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:TDojc+igPUKB/3j7S52HDZXixnE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF445E29FF419D2298F8";s:4:"etag";s:34:""C435098CCF06E4248D918F91ED0992C8"";s:20:"x-oss-hash-crc64ecma";s:20:"12623794057663317470";s:11:"content-md5";s:24:"xDUJjM8G5CSNkY+R7QmSyA==";s:17:"x-oss-server-time";s:2:"96";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14000000000000001;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.031;s:16:"pretransfer_time";d:0.031;s:11:"size_upload";d:18357;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:131121;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:18357;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60703;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:21 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:21 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:TDojc+igPUKB/3j7S52HDZXixnE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:51:22:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:51:22 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF4423A8DA35D53BDDE1";s:4:"etag";s:34:""C7F148B2A45D68E1F2BABA730DCA2C78"";s:20:"x-oss-hash-crc64ecma";s:20:"11032475201464624600";s:11:"content-md5";s:24:"x/FIsqRdaOHyurpzDcoseA==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:486;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:8039;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:73752;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:8039;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60705;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF4423A8DA35D53BDDE1";s:4:"etag";s:34:""C7F148B2A45D68E1F2BABA730DCA2C78"";s:20:"x-oss-hash-crc64ecma";s:20:"11032475201464624600";s:11:"content-md5";s:24:"x/FIsqRdaOHyurpzDcoseA==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:486;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:8039;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:73752;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:8039;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60705;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:51:22:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:51:22 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF447870B74EEE43AA3D";s:4:"etag";s:34:""3C00F0F466522FBD0EF442917A71F55F"";s:20:"x-oss-hash-crc64ecma";s:20:"16354653310096811169";s:11:"content-md5";s:24:"PADw9GZSL70O9EKRenH1Xw==";s:17:"x-oss-server-time";s:2:"11";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.063;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:15909;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:252523;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:15909;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60706;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:52:20 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1EF447870B74EEE43AA3D";s:4:"etag";s:34:""3C00F0F466522FBD0EF442917A71F55F"";s:20:"x-oss-hash-crc64ecma";s:20:"16354653310096811169";s:11:"content-md5";s:24:"PADw9GZSL70O9EKRenH1Xw==";s:17:"x-oss-server-time";s:2:"11";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.063;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:15909;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:252523;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:15909;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:60706;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760030819689425.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:51:22 GMT
+/haoshaonian/data/upload/member/photo_24_05760030819689425.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:51:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:yeRpkG3CiLmT513fTfiqd05HCmE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:51:22:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:57:38 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:58:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F0BDAD894AE35249A901";s:4:"etag";s:34:""3C00F0F466522FBD0EF442917A71F55F"";s:20:"x-oss-hash-crc64ecma";s:20:"16354653310096811169";s:11:"content-md5";s:24:"PADw9GZSL70O9EKRenH1Xw==";s:17:"x-oss-server-time";s:2:"93";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.124;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:15909;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:128298;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:15909;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61359;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:58:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F0BDAD894AE35249A901";s:4:"etag";s:34:""3C00F0F466522FBD0EF442917A71F55F"";s:20:"x-oss-hash-crc64ecma";s:20:"16354653310096811169";s:11:"content-md5";s:24:"PADw9GZSL70O9EKRenH1Xw==";s:17:"x-oss-server-time";s:2:"93";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.124;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:15909;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:128298;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:15909;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61359;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:57:38:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:57:39 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:58:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F0BD7870B74EEE47A1C4";s:4:"etag";s:34:""BA553F0DE72241A6C14C80737DA3BC4A"";s:20:"x-oss-hash-crc64ecma";s:19:"1537525472059101060";s:11:"content-md5";s:24:"ulU/DeciQabBTIBzfaO8Sg==";s:17:"x-oss-server-time";s:2:"14";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14099999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:161438;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1144950;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:161438;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61360;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:58:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F0BD7870B74EEE47A1C4";s:4:"etag";s:34:""BA553F0DE72241A6C14C80737DA3BC4A"";s:20:"x-oss-hash-crc64ecma";s:19:"1537525472059101060";s:11:"content-md5";s:24:"ulU/DeciQabBTIBzfaO8Sg==";s:17:"x-oss-server-time";s:2:"14";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.14099999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:161438;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1144950;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:161438;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61360;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760034587168072.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:57:38 GMT
+/haoshaonian/data/upload/member/photo_27_05760034587168072.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:57:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:7HifTxuHnpZQdO9IJ0SOmnOBir4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:57:39:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 16:58:48 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760035283788926.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:58:48 GMT
+/haoshaonian/data/upload/member/photo_27_05760035283788926.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:58:48 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:hI7Y+uOtsZe7a564Qeu5ieaiE9o=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:59:47 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F10341F2DEEA2F4129B2";s:4:"etag";s:34:""C88018AC5E4DBF7A93870DF0E17CE7C9"";s:20:"x-oss-hash-crc64ecma";s:20:"11933370865872343112";s:11:"content-md5";s:24:"yIAYrF5Nv3qThw3w4XznyQ==";s:17:"x-oss-server-time";s:2:"82";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760035283788926.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:97805;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:897293;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:97805;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61487;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760035283788926.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:58:48 GMT
+/haoshaonian/data/upload/member/photo_27_05760035283788926.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:58:48 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:hI7Y+uOtsZe7a564Qeu5ieaiE9o=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 08:59:47 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC1F10341F2DEEA2F4129B2";s:4:"etag";s:34:""C88018AC5E4DBF7A93870DF0E17CE7C9"";s:20:"x-oss-hash-crc64ecma";s:20:"11933370865872343112";s:11:"content-md5";s:24:"yIAYrF5Nv3qThw3w4XznyQ==";s:17:"x-oss-server-time";s:2:"82";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760035283788926.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:97805;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:897293;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:97805;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:61487;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760035283788926.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 08:58:48 GMT
+/haoshaonian/data/upload/member/photo_27_05760035283788926.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 08:58:48 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:hI7Y+uOtsZe7a564Qeu5ieaiE9o=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 16:58:48:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:12 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:10 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:10 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:Vvi9n/FUhWU9qg5gi5IwO31reVo=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:11 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201F9BCC63E28A2471ABD";s:4:"etag";s:34:""31E21FDEA575697A651CF4572562E398"";s:20:"x-oss-hash-crc64ecma";s:19:"4202358306542190562";s:11:"content-md5";s:24:"MeIf3qV1aXplHPRXJWLjmA==";s:17:"x-oss-server-time";s:2:"67";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4809999999999999;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.032000000000000001;s:16:"pretransfer_time";d:0.032000000000000001;s:11:"size_upload";d:142718;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:57524;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:142718;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52877;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:10 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:10 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:Vvi9n/FUhWU9qg5gi5IwO31reVo=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:11 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201F9BCC63E28A2471ABD";s:4:"etag";s:34:""31E21FDEA575697A651CF4572562E398"";s:20:"x-oss-hash-crc64ecma";s:19:"4202358306542190562";s:11:"content-md5";s:24:"MeIf3qV1aXplHPRXJWLjmA==";s:17:"x-oss-server-time";s:2:"67";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4809999999999999;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.032000000000000001;s:16:"pretransfer_time";d:0.032000000000000001;s:11:"size_upload";d:142718;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:57524;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:142718;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52877;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:10 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:10 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:Vvi9n/FUhWU9qg5gi5IwO31reVo=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:12:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:15 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:12 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:12 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:iXu7KQZZgnHH6EAUxuKXNlRcODM=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:13 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201FBAA5E73118D52B346";s:4:"etag";s:34:""77BF761C1059FE714E0FE45083AE2E74"";s:20:"x-oss-hash-crc64ecma";s:20:"16024966166820515143";s:11:"content-md5";s:24:"d792HBBZ/nFOD+RQg64udA==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.3399999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:48297;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:20639;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48297;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52884;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:12 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:12 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:iXu7KQZZgnHH6EAUxuKXNlRcODM=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:13 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201FBAA5E73118D52B346";s:4:"etag";s:34:""77BF761C1059FE714E0FE45083AE2E74"";s:20:"x-oss-hash-crc64ecma";s:20:"16024966166820515143";s:11:"content-md5";s:24:"d792HBBZ/nFOD+RQg64udA==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.3399999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:48297;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:20639;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48297;s:18:"starttransfer_time";d:0.016;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52884;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:12 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:12 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:iXu7KQZZgnHH6EAUxuKXNlRcODM=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:15:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:17 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:15 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:15 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:R2Sl4m0d933w1E2plBiKt3QZ5Qg=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:16 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201FD14518AC95446A649";s:4:"etag";s:34:""F1B49A7524CF0B668973BA767E447A3F"";s:20:"x-oss-hash-crc64ecma";s:20:"17156563984356595605";s:11:"content-md5";s:24:"8bSadSTPC2aJc7p2fkR6Pw==";s:17:"x-oss-server-time";s:2:"68";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4649999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:103978;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:42181;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:103978;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52893;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:15 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:15 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:R2Sl4m0d933w1E2plBiKt3QZ5Qg=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:16 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC201FD14518AC95446A649";s:4:"etag";s:34:""F1B49A7524CF0B668973BA767E447A3F"";s:20:"x-oss-hash-crc64ecma";s:20:"17156563984356595605";s:11:"content-md5";s:24:"8bSadSTPC2aJc7p2fkR6Pw==";s:17:"x-oss-server-time";s:2:"68";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4649999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:103978;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:42181;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:103978;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52893;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078705076334.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:15 GMT
+/haoshaonian/data/upload/member/photo_26_05760078705076334.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:15 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:R2Sl4m0d933w1E2plBiKt3QZ5Qg=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:17:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:20 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:17 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:17 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:nUSUXUNst05F9VqvUbbuiT6dE4k=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:18 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2020034F3CDD27F3EF945";s:4:"etag";s:34:""31E21FDEA575697A651CF4572562E398"";s:20:"x-oss-hash-crc64ecma";s:19:"4202358306542190562";s:11:"content-md5";s:24:"MeIf3qV1aXplHPRXJWLjmA==";s:17:"x-oss-server-time";s:2:"81";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4340000000000002;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:142718;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:58635;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:142718;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52899;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:17 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:17 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:nUSUXUNst05F9VqvUbbuiT6dE4k=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:18 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2020034F3CDD27F3EF945";s:4:"etag";s:34:""31E21FDEA575697A651CF4572562E398"";s:20:"x-oss-hash-crc64ecma";s:19:"4202358306542190562";s:11:"content-md5";s:24:"MeIf3qV1aXplHPRXJWLjmA==";s:17:"x-oss-server-time";s:2:"81";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4340000000000002;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:142718;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:58635;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:142718;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52899;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:17 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:17 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:nUSUXUNst05F9VqvUbbuiT6dE4k=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:20:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:22 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:20 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:20 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:RlNwoCy/6JmA908VroUMwmfIKfg=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:21 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202029F0653A146848B9C";s:4:"etag";s:34:""77BF761C1059FE714E0FE45083AE2E74"";s:20:"x-oss-hash-crc64ecma";s:20:"16024966166820515143";s:11:"content-md5";s:24:"d792HBBZ/nFOD+RQg64udA==";s:17:"x-oss-server-time";s:2:"86";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.387;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:48297;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:20233;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48297;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52902;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:20 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:20 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:RlNwoCy/6JmA908VroUMwmfIKfg=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:21 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202029F0653A146848B9C";s:4:"etag";s:34:""77BF761C1059FE714E0FE45083AE2E74"";s:20:"x-oss-hash-crc64ecma";s:20:"16024966166820515143";s:11:"content-md5";s:24:"d792HBBZ/nFOD+RQg64udA==";s:17:"x-oss-server-time";s:2:"86";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.387;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:48297;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:20233;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48297;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52902;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:20 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:20 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:RlNwoCy/6JmA908VroUMwmfIKfg=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:22:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:11:25 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:22 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:4DEvxIGaY3sTCMnuzFmWU+VWYhI=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC20205BCC63E28A2473A09";s:4:"etag";s:34:""F1B49A7524CF0B668973BA767E447A3F"";s:20:"x-oss-hash-crc64ecma";s:20:"17156563984356595605";s:11:"content-md5";s:24:"8bSadSTPC2aJc7p2fkR6Pw==";s:17:"x-oss-server-time";s:2:"14";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4329999999999998;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:103978;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:42736;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:103978;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52906;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:22 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:4DEvxIGaY3sTCMnuzFmWU+VWYhI=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:12:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC20205BCC63E28A2473A09";s:4:"etag";s:34:""F1B49A7524CF0B668973BA767E447A3F"";s:20:"x-oss-hash-crc64ecma";s:20:"17156563984356595605";s:11:"content-md5";s:24:"8bSadSTPC2aJc7p2fkR6Pw==";s:17:"x-oss-server-time";s:2:"14";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:2.4329999999999998;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:103978;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:42736;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:103978;s:18:"starttransfer_time";d:0.047;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:52906;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760078778333577.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:11:22 GMT
+/haoshaonian/data/upload/member/photo_26_05760078778333577.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:11:22 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:4DEvxIGaY3sTCMnuzFmWU+VWYhI=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:11:25:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:15:25 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:24 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:zdrMf2FWeJQmYG5Hh3DKtShF2J4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:16:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202F7B3EDD081788C2952";s:4:"etag";s:34:""44C9C16A74B5F7B570192C8DF439323D"";s:20:"x-oss-hash-crc64ecma";s:19:"2443448937446956689";s:11:"content-md5";s:24:"RMnBanS197VwGSyN9DkyPQ==";s:17:"x-oss-server-time";s:2:"96";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:81087;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:648696;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:81087;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:53349;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:24 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:zdrMf2FWeJQmYG5Hh3DKtShF2J4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:16:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202F7B3EDD081788C2952";s:4:"etag";s:34:""44C9C16A74B5F7B570192C8DF439323D"";s:20:"x-oss-hash-crc64ecma";s:19:"2443448937446956689";s:11:"content-md5";s:24:"RMnBanS197VwGSyN9DkyPQ==";s:17:"x-oss-server-time";s:2:"96";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:81087;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:648696;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:81087;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:53349;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:24 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:24 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:zdrMf2FWeJQmYG5Hh3DKtShF2J4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:15:25:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:15:25 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:25 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:25 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:QlxojlchHNUH0HQo1tsIjVcFH78=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:16:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202F723A8DA35D57196FE";s:4:"etag";s:34:""38C934D558C5B12766781553C6279A32"";s:20:"x-oss-hash-crc64ecma";s:20:"17032489271620640789";s:11:"content-md5";s:24:"OMk01VjFsSdmeBVTxieaMg==";s:17:"x-oss-server-time";s:2:"88";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.21899999999999997;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:252814;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1154401;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:252814;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:53350;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:25 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:25 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:QlxojlchHNUH0HQo1tsIjVcFH78=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:16:23 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC202F723A8DA35D57196FE";s:4:"etag";s:34:""38C934D558C5B12766781553C6279A32"";s:20:"x-oss-hash-crc64ecma";s:20:"17032489271620640789";s:11:"content-md5";s:24:"OMk01VjFsSdmeBVTxieaMg==";s:17:"x-oss-server-time";s:2:"88";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.21899999999999997;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:252814;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1154401;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:252814;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.189";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:53350;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_27_05760081249329837.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:15:25 GMT
+/haoshaonian/data/upload/member/photo_27_05760081249329837.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:15:25 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:QlxojlchHNUH0HQo1tsIjVcFH78=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:15:25:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:28:03 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760088832406700.png
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:28:03 GMT
+/haoshaonian/data/upload/member/photo_24_05760088832406700.png
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:28:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+JIzvrWvKwocsysnfaDsIUx+MBw=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:29:01 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC205EDBCC63E28A251B542";s:4:"etag";s:34:""7F9E5D027F006FF2D25D0D084A55A3B7"";s:20:"x-oss-hash-crc64ecma";s:20:"13756061482196394166";s:11:"content-md5";s:24:"f55dAn8Ab/LSXQ0ISlWjtw==";s:17:"x-oss-server-time";s:2:"17";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760088832406700.png";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.094;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:23726;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:252404;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:23726;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54706;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760088832406700.png";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:28:03 GMT
+/haoshaonian/data/upload/member/photo_24_05760088832406700.png";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:28:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+JIzvrWvKwocsysnfaDsIUx+MBw=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:29:01 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC205EDBCC63E28A251B542";s:4:"etag";s:34:""7F9E5D027F006FF2D25D0D084A55A3B7"";s:20:"x-oss-hash-crc64ecma";s:20:"13756061482196394166";s:11:"content-md5";s:24:"f55dAn8Ab/LSXQ0ISlWjtw==";s:17:"x-oss-server-time";s:2:"17";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760088832406700.png";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.094;s:15:"namelookup_time";d:0.016;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:23726;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:252404;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:23726;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54706;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760088832406700.png";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:28:03 GMT
+/haoshaonian/data/upload/member/photo_24_05760088832406700.png";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:28:03 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+JIzvrWvKwocsysnfaDsIUx+MBw=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:28:03:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:29:18 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:30:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2063915D33728ED70AA02";s:4:"etag";s:34:""91F03037B313CF71C08012B68CD7D235"";s:20:"x-oss-hash-crc64ecma";s:19:"6294011965039416015";s:11:"content-md5";s:24:"kfAwN7MTz3HAgBK2jNfSNQ==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:53163;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:487733;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:53163;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54844;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:30:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2063915D33728ED70AA02";s:4:"etag";s:34:""91F03037B313CF71C08012B68CD7D235"";s:20:"x-oss-hash-crc64ecma";s:19:"6294011965039416015";s:11:"content-md5";s:24:"kfAwN7MTz3HAgBK2jNfSNQ==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:53163;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:487733;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:53163;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54844;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:29:18:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:29:18 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:30:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206399F0653A1468FC425";s:4:"etag";s:34:""DD2F9CFD38A35B9F0203602EC87DF677"";s:20:"x-oss-hash-crc64ecma";s:19:"2754122482775240175";s:11:"content-md5";s:24:"3S+c/TijW58CA2AuyH32dw==";s:17:"x-oss-server-time";s:2:"22";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.17199999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:191626;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1114104;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:191626;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54847;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:30:17 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206399F0653A1468FC425";s:4:"etag";s:34:""DD2F9CFD38A35B9F0203602EC87DF677"";s:20:"x-oss-hash-crc64ecma";s:19:"2754122482775240175";s:11:"content-md5";s:24:"3S+c/TijW58CA2AuyH32dw==";s:17:"x-oss-server-time";s:2:"22";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.17199999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:191626;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:1114104;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:191626;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:54847;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_24_05760089585151268.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:29:18 GMT
+/haoshaonian/data/upload/member/photo_24_05760089585151268.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:29:18 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+IJiTg6SODbVUyip6/TfxWGTlgQ=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:29:18:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:31:40 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:39 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:39 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:VM5t0RLChvJijQnYq4Fp6mu/ueY=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:32:38 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206C60D74E3845D5B2B0D";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:376091;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55086;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:39 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:39 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:VM5t0RLChvJijQnYq4Fp6mu/ueY=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:32:38 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206C60D74E3845D5B2B0D";s:4:"etag";s:34:""4990787DE11666D9D94EDBC718DDF071"";s:20:"x-oss-hash-crc64ecma";s:18:"530712076849674819";s:11:"content-md5";s:24:"SZB4feEWZtnZTtvHGN3wcQ==";s:17:"x-oss-server-time";s:2:"79";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.109;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:40994;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:376091;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:40994;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55086;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:39 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:39 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:VM5t0RLChvJijQnYq4Fp6mu/ueY=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:31:40:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:31:40 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:40 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:40 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:8sN4IjITI5IAxossm9rIRoFTt/4=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:32:38 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206C68EE247ABD35A634A";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:149302;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55087;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:40 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:40 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:8sN4IjITI5IAxossm9rIRoFTt/4=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:32:38 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC206C68EE247ABD35A634A";s:4:"etag";s:34:""4523359EC4BA32F807B1DE8F213CF188"";s:20:"x-oss-hash-crc64ecma";s:20:"16049577579754044303";s:11:"content-md5";s:24:"RSM1nsS6MvgHsd6PITzxiA==";s:17:"x-oss-server-time";s:2:"84";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.10899999999999999;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:16274;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:149302;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:16274;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55087;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760090999646661.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:31:40 GMT
+/haoshaonian/data/upload/member/photo_26_05760090999646661.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:31:40 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:8sN4IjITI5IAxossm9rIRoFTt/4=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:31:40:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:33:27 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092069047303.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:26 GMT
+/haoshaonian/data/upload/member/photo_26_05760092069047303.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:26 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:ulp/GRflR2ipccOFOtpkbJWdW/M=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:34:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC207314ABA210C7875D50F";s:4:"etag";s:34:""91F03037B313CF71C08012B68CD7D235"";s:20:"x-oss-hash-crc64ecma";s:19:"6294011965039416015";s:11:"content-md5";s:24:"kfAwN7MTz3HAgBK2jNfSNQ==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092069047303.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:53163;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:425304;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:53163;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55280;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092069047303.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:26 GMT
+/haoshaonian/data/upload/member/photo_26_05760092069047303.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:26 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:ulp/GRflR2ipccOFOtpkbJWdW/M=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:34:25 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC207314ABA210C7875D50F";s:4:"etag";s:34:""91F03037B313CF71C08012B68CD7D235"";s:20:"x-oss-hash-crc64ecma";s:19:"6294011965039416015";s:11:"content-md5";s:24:"kfAwN7MTz3HAgBK2jNfSNQ==";s:17:"x-oss-server-time";s:2:"87";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092069047303.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.125;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:53163;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:425304;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:53163;s:18:"starttransfer_time";d:0.032000000000000001;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55280;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092069047303.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:26 GMT
+/haoshaonian/data/upload/member/photo_26_05760092069047303.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:26 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:ulp/GRflR2ipccOFOtpkbJWdW/M=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:33:27:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:33:28 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092070291367.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760092070291367.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:d0OeIjKQIpKzSTpnp8kH3Kvouus=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:34:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2073180D9FF1DEE60EAD9";s:4:"etag";s:34:""213B594799A99D1724D5F748EBCEFFEB"";s:20:"x-oss-hash-crc64ecma";s:19:"4980135393255276460";s:11:"content-md5";s:24:"ITtZR5mpnRck1fdI687/6w==";s:17:"x-oss-server-time";s:3:"110";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092070291367.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:1.155;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:107960;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:93471;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:107960;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55281;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092070291367.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760092070291367.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:d0OeIjKQIpKzSTpnp8kH3Kvouus=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:34:26 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2073180D9FF1DEE60EAD9";s:4:"etag";s:34:""213B594799A99D1724D5F748EBCEFFEB"";s:20:"x-oss-hash-crc64ecma";s:19:"4980135393255276460";s:11:"content-md5";s:24:"ITtZR5mpnRck1fdI687/6w==";s:17:"x-oss-server-time";s:3:"110";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092070291367.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:335;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:1.155;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:107960;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:93471;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:107960;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55281;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092070291367.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:33:27 GMT
+/haoshaonian/data/upload/member/photo_26_05760092070291367.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:33:27 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:d0OeIjKQIpKzSTpnp8kH3Kvouus=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:33:28:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:34:33 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092726251107.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:32 GMT
+/haoshaonian/data/upload/member/photo_26_05760092726251107.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:32 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:qSdzEa2M10YyzCIj6PbsfaFv1QE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:31 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2077334F3CDD27F4D6C8A";s:4:"etag";s:34:""750603D607284C1BA6EAB2028D5302E7"";s:20:"x-oss-hash-crc64ecma";s:19:"2556788972120644848";s:11:"content-md5";s:24:"dQYD1gcoTBum6rICjVMC5w==";s:17:"x-oss-server-time";s:2:"19";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092726251107.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.81099999999999994;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:138742;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:171075;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:138742;s:18:"starttransfer_time";d:0.014999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55400;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092726251107.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:32 GMT
+/haoshaonian/data/upload/member/photo_26_05760092726251107.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:32 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:qSdzEa2M10YyzCIj6PbsfaFv1QE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:31 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC2077334F3CDD27F4D6C8A";s:4:"etag";s:34:""750603D607284C1BA6EAB2028D5302E7"";s:20:"x-oss-hash-crc64ecma";s:19:"2556788972120644848";s:11:"content-md5";s:24:"dQYD1gcoTBum6rICjVMC5w==";s:17:"x-oss-server-time";s:2:"19";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092726251107.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.81099999999999994;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:138742;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:171075;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:138742;s:18:"starttransfer_time";d:0.014999999999999999;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55400;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092726251107.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:32 GMT
+/haoshaonian/data/upload/member/photo_26_05760092726251107.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:32 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:qSdzEa2M10YyzCIj6PbsfaFv1QE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:34:33:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:34:38 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092734452165.jpg
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:33 GMT
+/haoshaonian/data/upload/member/photo_26_05760092734452165.jpg
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:33 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+X65+xcImZwAnfif4bsxbZNUefE=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:36 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC20773C84D1CE1284F2E3C";s:4:"etag";s:34:""D0364B1B8C8ED7B5E616CDDF0771FDC1"";s:20:"x-oss-hash-crc64ecma";s:18:"162142473498983958";s:11:"content-md5";s:24:"0DZLG4yO17XmFs3fB3H9wQ==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092734452165.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:4.758;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:331442;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:69659;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:331442;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55401;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092734452165.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:33 GMT
+/haoshaonian/data/upload/member/photo_26_05760092734452165.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:33 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+X65+xcImZwAnfif4bsxbZNUefE=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:36 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC20773C84D1CE1284F2E3C";s:4:"etag";s:34:""D0364B1B8C8ED7B5E616CDDF0771FDC1"";s:20:"x-oss-hash-crc64ecma";s:18:"162142473498983958";s:11:"content-md5";s:24:"0DZLG4yO17XmFs3fB3H9wQ==";s:17:"x-oss-server-time";s:2:"83";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092734452165.jpg";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:333;s:12:"request_size";i:488;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:4.758;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.016;s:16:"pretransfer_time";d:0.016;s:11:"size_upload";d:331442;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:69659;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:331442;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55401;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092734452165.jpg";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:33 GMT
+/haoshaonian/data/upload/member/photo_26_05760092734452165.jpg";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:33 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:+X65+xcImZwAnfif4bsxbZNUefE=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:34:38:---LOG END---------------------------------------------------------------------------
+
+2018-04-02 18:34:39 : ---LOG START---------------------------------------------------------------------------
+--REQUEST URL:----------------------------------------------
+http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092782114188.png
+STRING TO SIGN:----------------------------------------------
+PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:38 GMT
+/haoshaonian/data/upload/member/photo_26_05760092782114188.png
+REQUEST HEADERS:----------------------------------------------
+a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:viqH12p3RPZOPXYqMe2uGN6iUIA=";}
+RESPONSE HEADERS:----------------------------------------------
+a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC207780E4917E0C7510A21";s:4:"etag";s:34:""BD94DBF8AC2D6F3EB2F14396F4228277"";s:20:"x-oss-hash-crc64ecma";s:19:"7400087055006798236";s:11:"content-md5";s:24:"vZTb+Kwtbz6y8UOW9CKCdw==";s:17:"x-oss-server-time";s:2:"82";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092782114188.png";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.81100000000000005;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:48740;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:60098;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48740;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55410;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092782114188.png";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:38 GMT
+/haoshaonian/data/upload/member/photo_26_05760092782114188.png";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:viqH12p3RPZOPXYqMe2uGN6iUIA=";}}
+RESPONSE DATA:----------------------------------------------
+O:12:"ResponseCore":3:{s:6:"header";a:14:{s:6:"server";s:9:"AliyunOSS";s:4:"date";s:29:"Mon, 02 Apr 2018 10:35:37 GMT";s:14:"content-length";s:1:"0";s:10:"connection";s:10:"keep-alive";s:16:"x-oss-request-id";s:24:"5AC207780E4917E0C7510A21";s:4:"etag";s:34:""BD94DBF8AC2D6F3EB2F14396F4228277"";s:20:"x-oss-hash-crc64ecma";s:19:"7400087055006798236";s:11:"content-md5";s:24:"vZTb+Kwtbz6y8UOW9CKCdw==";s:17:"x-oss-server-time";s:2:"82";s:5:"_info";a:27:{s:3:"url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092782114188.png";s:12:"content_type";N;s:9:"http_code";i:200;s:11:"header_size";i:334;s:12:"request_size";i:487;s:8:"filetime";i:-1;s:17:"ssl_verify_result";i:0;s:14:"redirect_count";i:0;s:10:"total_time";d:0.81100000000000005;s:15:"namelookup_time";d:0;s:12:"connect_time";d:0.014999999999999999;s:16:"pretransfer_time";d:0.014999999999999999;s:11:"size_upload";d:48740;s:13:"size_download";d:0;s:14:"speed_download";d:0;s:12:"speed_upload";d:60098;s:23:"download_content_length";d:0;s:21:"upload_content_length";d:48740;s:18:"starttransfer_time";d:0.031;s:13:"redirect_time";d:0;s:12:"redirect_url";s:0:"";s:10:"primary_ip";s:14:"120.77.166.164";s:8:"certinfo";a:0:{}s:12:"primary_port";i:80;s:8:"local_ip";s:13:"192.168.1.220";s:10:"local_port";i:55410;s:6:"method";s:3:"PUT";}s:17:"x-oss-request-url";s:97:"http://haoshaonian.oss-cn-shenzhen.aliyuncs.com/data/upload/member/photo_26_05760092782114188.png";s:15:"x-oss-redirects";i:0;s:18:"x-oss-stringtosign";s:122:"PUT
+
+application/octet-stream
+Mon, 02 Apr 2018 10:34:38 GMT
+/haoshaonian/data/upload/member/photo_26_05760092782114188.png";s:20:"x-oss-requestheaders";a:4:{s:12:"Content-Type";s:24:"application/octet-stream";s:4:"Date";s:29:"Mon, 02 Apr 2018 10:34:38 GMT";s:4:"Host";s:40:"haoshaonian.oss-cn-shenzhen.aliyuncs.com";s:13:"Authorization";s:49:"OSS LTAIJdTtL1hzbViq:viqH12p3RPZOPXYqMe2uGN6iUIA=";}}s:4:"body";b:0;s:6:"status";i:200;}
+2018-04-02 18:34:39:---LOG END---------------------------------------------------------------------------
+

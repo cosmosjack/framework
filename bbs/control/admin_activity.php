@@ -186,14 +186,14 @@ class admin_activityControl extends BaseAdminControl{
 
     /* 整理小组的详情 start */
     public function calc_groupOp(){
-        if(!is_numeric($_GET['id'])){
+        if(empty($_GET['activity_no'])){
             ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'非法请求'),"JSON");
             die();
         }
-        // 根据活动的id 来查找 申请通过的 儿童信息  并分组
+        // 根据活动的no 和 期数  来查找 申请通过的 儿童信息  并分组
         $db_bbs_apply = new Model();
         // 第一次先按 分组 查询出 所有小组
-        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_id`={$_GET['id']} GROUP BY `group_id`");
+        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_no`={$_GET['activity_no']} AND `activity_periods`={$_GET['periods']} GROUP BY `group_id`");
         if(!$data_group_info){
             ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
             die();
@@ -233,5 +233,76 @@ class admin_activityControl extends BaseAdminControl{
     }
     /* 查出小组人数大于1 的数组 end */
 
+    /* 根据group_id 和 activity_id  查询出 报名参加的儿童列表 start */
+    public function get_team_detailOp(){
+        $db_bbs_apply = new Model("bbs_apply");
+        $where = array('group_id'=>$_GET['group_id'],'activity_id'=>$_GET['activity_id']);
+        $data_bbs_apply = $db_bbs_apply->where($where)->select();
+        if(!$data_bbs_apply){
+            ajaxReturn(array('control'=>'get_team_detailOp','code'=>0,'msg'=>'此小组无报名信息'),"JSON");
+            die();
+        }
+        ajaxReturn(array('control'=>'get_team_detailOp','code'=>200,'msg'=>'成功','data'=>$data_bbs_apply),"JSON");
+    }
+    /* 根据group_id 和 activity_id  查询出 报名参加的儿童列表 end */
+
+    /* 查出所有的老师信息 默认一个老师可以带领多个队伍 start */
+    public function get_teacher_listOp(){
+        $db_bbs_user = new Model("bbs_user");
+        $data_bbs_user = $db_bbs_user->where(array("is_teacher"=>1))->select();
+        if(!$data_bbs_user){
+            ajaxReturn(array('control'=>'get_teacher_list','code'=>0,'msg'=>'当前没有任何老师,请任命'),"JSON");
+            die();
+        }
+        ajaxReturn(array('control'=>'get_teacher_list','code'=>200,'msg'=>'成功','data'=>$data_bbs_user),"JSON");
+
+    }
+    /* 查出所有的老师信息 end */
+
+
+    /* 根据 活动ID 活动小组 老师ID 替换老师 start */
+    public function change_teacherOp(){
+        $db_bbs_apply = new Model('bbs_apply');
+        $where = array('group_id'=>$_GET['group_id'],'activity_id'=>$_GET['activity_id']);
+        $db_bbs_uer = new Model("bbs_user");
+        $data_bbs_user = $db_bbs_uer->where(array("id"=>$_GET['teacher_id']))->find();
+        if(!$data_bbs_user){
+            ajaxReturn(array('control'=>'change_teacherOp','code'=>0,'msg'=>'没有此老师'),"JSON");
+            die();
+        }
+        $teacher_name = $data_bbs_user['nick_name']  ? $data_bbs_user['nick_name'] : $data_bbs_user['member_name'];
+        $update = array("teacher_id"=>$_GET['teacher_id'],"teacher_name"=>$teacher_name);
+        $result = $db_bbs_apply->where($where)->update($update);
+        if($result){
+            ajaxReturn(array('control'=>'change_teacherOp','code'=>200,'msg'=>'修改成功'),"JSON");
+        }else{
+            ajaxReturn(array('control'=>'change_teacherOp','code'=>0,'msg'=>'无任何修改'),"JSON");
+            die();
+        }
+    }
+    /* 根据 活动ID 活动小组 老师ID 替换老师 end */
+
+
+    /* 根据活动ID 活动小组 查出 不是这个小组的 所有儿童信息 start */
+    public function get_other_childOp(){
+        $db_bbs_apply = new Model("bbs_apply");
+        $where = array('group_id'=>array("neq",$_GET['group_id']),'activity_id'=>$_GET['activity_id']);
+        $data_bbs_apply = $db_bbs_apply->where($where)->select();
+        if(!$data_bbs_apply){
+            ajaxReturn(array('control'=>'get_other_childOp','code'=>0,'msg'=>'无更多小伙伴'),"JSON");
+            die();
+        }
+        ajaxReturn(array('control'=>'get_other_childOp','code'=>200,'msg'=>'成功','data'=>$data_bbs_apply),"JSON");
+    }
+    /* 根据活动ID 活动小组 查出 不是这个小组的 所有儿童信息 end */
+
+    /* 将其他儿童添加到 相应的小组中去 start */
+    public function mod_child_groupOp(){
+        $db_bbs_apply = new Model("bbs_apply");
+        $where = array("activity_id"=>$_GET['activity_id']);
+        $update = array("group_id"=>$_GET['group_id']);
+
+    }
+    /* 将其他儿童添加到 相应的小组中去 end */
 
 }

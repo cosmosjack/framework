@@ -1,0 +1,185 @@
+html,body{
+  height: 100%;
+}
+.push_student{
+  background: #EEE;
+  font-size: '微软雅黑';
+  min-height: 100%;
+}
+.push_student .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.push_student .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.push_student .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+  font-size: 5vw;
+}
+.push_student .explain{
+   margin-right: 10px;
+}
+.push_student .id_content>div:nth-child(1){
+  background: #FFF;
+  font-size: 4vw;
+}
+.push_student .id_content>div>span{
+   padding: 10px 15px;
+}
+.push_student .identity>img{
+   width: 6vw;
+}
+.push_student .identity>span{
+  margin-left: 5px;
+  color:#f19931;
+}
+.push_student .student{
+  font-size: 3.5vw;
+}
+.push_student .student>div{
+  width: 100%;
+  border-radius: 10px;
+  background: #FFF;
+  margin: 10px 0;
+  padding: 5px 0;
+}
+.push_student .student_inf img{
+  width: 8vw;
+}
+.push_student .student_inf>div{
+   line-height: 8vw;
+   color:#f19931;
+}
+.push_student .student>div>div{
+   padding: 5px 15px;
+}
+.push_student .student_inf_txt>div{
+  border-bottom: 1px solid #eee;
+  padding: 5px 15px;
+}
+.push_student .student_inf_txt>span:nth-child(2){
+  color:#a0a0a0;
+}
+.push_student .student_inf_txt input,.push_student .student>div>div:last-child>div{
+   border: none;
+}
+.push_student textarea{
+   border: none;
+   resize:none;
+}
+.push_student .btn>button{
+   border: none;
+   background: none;
+   background-image: linear-gradient(#e4aa46,#f48c12);
+   color:#FFF;
+   border-radius: 20px;
+   padding: 3vw 0;
+   letter-spacing: 2vw;
+   font-size: 5vw;
+}
+.push_student .point{
+  padding: 0;
+  padding-bottom:10px; 
+}
+.push_student .point>button{
+   outline: none;
+}
+.push_student .point>h4{
+    color:#FFF;
+    background: #337ab7;
+    margin-top: 0;
+    padding: 10px;
+}
+ .push_student .ra>span{
+  line-height: 10vw;
+  margin-left: 10px;
+}
+.push_student .radio{
+  width: 5vw;
+  border: 1px solid #000;
+  border-radius: 50%;
+  height: 5vw;
+  padding: 2px;
+  overflow: hidden;
+  float: left;
+}
+.push_student .radio .radio_active{
+   display: block;
+   background: #1c87f4;
+   width: 100%;
+   height: 100%;
+   border-radius: 50%;
+}
+.push_student .ged{
+  margin-top: 10px;
+}
+.push_student .btn_ged{
+  margin-top: 10px;
+}
+.push_student .explain_txt{
+  padding: 10px 0;
+  font-size: 3.5vw;
+}
+.push_student .explain_txt>button{
+  width: 100%;
+  border: none;
+  background: none;
+  padding-top: 10px;
+  border-top: 1px solid #EEE;
+  color:#f48c12;
+  font-size: 4vw;
+  letter-spacing: 4px;
+}
+.push_student .explain_txt>p{
+   color:#f48c12;
+}
+.push_student .img_pull{
+  width: 6vw;
+  border-radius: 50%;
+}
+.push_student .userImg>img{
+  width: 12vw;
+  height: 12vw;
+  border: 1px solid #f48c12;
+  border-radius: 50%;
+}
+.push_student .userImg>span{
+   line-height: 12vw;
+}
+.push_student .file-box{
+    display: inline-block;
+    position: relative;
+    padding: 3px 5px;
+    overflow: hidden;
+    color:#000;
+    z-index: 500;
+}
+.push_student .file-box>span{
+  font-weight: bold;
+  font-size: 5vw;
+}
+.push_student .file-btn{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+  background-color: transparent;
+  filter:alpha(opacity=0);
+  -moz-opacity:0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}

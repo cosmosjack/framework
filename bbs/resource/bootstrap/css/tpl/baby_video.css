@@ -1,0 +1,72 @@
+html,body{
+  height: 100%;
+}
+.baby_video{
+  height: 100%;
+  background: #EEE;
+}
+.baby_video .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.baby_video .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.baby_video .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+  font-size: 5vw;
+}
+.baby_video .type_content>div>div{
+  padding: 10px 5px;
+  font-size: 3.5vw;
+}
+.baby_video .type_content img{
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+.baby_video .type_content span{
+  display: block;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.baby_video .video{
+  position: relative;
+}
+.baby_video .duration{
+  margin-bottom: 0;
+  position: absolute;
+  bottom: 0;
+  right: 6vw;
+  color:#FFF;
+}
+.baby_video .title{
+  background: #FFF;
+  overflow: auto;
+}
+.baby_video .title_ul{
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+.baby_video .title_ul>li{
+  float: left;
+  list-style: none;
+  padding:10px;
+}
+.baby_video .active{
+   color:#f48c12;
+}

@@ -1,0 +1,95 @@
+html,body,.growth_record{
+    height: 100%;
+    background: #EEE;
+}
+.growth_record .pad_none{
+    padding: 0;
+}
+.growth_record .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.growth_record .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px !important;
+   font-size: 5vw;
+   z-index: 100;
+}
+.growth_record .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+   font-size: 5vw;
+}
+.growth_record .title{
+  background: #FFF;
+  overflow: auto;
+}
+.growth_record .title_ul{
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+.growth_record .title_ul>li{
+  float: left;
+  list-style: none;
+  padding:10px;
+}
+.growth_record .active{
+   color:#f48c12;
+}
+.growth_record .gr_content{
+	background: #FFF;
+}
+.growth_record .gr_content .gr_pro{
+	border-bottom: 1px solid #EEE;
+	padding: 10px 0;
+}
+.growth_record .gr_img{
+   min-height: 20vw;
+   padding: 0;
+}
+.growth_record .gr_txt{
+	padding: 0;
+	padding-left: 10px;
+	position: relative;
+	min-height: 20vw;
+}
+.growth_record .gr_txt p{
+   margin: 0;
+}
+.growth_record .gr_title{
+   font-size: 3.5vw;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.growth_record .vice_title{
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   overflow: hidden;
+   font-size: 3vw;
+   color:#a0a0a0;
+}
+.growth_record .time_class{
+	position: absolute;
+	bottom: 0;
+	left: 10px;
+	color:#f48c12;
+	font-size: 3vw;
+}
+.growth_record .time_class>span:nth-child(2){
+	margin-left: 3vw;
+}
+.growth_record .no_data{
+  background: #EEE;
+   color:#d4d4d4;
+}

@@ -1,0 +1,71 @@
+html,body,.setUp{
+  width: 100%;
+  height: 100%;
+  background: #EEE;
+  font-size: '微软雅黑';
+}
+.setUp .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.setUp .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.setUp .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+  font-size: 5vw;
+}
+.setUp .content{
+  margin-top: 10px;
+  background: #FFF;
+}
+.setUp .content>div{
+  padding: 4vw 15px;
+  color:#313131;
+  font-size: 4vw;
+  border-bottom: 1px solid #EEE;
+}
+.setUp .content>div:nth-child(4){
+  border-top: 10px solid #EEE;
+}
+.setUp .out_btn{
+   position: fixed;
+   bottom: 10vw;
+   left: 0;
+   border: none;
+   border-radius: 30px;
+   padding:10px 15px;
+   background-image:linear-gradient(#e4aa46,#f48c12);
+   letter-spacing: 2px;
+   color:#FFF;
+}
+.setUp .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.setUp .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.setUp .point>h5{
+  padding: 10px;
+}
+.setUp .point_txt{
+  padding: 10px 0;
+}
+.setUp .modal-dialog{
+  margin-top:50%;
+}

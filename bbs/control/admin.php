@@ -28,8 +28,11 @@ class adminControl extends BaseAdminControl{
 
 //    活动列表  这里就不用 datatable 插件了
     public function activity_listOp(){
+
         $db_bbs_activity = new Model("bbs_activity");
+
         $where = array();
+
         $data_bbs_activity = $db_bbs_activity->where($where)->page(2)->select();
         /* 查出领队老师 和 报名的学生 start */
         $db_bbs_teacher = new Model();
@@ -62,6 +65,8 @@ class adminControl extends BaseAdminControl{
         Tpl::output('fpage',$db_bbs_activity->showpage());
         Tpl::showpage("activity_list");
     }
+
+
 //    活动添加
     public function activity_addOp(){
         Tpl::showpage("activity_add");

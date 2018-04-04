@@ -1,0 +1,93 @@
+html,body{
+  width: 100%;
+  height: 100%;
+}
+.unbinding{
+  width: 100%;
+  height: 100%;
+  background: #eee;
+}
+.unbinding .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.unbinding .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.unbinding .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+  font-size: 5vw;
+}
+.unbinding .form{
+  background: #FFF;
+  margin-top: 10px;
+}
+.unbinding .form>div{
+  padding: 15px 0;
+  font-size: 4vw;
+}
+.unbinding .undo{
+  color:#f48c12;
+}
+.unbinding .phone{
+   border-top:1px solid #eee; 
+   min-height: 48px;
+}
+.unbinding .unbin_btn>div{
+    margin-top: 30px;
+    color:#FFF;
+    line-height: 10vw;
+    outline:none;
+    font-size: 3.5vw;
+    border-radius: 30px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+}
+.unbinding .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.unbinding .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.unbinding .point>h5{
+  padding: 10px;
+}
+.unbinding .point_txt{
+  padding: 10px 0;
+}
+.unbinding .form input{
+  border: none;
+}
+.unbinding .form .code{
+  padding: 10px;
+  line-height: 30px;
+  position: relative;
+}
+.unbinding .form .code input{
+  text-indent: 1em;
+}
+.unbinding .binding_btn{
+  position: absolute;
+  top: 0;
+  right:0;
+  border: none;
+  color:#FFF;
+  outline:none;
+  padding: 0 30px;
+  border-radius: 30px;
+  background-image:linear-gradient(#e4aa46,#f48c12);
+}

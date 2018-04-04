@@ -1,0 +1,129 @@
+html,body{
+  height: 100%;
+}
+.member{
+  background: #EEE;
+  font-size: '微软雅黑';
+  min-height: 100%;
+}
+.member .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.member .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.member .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+  font-size: 5vw;
+}
+.member .squad_name{
+  padding-right: 10px;
+}
+.member .me_content{
+  font-size: 3.5vw;
+  background: #FFF;
+}
+.member .teacher{
+  padding: 10px 0;
+  border-bottom: 1px solid #EEE;
+}
+.member .teacher>img{
+  width: 20vw;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid #f19931;
+}
+.member .teacher>div{
+  height: 20vw;
+  position: relative;
+}
+.member .teacher_age{
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+}
+.member .teacher_img{
+   width: 5vw;
+   margin-right: 2vw;
+}
+.member .teacher>span{
+  color:#f19931;
+  padding: 0;
+}
+.member .user{
+  padding-top: 3vw;
+}
+.member .user>span{
+  padding: 2vw 0;
+  font-size: 3vw;
+}
+.member .user_img{
+  border-radius: 50%;
+  border: 1px solid #f19931;
+  padding: 0;
+  width: 10vw;
+}
+.member .title,.member .slogan{
+  background: #FFF;
+  overflow: auto;
+}
+.member .title_ul ,.member .slogan_ul{
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+.member .title_ul>li{
+  float: left;
+  list-style: none;
+  padding: 5px 10px;
+}
+.member .me_slogan{
+  padding: 10px 0;
+  font-size: 3.5vw;
+}
+.member .slogan_img{
+  padding:0;
+}
+.member .slogan_img>img{
+   width: 6vw;
+}
+.member .slogan{
+  line-height: 5vw;
+  padding: 5px 0;
+  padding-bottom: 0;
+  color:#f48c12;
+}
+.member .detail{
+   margin-top: 10px;
+   background: #FFF;
+   padding: 10px 15px;
+}
+.member .detail>img{
+  padding: 0;
+}
+.member .detail>p{
+  padding: 10px 0;
+  text-indent: 20px;
+  font-size: 4vw;
+  line-height: 6.5vw;
+}
+.member .me_img{
+   height: 50px;
+   background: #eee;
+}
+.member .me_img>img{
+  max-width: 100%;
+}

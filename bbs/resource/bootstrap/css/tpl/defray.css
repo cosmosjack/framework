@@ -1,0 +1,410 @@
+html,body,.defray{
+    height: 100%;
+    background: #EEE;
+}
+.defray .pad_none{
+    padding: 0;
+}
+.defray .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.defray .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px !important;
+   font-size: 5vw;
+   z-index: 100;
+}
+.defray .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+   font-size: 5vw;
+}
+.defray .de_content{
+   margin-top: 10px;
+   background: #FFF;
+   padding-top: 10px;
+   padding-bottom: 10px;
+}
+.defray .teacher{
+  padding:  0;
+  margin-bottom: 2vw;
+}
+.defray .teacher>img{
+  padding: 0;
+  min-height: 20vw;
+}
+.defray .teacher>div{
+  height: 20vw;
+  position: relative;
+  padding-left: 0;
+}
+.defray .teacher_age{
+  position: absolute;
+  bottom: 0;
+  left: 15px;
+  padding-left: 0;
+}
+.defray .teacher_age>p{
+	margin: 0;
+	font-size: 3vw;
+	margin-top: 2vw;
+}
+.defray .teacher_img{
+   width: 5vw;
+   margin-right: 2vw;
+}
+.defray .teacher>span{
+  color:#f19931;
+  padding: 0;
+}
+.defray .teacher_age img{
+	padding: 0;
+}
+.defray .teacher_age span{
+	padding: 0;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.defray .title{
+  background: #FFF;
+  overflow: auto;
+  padding: 0;
+  margin: 10px 0;
+}
+.defray .title_ul{
+  margin: 0;
+  padding: 0;
+  overflow: auto;
+  white-space: nowrap;
+}
+.defray .title_ul>li{
+  float: left;
+  list-style: none;
+  padding:10px;
+}
+.defray .session{
+	font-size: 3.5vw;
+   border: 1px solid #f19931;
+   margin-left: 10px;
+   border-radius: 10px;
+   color:#f19931;
+   box-sizing: border-box;
+}
+.defray .active{
+   background: #f19931;
+   color:#FFF;
+}
+.defray .package{
+   border-bottom: 1px solid #EEE;
+   padding: 5px 0;
+   font-size: 4vw;
+}
+.defray .de_num{
+   margin: 0 5px;
+}
+.defray .de_price{
+   color:#f19931;
+}
+.defray .de_coupon{
+	font-size: 4vw;
+    padding: 5px 15px;
+}
+.defray .de_user{
+	margin-top: 10px;
+	font-size: 4vw;
+	background: #FFF;
+}
+.defray .de_user>div{
+	padding: 8px 15px;
+	border-bottom: 1px solid #EEE;
+}
+.defray .de_user span{
+	padding: 0;
+}
+.defray .de_user input{
+	border: none;
+	background: #FFF;
+	text-align: right;
+}
+.defray .de_id{
+   color:#a0a0a0;
+}
+.defray textarea{
+  outline: none;
+  resize: none;
+  border: none;
+}
+.defray .radio{
+	border:1px solid #f48c12;
+	border-radius: 50%;
+	width: 5vw;
+	height: 5vw;
+	float: left;
+}
+.defray .contract{
+	line-height: calc(5vw + 20px);
+	margin-left: 2vw;
+	font-size: 3.5vw;
+}
+.defray .contract>span{
+   color:#f48c12;
+}
+.defray .defray_manner{
+   margin-bottom: 16vw;
+}
+.defray .defray_manner>div:nth-child(1){
+   padding: 0;
+}
+.defray .de_wx{
+	padding: 2vw 15px;
+	border-radius: 10px;
+	background: #FFF;
+}
+.defray .de_wx>span{
+	line-height: 10vw;
+}
+.defray .de_wx>img{
+   width: 10vw;
+}
+.de_btn{
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+}
+.de_btn .total{
+	background: #a0a0a0;
+	color:#f48c12;
+	padding: 10px 0;
+	font-size: 4vw;
+}
+.de_btn .go_debtn{
+	background: #e4aa46;
+	color:#FFF;
+	padding: 10px 0;
+	font-size: 4vw;
+}
+.de_point{
+  overflow: auto;
+  position: relative;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+.de_point>img{
+   width: 15vw;
+}
+.de_point .prompt{
+   font-size: 3.5vw;
+   color:#f48c12;
+   padding-bottom: 5vw;
+}
+.de_point .bdsharebuttonbox{
+  padding: 0;
+}
+.de_point .bdsharebuttonbox p{
+  padding: 0px;
+}
+.de_point .bdshare-button-style0-32 a{
+  padding: 0;
+  margin: 10px calc(50% - 16px);
+}
+.defray .already_addto{
+   display: none;
+}
+.de_point .de_radio{
+   position: relative;
+}
+.de_point .de_select{
+   height: 50vw;
+   overflow-y: auto;
+   overflow-x: hidden;
+   margin-bottom: 12vw;
+}
+.de_point .de_select>div{
+  border-bottom: 1px solid #EEE;
+  padding: 2vw 0;
+}
+.de_point .de_Radio_select>h4{
+   color:#f48c12;
+}
+.de_point .de_rai,.de_point .de_strai,.de_point .de_strai_size{
+  position: relative;
+  border-radius: 50%;
+  display: block;
+  width: 6vw;
+  height: 6vw;
+  border: 1px solid #f48c12;
+}
+.de_point .de_rai>span,.de_point .de_strai>span,.de_point .de_strai_size>span{
+  display: block;
+  border-radius: 50%;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right:0;
+  margin: auto;
+}
+.de_point .avtImg,.de_point .st_Img{
+  width: 8vw;
+  border-radius: 50%;
+  border: 1px solid #f48c12;
+  margin-right: 2vw;
+}
+.de_point .de_push{
+  color:#a0a0a0;
+}
+.de_point .selbtn{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #FFF;
+  padding: 1vw 0;
+}
+.de_point .selbtn>button{
+   border:none;
+   color:#FFF;
+   border-radius: 10px;
+   width: 40%;
+   padding: 2vw 0;
+}
+.de_point .ra_det{
+   background: #f48c12;
+}
+.de_point .ra_can{
+   margin-left: 5%;
+   background: #cccccc;
+}
+.defray .de_tut{
+  width: calc(50% - 2%);
+  float: left;
+  background: #f2f2f2;
+  border-radius: 5px;
+  padding: 1vw 12px;
+  padding-right:5px;
+  line-height: 8vw;
+  margin-top: 1vw;
+}
+.defray .de_tut:nth-child(2n){
+  margin-left: 2%;
+}
+.defray .de_tut>img{
+  width: 8vw;
+  border: 1px solid #f48c12;
+  border-radius: 50%;
+  margin-right: 2vw;
+}
+.de_student{
+  font-size: 3.5vw;
+  height: 60vw;
+  overflow-y: auto;
+  margin-bottom: 8vw;
+}
+.de_student>div{
+  width: 100%;
+  border-radius: 10px;
+  background: #FFF;
+  padding: 5px 0;
+}
+.de_student .student_inf img{
+  width: 8vw;
+}
+.de_student .student_inf>div{
+   line-height: 8vw;
+   color:#f19931;
+}
+.de_student>div>div{
+   padding: 5px 0;
+}
+.de_student .student_inf_txt>div{
+  border-bottom: 1px solid #eee;
+  padding: 5px 0;
+}
+.de_student .student_inf_txt>div>span{
+  line-height: 8vw;
+}
+.de_student .padding_none{
+  padding: 0 !important;
+}
+.de_student .student_inf_txt>span:nth-child(2),.de_student .student_inf_txt input,.id_select{
+  color:#a0a0a0;
+}
+.de_student .student_inf_txt input,.de_student>div>div:last-child>div{
+   border: none;
+   padding: 1vw;
+}
+.de_student textarea{
+   border: none;
+   resize:none;
+}
+.de_student .userImg>img{
+  width: 12vw;
+  height: 12vw;
+  border: 1px solid #f48c12;
+  border-radius: 50%;
+}
+.de_student .userImg{
+   line-height: 12vw;
+}
+.de_student .file-box{
+    display: inline-block;
+    position: relative;
+    padding: 3px 5px;
+    overflow: hidden;
+    color:#000;
+    z-index: 500;
+}
+.de_student .file-box>span{
+  font-weight: bold;
+  font-size: 5vw;
+}
+.de_student .file-btn{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  outline: none;
+  background-color: transparent;
+  filter:alpha(opacity=0);
+  -moz-opacity:0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+.de_point .student_inf{
+  border-bottom: 1px solid #f19931;
+}
+.de_point .student_inf>div>img{
+  width: 8vw;
+  margin-right: 1vw;
+}
+.de_point .student_inf>div{
+   line-height: 8vw;
+   color:#f19931;
+}
+.de_point .student_inf>span{
+  color:#a0a0a0;
+  line-height: 8vw;
+}
+.de_point .de_size_margin>span{
+   margin-top: 5px;
+}
+.de_point .btn_prompt{
+   color:#FFF;
+   background: #f19931;
+   border: none;
+   border-radius: 10px;
+   padding: 5px;
+}

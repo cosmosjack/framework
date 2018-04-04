@@ -1,0 +1,198 @@
+html,body{
+  height: 100%;
+}
+.nature_teach{
+  min-height: 100%;
+  background: #EEE;
+}
+.nature_teach .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.nature_teach .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.nature_teach .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+  font-size: 5vw;
+}
+.nature_teach .na_txt{
+  background: #FFF;
+  padding: 2vw 0;
+  font-size: 3.5vw;
+  line-height: 6vw;
+}
+.nature_teach .na_title{
+   border-bottom: 1px solid #f48c12;
+}
+.nature_teach .txt{
+  text-indent: 2em;
+}
+.nature_teach .nav{
+  margin-top: 10px;
+  font-size: 4vw;
+}
+.nature_teach .nav>div>div{
+  border-left: 1px solid #000;
+  margin: 5px 0;
+}
+.nature_teach .nav>div>div:nth-child(1){
+  border: none;
+}
+.nature_teach .active{
+    padding: 2px 10px;
+    border-radius: 4px;
+    color:#FFF;
+    background: #f48c12;
+}
+.nature_teach .past_pro{
+  display: none;
+}
+.nature_teach .index_pro{
+   padding: 10px 0;
+   background: url('../../img/bg.png') no-repeat 0 0;
+   background-size: contain;
+   margin-bottom: 5vw;
+}
+.nature_teach .pro_img{
+   padding: 0;
+   border-radius: 10px;
+   border: 1px solid #f48c12;
+}
+.nature_teach .index_pro_Img{
+  position: relative;
+  margin-bottom: 10px;
+  margin-top: 1vw;
+}
+.nature_teach .mask{
+   font-size: 10px;
+   overflow: hidden;
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   background:url('../../img/shadow.png') no-repeat 0 0;
+   color:#FFF;
+   border-bottom-left-radius: 10px;
+   border-bottom-right-radius: 10px;
+}
+.nature_teach .mask>span{
+   display: block;
+   width: 50%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.nature_teach .pro_tit{
+  font-size: 3.5vw;
+  padding-bottom: 4vw;
+}
+.nature_teach .city,.nature_teach .past{
+   color:#fd6327;
+}
+.nature_teach .time_price{
+   padding-top: 2vw;
+   padding-bottom: 2vw;
+   font-size: 3.5vw;
+}
+.nature_teach .time_price div>div{
+   width: 50%;
+}
+.nature_teach .time_price div>div>p{
+  margin: 0;
+}
+.nature_teach .price{
+  color:#fd6327;
+  font-size: 5vw;
+}
+.nature_teach .pro_btn{
+   border: none;
+   border-radius: 30px;
+   background-image:linear-gradient(#e4aa46,#f48c12);
+   padding: 2vw 8vw;
+   color:#FFF;
+   margin-top: 1vw;
+}
+.nature_teach .Prompt{
+   position: absolute;
+   left: 0;
+   top: 10vw;
+   padding:0;
+}
+.nature_teach .Prompt>span{
+   background: #ff583c;
+   color:#FFF;
+   font-size: 4vw;
+   padding: 6px 8px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+}
+@media screen and (max-height: 568px) {
+
+   .nature_teach .time_price{
+     padding-top: 2vw;
+     padding-bottom: 0vw;
+     font-size: 3.5vw;
+   } 
+   .nature_teach .pro_tit{
+    font-size: 3.5vw;
+    padding-bottom: 0vw;
+  }
+}
+.nature_teach .past_pro .index_pro{
+   padding: 2vw 0 !important;
+   background: url('../../img/activity_background.png') no-repeat 0 0;
+   background-size: contain;
+   margin-bottom: 5vw;
+}
+.nature_teach .past_pro .index_pro_Img{
+  position: relative;
+  margin-bottom: 10px;
+}
+.nature_teach .past_pro .pastpro_btn{
+   border: none;
+   border-radius: 30px;
+   background-image:linear-gradient(#e4aa46,#f48c12);
+   padding: 2px 5vw;
+   margin-bottom: 4px;
+   color:#FFF;
+}
+.nature_teach .past_pro .Prompt{
+   position: absolute;
+   left: 0;
+   top: 0;
+   padding:0;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+.nature_teach .past_pro .Prompt>span{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   background: #f19931;
+   color:#FFF;
+   font-size: 3.5vw;
+   padding: 2px 8px;
+   border-top-left-radius: 10px;
+   border-bottom-right-radius: 20px;
+}
+.nature_teach .past_pro .collect{
+   position: absolute;
+   right: 6vw;
+   top: 2vw;
+}
+.nature_teach .past_pro .index_pro_Img{
+    margin-top: 2vw;
+    margin-bottom: 10px;
+}

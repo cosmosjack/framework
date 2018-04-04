@@ -1,0 +1,96 @@
+.reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.regist .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+   font-size: 5vw;
+}
+.regist .logo{
+	padding: 30px 0;
+	font-size: 5vw;
+}
+.regist .logo>h4{
+	margin-top: 20px !important;
+	letter-spacing: 3px;
+}
+.regist .form div>input{
+    background: #eeeeee;
+    line-height: 10vw;
+    border: none;
+    margin-top: 5vw;
+    box-shadow: 0 0 10px #e5e5e5 inset;
+    border-radius: 30px;
+    outline:none;
+    color:#a0a0a0;;
+}
+.regist .code{
+	position: relative;
+}
+.regist .code>button{
+  border: none;
+	color:#FFF;
+	padding: 0 35px;
+	position: absolute;
+	top: calc(50% - 2.5vw);
+	right: 16px;
+	line-height: 10vw;
+	font-size: 3.5vw;
+	background-image:linear-gradient(#e4aa46,#f48c12);
+	border-radius: 30px;
+}
+.regist .pact{
+	margin-top: 20px;
+    font-size: 3.5vw;
+    line-height: 20px;
+}
+.regist .pact input{
+	z-index: 300;
+}
+.regist .pact>span{
+	color:#ec9a2b;
+	z-index: 200;
+}
+.regist .padding_none{
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}
+.regist .reg_btn{
+	padding: 10px 0;
+	font-size: 4vw;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    color:#FFF;
+    border-radius: 30px;
+    letter-spacing: 4px;
+    margin-top: 10px;
+}
+.regist .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.regist .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.regist .point>h5{
+  padding: 10px;
+}
+.regist .point_txt{
+  padding: 10px 0;
+}

@@ -1,0 +1,76 @@
+html,body,.amend_pwd{
+    height: 100%;
+    background: #EEE;
+}
+.amend_pwd .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.amend_pwd .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.amend_pwd .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+   font-size: 5vw;
+}
+.amend_pwd .amend_content{
+   background: #FFF;
+}
+.amend_pwd .student_inf_txt>div{
+  font-size: 4vw;
+  border-bottom: 1px solid #eee;
+  padding: 4vw 15px;
+}
+.amend_pwd .student_inf_txt span{
+  padding: 0 !important; 
+}
+.amend_pwd .student_inf_txt input,.amend_pwd .student>div>div:last-child>div{
+   border: none;
+}
+.amend_pwd .amend_code{
+   position: relative;
+}
+.amend_pwd .amend_code>button{
+   position: absolute;
+   top: 2vw;
+   right: 0;
+   border: 1px solid #f48c12;
+   background: none;
+   color:#f48c12;
+   border-radius: 20px;
+   padding: 5px 15px;
+   z-index: 500;
+}
+.amend_pwd .amend_btn{
+   border: none;
+   background: linear-gradient(#e4aa46,#f48c12);
+   color:#FFF;
+   letter-spacing: 4px;
+   padding: 3vw 0;
+   margin-top: 10px;
+   border-radius: 20px; 
+}
+.amend_pwd .point{
+  padding: 10px 0;
+  padding-top:0; 
+}
+.amend_pwd .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.amend_pwd .point_txt{
+  padding: 10px;
+}

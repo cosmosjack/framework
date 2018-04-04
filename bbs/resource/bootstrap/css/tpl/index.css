@@ -1,0 +1,57 @@
+.login{
+	font-family: '微软雅黑';
+}
+.login .logo{
+	padding: 20px 0;
+	border-bottom: 10px solid #EEE;
+}
+.login .logo>h4{
+	margin-top: 20px !important;
+	letter-spacing: 3px;
+}
+.login .form{
+    padding-top: 60px;
+}
+.login .form input{
+    background: #eeeeee;
+    line-height: 10vw;
+    border: none;
+    margin-top: 10px;
+    box-shadow: 0 0 10px #e5e5e5 inset;
+    border-radius: 30px;
+    outline:none;
+    color:#a0a0a0;;
+}
+.login .pwd{
+    position: relative;
+}
+.login .pwd>span{
+	position: absolute;
+	top: calc(50% - 12px);
+	right: 18px;
+	line-height: 34px;
+	font-size: 3.5vw;
+}
+.login .reg{
+	color:#ec9a2b;
+    margin:10px 0;
+}
+.login .Btn{
+	padding: 10px 0;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    color:#FFF;
+    border-radius: 30px;
+}
+.login .point{
+	padding: 10px 0;
+	padding-top:0; 
+}
+.login .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #2871f8;
+   padding: 10px 0;
+}
+.login .point_txt{
+	padding: 10px 0;
+}

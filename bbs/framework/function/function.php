@@ -115,3 +115,20 @@ function calc_activity(){
 }
 /* 计算当前活动是否有结束的 end */
 
+/**
+ * 取得随机数,大写字母
+ *
+ * @param int $length 生成随机数的长度
+ * @param int $numeric 是否只产生数字随机数 1是0否
+ * @return string
+ */
+function randomUp($length, $numeric = 0) {
+    $seed = base_convert(md5(microtime().$_SERVER['DOCUMENT_ROOT']), 16, $numeric ? 10 : 35);
+    $seed = $numeric ? (str_replace('0', '', strtoupper($seed)).'012340567890') : (strtoupper($seed));
+    $hash = '';
+    $max = strlen($seed) - 1;
+    for($i = 0; $i < $length; $i++) {
+        $hash .= $seed{mt_rand(0, $max)};
+    }
+    return $hash;
+}

@@ -75,12 +75,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
 <script>
 
     /* 展示当前的小组  start */
-    function show_team(id){
+    function show_team(activity_no,periods){
         // 获取 选择的活动的组 情况
         $.ajax({
             url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=calc_group';?>",
             type:"GET",
-            data:{"id":id},//活动的ID
+            data:{"activity_no":activity_no,"periods":periods},//活动的no
             success:function(msg){
                 console.log(msg);
                 if(msg.code == 200){
@@ -111,34 +111,123 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
     }
     /* 展示当前的小组  end */
+
     /* 展示详细的小组情况 start */
-    function show_team_detail(){
-        console.log('ddd');
+    function show_team_detail(group_id,activity_id){
+        console.log('group_id:'+group_id+"activity_id:"+activity_id);
+        $.ajax({
+            url:"<?php echo BBS_SITE_URL.DS."index.php?act=admin_activity&op=get_team_detail";?>",
+            type:"GET",
+            data:{"group_id":group_id,"activity_id":activity_id},
+            success:function(msg){
+                console.log(msg);
+                if(msg.code == 200){
+                    $("#group_detail").empty();
+                    var d = msg.data;
+                    for(var i = 0;i< d.length;i++){
+                        $("#group_detail").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['child_name']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['child_phone']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['parents_name']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['parents_phone']+'</a></li> </ul></div>');
+                    }
+                    //改变 model3 里边的 activity_id
+                    $("input[name='activity_id']").val(activity_id);
+                    $("input[name='group_id']").val(group_id);
+                    $("#myModal3").modal("show");
+                }else{
+                    swal({title:group_id+"号小组信息",text:msg.msg,type:"error"});
 
+                }
 
-        $("#myModal3").modal("show");
+            },
+            error:function(){
+                swal({title:group_id+"号小组信息",text:"网络请求出错",type:"error"});
+
+                console.log("http error");
+            }
+        });
+
     }
     /* 展示详细的小组情况 end */
-
     // 更换老师
     function change_teacher(){
+        var group_id =  $("input[name='group_id']").val();
+        var activity_id = $("input[name='activity_id']").val();
 
-        // 改变 modal4 里边的 值
-        $("#select_change").empty();
-        $("#select_change").append('<option value="666" hassubinfo="true">赵先生</option>');
-        $("#select_change").append('<option value="777" hassubinfo="true">王大大</option>');
+        $.ajax({
+            url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=get_teacher_list';?>",
+            type:"GET",
+            data:{},
+            success:function(msg){
+                if(msg.code == 200){
 
+                    $("#model4_btn").attr("state",'teacher');
+                    // 改变 modal4 里边的 值
+                    $("#select_change").empty();
+                    var d = msg.data;
+                    for(var i = 0;i< d.length;i++){
+                        var teacher_name = d[i]['nick_name'] ? d[i]['nick_name'] : d[i]['member_name'];
+                        $("#select_change").append('<option value="'+d[i]['id']+'" hassubinfo="true">'+teacher_name+'</option>');
+                    }
 
-        $("#select_change").chosen("destroy");
-        $("#select_change").chosen();
+                    $("#select_change").chosen("destroy");
+                    $("#select_change").chosen();
 
-        $("#myModal4").modal("show");
+                    $("#myModal4").modal("show");
+                }else{
+                    swal({title:"更换领队",text:msg.msg,type:"error"});
+                }
+                console.log(msg);
+            },
+            error:function(){
+                swal({title:"更换领队",text:"网络请求出错",type:"error"});
+                console.log("http error");
+            }
+        });
+
     }
 
     // 自动分组
     function auto_group(e){
         console.log($(e).attr('index')); //activity_id
     }
+
+    /* 添加小组成员 start */
+    function add_child(){
+        //先 获取可以添加的成员
+        var group_id =  $("input[name='group_id']").val();//小组ID
+        var activity_id = $("input[name='activity_id']").val();//活动ID
+        $.ajax({
+            url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=get_other_child';?>",
+            type:"GET",
+            data:{"group_id":group_id,"activity_id":activity_id},
+            success:function(msg){
+                console.log(msg);
+                if(msg.code == 200){
+                    $("#model4_btn").attr("state",'add_child');
+                    // 改变 modal4 里边的 值
+                    $("#select_duo").empty();
+                    var d = msg.data;
+                    for(var i = 0;i< d.length;i++){
+                        $("#select_duo").append('<option value="'+d[i]['child_id']+'" hassubinfo="true">'+d[i]['child_name']+'</option>');
+                    }
+                    // 创建 chosen 对象
+                    $("#select_duo").chosen("destroy");
+                    $("#select_duo").chosen({allow_single_deselect:!0});
+                    $("#myModal5").modal("show");
+                }else{
+                    swal({title:"添加小组成员",text:msg.msg,type:"error"});
+                }
+
+            },
+            error:function(){
+                swal({title:"添加小组成员",text:"网络请求出错",type:"error"});
+
+                console.log("http error");
+            }
+        });
+
+
+
+    }
+    /* 添加小组成员 end */
 
     // 手动添加分组
     function hands_add_group(e){
@@ -175,6 +264,58 @@ defined('InCosmos') or exit('Access Invalid!');?>
         });
 
     }
+
+    /* 修改活动小组的信息 start */
+    // 这里是 修改老师 和学生的信息
+    function mod_activity(e){
+
+        var mod_state = $("#model4_btn").attr("state");
+        console.log(mod_state);
+        var chosen_val = $("#select_change").val(); // 选择的学生 或老师
+        if(mod_state == 'teacher'){
+
+            var group_id =  $("input[name='group_id']").val();//小组ID
+            var activity_id = $("input[name='activity_id']").val();//活动ID
+            // 根据选择
+            $.ajax({
+                url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=change_teacher';?>",
+                type:"GET",
+                data:{"group_id":group_id,"activity_id":activity_id,"teacher_id":chosen_val},
+                success:function(msg){
+                    console.log(msg);
+                    if(msg.code == 200){
+
+                        $("#myModal2").modal("hide");
+                        $("#myModal4").modal("hide");
+
+                        swal({title:"更改领队",text:"领队已更换,请刷新查看",type:"success"});
+
+                    }else{
+                        swal({title:"更改领队",text:msg.msg,type:"error"});
+                        return false;
+                    }
+                },
+                error:function(){
+                    swal({title:"更改领队",text:"网络请求出错",type:"error"});
+                    console.log("http error");
+                }
+            });
+
+        }else if(mod_state == 'add_child'){
+            // 将其他小组的成员添加到 这个小组里边
+            var group_id =  $("input[name='group_id']").val();//小组ID
+            var activity_id = $("input[name='activity_id']").val();//活动ID
+            var child_arr = $("#select_duo").val();
+//            console.log(child_arr); //选择的其他学员
+//            console.log("group_id"+group_id+"activity_id"+activity_id+"child_arr"+child_arr);
+
+
+
+
+
+        }
+    }
+    /* 修改活动小组的信息 end */
 </script>
 
 <div class="wrapper wrapper-content animated fadeInUp">
@@ -215,6 +356,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                         <br/>
                                         <small>发布于 <?php echo date("Y-m-d H:i:s",$val['activity_add_time']);?></small>
                                     </td>
+
                                     <td class="project-completion">
                                         <small>当前进度： <?php echo $val['percent'];?>%</small>
                                         <div class="progress progress-mini">
@@ -225,11 +367,11 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <td class="project-people">
                                         <?php if(!empty($val['teacher_arr'])){?>
                                             <?php foreach($val['teacher_arr'] as $k=>$v){?>
-                                                <a onclick="show_team(<?php echo $val['id'];?>);" ><img alt="image" class="img-circle" src="<?php echo $v['headimgurl'];?>"></a>
+                                                <a onclick="show_team('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" ><img alt="image" class="img-circle" src="<?php echo $v['headimgurl'];?>"></a>
 <!--                                                <a href=""><img alt="image" class="img-circle" src="--><?php //echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?><!--img/a3.jpg"></a>-->
                                             <?php }?>
                                         <?php }else{?>
-                                            <a onclick="show_team(<?php echo $val['id'];?>);" ><span class="text-danger">没有领队老师</span></a>
+                                            <a onclick="show_team('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" ><span class="text-danger">没有领队老师</span></a>
                                         <?php }?>
                                     </td>
                                     <td class="project-actions">
@@ -315,6 +457,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">监护人电话</a></li>
                     </ul>
                 </div>
+
                 <div id="group_detail">
 
                 </div>
@@ -335,10 +478,11 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         <li class="col-sm-3"><a href="javascript:void(0);">18825466506</a></li>
                     </ul>
                 </div>-->
-
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger pull-left">添加成员</button>
+                <button type="button" onclick="add_child();" class="btn btn-danger pull-left">添加成员</button>
+                <input type="hidden" name="activity_id" value="0" />
+                <input type="hidden" name="group_id" value="0" />
                 <button type="button" class="btn btn-success pull-left" onclick="change_teacher();" >更换领队</button>
                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary">保存s</button>
@@ -417,11 +561,89 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
             <div class="modal-footer">
                 <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">确认</button>
+                <button type="button" state="teacher" id="model4_btn" onclick="mod_activity(this);" class="btn btn-primary">确认</button>
             </div>
         </div>
     </div>
 </div>
+
+<div class="modal inmodal" id="myModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated bounceInRight row">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">成员添加</h4>
+                <small class="font-bold">添加小组的成员</small>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12">
+
+                    <div class="ibox float-e-margins">
+
+                        <div class="ibox-content">
+
+                            <div class="form-group">
+                                <!--                                <label class="font-noraml">领队老师</label>-->
+                                <div class="input-group" style="margin-left: 250px">
+                                    <select id="select_duo" data-placeholder="选择领队..." class="chosen-select" multiple style="width:350px !important;" tabindex="1">
+                                        <option value="">请选择老师</option>
+                                        <option value="110000" hassubinfo="true">赵子龙</option>
+                                        <option value="120000" hassubinfo="true">张飞</option>
+                                        <option value="130000" hassubinfo="true">吴用</option>
+                                        <option value="140000" hassubinfo="true">诸葛亮</option>
+                                        <option value="150000" hassubinfo="true">猪八戒</option>
+                                        <option value="210000" hassubinfo="true">蝎子精</option>
+                                        <option value="220000" hassubinfo="true">德玛</option>
+                                        <option value="230000" hassubinfo="true">妖姬</option>
+                                        <option value="310000" hassubinfo="true">章鱼怪</option>
+                                        <option value="320000" hassubinfo="true">艾克</option>
+                                        <option value="330000" hassubinfo="true">科比</option>
+                                        <option value="340000" hassubinfo="true">勒布朗</option>
+                                        <option value="350000" hassubinfo="true">霍金</option>
+                                        <option value="360000" hassubinfo="true">江西省</option>
+                                        <option value="370000" hassubinfo="true">山东省</option>
+                                        <option value="410000" hassubinfo="true">河南省</option>
+                                        <option value="420000" hassubinfo="true">湖北省</option>
+                                        <option value="430000" hassubinfo="true">湖南省</option>
+                                        <option value="440000" hassubinfo="true">广东省</option>
+                                        <option value="450000" hassubinfo="true">广西壮族自治区</option>
+                                        <option value="460000" hassubinfo="true">海南省</option>
+                                        <option value="500000" hassubinfo="true">重庆</option>
+                                        <option value="510000" hassubinfo="true">四川省</option>
+                                        <option value="520000" hassubinfo="true">贵州省</option>
+                                        <option value="530000" hassubinfo="true">云南省</option>
+                                        <option value="540000" hassubinfo="true">西藏自治区</option>
+                                        <option value="610000" hassubinfo="true">陕西省</option>
+                                        <option value="620000" hassubinfo="true">甘肃省</option>
+                                        <option value="630000" hassubinfo="true">青海省</option>
+                                        <option value="640000" hassubinfo="true">宁夏回族自治区</option>
+                                        <option value="650000" hassubinfo="true">新疆维吾尔自治区</option>
+                                        <option value="710000" hassubinfo="true">台湾省</option>
+                                        <option value="810000" hassubinfo="true">香港特别行政区</option>
+                                        <option value="820000" hassubinfo="true">澳门特别行政区</option>
+                                        <option value="990000" hassubinfo="true">海外</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" state="teacher"  onclick="mod_activity(this);" class="btn btn-primary">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 <script>
 //    var config={
 //        ".chosen-select":{},
@@ -432,6 +654,8 @@ defined('InCosmos') or exit('Access Invalid!');?>
 //    };
 //    for(var selector in config)$(selector).chosen(config[selector]);
 var select_chose = $("#select_change").chosen();
+var select_chose = $("#select_duo").chosen();
+
 //console.log(select_chose);
 
 </script>

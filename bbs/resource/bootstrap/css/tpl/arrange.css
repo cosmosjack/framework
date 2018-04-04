@@ -1,0 +1,81 @@
+html,body{
+  height: 100%;
+}
+.arrange{
+  background: #EEE;
+  height: 100%;
+  font-size: '微软雅黑';
+}
+.arrange .reg_top{
+    height: 50px;
+    background-image:linear-gradient(#e4aa46,#f48c12);
+    position: relative;
+}
+.arrange .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px;
+   font-size: 5vw;
+   z-index: 100;
+}
+.arrange .reg_top>span{
+	color:#FFF;
+	padding: 6px 0;
+	line-height: 36px;
+  font-size: 5vw;
+}
+.arrange .nav{
+  font-size: 4vw;
+  padding: 10px 0;
+}
+.arrange .nav>div>div{
+    border-left: 1px solid #000;
+    margin: 5px 0;
+}
+.arrange .nav>div>div:nth-child(1){
+  border: none;
+}
+.arrange .active{
+    padding: 4px 8vw;
+    border-radius: 4px;
+    color:#FFF;
+    background: #f48c12;
+}
+.arrange .a_pro{
+    background: #FFF;
+    padding: 10px 0;
+    margin-bottom: 2vw;
+}
+.arrange .a_pro>img{
+  min-height: 20vw;
+}
+.arrange .a_pro p{
+  font-size: 3.5vw;
+  margin-bottom:0; 
+}
+.arrange .a_tit{
+   display: -webkit-box;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   overflow: hidden;
+}
+.arrange .a_time{
+  color:#f48c12;
+  font-size: 3vw !important;
+}
+.arrange .a_join{
+  color:#f48c12;
+}
+.arrange .a_status{
+  padding: 0;
+  min-height: 20vw;
+  border-left: 1px solid #cccccc;
+}
+.arrange .status{
+  margin-top: 3vw;
+  color:#f48c12;
+}

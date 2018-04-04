@@ -1,0 +1,62 @@
+html,body{
+	height: 100%;
+}
+.leader_detail{
+	background: #eee;
+	width: 100%;
+	min-height: 100%;
+	margin-bottom: 15%;
+}
+.leader_detail .top{
+    background: url('../../img/background.jpg') no-repeat 0 0;
+    background-size: 100% 100%;
+    color:#fff;
+}
+.leader_detail .top_opver{
+    font-size:5vw;
+    padding-top: 3vw;
+}
+.leader_detail .logo{
+	padding-bottom: 10px;
+	font-size: 5vw;
+}
+.leader_detail .logo>img{
+	border: 1px solid #ee9d31;
+	border-radius: 50%;
+	width: 20vw;
+	background: #FFF;
+}
+.leader_detail .logo>h4{
+	margin-top: 10px !important;
+	letter-spacing: 3px;
+}
+
+.leader_detail .grade_gender{
+	font-size: 3.5vw;
+    line-height: 34px;
+}
+.leader_detail .grade_gender img{
+	max-width: 6.5vw;
+}
+.leader_detail .le_content{
+    background: #FFF;
+}
+.leader_detail .le_data{
+	border-bottom: 1px solid #EEE;
+}
+.leader_detail .le_data>div{
+    padding:2vw  0 !important;
+    font-size: 4vw;
+}
+.leader_detail .le_data>div>p:nth-child(1){
+	color:#f48c12;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap; 
+}
+.leader_detail .le_txt{
+	font-size: 4vw;
+    text-indent: 2em;
+    letter-spacing: 2px;
+    line-height: 6vw;
+}
