@@ -76,7 +76,7 @@ $config['oss']['open'] = true;
 $config['oss']['img_url'] = 'haoshaonian.oss-cn-shenzhen.aliyuncs.com';
 $config['oss']['api_url'] = 'oss-cn-shenzhen.aliyuncs.com';
 $config['oss']['bucket'] = 'haoshaonian';
-$config['oss']['access_id'] = '******';
-$config['oss']['access_key'] = '*******';
+$config['oss']['access_id'] = 'LTAIJdTtL1hzbViq';
+$config['oss']['access_key'] = 'R5FmNAlsjdQcMYfFwDfF8ON55xjT6q';
 
 return $config;
