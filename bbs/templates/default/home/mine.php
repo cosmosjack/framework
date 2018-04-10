@@ -40,9 +40,11 @@
 	    	</div>
     	</div>
     	<div class="ID row" onclick="Href('<?php echo urlBBS('set','manageSelect')?>')">
-    		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/manage.png" class="col-xs-2 img-responsive" />
+            <div class="col-xs-2 text-center">
+                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/manage.png" class=img-responsive/>
+            </div>
     		<span class="col-xs-6">身份信息管理</span>
-    		<span class="col-xs-4 text-right"><span class="glyphicon glyphicon-plus"></span></span>
+    		<span class="col-xs-4 text-right">+</span>
     	</div>
     	<div class="center">
     	  <!--成长相册-->
@@ -56,7 +58,7 @@
     		 	</div>
     		 	<div class="col-xs-6 enter row">
     		 		<div class="col-xs-12 text-right">
-    		 			<span class="added">(新增17张图片)</span><span class="glyphicon glyphicon-menu-right"></span>
+    		 			<span class="added"></span><span class="glyphicon glyphicon-menu-right"></span>
     		 		</div>
     		 	</div>
     		</div>
@@ -71,7 +73,7 @@
     		 	</div>
     		 	<div class="col-xs-6 enter row">
     		 		<div class="col-xs-12 text-right">
-    		 			<span class="added">(有新的成长记录)</span><span class="glyphicon glyphicon-menu-right"></span>
+    		 			<span class="added"></span><span class="glyphicon glyphicon-menu-right"></span>
     		 		</div>
     		 	</div>
     		</div>

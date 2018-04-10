@@ -20,7 +20,7 @@
     	<div class="pug_content overflow">
     		<div class="col-xs-12" href_url="../my_album/my_album.html">
     			<div class="overflow">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/picture.png" class="col-xs-3" />
+    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/timg.jpg" class="col-xs-3" />
     				<div class="col-xs-7 pug_txt">
     					<div>活动相册</div>
     					<div class="pug_sum"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/count.png" /><span>62</span></div>

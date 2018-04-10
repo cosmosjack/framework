@@ -21,9 +21,9 @@
         </div>
         <div class="swiper-container">
 		    <div class="swiper-wrapper">
-		        <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>
-		        <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner1.jpg" /></div>
-		        <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner2.jpg" /></div>
+		        <div class="swiper-slide banner_url" href_url=""><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>
+                <div class="swiper-slide banner_url" href_url=""><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner1.jpg" /></div>
+                <div class="swiper-slide banner_url" href_url=""><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner2.jpg" /></div>
 		    </div>
 		    <!-- 如果需要分页器 -->
 		    <div class="swiper-pagination"></div>
@@ -46,8 +46,8 @@
     			<span class="col-xs-12">明星领队</span>
     		</div>
         </div>
-        <div class="content container-fluid" style="margin-bottom:50px;">
-        	 <div class="title row">
+        <div class="content" style="margin-bottom:50px;">
+        	 <div class="title overflow">
         	 	 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/title.png" class="col-xs-12"  />
         	 </div>
         	 <!--产品-->

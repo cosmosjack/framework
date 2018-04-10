@@ -28,16 +28,19 @@
         <!--轮播图-->
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>
+                <?php foreach($output['banner'] as $val):?>
+                  <div class="swiper-slide"><img src="<?php echo $val['file_name'];?>" /></div>
+                <?php endforeach;?>
+                <!-- <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>
                 <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner1.jpg" /></div>
-                <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner2.jpg" /></div>
+                <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner2.jpg" /></div> -->
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
         </div>
         <div class="odpro_title overflow">
             <div class="col-xs-12">
-                <span class="city">【惠州】</span>宝贝加油，亲子互动这里是标题这里是标题如果太长就这样换行【惠州】宝贝加油，亲子互动这里是标题这里是标题如果太长就这样换行
+                <span class="city">【<?php echo getAreaName($output['info']['activity_city'])?>】</span><?php echo $output['info']['activity_title']?>
             </div>
         </div>
         <div class="pro_class overflow">
@@ -45,32 +48,35 @@
              <div class="place col-xs-12 overflow">
                 <div>
                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" />
-                    <div>惠州市西湖大门口如果地址过长就换到这一行</div>
+                    <div><?php echo $output['info']['address']?></div>
                 </div>
                 <div>
                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/time.png" />
-                    <div>2018-3-12</div>
+                    <div><?php echo date('Y-m-d',$output['info']['activity_begin_time'])?></div>
                 </div>
              </div>
         </div>
         <div class="seo overflow container-fluid">
             <p class="col-xs-12 team_name"></p>
+            <?php foreach($output['groupInfo'] as $val):?>
+            <?php if($val['total_num'] > 0):?>
             <div class="team col-xs-12 overflow">
                 <p class="col-xs-12 name">
                     <span>战狼队</span>
-                    <span class="pull-right" onclick="Href('<?php echo urlBBS('activity','member')?>')">小组成员 ></span>
+                    <span class="pull-right" onclick="Href('<?php echo urlBBS('activity','member',array('id'=>$val['group_id']))?>')">小组成员 ></span>
                 </p>
                 <div class="col-xs-12 past_img">
                     <div class="main">
                         <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png"  />
                     </div>
                     <!--最多展现4个-->
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" />
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" />
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" />
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" />
+                    <?php foreach($output['group_arr'][$val['group_id']] as $v):?>
+                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" alt="<?php echo $v['child_name']?>" />
+                    <?php endforeach;?>
                 </div>
             </div>
+          <?php endif;?>
+          <?php endforeach;?>
         </div>
         <div class="pro_content">
             <!--推荐-->
@@ -81,7 +87,7 @@
                     <div class="col-xs-6"><span>活动评估 </span></div>  
                 </div>
                 <div class="overflow activityContent col-xs-12 text-left">
-                    谷歌
+                    <?php echo $output['info']['activity_desc']?>
                 </div>
                 <!--活动信息-->
                 <div class="activity_deta_info overflow col-xs-12 text-left">
@@ -108,10 +114,10 @@
                                     <span class="user_time">2018-3-12 20:10</span>
                                </div>
                                <div class="col-xs-4 degree text-right">
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
                                </div>
                             </div>
                             <p class="col-xs-12">
@@ -136,10 +142,10 @@
                                     <span class="user_time">2018-3-12 20:10</span>
                                </div>
                                <div class="col-xs-4 degree text-right">
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
                                </div>
                             </div>
                             <p class="col-xs-12">

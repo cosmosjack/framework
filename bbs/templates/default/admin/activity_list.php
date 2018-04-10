@@ -90,11 +90,14 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     for(var i=0;i<d.length;i++){
                         var teacher_name = d[i]['teacher_name'] ? d[i]['teacher_name'] : "暂无领队";
                         var teacher_phone = d[i]['teacher_phone'] ? d[i]['teacher_phone'] : "暂无电话";
-                        $("#group_info").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-2"><a href="javascript:void(0);">'+d[i]['group_id']+'号小组</a></li> <li class="col-sm-2"><a href="javascript:void(0);">'+d[i]['total_num']+'人</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+teacher_name+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+teacher_phone+'</a></li> <li class="col-sm-2"><button onclick="show_team_detail('+d[i]['group_id']+','+d[i]['activity_id']+');" class="btn btn-sm btn-primary">分配</button></li> </ul> </div>');
+                        $("#group_info").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-2"><a href="javascript:void(0);">'+d[i]['group_id']+'号小组</a></li> <li class="col-sm-2"><a href="javascript:void(0);">'+d[i]['total_num']+'人</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+teacher_name+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+teacher_phone+'</a></li> <li class="col-sm-2"><button onclick="show_team_detail('+d[i]['group_id']+',\''+d[i]['activity_no']+'\','+d[i]['activity_periods']+');" class="btn btn-sm btn-primary">分配</button></li> </ul> </div>');
                     }
                     // 自动分组 添加上相应的 活动ID
-                    $("#auto_group_btn").attr("index",id);
-                    $("#hands_add_btn").attr("index",id);
+                    $("#auto_group_btn").attr("index",activity_no);
+                    $("#auto_group_btn").attr("periods",periods);
+
+                    $("#hands_add_btn").attr("index",activity_no);
+                    $("#hands_add_btn").attr("periods",periods);
                     $("#myModal2").modal("show");
 
                 }else{
@@ -113,12 +116,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
     /* 展示当前的小组  end */
 
     /* 展示详细的小组情况 start */
-    function show_team_detail(group_id,activity_id){
-        console.log('group_id:'+group_id+"activity_id:"+activity_id);
+    function show_team_detail(group_id,activity_no,activity_periods){
+        console.log('group_id:'+group_id+"activity_no:"+activity_no+"activity_periods"+activity_periods);
         $.ajax({
             url:"<?php echo BBS_SITE_URL.DS."index.php?act=admin_activity&op=get_team_detail";?>",
             type:"GET",
-            data:{"group_id":group_id,"activity_id":activity_id},
+            data:{"group_id":group_id,"activity_no":activity_no,"activity_periods":activity_periods},
             success:function(msg){
                 console.log(msg);
                 if(msg.code == 200){
@@ -127,8 +130,9 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     for(var i = 0;i< d.length;i++){
                         $("#group_detail").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['child_name']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['child_phone']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['parents_name']+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+d[i]['parents_phone']+'</a></li> </ul></div>');
                     }
-                    //改变 model3 里边的 activity_id
-                    $("input[name='activity_id']").val(activity_id);
+                    //改变 model3 里边的 activity_no
+                    $("input[name='activity_no']").val(activity_no);
+                    $("input[name='periods']").val(activity_periods);
                     $("input[name='group_id']").val(group_id);
                     $("#myModal3").modal("show");
                 }else{
@@ -193,11 +197,11 @@ defined('InCosmos') or exit('Access Invalid!');?>
     function add_child(){
         //先 获取可以添加的成员
         var group_id =  $("input[name='group_id']").val();//小组ID
-        var activity_id = $("input[name='activity_id']").val();//活动ID
+        var activity_no = $("input[name='activity_no']").val();//活动ID
         $.ajax({
             url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=get_other_child';?>",
             type:"GET",
-            data:{"group_id":group_id,"activity_id":activity_id},
+            data:{"group_id":group_id,"activity_no":activity_no},
             success:function(msg){
                 console.log(msg);
                 if(msg.code == 200){
@@ -206,7 +210,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     $("#select_duo").empty();
                     var d = msg.data;
                     for(var i = 0;i< d.length;i++){
-                        $("#select_duo").append('<option value="'+d[i]['child_id']+'" hassubinfo="true">'+d[i]['child_name']+'</option>');
+                        $("#select_duo").append('<option value="'+d[i]['id']+'" hassubinfo="true">'+d[i]['child_name']+'</option>');
                     }
                     // 创建 chosen 对象
                     $("#select_duo").chosen("destroy");
@@ -241,6 +245,9 @@ defined('InCosmos') or exit('Access Invalid!');?>
             success:function(msg){
                 console.log(msg);
                 if(msg.code == 200){
+                    // 改变 model4_btn  的state 状态为 添加小组
+                    $("#model4_btn").attr("state","add_group");
+
                     // 改变 modal4 里边的 值
                     $("#select_change").empty();
                     var d = msg.data;
@@ -275,12 +282,13 @@ defined('InCosmos') or exit('Access Invalid!');?>
         if(mod_state == 'teacher'){
 
             var group_id =  $("input[name='group_id']").val();//小组ID
-            var activity_id = $("input[name='activity_id']").val();//活动ID
+            var activity_no = $("input[name='activity_no']").val();//活动no
+            var periods = $("input[name='periods']").val();//活动 periods
             // 根据选择
             $.ajax({
                 url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=change_teacher';?>",
                 type:"GET",
-                data:{"group_id":group_id,"activity_id":activity_id,"teacher_id":chosen_val},
+                data:{"group_id":group_id,"activity_no":activity_no,"teacher_id":chosen_val,"periods":periods},
                 success:function(msg){
                     console.log(msg);
                     if(msg.code == 200){
@@ -304,18 +312,76 @@ defined('InCosmos') or exit('Access Invalid!');?>
         }else if(mod_state == 'add_child'){
             // 将其他小组的成员添加到 这个小组里边
             var group_id =  $("input[name='group_id']").val();//小组ID
-            var activity_id = $("input[name='activity_id']").val();//活动ID
+            var activity_no = $("input[name='activity_no']").val();//活动no
+            var periods = $("input[name='periods']").val();//活动期数
             var child_arr = $("#select_duo").val();
-//            console.log(child_arr); //选择的其他学员
+            console.log(child_arr); //选择的其他学员
+            $.ajax({
+                url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=mod_child_group';?>",
+                type:"GET",
+                data:{"group_id":group_id,"child_arr":child_arr,"activity_no":activity_no},
+                success:function(msg){
+                    console.log(msg);
+                    if(msg.code == 200){
+                        $("#myModal5").modal("hide");
+                        $("#myModal3").modal("hide");
+                        $("#myModal2").modal("hide");
+                        swal({title:"添加成员",text:"成员已添加,请刷新查看",type:"success"});
+
+                    }else{
+                        swal({title:"添加小组成员",text:msg.msg,type:"error"});
+                        return false;
+                    }
+                },
+                error:function(){
+                    swal({title:"添加成员",text:"网络请求出错",type:"error"});
+                    console.log("http error");
+                }
+            });
+            // 直接将其他apply_id  改变为 group_id
+
 //            console.log("group_id"+group_id+"activity_id"+activity_id+"child_arr"+child_arr);
 
+        }else if(mod_state == 'add_group'){
+            // 手动添加一个新的小组  根据选择的 apply_id  来添加一个新的小组  查出当前小组的最大数
+            var apply_id  = $("#select_change").val();
+            $.ajax({
+                url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=add_new_group';?>",
+                type:"GET",
+                data:{"apply_id":apply_id},
+                success:function(msg){
+                    console.log(msg);
+                    if(msg.code == 200){
+                        $("#myModal4").modal("hide");
+                        $("#myModal2").modal("hide");
+                        swal({title:"小组添加",text:"小组已添加,请刷新查看",type:"success"});
 
+                    }else{
+                        swal({title:"添加小组",text:msg.msg,type:"error"});
+                        return false;
+                    }
+                },
+                error:function(){
+                    swal({title:"添加小组",text:"网络请求出错",type:"error"});
+                    console.log("http error");
+                }
 
-
-
+            });
         }
     }
     /* 修改活动小组的信息 end */
+
+    /* 添加期数 start */
+    function add_periods(activity_no,periods){
+        location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=add_new_periods&activity_no=';?>"+activity_no+"&periods="+periods;
+    }
+    /* 添加期数 end */
+
+    /* 展示其他期数列表 start */
+    function show_periods(activity_no){
+        location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_list&is_periods=true&activity_no=';?>"+activity_no;
+    }
+    /* 展示其他期数列表 end */
 </script>
 
 <div class="wrapper wrapper-content animated fadeInUp">
@@ -324,9 +390,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
             <div class="ibox">
                 <div class="ibox-title">
-                    <h5>所有活动</h5>
+                    <h5><? if($output['is_periods']){echo '活动期数列表';}else{echo "活动列表";};?></h5>
                     <div class="ibox-tools">
-                        <a href="" class="btn btn-primary btn-xs">发布新活动</a>
+                        <?php if($output['is_periods']){?>
+                            <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_list';?>" class="btn btn-success btn-xs">返回活动列表</a>
+                        <?}?>
+                        <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_add';?>" class="btn btn-primary btn-xs">发布新活动</a>
                     </div>
                 </div>
                 <div class="ibox-content">
@@ -354,29 +423,38 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <td class="project-title">
                                         <a href="project_detail.html"><?php echo $val['activity_title'];?></a>
                                         <br/>
-                                        <small>发布于 <?php echo date("Y-m-d H:i:s",$val['activity_add_time']);?></small>
+                                        <small>发布于 <?php echo date("Y-m-d H:i:s",$val['activity_add_time']);?> </small>
+                                    </td>
+
+                                    <td class="project-time">
+                                        <span class="text-success"><?php echo date("Y-m-d",$val['activity_begin_time']);?>早 <small style="color: #8b0000;margin-left: 5px;margin-right: 5px;">至</small>  <?php echo date("Y-m-d",$val['activity_end_time']);?>晚 </span>
                                     </td>
 
                                     <td class="project-completion">
-                                        <small>当前进度： <?php echo $val['percent'];?>%</small>
+                                        <small>当前进度： <?php echo $val['percent'];?>% </small><small style="margin-left: 10px;" class="text-success">总人数:<?php echo $val['total_number'];?></small>
                                         <div class="progress progress-mini">
                                             <div style="width: <?php echo $val['percent'];?>%;" class="progress-bar"></div>
                                         </div>
+
                                     </td>
 
                                     <td class="project-people">
-                                        <?php if(!empty($val['teacher_arr'])){?>
-                                            <?php foreach($val['teacher_arr'] as $k=>$v){?>
-                                                <a onclick="show_team('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" ><img alt="image" class="img-circle" src="<?php echo $v['headimgurl'];?>"></a>
-<!--                                                <a href=""><img alt="image" class="img-circle" src="--><?php //echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;?><!--img/a3.jpg"></a>-->
-                                            <?php }?>
-                                        <?php }else{?>
-                                            <a onclick="show_team('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" ><span class="text-danger">没有领队老师</span></a>
-                                        <?php }?>
+                                        <?php /*if(!empty($val['teacher_arr'])){*/?><!--
+                                            <?php /*foreach($val['teacher_arr'] as $k=>$v){*/?>
+                                                <a onclick="show_team('<?php /*echo $val['activity_no'];*/?>','<?php /*echo $val['activity_periods'];*/?>');" ><img alt="image" class="img-circle" src="<?php /*echo $v['headimgurl'];*/?>"></a>
+                                                <a href=""><img alt="image" class="img-circle" src="<?php /*echo BBS_RESOURCE_SITE_URL.DS."bootstrap".DS;*/?>img/a3.jpg"></a>
+                                            <?php /*}*/?>
+                                        <?php /*}else{*/?>
+                                            <a onclick="show_team('<?php /*echo $val['activity_no'];*/?>','<?php /*echo $val['activity_periods'];*/?>');" ><span class="text-danger">没有领队老师</span></a>
+                                        --><?php /*}*/?>
+                                        <a onclick="show_team('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" ><span class="text-danger">查看队伍</span></a>
+                                        <span class="text-success">第<?php echo $val['activity_periods'];?>期</span>
                                     </td>
                                     <td class="project-actions">
-                                        <a href="#" class="btn btn-white btn-sm"><i class="fa fa-folder"></i> 查看 </a>
-                                        <a href="#" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+
+                                        <a href="#" onclick="add_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> 加期 </a>
+                                        <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>')" class="btn btn-danger btn-sm"><i class="fa fa-folder"></i> 期数 </a>
+                                        <?php if($val['state'] == '未开始'){echo '<a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>';}?>
                                     </td>
                                 </tr>
                             <?php }?>
@@ -431,10 +509,10 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-success pull-left" onclick="auto_group(this);" id="auto_group_btn" index="0">自动分组</button>
-                <button type="button" class="btn btn-danger pull-left" onclick="hands_add_group(this)" id="hands_add_btn" index="0">手动新增</button>
+<!--                <button type="button" class="btn btn-success pull-left" onclick="auto_group(this);" id="auto_group_btn" index="0" periods="0">自动分组</button>-->
+                <button type="button" class="btn btn-danger pull-left" onclick="hands_add_group(this)" id="hands_add_btn" index="0" periods="0">新增小组</button>
                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存s</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
             </div>
         </div>
     </div>
@@ -481,11 +559,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
             </div>
             <div class="modal-footer">
                 <button type="button" onclick="add_child();" class="btn btn-danger pull-left">添加成员</button>
-                <input type="hidden" name="activity_id" value="0" />
+                <input type="hidden" name="activity_no" value="0" />
+                <input type="hidden" name="periods" value="0" />
                 <input type="hidden" name="group_id" value="0" />
                 <button type="button" class="btn btn-success pull-left" onclick="change_teacher();" >更换领队</button>
                 <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">保存s</button>
+<!--                <button type="button" class="btn btn-primary">保存s</button>-->
             </div>
         </div>
     </div>

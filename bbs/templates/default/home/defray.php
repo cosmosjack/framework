@@ -21,7 +21,7 @@
         <div class="de_content container-fluid">
             <div class="overflow">
                 <div class="col-xs-12 teacher">
-                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" class="col-xs-4" />
+                     <img src="<?php echo $output['info']['activity_index_pic']?>!product-60" class="col-xs-4" />
                      <div class="col-xs-8">
                         <p class="col-xs-12"><?php echo $output['info']['activity_ptitle']?></p>
                         <div class="teacher_age col-xs-12">
@@ -52,15 +52,15 @@
                             <span>儿童票：</span><span class="de_price">&yen;<span><?php echo $output['info']['activity_price']?></span></span>
                         </div>
                         <div class="col-xs-6 text-right">
-                            <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/down.png"  class="less" />
+                            <!-- <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/down.png"  class="less" /> -->
                             <span class="de_num">0</span>
-                            <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/up.png" class="push" />
+                            <!-- <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/up.png" class="push" /> -->
                         </div>
                     </div>
-                    <div class="col-xs-12 de_coupon">
+                    <!-- <div class="col-xs-12 de_coupon">
                         <span>我的优惠券：</span>
                         <span class="pull-right">-0.00 ></span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
@@ -108,6 +108,15 @@
     </div>
     <div class="de_btn overflow text-center">
         <div class="col-xs-6 total">总计：<span>0.00</span>元</div>
+        <!-- <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
+            <div class="col-xs-6" style="background:#ccc">已满额</div>
+        <?php elseif($output['info']['activity_begin_time']-3600*24 < time()):?>
+            <div class="col-xs-6" style="background:#ccc">报名已截止</div>
+        <?php elseif($output['info']['activity_end_time'] < time()):?>
+            <div class="col-xs-6" style="background:#ccc">活动已结束</div>
+        <?php else:?>
+            <div class="col-xs-6 go_debtn">去付款</div>
+        <?php endif;?> -->
         <div class="col-xs-6 go_debtn">去付款</div>
     </div>
     <!--支付成功弹框-->

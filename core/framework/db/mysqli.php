@@ -132,7 +132,6 @@ class Db{
                 $array[] = $tmp;
             }
         }
-
 		return !empty($array) ? $array : null;
 	}
 

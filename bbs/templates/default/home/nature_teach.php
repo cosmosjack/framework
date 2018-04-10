@@ -43,7 +43,7 @@
 	  <div class="na_pro container-fluid">
 	  	  <div class="index_pro" href_url="../recom_active/recom_active.html">
         	 	<div class="row index_pro_Img">
-        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="col-xs-10 col-xs-offset-1 pro_img" />
+        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/unpaid_s.png" class="col-xs-10 col-xs-offset-1 pro_img" />
                     <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
         	 		<div class="col-xs-10 col-xs-offset-1 mask">
         	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>

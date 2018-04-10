@@ -21,10 +21,7 @@
                 <span class="pull-right Upload" id="UpBtn" onclick="Href('<?php echo urlBBS('mine','uploadImg')?>')">上传图片</span>
             </span>
     	</div>
-    	<div class="ph_content overflow">
-           <!--此处图片的类名col-xs-6-->
-           
-    	</div>
+    	
         <input type="hidden" id="activity" value="<?php echo $output['info']['id']?>">
     </div>
     <div class="ph_mask overflow">

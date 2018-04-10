@@ -23,6 +23,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
 <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
 <script type="text/javascript" charset="utf-8" src="<?php echo BBS_RESOURCE_SITE_URL;?>/ueditor/lang/zh-cn/zh-cn.js"></script>
 <!-- 插件 -->
+
 <!-- 日期选择 start -->
 <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 <!-- 日期选择 end -->

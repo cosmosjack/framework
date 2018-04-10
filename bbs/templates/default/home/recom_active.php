@@ -90,21 +90,21 @@
                 <div class="overflow col-xs-12 pro_recom" style="display: none;">
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
-                        <div class="row index_pro_Img" onclick="Href('<?php echo urlBBS('activity','detail',array('id'=>$val['id']))?>')">
-                            <img src="<?php echo $val['activity_index_pic']?>" class="col-xs-10 col-xs-offset-1 pro_img" />
+                        <div class="overflow index_pro_Img" onclick="Href('<?php echo urlBBS('activity','detail',array('id'=>$val['id']))?>')">
+                            <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" />
                             <?php if($val['total_number']-$val['already_num'] == 0):?>
-                            <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
+                            <div class="Prompt text-right"><span>已满额<span></div>
                             <?php elseif($val['total_number']-$val['already_num'] < 5):?>
-                                <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>即将满额<span></div>
+                                <div class="Prompt text-right"><span>即将满额<span></div>
                             <?php else:?>
                                 
                             <?php endif;?>
-                            <div class="col-xs-10 col-xs-offset-1 mask">
+                            <div class="mask">
                                 <span class="pull-left"><?php echo $val['address']?> <?php echo $val['min_age'].'-'.$val['max_age']?>岁</span>
                                 <span class="pull-left text-right"><?php echo $val['activity_tag']?></span>
                             </div>
                         </div>
-                        <div class="row pro_tit">
+                        <div class="overflow pro_tit">
                             <div class="col-xs-10 col-xs-offset-1">
                                 <span class="pull-left">
                                     <span class="city">【惠州】</span><?php echo mb_substr($val['activity_title'],0,6,'utf-8')?>
@@ -115,7 +115,7 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="row time_price">
+                        <div class="overflow time_price">
                             <div class="col-xs-10 col-xs-offset-1">
                                 <div class="pull-left text-left">
                                     <p><?php echo date('m月d日',$val['activity_begin_time'])?>到<?php echo date('m月d日',$val['activity_end_time'])?></p>
@@ -134,12 +134,16 @@
         
     </div>
     <div class="or_footer overflow text-center">
-        <span class="col-xs-6 total">咨询</span>
-        <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
-        <span class="or_btn col-xs-6" style="background:#ccc">已满额</span>
+        <!-- <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
+            <span class="or_btn col-xs-12" style="background:#ccc">已满额</span>
+        <?php elseif($output['info']['activity_begin_time']-3600*24 < time()):?>
+            <span class="or_btn col-xs-12" style="background:#ccc">报名已截止</span>
+        <?php elseif($output['info']['activity_end_time'] < time()):?>
+            <span class="or_btn col-xs-12" style="background:#ccc">活动已结束</span>
         <?php else:?>
-        <span class="or_btn col-xs-6" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$output['info']['id']))?>')">购买</span>
-        <?php endif;?>
+            <span class="or_btn col-xs-12" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$output['info']['id']))?>')">购买</span>
+        <?php endif;?> -->
+        <span class="or_btn col-xs-12" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$output['info']['id']))?>')">购买</span>
     </div>
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog remodal modal-sm" role="document">

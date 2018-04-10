@@ -38,12 +38,11 @@
     		<button class="button out_btn col-xs-8 col-xs-offset-2">退出登录</button>
     	</div>
         <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-            <div class="modal-dialog modal-sm row" role="document">
+           <div class="modal-dialog modal-sm row" role="document">
                 <div class="modal-content col-xs-10 point col-xs-offset-1">
-                     <h4 class="col-xs-12 text-center">提示</h4>
-                     <h5 class="col-xs-12 text-center point_txt"></h5>
-                     <button class="btn btn-primary col-xs-4 col-xs-offset-1 Hide_u">取消</button>
-                     <button class="btn btn-default col-xs-4 col-xs-offset-2 Hide_url" onclick="Href('<?php echo urlBBS('mine','signOut')?>')">确定</button>
+                        <h4 class="col-xs-12 text-center">是否退出登录</h4>
+                        <button class="col-xs-6 Hide_url" onclick="Href('<?php echo urlBBS('mine','signOut')?>')">确定</button>
+                        <button class="col-xs-6 aHide">取消</button>
                 </div>
             </div>
         </div>

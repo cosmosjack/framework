@@ -30,9 +30,9 @@
     			<input type="text" name="" placeholder="请输入验证码" class="col-xs-12" />
     			<button class="code_btn" href_url="<?php echo urlBBS('index','sendMessage')?>">验证码<span id="Time"></span></button>
     		</div>
-    		<div class="pact text-center padding_none col-xs-10 col-xs-offset-1 row" >
-			        <input type="checkbox" name="optionsRadios" id="pact"   value="option2">
-			       我已阅读并同意 <span href_url='url'>《好少年宫活动协议》</span>
+    		<div class="pact text-center col-xs-10 col-xs-offset-1 row" id="pact">
+			        <span class="re_radio" id="re_radio"><span></span></span>
+			       我已阅读并同意 <span class="href_url" href_url='url'>《好少年宫活动协议》</span>
 			</div>
     	</div>
     	<div class="row">

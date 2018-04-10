@@ -29,7 +29,6 @@ class Model{
 		}
 
 	}
-
     /**
      * 删除表主键缓存
      */
@@ -364,6 +363,26 @@ class Model{
         return $result;
     }
 
+    public function get_now_sql($data='',$options=array()){
+        if(empty($data)) return false;
+        // 分析表达式
+        $options =  $this->parse_options($options);
+        if(!isset($options['where'])) {
+            // 如果存在主键,自动作为更新条件
+            if(isset($data[$this->get_pk()])) {
+                $pk   =  $this->get_pk();
+                $where[$pk]   =  $data[$pk];
+                $options['where']  =  $where;
+                $pkValue = $data[$pk];
+                unset($data[$pk]);
+            }else{
+                return false;
+            }
+        }
+        $result = $this->db->get_now_sql($data,$options);
+        return $result;
+    }
+
 	/**
 	 * 插入
 	 *
@@ -411,6 +430,7 @@ class Model{
 	 * @return array
 	 */
 	public function query($sql){
+//        p($sql);
 		return DB::getAll($sql);
 	}
 
@@ -962,6 +982,22 @@ class ModelDb{
             }
         return DB::execute($sql);
     }
+
+    public function get_now_sql($data,$options) {
+        $sql   = 'UPDATE '
+            .$this->parseAttr($options)
+            .$this->parseTable($options)
+            .$this->parseSet($data)
+            .$this->parseWhere(isset($options['where'])?$options['where']:'')
+            .$this->parseOrder(isset($options['order'])?$options['order']:'')
+            .$this->parseLimit(isset($options['limit'])?$options['limit']:'');
+        if (stripos($sql,'where') === false && $options['where'] !== true){
+            //防止条件传错，更新所有记录
+            return false;
+        }
+        return $sql;
+    }
+
 
 	public function parseAttr($options){
 		if (isset($options['attr'])){
