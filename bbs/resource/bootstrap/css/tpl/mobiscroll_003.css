@@ -1,7 +1,7 @@
 /* Android ICS skin */
 .android-ics .dw {
     padding: 0;
-    color: #31b6e7;
+    color: #e25428;
     background: #292829;
 }
 .android-ics .dw .dwwc,
@@ -25,7 +25,7 @@
     height: 36px;
     line-height: 36px;
     padding: 0;
-    border-bottom: 2px solid #31b6e7;
+    border-bottom: 2px solid #e25428;
     font-size: 18px;
 }
 .android-ics .dwwl {
@@ -99,8 +99,8 @@
     width: 60%;
     left: 20%;
     height: 36px;
-    border-top: 2px solid #31b6e7;
-    border-bottom: 2px solid #31b6e7;
+    border-top: 2px solid #e25428;
+    border-bottom: 2px solid #e25428;
     margin-top: -20px;
     display: block;
 }

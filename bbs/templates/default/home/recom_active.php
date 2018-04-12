@@ -8,6 +8,33 @@
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/recom_active.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/swiper-3.4.2.min.css" />
+    <style type="text/css">
+        .recom_active .title{
+          background: #FFF;
+          overflow: auto;
+          padding: 0;
+          margin: 10px 0;
+        }
+        .recom_active .title_ul{
+          margin: 0;
+          padding: 0;
+          overflow: auto;
+          white-space: nowrap;
+        }
+        .recom_active .title_ul>li{
+          float: left;
+          list-style: none;
+          padding:6px;
+          margin-right: 10px;
+        }
+        .recom_active .session{
+            font-size: 14px;
+           border: 1px solid #e25428;
+           border-radius: 10px;
+           color:#e25428;
+           box-sizing: border-box;
+        }
+    </style>
 </head>
 <body>
     <div class="recom_active">
@@ -48,19 +75,33 @@
 			</div>
 		</div>
         <div class="pro_class overflow">
-             <!-- <p class="col-xs-12"><?php echo $output['info']['activity_tag']?></p> -->
-             <div class="col-xs-9">
-                <span class="city"><?php echo $output['info']['activity_tag']?></span>
-            </div>
-            <div class="col-xs-3">
-                <span onclick="Href('<?php echo urlBBS('pastActivity','detail')?>')">往期活动</span>
-            </div>
+            <!-- <p class="col-xs-12"><?php echo $output['info']['activity_tag']?></p> -->
+            <p class="col-xs-12"><?php echo $output['info']['activity_ptitle']?></p>
         </div>
         <div class="price_time overflow">
             <div class="col-xs-12 overflow">
                 <span class="price">&yen;<?php echo $output['info']['activity_price']?></span>
-                <span class="importance coupon" onclick="Href('<?php echo urlBBS('mine','coupon')?>')">优惠券兑换>></span>
-                <span class="time pull-right">报名截止<?php echo date('m月d日',$output['info']['activity_begin_time']-3600*24)?></span>
+                <!-- <span class="importance coupon" onclick="Href('<?php echo urlBBS('mine','coupon')?>')">优惠券兑换>></span> -->
+                <span class="time pull-right">报名截止:<?php echo date('m月d日 H:i:s',$output['info']['activity_begin_time']-3600*12)?></span>
+            </div>
+        </div>
+        <div class="overflow" style="background: #FFF">
+            <div class="col-xs-12 pad_none">
+                <?php if(!empty($output['periods'])):?>
+                <span>其他期数：</span>
+                <div class="title overflow col-xs-12">
+                   <ul class="title_ul text-center">
+                    <?php foreach($output['periods'] as $val):?>
+                        <li class="session" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">
+                            <div>
+                                <p><?php echo date('m月d',$val['activity_begin_time'])?>~<?php echo date('m月d',$val['activity_end_time'])?></p>
+                                    <p>报名中</p>
+                            </div>
+                        </li>
+                    <?php endforeach;?>
+                   </ul> 
+                </div>
+                <?php endif;?>
             </div>
         </div>
         <div class="pro_content">
@@ -90,8 +131,11 @@
                 <div class="overflow col-xs-12 pro_recom" style="display: none;">
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
-                        <div class="overflow index_pro_Img" onclick="Href('<?php echo urlBBS('activity','detail',array('id'=>$val['id']))?>')">
+                        <div class="overflow index_pro_Img">
                             <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" />
+                            <div class="num_periods">
+                                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                            </div>
                             <?php if($val['total_number']-$val['already_num'] == 0):?>
                             <div class="Prompt text-right"><span>已满额<span></div>
                             <?php elseif($val['total_number']-$val['already_num'] < 5):?>
@@ -122,7 +166,7 @@
                                     <p class="price">&yen;<?php echo $val['activity_price']?></p>
                                 </div>
                                 <div class="row pull-left text-right">
-                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$val['id']))?>')">去订票</button>
+                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">去订票</button>
                                 </div>
                             </div>
                         </div>
@@ -134,16 +178,15 @@
         
     </div>
     <div class="or_footer overflow text-center">
-        <!-- <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
+        <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
             <span class="or_btn col-xs-12" style="background:#ccc">已满额</span>
-        <?php elseif($output['info']['activity_begin_time']-3600*24 < time()):?>
+        <?php elseif($output['info']['activity_begin_time']-3600*12 < time()):?>
             <span class="or_btn col-xs-12" style="background:#ccc">报名已截止</span>
         <?php elseif($output['info']['activity_end_time'] < time()):?>
             <span class="or_btn col-xs-12" style="background:#ccc">活动已结束</span>
         <?php else:?>
-            <span class="or_btn col-xs-12" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$output['info']['id']))?>')">购买</span>
-        <?php endif;?> -->
-        <span class="or_btn col-xs-12" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$output['info']['id']))?>')">购买</span>
+            <span class="or_btn col-xs-12" onclick="Href('<?php echo urlBBS('activity','defray',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>')">购买</span>
+        <?php endif;?>
     </div>
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog remodal modal-sm" role="document">

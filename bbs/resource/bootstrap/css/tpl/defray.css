@@ -7,7 +7,7 @@ html,body,.defray{
 }
 .defray .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .defray .oprev{
@@ -18,14 +18,14 @@ html,body,.defray{
    background: none;
    color:#FFF;
    line-height: 36px !important;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .defray .reg_top>span{
   color:#FFF;
   padding: 6px 0;
   line-height: 36px;
-   font-size: 5vw;
+   font-size: 18px;
 }
 .defray .de_content{
    margin-top: 10px;
@@ -35,14 +35,20 @@ html,body,.defray{
 }
 .defray .teacher{
   padding:  0;
-  margin-bottom: 2vw;
+  margin-bottom: 8px;
+}
+.defray .teacher p{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding-right: 0;
 }
 .defray .teacher>img{
   padding: 0;
-  min-height: 20vw;
+  min-height: 80px;
 }
 .defray .teacher>div{
-  height: 20vw;
+  min-height: 80px;
   position: relative;
   padding-left: 0;
 }
@@ -54,12 +60,12 @@ html,body,.defray{
 }
 .defray .teacher_age>p{
 	margin: 0;
-	font-size: 3vw;
-	margin-top: 2vw;
+	font-size: 12px;
+	margin-top: 2px;
 }
 .defray .teacher_img{
-   width: 5vw;
-   margin-right: 2vw;
+   width: 15px;
+   margin-right: 2px;
 }
 .defray .teacher>span{
   color:#f19931;
@@ -92,35 +98,35 @@ html,body,.defray{
   padding:10px;
 }
 .defray .session{
-	font-size: 3.5vw;
-   border: 1px solid #f19931;
+	font-size: 14px;
+   border: 1px solid #e25428;
    margin-left: 10px;
    border-radius: 10px;
-   color:#f19931;
+   color:#e25428;
    box-sizing: border-box;
 }
 .defray .active{
-   background: #f19931;
+   background: #e25428;
    color:#FFF;
 }
 .defray .package{
    border-bottom: 1px solid #EEE;
    padding: 5px 0;
-   font-size: 4vw;
+   font-size: 14px;
 }
 .defray .de_num{
    margin: 0 5px;
 }
 .defray .de_price{
-   color:#f19931;
+   color:#e25428;
 }
 .defray .de_coupon{
-	font-size: 4vw;
+	font-size: 14px;
     padding: 5px 15px;
 }
 .defray .de_user{
 	margin-top: 10px;
-	font-size: 4vw;
+	font-size: 14px;
 	background: #FFF;
 }
 .defray .de_user>div{
@@ -144,36 +150,36 @@ html,body,.defray{
   border: none;
 }
 .defray .radio{
-	border:1px solid #f48c12;
+	border:1px solid #e25428;
 	border-radius: 50%;
-	width: 5vw;
-	height: 5vw;
+	width: 18px;
+	height: 18px;
 	float: left;
 }
 .defray .contract{
-	line-height: calc(5vw + 20px);
-	margin-left: 2vw;
-	font-size: 3.5vw;
+	line-height: 40px;
+	margin-left: 6px;
+	font-size: 14px;
 }
 .defray .contract>span{
-   color:#f48c12;
+   color:#e25428;
 }
 .defray .defray_manner{
-   margin-bottom: 16vw;
+   margin-bottom: calc(9% + 28px);
 }
 .defray .defray_manner>div:nth-child(1){
    padding: 0;
 }
 .defray .de_wx{
-	padding: 2vw 15px;
+	padding: 8px 15px;
 	border-radius: 10px;
 	background: #FFF;
 }
 .defray .de_wx>span{
-	line-height: 10vw;
+	line-height: 35px;
 }
 .defray .de_wx>img{
-   width: 10vw;
+   width: 35px;
 }
 .de_btn{
    position: fixed;
@@ -183,15 +189,18 @@ html,body,.defray{
 }
 .de_btn .total{
 	background: #a0a0a0;
-	color:#f48c12;
-	padding: 10px 0;
-	font-size: 4vw;
-}
-.de_btn .go_debtn{
-	background: #e4aa46;
 	color:#FFF;
 	padding: 10px 0;
-	font-size: 4vw;
+	font-size: 14px;
+}
+.de_btn .total>span{
+  color:#e25428;
+}
+.de_btn .go_debtn{
+	background: #e25428;
+	color:#FFF;
+	padding: 10px 0;
+	font-size: 14px;
 }
 .de_point{
   overflow: auto;
@@ -200,12 +209,12 @@ html,body,.defray{
   border-radius: 10px;
 }
 .de_point>img{
-   width: 15vw;
+   width: 25px;
 }
 .de_point .prompt{
-   font-size: 3.5vw;
-   color:#f48c12;
-   padding-bottom: 5vw;
+   font-size: 14px;
+   color:#e25428;
+   padding-bottom: 14px;
 }
 .de_point .bdsharebuttonbox{
   padding: 0;
@@ -224,25 +233,25 @@ html,body,.defray{
    position: relative;
 }
 .de_point .de_select{
-   height: 50vw;
+   height: 150px;
    overflow-y: auto;
    overflow-x: hidden;
-   margin-bottom: 12vw;
+   margin-bottom: 40px;
 }
 .de_point .de_select>div{
   border-bottom: 1px solid #EEE;
-  padding: 2vw 0;
+  padding: 8px 0;
 }
 .de_point .de_Radio_select>h4{
-   color:#f48c12;
+   color:#e25428;
 }
 .de_point .de_rai,.de_point .de_strai,.de_point .de_strai_size{
   position: relative;
   border-radius: 50%;
   display: block;
-  width: 6vw;
-  height: 6vw;
-  border: 1px solid #f48c12;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #e25428;
 }
 .de_point .de_rai>span,.de_point .de_strai>span,.de_point .de_strai_size>span{
   display: block;
@@ -257,10 +266,11 @@ html,body,.defray{
   margin: auto;
 }
 .de_point .avtImg,.de_point .st_Img{
-  width: 8vw;
+  width: 30px;
+  height: 30px;
   border-radius: 50%;
-  border: 1px solid #f48c12;
-  margin-right: 2vw;
+  border: 1px solid #e25428;
+  margin-right: 10px;
 }
 .de_point .de_push{
   color:#a0a0a0;
@@ -271,17 +281,17 @@ html,body,.defray{
   left: 0;
   width: 100%;
   background: #FFF;
-  padding: 1vw 0;
+  padding: 5px 0;
 }
 .de_point .selbtn>button{
    border:none;
    color:#FFF;
    border-radius: 10px;
    width: 40%;
-   padding: 2vw 0;
+   padding: 10px 0;
 }
 .de_point .ra_det{
-   background: #f48c12;
+   background: #e25428;
 }
 .de_point .ra_can{
    margin-left: 5%;
@@ -292,25 +302,26 @@ html,body,.defray{
   float: left;
   background: #f2f2f2;
   border-radius: 5px;
-  padding: 1vw 12px;
+  padding: 5px 12px;
   padding-right:5px;
-  line-height: 8vw;
-  margin-top: 1vw;
+  line-height: 30px;
+  margin-top: 5px;
 }
 .defray .de_tut:nth-child(2n){
   margin-left: 2%;
 }
 .defray .de_tut>img{
-  width: 8vw;
-  border: 1px solid #f48c12;
+  width: 30px;
+  height:30px;
+  border: 1px solid #e25428;
   border-radius: 50%;
-  margin-right: 2vw;
+  margin-right: 10px;
 }
 .de_student{
-  font-size: 3.5vw;
-  height: 60vw;
+  font-size: 14px;
+  height: 200px;
   overflow-y: auto;
-  margin-bottom: 8vw;
+  margin-bottom: 30px;
 }
 .de_student>div{
   width: 100%;
@@ -319,11 +330,11 @@ html,body,.defray{
   padding: 5px 0;
 }
 .de_student .student_inf img{
-  width: 8vw;
+  width: 30px;
 }
 .de_student .student_inf>div{
-   line-height: 8vw;
-   color:#f19931;
+   line-height: 30px;
+   color:#e25428;
 }
 .de_student>div>div{
    padding: 5px 0;
@@ -333,7 +344,7 @@ html,body,.defray{
   padding: 5px 0;
 }
 .de_student .student_inf_txt>div>span{
-  line-height: 8vw;
+  line-height: 30px;
 }
 .de_student .padding_none{
   padding: 0 !important;
@@ -343,20 +354,20 @@ html,body,.defray{
 }
 .de_student .student_inf_txt input,.de_student>div>div:last-child>div{
    border: none;
-   padding: 1vw;
+   padding: 5px;
 }
 .de_student textarea{
    border: none;
    resize:none;
 }
 .de_student .userImg>img{
-  width: 12vw;
-  height: 12vw;
-  border: 1px solid #f48c12;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #e25428;
   border-radius: 50%;
 }
 .de_student .userImg{
-   line-height: 12vw;
+   line-height: 40px;
 }
 .de_student .file-box{
     display: inline-block;
@@ -368,7 +379,7 @@ html,body,.defray{
 }
 .de_student .file-box>span{
   font-weight: bold;
-  font-size: 5vw;
+  font-size: 16px;
 }
 .de_student .file-btn{
   position: absolute;
@@ -384,27 +395,42 @@ html,body,.defray{
   opacity: 0;
 }
 .de_point .student_inf{
-  border-bottom: 1px solid #f19931;
+  border-bottom: 1px solid #e25428;
+  padding: 5px 15px;
 }
 .de_point .student_inf>div>img{
-  width: 8vw;
-  margin-right: 1vw;
+  width: 30px;
+  margin-right: 5px;
 }
 .de_point .student_inf>div{
-   line-height: 8vw;
-   color:#f19931;
+   line-height: 30px;
+   color:#e25428;
 }
 .de_point .student_inf>span{
   color:#a0a0a0;
-  line-height: 8vw;
+  line-height: 30px;
 }
 .de_point .de_size_margin>span{
    margin-top: 5px;
 }
 .de_point .btn_prompt{
    color:#FFF;
-   background: #f19931;
+   background: #e25428;
    border: none;
    border-radius: 10px;
-   padding: 5px;
+   padding: 10px;
+}
+@media screen and (max-height: 568px) {
+   .defray .reg_top>span{
+      font-size: 16px;
+   }
+   .defray .contract{
+    font-size:12px; 
+   }
+   .defray .teacher>div{
+    min-height: 60px;
+   }
+   .defray .teacher>img{
+    min-height: 60px;
+   }
 }

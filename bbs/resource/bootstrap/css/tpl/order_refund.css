@@ -3,7 +3,7 @@ html,body{
 }
 .order_refund{
 	background: #eee;
-  height: 100%;
+  min-height: 100%;
 }
 .order_refund .reg_top{
     height: 50px;
@@ -14,14 +14,14 @@ html,body{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-    font-size: 5vw;
+    font-size: 16px;
 }
 .order_refund .nav {
 	padding: 10px 0;
 	background: #FFF;
 }
 .order_refund .nav img ,.order_refund .nav span{
-   font-size: 4vw;
+   font-size: 14px;
    padding-left:0 !important;
    padding-right: 0 !important; 
 }
@@ -41,7 +41,7 @@ html,body{
 }
 .order_refund .order_pro{
 	width: 100%;
-	background: url('../../img/order_background_1.png') no-repeat 0 0;
+	background: url('../../img/order_background_0.png') no-repeat 0 0;
 	background-size: 100% 100%;
 }
 .order_refund .order_pro>div{
@@ -50,21 +50,25 @@ html,body{
 .order_refund .order_pro>div>div{
 	padding-left:0 !important;
     padding-right: 0 !important; 
-    margin-top: 4vw;
-    font-size: 3vw ;
+    margin-top: 14px;
+    font-size: 12px;
+    min-height: 80px;
 }
 .order_refund .orpro_img{
-	margin:4vw 0;
+	margin:14px 0;
 }
 .order_refund .orpro_img>img{
 	min-height: 80px;
-    padding-left:0 !important;
-    padding-right: 0 !important;
+  padding-left:0 !important;
+  padding-right: 0 !important;
 }
 .order_refund .order_pro p{
    margin-bottom: 2px;
-   margin-left: 1vw;
+   margin-left: 5px;
    padding-right: 12px;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
 }
 .order_refund .pro_title{
 	width: 100%;
@@ -82,22 +86,32 @@ html,body{
    color:#e25428;
 }
 .order_refund .price_sum>p ,.order_refund .price_sum>div{
-   font-size: 3.5vw;
+   font-size: 14px;
    padding-left: 2px;
    width: 100%;
 }
 .order_refund .price_sum>div{
-	margin-top: 2vw;
+	margin-top: 6px;
 }
 .order_refund .price_sum .pay{
    width: 80%;
    padding: 2px 5px;
    color:#e25428;
    background: #FFF;
-   margin: 2vw 10%;
+   margin: 6px 10%;
    border:1px solid #e25428;
    border-radius: 30px;
 }
 .order_refund .no_data{
    color:#d4d4d4;
+}
+.order_refund .po_bottom{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+@media screen and (max-height: 568px) {
+  .order_refund .price_sum>p ,.order_refund .price_sum>div{
+    font-size: 12px;
+  }
 }

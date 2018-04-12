@@ -22,7 +22,7 @@ $(function(){
 		         		clearInterval(self.Obj.Time);
 		         		$('#Time').html('');
 		         		self.Obj.Countdown = 60;
-		         		$('.binding_btn').css('background-image','linear-gradient(#e4aa46,#f48c12)')
+		         		$('.binding_btn').css('background','#e25428');
 		         		$('.binding_btn').prop('disabled',false);
 		         	}else{
 		         		self.Obj.Countdown -= 1; 

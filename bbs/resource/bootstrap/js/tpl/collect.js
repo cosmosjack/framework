@@ -33,10 +33,23 @@ $(function(){
               	   Href('../recom_active/recom_active.html');
               })
 		},
+		//收藏按钮
+		Collection:function(){
+			$(document).on('click','.num_periods>img',function(){
+				if($(this).hasClass('RemoveClass')){
+					$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+					$(this).removeClass('RemoveClass');
+				}else{
+		            $(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+					$(this).addClass('RemoveClass');
+				}
+				return false;
+			}) 
+        },
 		event:function(){
 			this.Scroll();
-			this.Url_click('.pro_img');
 			this.Url_click('.pro_btn');
+			this.Collection();
 		}
 	}
 	collect.event();

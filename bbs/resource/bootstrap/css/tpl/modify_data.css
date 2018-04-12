@@ -12,7 +12,7 @@ h1{
 }
 .modify_data .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .modify_data .oprev{
@@ -23,39 +23,39 @@ h1{
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .modify_data .reg_top>span{
   color:#FFF;
   padding: 6px 0;
   line-height: 36px;
-  font-size: 5vw;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 .modify_data .avatar{
-  margin: 10px 0;
   background: #FFF;
   padding: 10px 15px;
-  border-bottom: 2vw solid #EEE;
+  border-bottom: 10px solid #EEE;
   position: relative;
 }
 .modify_data .avatar>div{
-  font-size: 5vw;
+  font-size: 16px;
   position: absolute;
-  top: calc(50% - 2.5vw - 5px);
+  top: calc(50% - 13px);
   right: 0;
 }
 .modify_data .avatar img{
-  border: 1px solid #f3aa53;
+  border: 1px solid #e25428;
   border-radius: 50%;
-  margin-left: 5vw;
-  width: 18vw;
+  margin-left: 15px;
+  width: 80px;
   padding: 0 !important;
 }
 .modify_data .avatar>span{
-  line-height: 18vw;
+  line-height: 80px;
   padding-left:15px;
-  font-size: 3.5vw;
+  font-size: 14px;
   color:#000; 
 }
 .modify_data .test>span{
@@ -72,8 +72,8 @@ h1{
 .modify_data .name input{
    border:none;
    color:#000;
-   padding:2vw 0;
-   font-size: 3.5vw;
+   padding:10px 0;
+   font-size: 14px;
 } 
 .modify_data .name>div{
   margin: 0 5px;
@@ -81,8 +81,8 @@ h1{
   border-bottom: 1px solid #EEE;
 }
 .modify_data .name span{
-  font-size: 3.5vw;
-  padding: 2vw 0 !important;
+  font-size: 14px;
+  padding: 10px 0 !important;
 }
 .modify_data .city{
   display: -webkit-box;
@@ -102,37 +102,40 @@ h1{
 .modify_data .management{
   margin-top: 10px;
   background: #FFF;
-  font-size: 3.5vw;
+  font-size: 14px;
 }
 .modify_data .management img{
-   width: 12vw;
+   width: 50px;
 }
 .modify_data .management span{
-  line-height: 12vw;
+  line-height: 50px;
   color:#a0a0a0;
+  margin-left: 10px;
 }
 .modify_data .mo_btn{
     border: none;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background-image:linear-gradient(#ec9b82,#da3400);
     color:#FFF;
     vertical-align: 4px;
-    font-size: 4.5vw;
+    font-size: 16px;
     border-radius: 20px;
     padding: 10px 0;
     margin-top: 10px;
 }
 .modify_data .point{
+  border-radius: 10px !important;
   padding: 10px 0;
   padding-top:0; 
+  overflow: hidden;
 }
 .modify_data .point>h4{
    color:#FFF;
    margin-top: 0;
-   background: #2871f8;
+   background: #e25428;
    padding: 10px 0;
 }
 .modify_data .point_txt{
-  padding: 10px 0;
+  padding: 20px 0;
 }
 .modify_data .file-box{
     display: inline-block;
@@ -143,7 +146,7 @@ h1{
     z-index: 500;
 }
 .modify_data .file-box>span{
-  font-size: 4vw;
+  font-size: 14px;
   padding: 5px 10px;
 }
 .modify_data .file-btn{
@@ -161,4 +164,23 @@ h1{
 }
 .modify_data .mo_form{
   background: #FFF;
+}
+.modify_data .point .btn-success{
+   background: none;
+   border: 1px solid #e25428;
+   color:#000;
+}
+@media screen and (max-height: 568px) {
+  .modify_data .avatar img{
+    width: 60px;
+  }
+  .modify_data .avatar>span{
+    line-height: 60px;
+  }
+  .modify_data .management img{
+     width: 40px;
+  }
+  .modify_data .management span{
+    line-height: 40px;
+  }
 }

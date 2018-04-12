@@ -7,15 +7,14 @@ $(function(){
 			$(document).ready(function(){
 			$(window).scroll(function(){
 			    if($(window).scrollTop()>50){
-			        $('.home_top').css('background-image','linear-gradient(#e4aa46,#f48c12)');
+			        $('.home_top').css('background','#e25428');
 			        $('.od_title').html('成长记录');
 			        $('.collect_icon').css('display','none');
 			    }
 			    if($(window).scrollTop() < 50){
 			    	$('.od_title').html('');
-			    	$('.home_top').css({'background':'url("../../img/shadow.png") no-repeat 0 0','background-size':' 100% 100%'});
+			    	$('.home_top').css({'background':'url("'+ BBS_RESOURCE_SITE_URL + '/bootstrap/img/shadow.png") no-repeat 0 0','background-size':' 100% 100%'});
 			    	$('.collect_icon').css('display','block');
-			    	console.log(1)
 			    }
 			   });
 			});
@@ -43,16 +42,7 @@ $(function(){
 
 		},
 		//查看用户信息
-		user_click:function(){
-			$(document).on('click','.past_img>img',function(){
-				console.log('我是第'+ $(this).index() +'个用户');
-			})
-			//查看全部用户
-			$('.name>span').click(function(){
-				console.log('查看全部用户');
-				//Href()路径还没有定
-			})
-		},
+			
 		//分享功能,收藏功能
 		collect_icon:function(){
               window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
@@ -61,16 +51,20 @@ $(function(){
 			  $(document).on('click','.share_icon',function(){
 			  	 $('.modal').modal('show');
 			  })
-			  //收藏
-			  $(document).on('click','.collect_icon',function(){
-			  	if($(this).hasClass('on')){
-			  	  $(this).prop('src','../../img/collect_n.png');
-			  	  $(this).removeClass('on');
-			  	}else{
-			  	  $(this).addClass('on');
-			  	  $(this).attr('src','../../img/collect_s.png');
-			  	}
-			  })
+			  this.Collection('.collect_icon');
+		},
+		Collection:function(o){
+			//收藏按钮
+			$(document).on('click',o,function(){
+				if($(this).hasClass('RemoveClass')){
+					$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+					$(this).removeClass('RemoveClass');
+				}else{
+		            $(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+					$(this).addClass('RemoveClass');
+				}
+				return false;
+			}) 
 		},
 		//发表评论
 		Comment:function(){
@@ -105,8 +99,8 @@ $(function(){
 			})
 		},
 		//页面跳转
-		Annal:function(){
-			$(document).on('click','.annal',function(){
+		Annal:function(o){
+			$(document).on('click',o,function(){
 				Href('../activity_pug/activity_pug.html');
 			})
 		},
@@ -114,9 +108,12 @@ $(function(){
 			this.Scroll();
 			this.fn();
 			this.collect_icon();
-			this.user_click();
 			this.Comment();
-			this.Annal();
+			this.Annal('.annal');
+			this.Collection('.num_periods>img');
+			this.Annal('.main>img');
+			this.Annal('.past_img>img');
+			this.Annal('.name>span');
 		}
 	}
 	//函数调用
@@ -127,8 +124,6 @@ $(function(){
 			    direction: 'horizontal',
 			    loop: true,//是否自动切换
 			    autoplay:5000,//每隔5秒自动切换
-			    // 如果需要分页器
-			    pagination: '.swiper-pagination',
 			    autoplayDisableOnInteraction : false,//手滑都过后依然可以自动切换
 			  })      
 })

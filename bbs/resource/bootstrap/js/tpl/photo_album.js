@@ -14,7 +14,13 @@ $(function(){
         		return false;
         	})
         },
-
+        //返回上一级
+        Return:function(){
+            $('.ph_oprev').click(function(){
+                Href(SITEURL+'/index.php?act=mine&op=album');
+                console.log(1)
+            })
+        },
         //显示蒙层
         MaskHide:function(){
         	var self = this;
@@ -45,20 +51,28 @@ $(function(){
             if(flag)
                 return false;
             console.log(page);
-            var activityId = $('#activity').val();
+            var activity_no = $('#no').val();
+            var activity_periods = $('#periods').val();
             $.ajax({  
                 url:SITEURL+"/index.php?act=mine&op=photo&curpage="+page,  //请求路径，接口地址
-                type:"get",  //请求的方式
+                type:"post",  //请求的方式
                 async:false,//同步  
-                data:{activityId:activityId},//传出的数据  
+                data:{activity_no:activity_no,activity_periods:activity_periods},//传出的数据  
                 dataType:"json",//返回的数据类型，常用：html/text/json  
                 success:function(data){  //请求成功后的回调函数
                     var html = '';
                     if(data.code == '200'){
+                        if(page == 1)
+                            html += '<div class="ph_content overflow">';
                         for(var i=0; i<data.list.length; i++) {
                             html += '<img data-id="'+data.list[i].file_name+'" src="'+data.list[i].file_name+'!product-240" class="col-xs-6" />';
                         }
-                        $('.ph_content').append(html);
+                        if(page == 1){
+                            html += '</div>';
+                            $('.photo_album').append(html);
+                        }else{
+                            $('.ph_content').append(html);
+                        }
                     }else{
                         if(page == 1){
                             html += '<div class="no_data container-fluid">';
@@ -105,7 +119,8 @@ $(function(){
             this.MaskShow();
             this.MaskHide();
             this.Scroll();
-           this.UpBtn();
+            this.UpBtn();
+            this.Return();
 		}
 	};
 	photo_album.event();

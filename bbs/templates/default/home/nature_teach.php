@@ -40,17 +40,20 @@
 	  	   </div>
 	  </div>
 	  <!--推荐活动模块-->
-	  <div class="na_pro container-fluid">
+	  <div class="na_pro">
 	  	  <div class="index_pro" href_url="../recom_active/recom_active.html">
-        	 	<div class="row index_pro_Img">
-        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/unpaid_s.png" class="col-xs-10 col-xs-offset-1 pro_img" />
-                    <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
-        	 		<div class="col-xs-10 col-xs-offset-1 mask">
+        	 	<div class="overflow index_pro_Img">
+        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/unpaid_s.png" class="pro_img" />
+                    <div class="Prompt text-right"><span>已满额<span></div>
+        	 		<div class="num_periods">
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                    </div>
+                    <div class="mask">
         	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
         	 			<span class="pull-left text-right">亲子活动、成长</span>
         	 		</div>
         	 	</div>
-        	 	<div class="row pro_tit">
+        	 	<div class="overflow pro_tit">
         	 		<div class="col-xs-10 col-xs-offset-1">
         	 			<span class="pull-left">
         	 				<span class="city">【惠州】</span>宝贝加油，亲子互动
@@ -61,7 +64,7 @@
         	 			</span>
         	 		</div>
         	 	</div>
-        	 	<div class="row time_price">
+        	 	<div class="overflow time_price">
         	 		<div class="col-xs-10 col-xs-offset-1">
         	 			<div class="pull-left">
         	 				<p>3月15日一天</p>
@@ -74,15 +77,18 @@
         	 	</div>
           </div>
           <div class="index_pro" href_url="../recom_active/recom_active.html">
-        	 	<div class="row index_pro_Img">
-        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="col-xs-10 col-xs-offset-1 pro_img" />
-                    <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
-        	 		<div class="col-xs-10 col-xs-offset-1 mask">
+        	 	<div class="overflow index_pro_Img">
+        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="pro_img" />
+                    <div class="Prompt text-right"><span>已满额<span></div>
+        	 		<div class="num_periods">
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                    </div>
+                    <div class="mask">
         	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
         	 			<span class="pull-left text-right">亲子活动、成长</span>
         	 		</div>
         	 	</div>
-        	 	<div class="row pro_tit">
+        	 	<div class="overflow pro_tit">
         	 		<div class="col-xs-10 col-xs-offset-1">
         	 			<span class="pull-left">
         	 				<span class="city">【惠州】</span>宝贝加油，亲子互动
@@ -93,7 +99,7 @@
         	 			</span>
         	 		</div>
         	 	</div>
-        	 	<div class="row time_price">
+        	 	<div class="overflow time_price">
         	 		<div class="col-xs-10 col-xs-offset-1">
         	 			<div class="pull-left">
         	 				<p>3月15日一天</p>
@@ -107,24 +113,24 @@
           </div>
 	  </div>
 	  <!--往期活动模块-->
-	  <div class="past_pro container-fluid">
-	  	  <div class="index_pro" href_url="../past_detail/past_detail.html">
-        	 	<div class="row index_pro_Img">
-        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="col-xs-10 col-xs-offset-1 pro_img" />
-                    <div class="col-xs-7 col-xs-offset-1 Prompt text-left"><span>宝贝加油，亲子互动<span></div>
+	  <div class="past_pro">
+	  	  <div class="index_pro">
+        	 	<div class="overflow index_pro_Img">
+        	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="pro_img" />
+                    <div class="Prompt text-left"><span>宝贝加油，亲子互动<span></div>
                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" class="collect col-xs-2" />
-        	 		<div class="col-xs-10 col-xs-offset-1 mask">
+        	 		<div class="mask">
         	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
         	 			<span class="pull-left text-right">亲子活动、成长</span>
         	 		</div>
         	 	</div>
-        	 	<div class="row pro_tit">
+        	 	<div class="overflow pro_tit">
         	 		<div class="col-xs-10 col-xs-offset-1">
         	 			<span class="pull-left">
         	 				<span class="city">【惠州】</span>3月15日一天
         	 			</span>
         	 			<div class="pull-right text-right">
-        	 				<button class="pastpro_btn">去回顾</button>
+        	 				<button class="pastpro_btn" href_url="../past_detail/past_detail.html">去回顾</button>
         	 			</div>
         	 		</div>
         	 	</div>	

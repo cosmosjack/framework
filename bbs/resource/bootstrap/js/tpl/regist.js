@@ -4,19 +4,18 @@ $(function(){
 	var onOff = false;//赋值判断协议是否同意
     var time = null;//赋值定时器
     var Countdown = 60;//倒计时时间
-	$('.oprev').click(function(){
-		window.history.go(-1);
-	})
 	$('#pact').click(function(){
-	    onOff = !onOff;	
-	    console.log(onOff)
+        if(onOff){
+            $('#re_radio>span').css('background','none');
+        }else{
+            $('#re_radio>span').css('background','#e25428');
+        }
+        onOff = !onOff;
+        return false;
 	})
-	$('.pact>span').click(function(){
+	$('.href_url').click(function(){
 		Href($(this).attr('href_url'));
 		return false;
-	})
-	$('.Hide').click(function(){
-		$('.modal').modal('hide');
 	})
 
 	function Time(){
@@ -27,7 +26,7 @@ $(function(){
          		clearInterval(time);
          		$('#Time').html('');
          		Countdown = 60;
-                $('.code_btn').css('background-image','linear-gradient(#e4aa46,#f48c12)')
+                $('.code_btn').css('background;','#e25428')
                 $('.code_btn').prop('disabled',false);
          	}else{
          		Countdown -= 1; 

@@ -6,12 +6,14 @@ $(function(){
 			$(document).ready(function(){
 			$(window).scroll(function(){
 			    if($(window).scrollTop()>50){
-			        $('.home_top').css('background-image','linear-gradient(#e4aa46,#f48c12)');
+			        $('.home_top').css('background','#e25428');
 			        $('.od_title').html('往期详情');
+			        $('.collect_icon').css('display','none');
 			    }
 			    if($(window).scrollTop() < 50){
 			    	$('.od_title').html('');
 			    	$('.home_top').css({'background':'url("'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/shadow.png") no-repeat 0 0','background-size':' 100% 100%'});
+			        $('.collect_icon').css('display','block');
 			    }
 			   });
 			});
@@ -58,7 +60,7 @@ $(function(){
 			  	  $(this).removeClass('on');
 			  	}else{
 			  	  $(this).addClass('on');
-			  	  $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s.png');
+			  	  $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s_red.png');
 			  	}
 			  })
 		},
@@ -73,7 +75,7 @@ $(function(){
 				 	} 
 				 }else{
 				 	for(var i=0;i<Imgindex;i++){
-				 		$('.grade>img:eq('+ i +')').attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s.png');
+				 		$('.grade>img:eq('+ i +')').attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s_red.png');
 				 		$('.grade>img:eq('+ i +')').addClass('Imgindex');
 				 	}
 				 }

@@ -14,6 +14,7 @@ class adminControl extends BaseAdminControl{
 //    后台主页界面
     public function indexOp(){
 //        p(strtotime('2018-03-22 23:59:59'));
+
         Tpl::showpage("index");
 
     }
@@ -28,19 +29,32 @@ class adminControl extends BaseAdminControl{
 
 //    活动列表  这里就不用 datatable 插件了
     public function activity_listOp(){
+        /* 先判断是否是 往期的查询 start */
+        if(isset($_GET['is_periods']) && $_GET['is_periods'] == true){
+            $table_name = "bbs_activity_periods";
+            Tpl::output("is_periods",true);
+        }else{
+            $table_name = "bbs_activity";
+            Tpl::output("is_periods",false);
+        }
+        /* 先判断是否是 往期的查询 end */
 
-        $db_bbs_activity = new Model("bbs_activity");
-
+        $db_bbs_activity = new Model($table_name);
         $where = array();
 
-        $data_bbs_activity = $db_bbs_activity->where($where)->page(2)->select();
+        if(isset($_GET['activity_no'])){
+            $where['activity_no'] = $_GET['activity_no'];
+        }
+
+        $data_bbs_activity = $db_bbs_activity->where($where)->page(6)->select();
         /* 查出领队老师 和 报名的学生 start */
-        $db_bbs_teacher = new Model();
+//        $db_bbs_teacher = new Model();
         foreach($data_bbs_activity as $key=>$val){
 
-            $on = 'bbs_activity_teacher.user_id = bbs_user.id';
-            $data_bbs_teacher = $db_bbs_teacher->table("bbs_activity_teacher,bbs_user")->field("bbs_user.id,bbs_user.member_sex,bbs_user.member_phone,bbs_user.headimgurl,bbs_activity_teacher.activity_id")->join("left")->on($on)->where(array("activity_id"=>$val['id']))->select();
-            $data_bbs_activity[$key]['teacher_arr'] = $data_bbs_teacher;// 老师数组
+//            $on = 'bbs_activity_teacher.user_id = bbs_user.id';
+//            $data_bbs_teacher = $db_bbs_teacher->table("bbs_activity_teacher,bbs_user")->field("bbs_user.id,bbs_user.member_sex,bbs_user.member_phone,bbs_user.headimgurl,bbs_activity_teacher.activity_id")->join("left")->on($on)->where(array("activity_id"=>$val['id']))->select();
+//            $data_bbs_activity[$key]['teacher_arr'] = $data_bbs_teacher;// 老师数组
+
             //计算 当前 百分比
             $data_bbs_activity[$key]['percent'] = sprintf("%.2f",($val['already_num']/$val['total_number']))*100;
             //判断是进行中还是已结束 start
@@ -55,7 +69,6 @@ class adminControl extends BaseAdminControl{
                 $data_bbs_activity[$key]['state'] = '已结束';
             }
             //判断是进行中还是已结束 end
-
 
         }
         /* 查出领队老师 和 报名的学生 end */

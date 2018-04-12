@@ -3,7 +3,8 @@ html,body{
   height: 100%;
 }
 .home{
-  margin-bottom: 10%;
+  min-height: 100%;
+  margin-bottom: calc(9% + 28px);
   background: #EEE;
 }
 .home .home_top{
@@ -14,7 +15,7 @@ html,body{
   background: url('../../img/shadow.png') no-repeat 0 0;
   background-size: 100% 100%;
   color:#FFF;
-  font-size: 4vw;
+  font-size:14px;
   z-index: 100;
   padding: 10px 0;
 }
@@ -24,7 +25,7 @@ html,body{
   background: none;
   border: 1px solid #FFF;
   border-radius: 30px;
-  line-height: 8vw;
+  line-height: 30px;
   padding:0 10px;
 }
 .home .inp{
@@ -33,14 +34,14 @@ html,body{
  position: relative;
 }
 .home .inp>span{
-  font-size: 6vw;
+  font-size: 18px;
   position: absolute;
-  top: 1.5vw;
+  top: 6px;
   right:12px;
   z-index: 200;
   color:#FFF;
 }
-.swiper-container{
+.home .swiper-container{
   border-bottom: 1px solid #da3400;
 }
 .home .swiper-wrapper{
@@ -52,7 +53,8 @@ html,body{
   height: auto !important;
 }
 .home .swiper-slide img{
-  max-width: 100%;
+  width: 100%;
+  height: 32%;
 }
 .home .swiper-pagination-bullet-active{
     background: #ec9b82;
@@ -62,7 +64,7 @@ html,body{
   background: #FFF;
 }
 .home .nav img ,.home .nav span{
-   font-size: 3.5vw;
+   font-size: 14px;
    padding-left:0 !important;
    padding-right: 0 !important; 
 }
@@ -72,30 +74,35 @@ html,body{
 }
 .home .content>.title{
    margin-top: 5px;
-   padding: 8px 0;
+   padding: 6px 0;
 }
 .home .content .index_pro{
-   padding: 3vw 0;
+   padding: 12px 0;
    background: url('../../img/bg.png') no-repeat 0 0;
-   background-size: contain;
-   margin-bottom: 5vw;
+   background-size: 100% 100%;
+   margin: 5px;
 }
 .home .content .pro_img{
    padding: 0;
    border-radius: 10px;
    border: 1px solid #f48c12;
-   height: 50vw;
+   height: 30%;
+   width: 88%;
+   margin: 2px 6%;
+   margin-top: 8px;
 }
 .home .index_pro_Img{
   position: relative;
   margin-bottom: 8px;
 }
 .home .mask{
-   font-size: 10px;
+   width:88%;
+   padding: 0 5px; 
+   font-size: 14px;
    overflow: hidden;
    position: absolute;
-   bottom: 0;
-   left: 0;
+   bottom: 2px;
+   left: 6%;
    background:url('../../img/shadow.png') no-repeat 0 0;
    color:#FFF;
    border-bottom-left-radius: 10px;
@@ -109,47 +116,53 @@ html,body{
    white-space: nowrap;
 }
 .home .pro_tit{
-  font-size: 3.5vw;
-  padding-bottom: 1vw;
+  font-size: 14px;
+  padding-bottom: 8px;
   color:#FFF;
 }
+.home .pro_tit>div{
+  padding: 0 4px;
+}
 .home .city,.home .past{
-   color:#ffff55;
+   color:#ffff6f;
 }
 .home .time_price{
-   padding-top: 2vw;
-   padding-bottom: 2vw;
-   font-size: 3.5vw;
+   padding-top: 10px;
+   padding-bottom: 10px;
+   font-size: 14px;
    color:#FFF;
 }
+.home .time_price>div{
+   padding-right: 5px;
+}
 .home .time_price div>div{
-   width: 50%;
+   width: 54%;
 }
 .home .time_price div>div>p{
   margin: 0;
 }
 .home .price{
   color:#ffff55;
-  font-size: 5vw;
+  font-size: 16px;
 }
 .home .pro_btn{
    border: none;
    border-radius: 30px;
    background:#ffff6f;
-   padding: 2vw 8vw;
+   padding: 10px 20px;
    color:#e25428;
-   margin-top: 1vw;
+   margin-top: 5px;
 }
 .home .Prompt{
    position: absolute;
-   left: 0;
-   top: 6vw;
+   right: 6px;
+   top: 20px;
    padding:0;
 }
 .home .Prompt>span{
-   background: #ffff55;
+   background: #ffff6f;
    color:#e25428;
-   font-size: 4vw;
+   font-size: 14px;
    padding: 6px 8px;
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
@@ -157,16 +170,36 @@ html,body{
 .home .btn_isabled{
   background: #c5c5c5 !important;
 }
+.home .num_periods{
+  position: absolute;
+  left: calc(6% + 1px);
+  top: 9px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 20px;
+  padding: 2px 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home .num_periods>img{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
 @media screen and (max-height: 568px) {
-
+   .home .num_periods>img{
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+    }
    .home .time_price{
-     padding-top: 2vw;
-     padding-bottom: 0vw;
-     font-size: 3.5vw;
+     padding-top: 10px;
+     padding-bottom: 2px;
+     font-size: 12px;
    } 
    .home .pro_tit{
-    font-size: 3.5vw;
-    padding-bottom: 0vw;
+    font-size: 12px;
+    padding-bottom: 0;
     color:#FFF;
    }
   .home .content .index_pro{
@@ -175,5 +208,17 @@ html,body{
   .home .index_pro_Img{
     position: relative;
     margin-bottom: 2px;
+  }
+  .home .content .pro_img{
+    margin-top: 5px;
+  }
+  .home .pro_btn{
+    padding: 6px 20px;
+  }
+  .home .nav span{
+    font-size: 12px;
+  }
+  .home .num_periods{
+    top: 6px;
   }
 }

@@ -9,7 +9,7 @@ html,body{
 }
 .unbinding .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .unbinding .oprev{
@@ -20,14 +20,14 @@ html,body{
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .unbinding .reg_top>span{
   color:#FFF;
   padding: 6px 0;
   line-height: 36px;
-  font-size: 5vw;
+  font-size: 18px;
 }
 .unbinding .form{
   background: #FFF;
@@ -35,7 +35,7 @@ html,body{
 }
 .unbinding .form>div{
   padding: 15px 0;
-  font-size: 4vw;
+  font-size: 14px;
 }
 .unbinding .undo{
   color:#f48c12;
@@ -47,11 +47,11 @@ html,body{
 .unbinding .unbin_btn>div{
     margin-top: 30px;
     color:#FFF;
-    line-height: 10vw;
+    line-height: 45px;
     outline:none;
-    font-size: 3.5vw;
+    font-size: 16px;
     border-radius: 30px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
 }
 .unbinding .point{
   padding: 10px 0;
@@ -89,5 +89,15 @@ html,body{
   outline:none;
   padding: 0 30px;
   border-radius: 30px;
-  background-image:linear-gradient(#e4aa46,#f48c12);
+  background:#e25428;
+}
+
+@media screen and (max-height: 568px) {
+  .unbinding .reg_top>span{
+     font-size: 16px;
+  }
+  .unbinding .unbin_btn>div{
+    line-height: 30px;
+    font-size: 14px;
+  }
 }

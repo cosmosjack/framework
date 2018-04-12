@@ -8,7 +8,7 @@ html,body{
 }
 .manager_select .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .manager_select .oprev{
@@ -19,21 +19,21 @@ html,body{
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .manager_select .reg_top>span{
   color:#FFF;
   padding: 6px 0;
   line-height: 36px;
-  font-size: 5vw;
+  font-size: 16px;
 }
 .manager_select .explain{
    margin-right: 10px;
 }
 .manager_select .explain_txt{
   padding: 10px 0;
-  font-size: 3.5vw;
+  font-size: 14px;
 }
 .manager_select .explain_txt>button{
   width: 100%;
@@ -41,23 +41,28 @@ html,body{
   background: none;
   padding-top: 10px;
   border-top: 1px solid #EEE;
-  color:#f48c12;
-  font-size: 4vw;
+  color:#e25428;
+  font-size: 14px;
   letter-spacing: 4px;
 }
 .manager_select .explain_txt>p{
-   color:#f48c12;
+   color:#e25428;
 }
 .manager_select .manager{
    background: #FFF;
 }
 .manager_select .manager>div>div{
    border-bottom: 1px solid #EEE;
-   padding: 2vw 0;
-   font-size: 3.5vw;
-   color:#f48c12;
+   padding: 10px 0;
+   font-size: 14px;
+   color:#e25428;
 }
 .manager_select .manager img{
-  margin-right: 2vw;
-  width: 8vw;
+  margin-right: 10px;
+  width: 40px;
+}
+@media screen and (max-height: 568px) {
+    .manager_select .manager img{
+      width: 30px;
+    }
 }

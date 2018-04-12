@@ -49,7 +49,7 @@
             <div class="col-xs-12 overflow">
                 <span class="price">&yen;<?php echo $output['activityInfo']['activity_price']?></span>
                 <!-- <span class="importance coupon">优惠券兑换>></span> -->
-                <span class="time pull-right">报名截止<?php echo date('m月d日',$output['activityInfo']['activity_begin_time']-3600*24)?></span>
+                <span class="time pull-right">报名截止:<?php echo date('m月d日 H:i:s',$output['activityInfo']['activity_begin_time']-3600*12)?></span>
             </div>
         </div>
         <div class="pro_content">
@@ -135,8 +135,11 @@
                 <div class="overflow col-xs-12 pro_recom" style="display: none;">
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
-                        <div class="overflow index_pro_Img" onclick="Href('<?php echo urlBBS('activity','detail',array('id'=>$val['id']))?>')">
+                        <div class="overflow index_pro_Img">
                             <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" />
+                            <div class="num_periods">
+                                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                            </div>
                             <?php if($val['total_number']-$val['already_num'] == 0):?>
                             <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
                             <?php elseif($val['total_number']-$val['already_num'] < 5):?>
@@ -167,7 +170,7 @@
                                     <p class="price">&yen;<?php echo $val['activity_price']?></p>
                                 </div>
                                 <div class="row pull-left text-right">
-                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','defray',array('id'=>$val['id']))?>')">去订票</button>
+                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">去订票</button>
                                 </div>
                             </div>
                         </div>

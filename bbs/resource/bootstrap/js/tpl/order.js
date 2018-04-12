@@ -12,10 +12,10 @@ $(function(){
 	 		var H = $(document.body).height() - ($('.nav').height() + $('.reg_top').height());
             var objH = parseInt(H/103);
 			$.ajax({  
-                url:SITEURL+"/index.php?act=order&op=listPage&pageSize="+objH+"&curpage="+page,  //请求路径，接口地址
-                type:"get",  //请求的方式
-                //            async:false,//同步  
-                data:{},//传出的数据  
+                url:SITEURL+"/index.php?act=order&op=listPage&curpage="+page,  //请求路径，接口地址
+                type:"post",  //请求的方式
+                async:false,//同步  
+                data:{orderStatus:1,pageSize:objH},//传出的数据  
                 dataType:"json",//返回的数据类型，常用：html/text/json  
                 success:function(data){  //请求成功后的回调函数
                 	var html = '';
@@ -25,22 +25,24 @@ $(function(){
                 		for(var i=0; i<data.list.length; i++){
                 			html += '<div class="order_pro overflow">';
 				        	html += ' 	<div class="col-xs-12 overflow">';
-				        	html += ' 		<div class="orpro_img col-xs-4 overflow" href_url="../product_deta/product_deta.html">';
+				        	html += ' 		<div class="orpro_img col-xs-4 overflow" href_url="'+data.list[i].url+'">';
 				        	html += ' 			<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/img2.jpg" class="col-xs-12" />';
 				        	html += ' 		</div>';
-				        	html += ' 		<div class="col-xs-5 order_pro_txt" href_url="../product_deta/product_deta.html">';
-				        	html += ' 			<p class="pro_title">宝贝加油！亲子互动宝贝加油！亲子互动宝贝加油！亲子互动</p>';
-				        	html += ' 			<p class="pro_class">亲子活动 | 成长</p>';
-				        	html += ' 			<p class="pro_Time">3月15日一天</p>';
+				        	html += ' 		<div class="col-xs-5 order_pro_txt" href_url="'+data.list[i].url+'">';
+				        	html += ' 			<p class="pro_title">'+data.list[i].activity_title+'</p>';
+				        	html += '           <div class="po_bottom">';
+				        	html += ' 				<p class="pro_class">亲子活动 | 成长</p>';
+				        	html += ' 				<p class="pro_Time">'+data.list[i].activity_time+'</p>';
+				        	html += '           </div>';
 				        	html += ' 		</div>';
 				        	html += ' 		<div class="col-xs-3 price_sum">';
-				        	html += ' 			<p class="price text-center">&yen;360</p>';
+				        	html += ' 			<p class="price text-center">&yen;'+data.list[i].order_amount+'</p>';
 				        	html += ' 			<div class="text-center">';
-				        	html += ' 				<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/down.png" class="down" />';
-				        	html += ' 				<span class="sum">1</span>';
-				        	html += ' 				<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/up.png" class="up">';
+				        	//html += ' 				<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/down.png" class="down" />';
+				        	html += ' 				<span class="sum">'+data.list[i].order_num+'</span>';
+				        	//html += ' 				<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/up.png" class="up">';
 				        	html += ' 			</div>';
-				        	html += ' 			<button class="pay" href_url="../payment/payment.html">付款</button>';
+				        	html += ' 			<button class="pay" href_url="'+data.list[i].url1+'">付款</button>';
 				        	html += ' 		</div>';
 				        	html += ' 	</div>';
 				        	html += '</div>';
@@ -70,8 +72,6 @@ $(function(){
                 	page++;
                 }  
             })  
-            console.log(page);
-			console.log(flag);
 		},
 		//滑动到底部事件
 		Scroll:function(){
@@ -85,7 +85,7 @@ $(function(){
 			 //判断加载视频，文章，回答，医生
 			 if(pageHeight - viewportHeight - scrollHeight <= 0){
 
-			 	console.log('loadPage');
+			 	//console.log('loadPage');
 			 	order.loadPage();
 			     /*$.ajax({  
 		                url:"",  //请求路径，接口地址
@@ -133,9 +133,9 @@ $(function(){
         //页面跳转
         Jump:function(obj){
         	$(document).on('click',obj,function(){
-        		console.log($(this).attr('href_url'))
-        		 //Href($(this).attr('href_url'));
-        		 return false;
+        		//console.log($(this).attr('href_url'))
+        		Href($(this).attr('href_url'));
+        		return false;
         	})
         },
 		event:function(){

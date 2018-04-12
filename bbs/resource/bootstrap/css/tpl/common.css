@@ -1,5 +1,5 @@
-input,button{
-	outline:none;
+input,button,textarea{
+	outline:none !important;
 }
 .fl{
 	float: left;
@@ -26,6 +26,12 @@ input,button{
 }
 .oprev>span{
   line-height: 34px !important;
+}
+.ProTitle{
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 0;
 }
 @media (min-height:795px ) {
 	.footer{

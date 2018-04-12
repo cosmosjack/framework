@@ -165,14 +165,20 @@ class setControl extends BaseControl{
         $reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
         if(!preg_match($reg,$_POST['u_idnum']))
             ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addManage'));
-        // if(empty($_POST['u_born']))
-        //     ajaxReturn(array('code'=>'0','msg'=>'出生年月不能为空','control'=>'addManage'));
+        if(empty($_POST['u_born']))
+            ajaxReturn(array('code'=>'0','msg'=>'出生年月不能为空','control'=>'addManage'));
         if(empty($_POST['u_gender']))
             ajaxReturn(array('code'=>'0','msg'=>'性别不能为空','control'=>'addManage'));
-        // if(empty($_POST['u_phone']))
-        //     ajaxReturn(array('code'=>'0','msg'=>'手机号不能为空','control'=>'addManage'));
-        // if(!isPhone($_POST['u_phone']))
-        //     ajaxReturn(array('code'=>'0','msg'=>'手机号格式不对','control'=>'addManage'));
+        if(empty($_POST['u_phone']))
+            ajaxReturn(array('code'=>'0','msg'=>'手机号不能为空','control'=>'addManage'));
+        if(!isPhone($_POST['u_phone']))
+            ajaxReturn(array('code'=>'0','msg'=>'手机号格式不对','control'=>'addManage'));
+        //出生年月与证件号是否对应
+        //1979时间之前会出错
+        // p(strtotime('19890120'));
+        // p(strtotime($_POST['u_born']));p($_POST['u_born']);exit();
+        if(strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
+            ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
         $db_parents = Model('bbs_parents');
         //判断是否已经添加监护人信息
         if($_POST['id']){
@@ -206,7 +212,7 @@ class setControl extends BaseControl{
         $data['member_name'] = $_SESSION['userInfo']['member_name'];
         $data['parents_name'] = $_POST['u_name'];
         $data['parents_phone'] = $_POST['u_phone'];
-        $data['parents_brithday'] = $_POST['u_born'];
+        $data['parents_brithday'] = strtotime($_POST['u_born']);
         $data['parents_papers_type'] = 1;
         $data['parents_papers_no'] = $_POST['u_idnum'];
         $data['parents_sex'] = $_POST['u_gender']=='男'?1:2;
@@ -219,7 +225,7 @@ class setControl extends BaseControl{
             $result = $db_parents->insert($data);
         }
         if($result){
-            ajaxReturn(array('code'=>'200','msg'=>'操作成功','control'=>'addManage','url'=>urlBBS('set','manageInfo')));
+            ajaxReturn(array('code'=>'200','msg'=>'操作成功','control'=>'addManage','url'=>urlBBS('set','manageInfo'),'id'=>$result,'headimgurl'=>$headimgurl));
         }else{
             ajaxReturn(array('code'=>'0','msg'=>'操作失败','control'=>'addManage'));
         }
@@ -255,9 +261,12 @@ class setControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'身高不能为空','control'=>'addStudent'));
         if(empty($_POST['u_weight']))
             ajaxReturn(array('code'=>'0','msg'=>'体重不能为空','control'=>'addStudent'));
-        // if(empty($_POST['u_clothes']))
-        //     ajaxReturn(array('code'=>'0','msg'=>'衣服尺码不能为空','control'=>'addStudent'));
-        $db_child = Model('bbs_child');   
+        if(empty($_POST['u_clothes']))
+            ajaxReturn(array('code'=>'0','msg'=>'衣服尺码不能为空','control'=>'addStudent'));
+        $db_child = Model('bbs_child'); 
+        //出生年月与证件号是否对应
+        if(strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
+            ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
         //判断是否已经添加学员信息
         if($_POST['id']){
             $map = array();
@@ -295,7 +304,7 @@ class setControl extends BaseControl{
         $data['member_name'] = $_SESSION['userInfo']['member_name'];
         $data['child_name'] = $_POST['u_name'];
         $data['child_phone'] = $_POST['u_phone'];
-        $data['child_brithday'] = $_POST['u_born'];
+        $data['child_brithday'] = strtotime($_POST['u_born']);
         $data['child_papers_type'] = 1;
         $data['child_papers_no'] = $_POST['u_idnum'];
         $data['child_height'] = $_POST['u_height'];
@@ -303,6 +312,8 @@ class setControl extends BaseControl{
         $data['child_size'] = $_POST['u_clothes'];
         $data['child_remark'] = $_POST['u_exhort'];
         $data['child_sex'] = $_POST['u_gender']=='男'?1:2;
+        //用身份证计算年龄
+        $data['child_age'] = date('Y',time())-substr($_POST['u_idnum'],6,4);
         //添加的第一个数据设为默认
         if(!$db_child->where('member_id='.$_SESSION['userInfo']['id'])->find())
             $data['is_default'] = 1;
@@ -312,7 +323,7 @@ class setControl extends BaseControl{
             $result = $db_child->insert($data);
         }
         if($result){
-            ajaxReturn(array('code'=>'200','msg'=>'操作成功','control'=>'addStudent','url'=>urlBBS('set','studentInfo')));
+            ajaxReturn(array('code'=>'200','msg'=>'操作成功','control'=>'addStudent','url'=>urlBBS('set','studentInfo'),'id'=>$result,'headimgurl'=>$headimgurl));
         }else{
             ajaxReturn(array('code'=>'0','msg'=>'操作失败','control'=>'addStudent'));
         }

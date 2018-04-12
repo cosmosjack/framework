@@ -132,3 +132,22 @@ function randomUp($length, $numeric = 0) {
     }
     return $hash;
 }
+
+/* 整理小组的详情 start */
+ function calc_group($activity_no,$periods){
+    if(empty($activity_no)){
+        return array('code'=>0,'msg'=>'非法请求');
+        die();
+    }
+    // 根据活动的no 和 期数  来查找 申请通过的 儿童信息  并分组
+    $db_bbs_apply = new Model();
+    // 第一次先按 分组 查询出 所有小组
+    $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_no,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone ,33hao_bbs_apply.activity_periods FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_no`='".$activity_no."' AND `activity_periods`={$periods} GROUP BY `group_id`");
+    if(!$data_group_info){
+        return array('code'=>0,'msg'=>'暂无任何报名信息');
+        die();
+    }
+     return array('code'=>200,'msg'=>'成功','data'=>$data_group_info);
+
+}
+/* 整理小组的详情 end */

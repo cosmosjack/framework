@@ -61,7 +61,6 @@ class admin_activityControl extends BaseAdminControl{
             if(!$row){
                 Tpl::output("form_data",$_POST);
                 Tpl::output("error_message",array("title"=>"信息有误",'desc'=>"请确认信息填写完整,或活动已存在!"));
-
                 Tpl::showpage("activity_add");
             }else{
 //                echo '插入成功';
@@ -132,7 +131,11 @@ class admin_activityControl extends BaseAdminControl{
                 // 图片上传成功则修改 刚才插入成功的值  不成功则 删除刚才上传的值  start
                 $db_bbs_upload = new Model("bbs_uploads");
                 @$result_bbs_upload = $db_bbs_upload->insertAll($insert_upload);
-                $result_update_bbs = $db_bbs_activity->where(array("id"=>$row))->update(array("activity_index_pic"=>$cover_img_url));
+                $result_update_bbs = $db_bbs_activity->where(array("id"=>$row))->update(array("activity_index_pic"=>$cover_img_url,'activity_no'=>$row));
+
+//                $sql = $db_bbs_upload->where(array("id"=>$row))->get_now_sql(array("activity_index_pic"=>$cover_img_url,'activity_no'=>$row));
+//                p($sql);
+//                die();
 //                echo '图片上传';
 //                p($result_bbs_upload);
 //                echo '跟新';
@@ -193,7 +196,7 @@ class admin_activityControl extends BaseAdminControl{
         // 根据活动的no 和 期数  来查找 申请通过的 儿童信息  并分组
         $db_bbs_apply = new Model();
         // 第一次先按 分组 查询出 所有小组
-        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_no`={$_GET['activity_no']} AND `activity_periods`={$_GET['periods']} GROUP BY `group_id`");
+        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_no,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone ,33hao_bbs_apply.activity_periods FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_no`='".$_GET['activity_no']."' AND `activity_periods`={$_GET['periods']} GROUP BY `group_id`");
         if(!$data_group_info){
             ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
             die();
@@ -205,16 +208,17 @@ class admin_activityControl extends BaseAdminControl{
 
     /* 查出小组人数大于1 的数组 start */
     public function list_group_infoOp(){
-        if(!is_numeric($_GET['id'])){
+
+       /* if(!is_numeric($_GET['id'])){
             ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'非法请求'),"JSON");
             die();
-        }
+        }*/
         // 根据活动的id 来查找 申请通过的 儿童信息  并分组
         $db_bbs_apply = new Model();
         // 第一次先按 分组 查询出 所有小组
-        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_id,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_id`={$_GET['id']} GROUP BY `group_id`");
+        $data_group_info = $db_bbs_apply->query("SELECT COUNT(*) AS total_num,33hao_bbs_apply.activity_no,33hao_bbs_apply.teacher_id,33hao_bbs_apply.teacher_name,33hao_bbs_apply.group_id,33hao_bbs_apply.id,33hao_bbs_user.member_phone as teacher_phone  FROM 33hao_bbs_apply LEFT JOIN 33hao_bbs_user ON 33hao_bbs_user.id = 33hao_bbs_apply.teacher_id WHERE `activity_no`='".$_GET['id']."' GROUP BY `group_id`");
         if(!$data_group_info){
-            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
+            ajaxReturn(array('control'=>'list_group_infoOp','code'=>0,'msg'=>'暂无任何报名信息'),"JSON");
             die();
         }
         $apply_id_arr = array();
@@ -224,19 +228,19 @@ class admin_activityControl extends BaseAdminControl{
             }
         }
         if(empty($apply_id_arr)){
-            ajaxReturn(array('control'=>'calc_group','code'=>0,'msg'=>'没有任何一个小组人数大于1的'),"JSON");
+            ajaxReturn(array('control'=>'list_group_infoOp','code'=>0,'msg'=>'没有任何一个小组人数大于1的'),"JSON");
             die();
         }
-        $data_apply = $db_bbs_apply->table('bbs_apply')->where(array("activity_id"=>$_GET['id'],'group_id'=>array("in",$apply_id_arr)))->select();
-        ajaxReturn(array('control'=>'calc_group','code'=>200,'msg'=>'成功','data'=>$data_apply),"JSON");
+        $data_apply = $db_bbs_apply->table('bbs_apply')->where(array("activity_no"=>$_GET['id'],'group_id'=>array("in",$apply_id_arr)))->select();
+        ajaxReturn(array('control'=>'list_group_infoOp','code'=>200,'msg'=>'成功','data'=>$data_apply),"JSON");
 
     }
     /* 查出小组人数大于1 的数组 end */
 
-    /* 根据group_id 和 activity_id  查询出 报名参加的儿童列表 start */
+    /* 根据group_id 和 activity_no  periods  查询出 报名参加的儿童列表 start */
     public function get_team_detailOp(){
         $db_bbs_apply = new Model("bbs_apply");
-        $where = array('group_id'=>$_GET['group_id'],'activity_id'=>$_GET['activity_id']);
+        $where = array('group_id'=>$_GET['group_id'],'activity_no'=>$_GET['activity_no'],'activity_periods'=>$_GET['activity_periods']);
         $data_bbs_apply = $db_bbs_apply->where($where)->select();
         if(!$data_bbs_apply){
             ajaxReturn(array('control'=>'get_team_detailOp','code'=>0,'msg'=>'此小组无报名信息'),"JSON");
@@ -263,7 +267,7 @@ class admin_activityControl extends BaseAdminControl{
     /* 根据 活动ID 活动小组 老师ID 替换老师 start */
     public function change_teacherOp(){
         $db_bbs_apply = new Model('bbs_apply');
-        $where = array('group_id'=>$_GET['group_id'],'activity_id'=>$_GET['activity_id']);
+        $where = array('group_id'=>$_GET['group_id'],'activity_no'=>$_GET['activity_no'],'activity_periods'=>$_GET['periods']);
         $db_bbs_uer = new Model("bbs_user");
         $data_bbs_user = $db_bbs_uer->where(array("id"=>$_GET['teacher_id']))->find();
         if(!$data_bbs_user){
@@ -286,7 +290,7 @@ class admin_activityControl extends BaseAdminControl{
     /* 根据活动ID 活动小组 查出 不是这个小组的 所有儿童信息 start */
     public function get_other_childOp(){
         $db_bbs_apply = new Model("bbs_apply");
-        $where = array('group_id'=>array("neq",$_GET['group_id']),'activity_id'=>$_GET['activity_id']);
+        $where = array('group_id'=>array("neq",$_GET['group_id']),'activity_no'=>$_GET['activity_no']);
         $data_bbs_apply = $db_bbs_apply->where($where)->select();
         if(!$data_bbs_apply){
             ajaxReturn(array('control'=>'get_other_childOp','code'=>0,'msg'=>'无更多小伙伴'),"JSON");
@@ -299,10 +303,140 @@ class admin_activityControl extends BaseAdminControl{
     /* 将其他儿童添加到 相应的小组中去 start */
     public function mod_child_groupOp(){
         $db_bbs_apply = new Model("bbs_apply");
-        $where = array("activity_id"=>$_GET['activity_id']);
-        $update = array("group_id"=>$_GET['group_id']);
+        $data_bbs_apply = $db_bbs_apply->where(array("activity_no"=>$_GET['activity_no'],"group_id"=>$_GET['group_id']))->find();
+        if(!$data_bbs_apply){
+            ajaxReturn(array('control'=>'mod_child_groupOp','code'=>0,'msg'=>'没有此小组'),"JSON");
+            die();
+        }
+
+        $where = array("id"=>array("in",$_GET['child_arr']));
+        $update['group_id'] = $_GET['group_id'];
+        $update['teacher_id'] = $data_bbs_apply['teacher_id'];
+        $update['teacher_name'] = $data_bbs_apply['teacher_name'];
+        $result = $db_bbs_apply->where($where)->update($update);
+        if($result){
+            ajaxReturn(array('control'=>'mod_child_groupOp','code'=>200,'msg'=>'成功','update'=>$update),"JSON");
+        }else{
+            ajaxReturn(array('control'=>'mod_child_groupOp','code'=>0,'msg'=>'修改失败'),"JSON");
+
+        }
+
 
     }
     /* 将其他儿童添加到 相应的小组中去 end */
+
+    /* 添加一个新的小组 start */
+    public function add_new_groupOp(){
+        //根据 传过来的 apply_id 添加一个新的小组
+        $db_apply = new Model("bbs_apply");
+        $data_apply = $db_apply->where(array("id"=>$_GET['apply_id']))->find();
+        if(!$data_apply){
+            ajaxReturn(array('control'=>'add_new_groupOp','code'=>0,'msg'=>'非法请求'),"JSON");
+            die();
+        }
+        $data_last = $db_apply->where(array("activity_no"=>$data_apply['activity_no']))->order("group_id desc")->find();
+        if(!$data_last){
+            ajaxReturn(array('control'=>'add_new_groupOp','code'=>0,'msg'=>'非法请求'),"JSON");
+            die();
+        }
+        $update['group_id'] = intval($data_last['group_id']+1);
+        $result = $db_apply->where(array("id"=>$_GET['apply_id']))->update($update);
+        if($result){
+            ajaxReturn(array('control'=>'add_new_groupOp','code'=>200,'msg'=>'新增小组成功','data'=>$data_last),"JSON");
+        }else{
+            ajaxReturn(array('control'=>'add_new_groupOp','code'=>0,'msg'=>'新增小组不成功','data'=>$data_last),"JSON");
+        }
+    }
+    /* 添加一个新的小组 end */
+
+    /* 添加新的期数 根据传进来的 activity_no start */
+    public function add_new_periodsOp(){
+        if(isset($_POST['sub']) && $_POST['sub'] == 'ok'){
+//            p($_POST);
+            //根据传过来的 activity_no  查询 最近的一期  先查出 当前正在 activity 表里的数据  再 对比 activity_periods 表里的数据 期数 取最大值 然后插入 periods表
+            $db_activity = new Model("bbs_activity");
+            $db_activity_periods = new Model("bbs_activity_periods");
+            $where = array("activity_no"=>$_POST['activity_no']);
+            $data_activity = $db_activity->where($where)->find();
+
+            if(!$data_activity){
+                showMessage("非法请求");
+                die();
+            }
+
+            $now_periods = $data_activity['activity_periods'];// 当前期数
+            $data_activity_periods = $db_activity_periods->where($where)->select();
+            $insert = $data_activity;
+
+            if($data_activity_periods){
+                foreach($data_activity_periods as $val){
+                    if($now_periods > $val['activity_periods']){
+                        $insert['activity_periods'] = $now_periods;
+                    }else{
+                        $insert['activity_periods'] = $val['activity_periods'];
+                    }
+                }
+            }
+
+            // 如果当前选择的时间  小于 或等于 原有时间 则 不成功
+            if(strtotime($_POST['start_time']) <= $insert['activity_begin_time'] || strtotime($_POST['end_time']." 23:59:59")<=$insert['activity_end_time']){
+                showMessage("请确认时间选择正确",'','','error');
+                exit;
+            }
+
+            /* 整理要插入的数据 start */
+            $insert['activity_periods']++;
+            $insert['min_age'] = $_POST['min_age'];
+            $insert['max_age'] = $_POST['max_age'];
+            $insert['activity_begin_time'] = strtotime($_POST['start_time']);
+            $insert['activity_end_time'] = strtotime($_POST['end_time']." 23:59:59");
+            $insert['transportation'] = $_POST['transportation'];
+            $insert['total_number'] = $_POST['total_number'];
+            $insert['group_number'] = $_POST['group_number'];
+            $insert['activity_click'] = $_POST['activity_click'];
+            $insert['activity_price'] = $_POST['activity_price'];
+            $insert['activity_no'] = $_POST['activity_no'];
+            $insert['activity_add_time'] = time();
+            unset($insert['id']);// 消除 ID
+            //消除报名人数
+            unset($insert['already_num']);
+            /* 整理要插入的数据 end */
+
+            $result = $db_activity_periods->insert($insert);
+            if($result){
+                showMessage("新增成功",BBS_SITE_URL.DS."index.php?act=admin&op=activity_list&is_periods=true&activity_no=".$insert['activity_no']);
+            }else{
+                showMessage("请确认这一期的活动时间与限制有所改变",'','','error');
+                exit;
+            }
+        }else{
+            if(!is_numeric($_GET['activity_no'])){
+                showMessage("请选择正确的活动");
+                die();
+            }
+            $db_activity = new Model("bbs_activity");
+            $data_activity = $db_activity->where(array('activity_no'=>$_GET["activity_no"],'activity_periods'=>$_GET['periods']))->find();
+            if(!$data_activity){
+                showMessage("无此活动");
+                die();
+            }
+//            p($data_activity);
+            Tpl::output("data_activity",$data_activity);
+            Tpl::showpage("add_new_periods");
+        }
+    }
+    /* 添加新的期数 根据传进来的 activity_no end */
+
+    /* 展示期数的列表 start */
+    public function show_periodsOp(){
+        //根据传递过来的 activity_no   展示 activity_periods 表里的相应数据
+        $db_periods = new Model("bbs_activity_periods");
+        $where = array("activity_no"=>$_GET['activity_no']);
+        $order = "";
+        $data_periods = $db_periods->where($where)->order($order)->select();
+        p($data_periods);
+        Tpl::showpage("activity_list");
+    }
+    /* 展示期数的列表 end */
 
 }

@@ -1,10 +1,10 @@
 .sms{
   width: 100%;
-  height: 100%;
+  min-height: 100%;
 }
 .sms .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .sms .oprev{
@@ -15,20 +15,20 @@
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .sms .reg_top>span{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-   font-size: 5vw;
+   font-size: 18px;
 }
-.sms .form div>input{
+.sms .form input{
     background: #eeeeee;
-    line-height: 10vw;
+    line-height: 40px;
     border: none;
-    margin-top: 8vw;
+    margin-top: 10px;
     box-shadow: 0 0 10px #e5e5e5 inset;
     border-radius: 30px;
     outline:none;
@@ -40,41 +40,43 @@
 .sms .code>.code_btn{
     color:#FFF;
     border: none;
-    padding: 0 35px;
+    padding: 0 30px;
     position: absolute;
-    top: calc(50% - 1vw);
+    top: calc(50% - 15px);
     right: 16px;
-    line-height: 10vw;
-    font-size: 3.5vw;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    line-height: 40px;
+    font-size: 14px;
+    background:#e25428;
     border-radius: 30px;
     z-index: 100;
 }
 .sms .sms_btn>div{
     margin-top: 30px;
     color:#FFF;
-    line-height: 10vw;
+    line-height: 40px;
     outline:none;
-    font-size: 3.5vw;
+    font-size: 14px;
     border-radius: 30px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
 }
 .sms .sms_txt{
-    font-size: 4vw;
+    font-size: 14px;
     position: fixed;
     bottom: 50px;
     left: 0;
-    color:#f48c12;
+    color:#e25428;
     letter-spacing: 2px;
 }
 .sms .point{
+  border-radius: 10px !important;
   padding: 10px 0;
   padding-top:0; 
+  overflow: hidden; 
 }
 .sms .point>h4{
    color:#FFF;
    margin-top: 0;
-   background: #2871f8;
+   background: #e25428;
    padding: 10px 0;
 }
 .sms .point>h5{
@@ -82,4 +84,16 @@
 }
 .sms .point_txt{
   padding: 10px 0;
+}
+@media screen and (max-height: 568px) {
+  .sms .form input{
+    line-height: 30px;
+  }
+  .sms>span{
+    font-size: 16px;
+  }
+  .sms .code>.code_btn{
+    top: calc(50% - 10px);
+    line-height: 30px;
+  }
 }

@@ -8,7 +8,7 @@ html,body{
 }
 .member .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .member .oprev{
@@ -43,7 +43,7 @@ html,body{
   width: 20vw;
   padding: 0;
   border-radius: 50%;
-  border: 1px solid #f19931;
+  border: 1px solid #e25428;
 }
 .member .teacher>div{
   height: 20vw;
@@ -59,7 +59,7 @@ html,body{
    margin-right: 2vw;
 }
 .member .teacher>span{
-  color:#f19931;
+  color:#e25428;
   padding: 0;
 }
 .member .user{
@@ -71,7 +71,7 @@ html,body{
 }
 .member .user_img{
   border-radius: 50%;
-  border: 1px solid #f19931;
+  border: 1px solid #e25428;
   padding: 0;
   width: 10vw;
 }
@@ -104,7 +104,7 @@ html,body{
   line-height: 5vw;
   padding: 5px 0;
   padding-bottom: 0;
-  color:#f48c12;
+  color:#e25428;
 }
 .member .detail{
    margin-top: 10px;

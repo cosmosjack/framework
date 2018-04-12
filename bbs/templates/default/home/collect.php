@@ -22,6 +22,9 @@
 	    	 	<div class="overflow index_pro_Img">
 	    	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="pro_img" />
 	                <!-- <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已经满额<span></div> -->
+	    	 		<div class="num_periods">
+	    	 			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+	    	 		</div>
 	    	 		<div class="mask">
 	    	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
 	    	 			<span class="pull-left text-right">亲子活动、成长</span>
@@ -54,6 +57,9 @@
 	    	 	<div class="overflow index_pro_Img">
 	    	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" class="pro_img" />
 	                <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已经满额<span></div> 
+	    	 		<div class="num_periods">
+	    	 			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+	    	 		</div>
 	    	 		<div class="mask">
 	    	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
 	    	 			<span class="pull-left text-right">亲子活动、成长</span>
@@ -86,6 +92,9 @@
 	    	 	<div class="overflow index_pro_Img">
 	    	 		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="pro_img" />
 	                <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已经满额<span></div> 
+	    	 		<div class="num_periods">
+	    	 			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+	    	 		</div>
 	    	 		<div class="mask">
 	    	 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>
 	    	 			<span class="pull-left text-right">亲子活动、成长</span>

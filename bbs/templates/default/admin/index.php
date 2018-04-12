@@ -63,38 +63,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
                             <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_add';?>">添加活动</a>
                         </li>
                     </ul>
-
                 </li>
 
                 <li>
-                    <a href="#">
-                        <i class="fa fa fa-bar-chart-o"></i>
-                        <span class="nav-label">统计图表</span>
-                        <span class="fa arrow"></span>
+                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=user_list';?>" class="J_menuItem">
+                        <i class="fa fa-columns"></i> <span class="nav-label">会员管理</span>
                     </a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a class="J_menuItem" href="graph_echarts.html">百度ECharts</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_flot.html">Flot</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_morris.html">Morris.js</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_rickshaw.html">Rickshaw</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_peity.html">Peity</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_sparkline.html">Sparkline</a>
-                        </li>
-                        <li>
-                            <a class="J_menuItem" href="graph_metrics.html">图表组合</a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li>

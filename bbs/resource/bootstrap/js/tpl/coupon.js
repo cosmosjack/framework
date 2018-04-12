@@ -1,6 +1,23 @@
 $(function(){
 	var coupon = {
         
+        //进入页面加载数据
+        loadPage:function(){
+        	var H = $(document.body).height() - ($('.nav').height() + $('.reg_top').height());
+            var objH = parseInt(H/103);
+            console.log(objH)
+            /*$.ajax({  
+		                url:"",  //请求路径，接口地址
+		                type:"post",  //请求的方式
+		                //            async:false,//同步  
+		                data:{"phone":phone},//传出的数据  
+		                dataType:"json",//返回的数据类型，常用：html/text/json  
+		                success:function(data){  //请求成功后的回调函数
+		                    console.log(typeof data);
+
+		                }  
+		            })  */
+        },
         //勾选使用优惠券
         use_click:function(){
         	$(document).on('click','.use_img',function(){
@@ -35,7 +52,6 @@ $(function(){
 		                data:{"phone":phone},//传出的数据  
 		                dataType:"json",//返回的数据类型，常用：html/text/json  
 		                success:function(data){  //请求成功后的回调函数
-		                	self.index = 1;//修改为已解除状态
 		                    console.log(typeof data);
 
 		                }  
@@ -55,6 +71,7 @@ $(function(){
            this.use_click();
            this.Scroll();
            this.Bullet();
+           this.loadPage();
 		}
 	};
 	coupon.event();

@@ -7,7 +7,7 @@ html,body{
 }
 .nature_teach .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .nature_teach .oprev{
@@ -18,30 +18,30 @@ html,body{
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .nature_teach .reg_top>span{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-  font-size: 5vw;
+  font-size: 18px;
 }
 .nature_teach .na_txt{
   background: #FFF;
-  padding: 2vw 0;
-  font-size: 3.5vw;
-  line-height: 6vw;
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 20px;
 }
 .nature_teach .na_title{
-   border-bottom: 1px solid #f48c12;
+   border-bottom: 1px solid #e25428;
 }
 .nature_teach .txt{
   text-indent: 2em;
 }
 .nature_teach .nav{
   margin-top: 10px;
-  font-size: 4vw;
+  font-size: 14px;
 }
 .nature_teach .nav>div>div{
   border-left: 1px solid #000;
@@ -54,7 +54,7 @@ html,body{
     padding: 2px 10px;
     border-radius: 4px;
     color:#FFF;
-    background: #f48c12;
+    background: #e25428;
 }
 .nature_teach .past_pro{
   display: none;
@@ -62,25 +62,39 @@ html,body{
 .nature_teach .index_pro{
    padding: 10px 0;
    background: url('../../img/bg.png') no-repeat 0 0;
-   background-size: contain;
-   margin-bottom: 5vw;
+   background-size: 100% 100%;
+   margin: 5px;
+   color:#FFF;
 }
-.nature_teach .pro_img{
+.nature_teach .na_pro .pro_img{
    padding: 0;
    border-radius: 10px;
    border: 1px solid #f48c12;
+   height: 30%;
+   width: 88%;
+   margin: 2px 6%;
 }
-.nature_teach .index_pro_Img{
+.nature_teach .past_pro .pro_img{
+   padding: 0;
+   border-radius: 10px;
+   border: 1px solid #f48c12;
+   height: 26%;
+   width: 88%;
+   margin: 2px 6%;
+}
+.nature_teach .na_pro .index_pro_Img{
   position: relative;
-  margin-bottom: 10px;
-  margin-top: 1vw;
+  margin-bottom: 5px;
+  margin-top: 5px;
 }
 .nature_teach .mask{
+   width: 88%;
+   padding: .0 5px;
    font-size: 10px;
    overflow: hidden;
    position: absolute;
-   bottom: 0;
-   left: 0;
+   bottom: 2px;
+   left: 6%;
    background:url('../../img/shadow.png') no-repeat 0 0;
    color:#FFF;
    border-bottom-left-radius: 10px;
@@ -93,17 +107,30 @@ html,body{
    text-overflow: ellipsis;
    white-space: nowrap;
 }
-.nature_teach .pro_tit{
-  font-size: 3.5vw;
-  padding-bottom: 4vw;
+.nature_teach .na_pro .pro_tit{
+   margin-bottom: 10px;
+}
+.nature_teach .na_pro .pro_tit>div{
+  padding: 0 5px;
+}
+.nature_teach .pro_tit>div>span:nth-child(1){
+  width: 60%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nature_teach .past_pro .pro_tit{
+  font-size: 14px;
+  padding-bottom: 8px;
+  margin-top: 5px;
 }
 .nature_teach .city,.nature_teach .past{
-   color:#fd6327;
+   color:#ffff6f;
 }
 .nature_teach .time_price{
-   padding-top: 2vw;
-   padding-bottom: 2vw;
-   font-size: 3.5vw;
+   padding-top: 8px;
+   padding-bottom: 8px;
+   font-size: 14px;
 }
 .nature_teach .time_price div>div{
    width: 50%;
@@ -112,65 +139,96 @@ html,body{
   margin: 0;
 }
 .nature_teach .price{
-  color:#fd6327;
-  font-size: 5vw;
+  color:#ffff6f;
+  font-size: 18px;
 }
 .nature_teach .pro_btn{
    border: none;
    border-radius: 30px;
-   background-image:linear-gradient(#e4aa46,#f48c12);
-   padding: 2vw 8vw;
-   color:#FFF;
-   margin-top: 1vw;
+   background:#ffff55;
+   padding: 6px 20px;
+   color:#e25428;
+   margin-top: 5px;
 }
 .nature_teach .Prompt{
    position: absolute;
-   left: 0;
-   top: 10vw;
+   right: 6px;
+   top: 20px;
    padding:0;
 }
-.nature_teach .Prompt>span{
-   background: #ff583c;
-   color:#FFF;
-   font-size: 4vw;
+.nature_teach .na_pro .Prompt>span{
+   background: #ffff55;
+   color:#e25428;
+   font-size: 14px;
    padding: 6px 8px;
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
 }
+.nature_teach .past_pro .index_pro_Img{
+  margin-top: 8px;
+  position: relative;
+}
+.nature_teach .num_periods{
+  position: absolute;
+  left: calc(6% + 1px);
+  top: 9px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 20px;
+  padding: 2px 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.nature_teach .num_periods>img{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
+}
 @media screen and (max-height: 568px) {
-
+   .nature_teach .num_periods>img{
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+    }
    .nature_teach .time_price{
-     padding-top: 2vw;
-     padding-bottom: 0vw;
-     font-size: 3.5vw;
+     padding-top: 8px;
+     padding-bottom: 0;
+     font-size: 12px;
    } 
    .nature_teach .pro_tit{
-    font-size: 3.5vw;
-    padding-bottom: 0vw;
+    font-size: 12px;
+    padding-bottom: 0;
+  }
+  .nature_teach .past_pro .index_pro_Img{
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  .nature_teach .na_pro .index_pro_Img{
+    margin-bottom: 1px;
+  }
+  .nature_teach .reg_top>span{
+    font-size: 16px;
   }
 }
 .nature_teach .past_pro .index_pro{
-   padding: 2vw 0 !important;
+   padding: 10px 0;
    background: url('../../img/activity_background.png') no-repeat 0 0;
-   background-size: contain;
-   margin-bottom: 5vw;
+   background-size: 100% 100%;
+   margin: 5px;
 }
-.nature_teach .past_pro .index_pro_Img{
-  position: relative;
-  margin-bottom: 10px;
-}
+
 .nature_teach .past_pro .pastpro_btn{
    border: none;
    border-radius: 30px;
-   background-image:linear-gradient(#e4aa46,#f48c12);
-   padding: 2px 5vw;
+   background:#ffff55;
+   padding: 2px 15px;
    margin-bottom: 4px;
-   color:#FFF;
+   color:#e25428;
 }
 .nature_teach .past_pro .Prompt{
    position: absolute;
-   left: 0;
-   top: 0;
+   left: calc(6% + 1px);
+   top: 3px;
    padding:0;
    overflow: hidden;
    text-overflow: ellipsis;
@@ -180,19 +238,15 @@ html,body{
    overflow: hidden;
    text-overflow: ellipsis;
    white-space: nowrap;
-   background: #f19931;
-   color:#FFF;
-   font-size: 3.5vw;
+   background: #ffff55;
+   color:#e25428;
+   font-size: 14px;
    padding: 2px 8px;
    border-top-left-radius: 10px;
    border-bottom-right-radius: 20px;
 }
 .nature_teach .past_pro .collect{
    position: absolute;
-   right: 6vw;
-   top: 2vw;
-}
-.nature_teach .past_pro .index_pro_Img{
-    margin-top: 2vw;
-    margin-bottom: 10px;
+   right: 20px;
+   top: 10px;
 }

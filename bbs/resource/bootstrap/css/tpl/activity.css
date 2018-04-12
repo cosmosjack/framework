@@ -1,93 +1,123 @@
 html,body{
-  height: 100%;
+    height: 100%;
+    background: #FFF;
 }
 .activity{
-	font-family: '微软雅黑';
-	margin-bottom: 16%;
-	background: #FFF;
+  min-height: 100%;
+  margin-bottom: calc(9% + 28px);
 }
 .activity .home_top{
   width: 100%;
   position: fixed;
   top: 0;
   left: 0;
-  background:#e25428;
+  background: #e25428;
   background-size: 100% 100%;
   color:#FFF;
-  font-size: 4vw;
+  font-size: 14px;
   z-index: 100;
   padding: 10px 0;
 }
 .activity .home_top input{
   width: 100%;
   border: none;
-  background: none;
+  background: #FFF;
   border: 1px solid #FFF;
   border-radius: 30px;
-  line-height: 8vw;
+  line-height: 30px;
   padding:0 10px;
+  color:#e25428;
 }
 .activity .inp{
   width: 90%;
  margin: 0 auto;
  position: relative;
 }
+.activity .pro_tit p:nth-child(1){
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 .activity .inp>span{
-	font-size: 6vw;
+  font-size: 18px;
   position: absolute;
-  top: 1.5vw;
+  top: 6px;
   right:12px;
   z-index: 200;
+  color:#e25428;
 }
 .activity .nav{
-	background: #FFF;
+  background: #FFF;
   margin-top: 50px;
-  font-size: 4vw;
-  padding: 2vw 0;
+  font-size: 14px;
+  padding: 10px 0;
 }
 .activity .nav>div>div{
     border-left: 1px solid #000;
     margin: 5px 0;
 }
 .activity .nav>div>div:nth-child(1){
-	border: none;
+  border: none;
 }
 .activity .active{
-    padding: 2px 5px;
+    padding: 5px;
     border-radius: 4px;
     color:#FFF;
     background: #e25428;
 }
-.activity .content{
-   background: #FFF;
+.activity .pad_none{
+    padding: 0;
 }
-.activity .content>.title{
-   margin-top: 5px;
-   padding: 8px 0;
+.activity .reg_top{
+    height: 50px;
+    background:#e25428;
+    position: relative;
+}
+.activity .oprev{
+   position: absolute;
+   top: 0;
+   left: 0;
+   border: none;
+   background: none;
+   color:#FFF;
+   line-height: 36px !important;
+   font-size: 14px;
+   z-index: 100;
+}
+.activity .reg_top>span{
+  color:#FFF;
+  padding: 6px 0;
+  line-height: 36px;
+   font-size: 14px;
 }
 .activity .content .index_pro{
-   padding: 3vw 0;
+   padding: 16px 0;
    background: url('../../img/bg.png') no-repeat 0 0;
-   background-size: contain;
-   margin-bottom: 1vw;
+   background-size: 100% 100%;
+   color:#FFF;
+   margin: 5px;
 }
 .activity .content .pro_img{
    padding: 0;
    border-radius: 10px;
    border: 1px solid #f48c12;
-   height: 50vw;
-   margin-top: 3px;
+   height: 30%;
+   width: 88%;
+   margin:4px 6%;
+   margin-top
 }
 .activity .index_pro_Img{
-	position: relative;
-	margin-bottom: 2px;
+  position: relative;
 }
 .activity .mask{
+   width: 88%;
+   padding: 0 5px;
    font-size: 10px;
    overflow: hidden;
    position: absolute;
-   bottom: 0;
-   left: 0;
+   bottom: 4px;
+   left: 6%;
    background:url('../../img/shadow.png') no-repeat 0 0;
    color:#FFF;
    border-bottom-left-radius: 10px;
@@ -101,75 +131,98 @@ html,body{
    white-space: nowrap;
 }
 .activity .pro_tit{
-	font-size: 3.5vw;
-	padding-bottom: 2vw;
+  font-size: 14px;
+  margin-top: 5px;
+}
+.activity .pro_tit>div{
+  padding: 0 5px;
 }
 .activity .city,.activity .past{
    color:#ffff6f;
 }
 .activity .time_price{
-   padding-top: 2vw;
-   padding-bottom: 2vw;
-   font-size: 3.5vw;
+   padding-top: 12px;
+   padding-bottom: 10px;
+   font-size: 12px;
 }
 .activity .time_price div>div{
-   width: 50%;
+   width: 54%;
 }
 .activity .time_price div>div>p{
-	margin: 0;
-  color:#FFF;
+  margin: 0;
 }
 .activity .price{
-	color:#ffff6f !important;
-	font-size: 5vw;
+  color:#ffff6f;
+  font-size: 20px;
 }
 .activity .pro_btn{
    border: none;
    border-radius: 30px;
    background:#ffff55;
-   padding: 2vw 8vw;
+   padding: 8px 20px;
    color:#e25428;
-   margin-top: 1vw;
+   margin-top: 5px;
 }
 .activity .Prompt{
    position: absolute;
-   left: 0;
-   top: 6vw;
+   right: 6px;
+   top: 20px;
    padding:0;
 }
 .activity .Prompt>span{
    background: #ffff55;
    color:#e25428;
-   font-size: 4vw;
+   font-size: 14px;
    padding: 6px 8px;
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
 }
-.activity .act_title{
-   overflow: hidden;
-   text-overflow: ellipsis;
-   white-space: nowrap;
-   margin: 0;
-   padding: 0;
-   width: 50%;
-   color:#FFF;
+.activity .btn_isabled{
+  background: #ccc !important;
+  color:#FFF !important;
+}
+.activity .num_periods{
+  position: absolute;
+  left: calc(6% + 1px);
+  top: 9px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 20px;
+  padding: 2px 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.activity .num_periods>img{
+  width: 30px;
+  height: 30px;
+  margin-left: 5px;
 }
 @media screen and (max-height: 568px) {
-
+   .activity .num_periods>img{
+      width: 25px;
+      height: 25px;
+      margin-left: 5px;
+    }
    .activity .time_price{
-	   padding-top: 2vw;
-	   padding-bottom: 0vw;
-	   font-size: 3.5vw;
+     padding-top: 12px;
+     padding-bottom: 0;
+     font-size: 12px;
    } 
    .activity .pro_tit{
-		font-size: 3.5vw;
-		padding-bottom: 0vw;
-	}
+    font-size: 12px;
+    padding-bottom: 0;
+   }
+  .activity .content .index_pro{
+    padding: 10px 0;
+  }
   .activity .index_pro_Img{
     position: relative;
-    margin-bottom: 2px;
+    margin-bottom: 4px;
   }
-  .activity .content .pro_img{
-    margin-top: 0px;
+  .activity .pro_btn{
+    padding: 6px 20px;
   }
+  .activity .price{
+  font-size: 18px;
+}
 }

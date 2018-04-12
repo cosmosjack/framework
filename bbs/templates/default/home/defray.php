@@ -23,7 +23,7 @@
                 <div class="col-xs-12 teacher">
                      <img src="<?php echo $output['info']['activity_index_pic']?>!product-60" class="col-xs-4" />
                      <div class="col-xs-8">
-                        <p class="col-xs-12"><?php echo $output['info']['activity_ptitle']?></p>
+                        <p class="col-xs-12"><?php echo $output['info']['activity_title']?></p>
                         <div class="teacher_age col-xs-12">
                             <p><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/child_boy.png" class="teacher_img" /><?php echo date('m月d日',$output['info']['activity_begin_time'])?>~<?php echo date('m月d日',$output['info']['activity_end_time'])?></p>
                             <p><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" class="teacher_img col-xs-2" /><span class="col-xs-10"><?php echo $output['info']['address']?></span></p>
@@ -31,21 +31,21 @@
                      </div>
                 </div>
                 <div class="col-xs-12 pad_none">
-                    <?php if(!empty($output['periods'])):?>
+                    <!-- <?php if(!empty($output['periods'])):?>
                     <span class="col-xs-12 pad_none">其他场次：</span>
                     <div class="title overflow col-xs-12">
                        <ul class="title_ul text-center">
                         <?php foreach($output['periods'] as $val):?>
                             <li class="session" data-id="<?php echo $val['id']?>">
                                 <div>
-                                    <p><?php echo date('m月d日',$val['activity_begin_time'])?>~<?php echo date('m月d日',$val['activity_end_time'])?></p>
+                                    <p><?php echo date('m月d',$val['activity_begin_time'])?>~<?php echo date('m月d',$val['activity_end_time'])?></p>
                                         <p>报名中</p>
                                 </div>
                             </li>
                         <?php endforeach;?>
                        </ul> 
                     </div>
-                    <?php endif;?>
+                    <?php endif;?> -->
                     <span class="col-xs-12 pad_none">选择套餐：</span>
                     <div class="col-xs-12 package pad_none">
                         <div class="col-xs-6">
@@ -101,23 +101,22 @@
                 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/weixin.png" class="pull-right" />
             </div>
         </div>
-        <input type="hidden" id="period" value="">
-        <input type="hidden" id="activityId" value="<?php echo $output['info']['id']?>">
+        <input type="hidden" id="periods" value="<?php echo $output['info']['activity_periods']?>?>">
+        <input type="hidden" id="no" value="<?php echo $output['info']['activity_no']?>">
         <input type="hidden" id="minAge" value="<?php echo $output['info']['min_age']?>">
         <input type="hidden" id="maxAge" value="<?php echo $output['info']['max_age']?>">
     </div>
     <div class="de_btn overflow text-center">
         <div class="col-xs-6 total">总计：<span>0.00</span>元</div>
-        <!-- <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
+        <?php if($output['info']['total_number']-$output['info']['already_num'] == 0):?>
             <div class="col-xs-6" style="background:#ccc">已满额</div>
-        <?php elseif($output['info']['activity_begin_time']-3600*24 < time()):?>
+        <?php elseif($output['info']['activity_begin_time']-3600*12 < time()):?>
             <div class="col-xs-6" style="background:#ccc">报名已截止</div>
         <?php elseif($output['info']['activity_end_time'] < time()):?>
             <div class="col-xs-6" style="background:#ccc">活动已结束</div>
         <?php else:?>
             <div class="col-xs-6 go_debtn">去付款</div>
-        <?php endif;?> -->
-        <div class="col-xs-6 go_debtn">去付款</div>
+        <?php endif;?>
     </div>
     <!--支付成功弹框-->
     <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">

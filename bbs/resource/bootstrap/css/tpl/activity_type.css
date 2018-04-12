@@ -1,6 +1,13 @@
+html,body{
+  height: 100%;
+}
+.activity_type{
+  min-height: 100%;
+  background: #EEE;
+}
 .activity_type .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .activity_type .oprev{
@@ -11,18 +18,18 @@
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .activity_type .reg_top>span{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-  font-size: 5vw;
+  font-size: 18px;
 }
 .activity_type .type_content>div>div{
   padding: 10px 5px;
-  font-size: 3.5vw;
+  font-size: 14px;
 }
 .activity_type .type_content img{
   max-width: 80%;
@@ -35,4 +42,9 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+@media screen and (max-height: 568px) {
+  .activity_type .reg_top>span{
+    font-size: 16px;
+  }
 }

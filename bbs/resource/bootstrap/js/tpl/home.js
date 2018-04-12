@@ -1,4 +1,5 @@
 $(function(){
+	var submitflag = false;
 	//页面滚动监听
 	$(document).ready(function(){
 	$(window).scroll(function(){
@@ -47,24 +48,26 @@ $(function(){
             	if(data.code == '200'){
             		for(var i=0; i<data.list.length; i++){
                 		html += '<div class="index_pro">';
-        	 			html += '	<div class="row index_pro_Img" href_url="'+data.list[i].url1+'">';
-        	 			html += '		<img src="'+data.list[i].activity_index_pic+'" class="col-xs-10 col-xs-offset-1 pro_img" />'+data.list[i].top;
-			        	html += '		<div class="col-xs-10 col-xs-offset-1 mask">';
+        	 			html += '	<div class="overflow index_pro_Img">';
+        	 			html += '		<img src="'+data.list[i].activity_index_pic+'" class="pro_img" />'+data.list[i].top;
+			        	html += '       <div class="num_periods"><img href_url="'+data.list[i].url1+'" src="'+ BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_n.png" />';
+			        	html += '       </div>';
+			        	html += '		<div class="mask">';
 			        	html += '			<span class="pull-left">'+data.list[i].address+'</span>';
 			        	html += '			<span class="pull-left text-right">'+data.list[i].activity_tag+'</span>';
 			        	html += '		</div>';
 			        	html += '	</div>';
-			        	html += '	<div class="row pro_tit">';
+			        	html += '	<div class="overflow pro_tit">';
 			        	html += '		<div class="col-xs-10 col-xs-offset-1">';
-			        	html += '			<span class="pull-left">';
-			        	html += '				<span class="city">【惠州】</span>'+data.list[i].activity_title+'';
+			        	html += '			<span class="pull-left col-xs-8 ProTitle">';
+			        	html += '				<span class="city">【'+data.list[i].city+'】</span>'+data.list[i].activity_title+'';
 			        	html += 	'			</span>';
 			        	html += '			<span class="people pull-right text-right">已参与';
 			        	html += '				<span class="past">'+data.list[i].already_num+'</span>/<span class="sum">'+data.list[i].total_number+'</span>';
 			        	html += '			</span>';
 			        	html += '		</div>';
 			        	html += '	</div>';
-			        	html += '	<div class="row time_price">';
+			        	html += '	<div class="overflow time_price">';
 			        	html += '		<div class="col-xs-10 col-xs-offset-1">';
 			        	html += '			<div class="pull-left">';
 			        	html += '				<p>'+data.list[i].activity_time+'</p>';
@@ -114,13 +117,57 @@ $(function(){
 	$(document).on('click','.nav>div',function(){
 		//console.log($(this).attr('href_url'))
 		window.location.href= $(this).attr('href_url');
-	})  
-	//跳转详情页
-	$(document).on('click','.index_pro_Img',function(){
-    	Href($(this).attr('href_url'));
-    })
+	}) 
+	//收藏按钮
+	$(document).on('click','.num_periods>img',function(){
+		// if($(this).hasClass('RemoveClass')){
+		// 	//取消
+		// 	$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+		// 	$(this).removeClass('RemoveClass');
+		// }else{
+		// 	//收藏
+			
+  //           $(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+		// 	$(this).addClass('RemoveClass');
+		// }
+		//防止重复提交
+		if(submitflag)
+			return false;
+		var url = $(this).attr('href_url');
+		submitflag = true;
+		//向后台发送请求
+     	$.ajax({  
+            url:url,  //请求路径，接口地址
+            type:"post",  //请求的方式
+            async:false,//同步  
+            data:{},//传出的数据  
+            dataType:"json",//返回的数据类型，常用：html/text/json  
+            success:function(data){  //请求成功后的回调函数
+                submitflag = false;
+     //            $('.point_txt').html(data.msg);
+ 				// $('.modal').modal('show');
+ 				alert(data.msg);
+                if(data.code == '200'){
+                	if(data.flag == 1){
+                		//收藏
+                		$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+						//$(this).addClass('RemoveClass');
+                	}else if(data.flag == 2){
+                		//取消
+                		$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+						//$(this).removeClass('RemoveClass');
+                	}else{
+                		//没有登录
+                		HrefDelay(data.url);
+                	}
+                }
+            }  
+        })
+		return false;
+	}) 
     //跳转订票页
     $(document).on('click','.pro_btn',function(){
+    	//console.log('跳转详情页')
     	Href($(this).attr('href_url'));
     })
 })

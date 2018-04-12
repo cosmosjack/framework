@@ -16,7 +16,7 @@
 	          我的相册
 	        </button>
 	        <span class="col-xs-12">
-	        	<span class="pull-right Upload" id="my_pushBtn"></span>
+	        	<span class="pull-right Upload" onclick="Href('<?php echo urlBBS('mine','uploadImg')?>')">上传照片</span>
 	        </span>
     	</div>
     	<div class="my_content overflow">

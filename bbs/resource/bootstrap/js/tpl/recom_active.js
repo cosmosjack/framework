@@ -6,7 +6,7 @@ $(function(){
 			$(document).ready(function(){
 			$(window).scroll(function(){
 			    if($(window).scrollTop()>50){
-			        $('.home_top').css('background-image','linear-gradient(#e4aa46,#f48c12)');
+			        $('.home_top').css('background','#e25428');
 			        $('.od_title').html('活动详情');
 			    }
 			    if($(window).scrollTop() < 50){
@@ -41,24 +41,24 @@ $(function(){
 			  	 $('.modal').modal('show');
 			  })
 			  //收藏
-			  $(document).on('click','.collect_icon',function(){
+			  this.Collection('.collect_icon');
+		},
+		Collection:function(o){
+			$(document).on('click',o,function(){
 			  	if($(this).hasClass('on')){
 			  	  $(this).prop('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_n.png');
 			  	  $(this).removeClass('on');
 			  	}else{
+			  	  $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s_red.png');
 			  	  $(this).addClass('on');
-			  	  $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s.png');
 			  	}
 			  })
-		},
-		click:function(){
-			
 		},
 		event:function(){
 			this.Scroll();
 			this.fn();
 			this.collect_icon();
-			this.click();
+			this.Collection('.num_periods>img');
 		}
 	}
 	//函数调用

@@ -86,8 +86,8 @@
                     <div class="annal overflow">
                         <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img2.jpg" class="col-xs-4" />
                         <div class="col-xs-8">
-                            <div>
-                                <span>3.12大型植树节活动</span>
+                            <div class="overflow">
+                                <span class="Content_title">3.12大型植树节活动</span>
                                 <span class="fr">></span>
                             </div>
                             <div class="time">
@@ -109,8 +109,8 @@
                     <div class="annal overflow">
                         <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img2.jpg" class="col-xs-4" />
                         <div class="col-xs-8">
-                            <div>
-                                <span>3.12大型植树节活动</span>
+                            <div class="overflow">
+                                <span class="Content_title">3.12大型植树节活动</span>
                                 <span class="fr">></span>
                             </div>
                             <div class="time">
@@ -208,6 +208,9 @@
                         <div class="overflow index_pro_Img">
                             <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" class="pro_img" />
                             <div class="Prompt text-right"><span>已满额<span></div>
+                            <div class="num_periods">
+                                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                            </div>
                             <div class="mask">
                                 <span class="pull-left">惠州市东湖西路5号 6-13岁</span>
                                 <span class="pull-left text-right">亲子活动、成长</span>
@@ -240,6 +243,9 @@
                         <div class="overflow index_pro_Img">
                             <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img0.jpg" class="pro_img" />
                             <div class="Prompt text-right"><span>已满额<span></div>
+                            <div class="num_periods">
+                                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                            </div>
                             <div class="mask">
                                 <span class="pull-left">惠州市东湖西路5号 6-13岁</span>
                                 <span class="pull-left text-right">亲子活动、成长</span>

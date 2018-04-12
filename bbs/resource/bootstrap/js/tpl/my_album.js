@@ -3,7 +3,13 @@ $(function(){
     var  flag = false;
 	var my_content = {
         
-
+        //返回上一级
+        Return:function(){
+            $('.my_oprev').click(function(){
+                Href(SITEURL+'/index.php?act=mine&op=mine');
+                console.log(1)
+            })
+        },
         //设置封面
         MyCover:function(){
         	var imgSrc = $('.my_cover');//封面图片
@@ -28,11 +34,12 @@ $(function(){
         },
         //加载相册
         loadList:function(){
+            var H = ($(document.body).height() - 50) * 0.3;
+            var objH = parseInt($(document.body).height()/H*2);
             if(flag)
                 return false;
-            console.log(page);
             $.ajax({  
-                url:SITEURL+"/index.php?act=mine&op=album&curpage="+page,  //请求路径，接口地址
+                url:SITEURL+"/index.php?act=mine&op=album&pageSize="+objH+"&curpage="+page,  //请求路径，接口地址
                 type:"get",  //请求的方式
                 async:false,//同步  
                 data:{},//传出的数据  
@@ -45,7 +52,7 @@ $(function(){
                             // console.log(url);
                             html += '<div class="col-xs-6" href_url="'+data.list[i].url+'">';
                             html += '    <div class="album_txt overflow">';
-                            html += '       <img src="'+data.list[i].img+'" class="col-xs-12 my_cover" />';
+                            html += '       <img src="'+data.list[i].activity_index_pic+'" class="col-xs-12 my_cover" />';
                             html += '       <div class="overflow">';
                             html += '            <span class="album_name col-xs-9">'+data.list[i].time+'</span>';
                             html += '            <span class="album_num col-xs-3 text-right">'+data.list[i].count+'</span>';
@@ -95,6 +102,7 @@ $(function(){
             this.Scroll();
 		    this.MyCover();
             this.MyClick();
+            this.Return();
 		}
 	};
 	my_content.event();

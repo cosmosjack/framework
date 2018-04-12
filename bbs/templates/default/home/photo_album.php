@@ -18,11 +18,12 @@
 	         <?php echo $output['info']['activity_title']?>
             </button>
             <span class="col-xs-12">
-                <span class="pull-right Upload" id="UpBtn" onclick="Href('<?php echo urlBBS('mine','uploadImg')?>')">上传图片</span>
+                <span class="pull-right Upload" id="UpBtn" onclick="Href('<?php echo urlBBS('mine','uploadImg',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>')">上传图片</span>
             </span>
     	</div>
     	
-        <input type="hidden" id="activity" value="<?php echo $output['info']['id']?>">
+        <input type="hidden" id="no" value="<?php echo $output['info']['activity_no']?>">
+        <input type="hidden" id="periods" value="<?php echo $output['info']['activity_periods']?>">
     </div>
     <div class="ph_mask overflow">
       <div><span class="glyphicon glyphicon-chevron-left ph_out"></span></div>

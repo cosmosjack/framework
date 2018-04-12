@@ -4,13 +4,15 @@ $(function(){
 	var activity_expired = {
 		//分页加载数据
 		loadPage:function(){
+			console.log(page);
 			if(flag)
 			 	return false;
+			var keyword = $('#keyword').val();
 		    $.ajax({  
-                url:SITEURL+"/index.php?act=activity&op=listPage&curpage="+page,  //请求路径，接口地址
-                type:"get",  //请求的方式
-                //            async:false,//同步  
-                data:{},//传出的数据  
+                url:SITEURL+"/index.php?act=activity&op=listPageOld&curpage="+page,  //请求路径，接口地址
+                type:"post",  //请求的方式
+                async:false,//同步  
+                data:{keyword:keyword},//传出的数据  
                 dataType:"json",//返回的数据类型，常用：html/text/json  
                 success:function(data){  //请求成功后的回调函数
                 	//console.log(data);
@@ -20,22 +22,22 @@ $(function(){
                 			html += '<div class="content container-fluid">';
                 		for(var i=0; i<data.list.length; i++){
 				        	html += '<div class="index_pro">';
-				        	html += ' 	<div class="row index_pro_Img">';
-				        	html += ' 		<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/img0.jpg" class="col-xs-10 col-xs-offset-1 pro_img" />';
-				            html += '        <div class="col-xs-7 col-xs-offset-1 Prompt text-left"><span>宝贝加油，亲子互动<span></div>';
+				        	html += ' 	<div class="overflow index_pro_Img">';
+				        	html += ' 		<img src="'+data.list[i].activity_index_pic+'" class="col-xs-10 col-xs-offset-1 pro_img" />';
+				            html += '        <div class="Prompt text-left"><span>'+data.list[i].activity_title+'<span></div>';
 				            html += '        <img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_n.png" class="collect col-xs-2" />';
-				        	html += ' 		<div class="col-xs-10 col-xs-offset-1 mask">';
-				        	html += ' 			<span class="pull-left">惠州市东湖西路5号 6-13岁</span>';
+				        	html += ' 		<div class="mask">';
+				        	html += ' 			<span class="pull-left">'+data.list[i].address+' '+data.list[i].age+'岁</span>';
 				        	html += ' 			<span class="pull-left text-right">亲子活动、成长</span>';
 				        	html += ' 		</div>';
 				        	html += ' 	</div>';
 				        	html += ' 	<div class="row pro_tit">';
 				        	html += ' 		<div class="col-xs-10 col-xs-offset-1">';
 				        	html += ' 			<span class="pull-left">';
-				        	html += ' 				<span class="city">【惠州】</span>3月15日一天';
+				        	html += ' 				<span class="city">【'+data.list[i].city+'】</span>'+data.list[i].activity_time;
 				        	html += ' 			</span>';
 				        	html += ' 			<div class="pull-right text-right">';
-				        	html += ' 				<button class="pro_btn">去回顾</button>';
+				        	html += ' 				<button class="pro_btn" href_url="'+data.list[i].url1+'">去回顾</button>';
 				        	html += ' 			</div>';
 				        	html += ' 		</div>';
 				        	html += ' 	</div>	';
@@ -75,7 +77,7 @@ $(function(){
 			 //隐藏的高度
 			 var scrollHeight = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 			 //判断加载视频，文章，回答，医生
-			 if(pageHeight - viewportHeight - scrollHeight + 50 <= 0){
+			 if(pageHeight - viewportHeight - scrollHeight <= 0){
 			 		activity_expired.loadPage();
 				}
 			});
@@ -98,11 +100,29 @@ $(function(){
         		  Href($(this).attr('href_url'));
 			})
         },
+        //点击跳转页面
+        click_Href:function(e){
+        	$(document).on('click',e,function(){
+        		Href($(this).attr('href_url'));
+        	})
+        },
+        //点击搜索
+        search:function(){
+        	$(document).on('click','.glyphicon-search',function(){
+        		page = 1;
+        		flag = false;
+        		$('.content').remove();
+        		$('.no_data').remove();
+        		activity_expired.loadPage();
+        	})
+        },
         event:function(){
         	this.loadPage();
         	this.Scroll();
         	this.click_slip();
         	this.click_collect();
+        	this.click_Href('.pro_btn');
+        	this.search();
         }
 	};
 	//函数调用

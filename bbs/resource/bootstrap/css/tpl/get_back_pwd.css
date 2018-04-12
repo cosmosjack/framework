@@ -1,6 +1,6 @@
 .getBackPwd .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .getBackPwd .oprev{
@@ -11,20 +11,20 @@
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .getBackPwd .reg_top>span{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-   font-size: 5vw;
+   font-size: 18px;
 }
-.getBackPwd .form div>input{
+.getBackPwd .form input{
     background: #eeeeee;
-    line-height: 10vw;
+    line-height: 40px;
     border: none;
-    margin-top: 5vw;
+    margin-top: 10px;
     box-shadow: 0 0 10px #e5e5e5 inset;
     border-radius: 30px;
     outline:none;
@@ -35,38 +35,40 @@
 }
 .getBackPwd .code>button{
   color:#FFF;
-  padding: 0 35px;
+  padding: 0 30px;
   position: absolute;
-  top: calc(50% - 2.5vw);
+  top: calc(50% - 15px);
   right: 16px;
-  line-height: 10vw;
-  font-size: 3.5vw;
-  background-image:linear-gradient(#e4aa46,#f48c12);
+  line-height: 40px;
+  font-size: 14px;
+  background:#e25428;
   border-radius: 30px;
   border:none;
 }
 .getBackPwd .pact{
   margin-top: 20px;
-    font-size: 3.5vw;
+    font-size: 14px;
     line-height: 20px;
 }
 .getBackPwd .reg_btn{
     padding: 10px 0;
-    font-size: 4vw;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    font-size: 14px;
+    background:#e25428;
     color:#FFF;
     border-radius: 30px;
     letter-spacing: 4px;
     margin-top: 15px;
 }
 .getBackPwd .point{
+  border-radius: 10px !important;
   padding: 10px 0;
   padding-top:0; 
+  overflow: hidden; 
 }
 .getBackPwd .point>h4{
    color:#FFF;
    margin-top: 0;
-   background: #2871f8;
+   background: #e25428;
    padding: 10px 0;
 }
 .getBackPwd .point>h5{
@@ -74,4 +76,16 @@
 }
 .getBackPwd .point_txt{
   padding: 10px 0;
+}
+@media screen and (max-height: 568px) {
+  .getBackPwd .form input{
+    line-height: 30px;
+  }
+  .getBackPwd>span{
+    font-size: 16px;
+  }
+  .getBackPwd .code>button{
+    top: calc(50% - 10px);
+    line-height: 30px;
+  }
 }

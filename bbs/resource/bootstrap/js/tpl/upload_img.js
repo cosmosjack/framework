@@ -3,8 +3,9 @@ $(function(){
     var formData = new FormData();
 	var upload_img = {
         
-        up_name:$('#up_select').html(),//被选中的活动名称
-        up_id:$('#activityId').val(),//被选中的活动id activity
+        up_name:$('#title').val(),//被选中的活动名称
+        up_no:$('#no').val(),//被选中的活动id
+        up_periods:$('#periods').val(),
         flag:false,
         //选择相册
         UpSelect:function(){
@@ -31,14 +32,16 @@ $(function(){
         	})
         	//勾选相册
         	$(document).on('click','.my_ra',function(){
-        		$(this).find('span').css('background','#f19931');
+        		$(this).find('span').css('background','#e25428');
         		self.up_name = $(this).siblings('span').html();
-                self.up_id = $(this).attr('data-id');
+                console.log(self.up_name);
+                self.up_no = $(this).attr('data-no');
+                self.up_periods = $(this).attr('data-periods');
         		$(this).parent('li').siblings('li').find('span').find('span').css('background','none');
         	})
             //确定按钮
             $(document).on('click','.my_define',function(){
-            	if(self.up_name != null){
+            	if(self.up_name != ''){
                 	$('.modal').modal('hide');
                 	$('#up_select').html(self.up_name);
                 }
@@ -95,6 +98,7 @@ $(function(){
 	        		$('.point').children().remove();
 	        		$('.point').append(val);
 	        		$('.modal').modal('show');
+                    console.log(1)
 	        	}else if($('.push_img>ul>li').length == 0){
 	        		var val = $('<h4 class="col-xs-12 text-center">提示</h4><span class="col-xs-12 text-center">请添加图片</span>')
 	        		$('.point').children().remove();
@@ -117,7 +121,7 @@ $(function(){
 		                         }
 		                         
 		        			}
-	        			},500);
+	        			},50);
 	        		}
                     //防止重复提交
                     if($('#token').val() != 1)
@@ -150,7 +154,8 @@ $(function(){
                     var xhr = new XMLHttpRequest();//第一步    
                     xhr.open('POST', SITEURL+"/index.php?act=mine&op=uploads"); //第二步骤    
                     //发送请求   
-                    formData.append('activityId',self.up_id); 
+                    formData.append('activity_no',self.up_no);
+                    formData.append('activity_periods',self.up_periods);
                     //console.log(self.up_id);return false;
                     xhr.send(formData);  //第三步骤    
                     //ajax返回    
@@ -161,7 +166,7 @@ $(function(){
                             //formData = new FormData(); 
                             var id = formData.get('photo');
                             formData = new FormData(); 
-                            formData.append('activityId',id);
+                            formData.append('activity_no',id);
                             console.log(xhr.responseText);
                             var data = JSON.parse(xhr.responseText);
                             //console.log(data);
@@ -169,7 +174,7 @@ $(function(){
                             $('.modal').modal('show');
                             $('#token').val(1);
                             if(data.code == '200')
-                                HrefDelay(SITEURL+"/index.php?act=mine&op=photo&id="+self.up_id);
+                                HrefDelay(SITEURL+"/index.php?act=mine&op=photo&activity_no="+self.up_no+"&activity_periods="+self.up_periods);
                 　　　　}    
                 　　};    
                     //设置超时时间    

@@ -8,7 +8,7 @@ html,body{
 }
 .about_us .reg_top{
     height: 50px;
-    background-image:linear-gradient(#e4aa46,#f48c12);
+    background:#e25428;
     position: relative;
 }
 .about_us .oprev{
@@ -19,28 +19,28 @@ html,body{
    background: none;
    color:#FFF;
    line-height: 36px;
-   font-size: 5vw;
+   font-size: 16px;
    z-index: 100;
 }
 .about_us .reg_top>span{
   color:#FFF;
   padding: 6px 0;
   line-height: 36px;
-  font-size: 5vw;
+  font-size: 18px;
 }
 .about_us .title,.about_us .txt,.about_us .contact{
 	background: #FFF;
 }
 .about_us .title>h5,.about_us .contact>h5{
   padding: 5px 0;
-  color:#f48c12;
+  color:#e25428;
   border-bottom:1px solid #EEE;
-  font-size: 4vw;
+  font-size: 14px;
 }
 .about_us .txt>p{
 	text-indent: 2em;
-    font-size: 4vw;
-    padding-bottom: 20px;
+  font-size: 14px;
+  padding-bottom: 20px;
 }
 .about_us .contact{
 	background: #FFF;
@@ -50,15 +50,20 @@ html,body{
 	background: #FFF;
 }
 .about_us .phone_address>h5{
-	font-size: 4vw;
+	font-size: 14px;
 }
 .about_us .platform{
    width: 100%;
    position: fixed;
-   bottom: 5vw;
+   bottom: 5px;
    left: 0;
 }
 .about_us .platform h4{
-	font-size: 4.5vw;
-   color:#f48c12;
+	font-size: 16px;
+  color:#e25428;
+}
+@media screen and (max-height: 568px) {
+  .about_us .reg_top>span{
+    font-size: 16px;
+  }
 }

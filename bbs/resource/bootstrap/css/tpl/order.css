@@ -4,7 +4,7 @@ html,body{
 }
 .order {
 	background: #eee;
-  height: 100%;
+  min-height: 100%;
 }
 .order .reg_top{
     height: 50px;
@@ -15,20 +15,20 @@ html,body{
 	color:#FFF;
 	padding: 6px 0;
 	line-height: 36px;
-    font-size: 5vw;
+  font-size: 16px;
 }
 .order .nav {
 	padding: 10px 0;
 	background: #FFF;
 }
 .order .nav img ,.order .nav span{
-   font-size: 4vw;
+   font-size: 14px;
    padding-left:0 !important;
    padding-right: 0 !important; 
 }
 .order .nav span{
 	padding: 5px 0;
-   margin-top: 5px;
+  margin-top: 5px;
 }
 .order .active{
 	color:#e25428;
@@ -50,29 +50,30 @@ html,body{
 }
 .order .order_pro>div>div{
 	padding-left:0 !important;
-    padding-right: 0 !important; 
-    margin-top: 4vw;
-    font-size: 3vw ;
+  padding-right: 0 !important; 
+  margin-top: 14px;
+  font-size: 12px;
+  min-height: 80px;
 }
 .order .orpro_img{
-	margin:4vw 0;
+	margin:14px 0;
 }
 .order .orpro_img>img{
 	min-height: 80px;
-    padding-left:0 !important;
-    padding-right: 0 !important;
+  padding-left:0 !important;
+  padding-right: 0 !important;
 }
 .order .order_pro p{
    margin-bottom: 2px;
-   margin-left: 1vw;
+   margin-left: 5PX;
    padding-right: 12px;
 }
 .order .pro_title{
 	width: 100%;
 	display: -webkit-box;
-   -webkit-box-orient: vertical;
-   -webkit-line-clamp: 2;
-   overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .order .pro_Time ,.order .pro_class{
    overflow: hidden;
@@ -83,12 +84,12 @@ html,body{
    color:#e25428;
 }
 .order .price_sum>p ,.order .price_sum>div{
-   font-size: 3.5vw;
+   font-size: 14px;
    padding-left: 2px;
    width: 100%;
 }
 .order .price_sum>div{
-	margin-top: 2vw;
+	margin-top: 5px;
 }
 .order .price_sum .pay{
    width: 80%;
@@ -97,8 +98,19 @@ html,body{
    border: none;
    background-image:linear-gradient(#ec9b82,#da3400);
    border-radius: 10px;
-   margin: 2vw 10%;
+   margin: 6px 10%;
 }
 .order .no_data{
    color:#d4d4d4;
+
+}
+.order .po_bottom{
+   position: absolute;
+   bottom: 0;
+   left: 0;
+}
+@media screen and (max-height: 568px) {
+  .order .price_sum>p ,.order .price_sum>div{
+    font-size: 12px;
+  }
 }
