@@ -100,6 +100,18 @@ class adminControl extends BaseAdminControl{
 
 //    订单列表
     public function order_listOp(){
+
+        $where = array();
+        $order = "";
+        $db_bbs_order = new Model("bbs_order");
+        $data_bbs_order = $db_bbs_order
+            ->where($where)
+            ->order($order)
+            ->page(6)
+            ->select();
+//        p($data_bbs_order);
+        Tpl::output("data_bbs_activity",$data_bbs_order);
+        Tpl::output('fpage',$db_bbs_order->showpage());
         Tpl::showpage("order_list");
     }
 

@@ -19,7 +19,7 @@ class activityControl extends BaseControl{
     public function activityExpiredOp(){
     	Tpl::showpage("activity_expired");
     }
-    //分页数据
+    //推荐活动分页数据
     public function listPageOp(){
     	if(!isAjax())
     		ajaxReturn(array('code'=>'0','msg'=>'使用ajax提交','control'=>'listPage'));
@@ -35,7 +35,7 @@ class activityControl extends BaseControl{
         //还没有结束的活动
         if($activityTime == 'ing')
             $map['activity_end_time'] = array('gt',time()); 
-        //活动类型
+        //活动类型 
         if(!empty($activityType))
             $map['activity_type'] = array('eq',$activityType);
         if($is_recommend != '')
@@ -76,6 +76,14 @@ class activityControl extends BaseControl{
                     $val['top'] = '';
                     $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">去订票</button>';
                 }
+                //查看是否收藏
+                $db_collect = new Model('bbs_collect');
+                $map = array();
+                $map['activity_no'] = array('eq',$val['activity_no']);
+                $map['activity_periods'] = array('eq',$val['activity_periods']);
+                $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+                if($db_collect->where($map)->find())
+                    $val['collect'] = 1;
             }
             // p($num);
             // p($list);
@@ -100,7 +108,7 @@ class activityControl extends BaseControl{
         $count = $db_activity->where($map)->count();
         if($_GET['curpage'] > ceil($count/$pageSize))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'listPage'));
-        $field = 'id,activity_title,activity_index_pic,activity_tag,activity_city,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price';
+        $field = 'id,activity_title,activity_no,activity_periods,activity_index_pic,activity_tag,activity_city,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price';
         $list = array();
         $list = $db_activity
                 ->field($field)
@@ -116,8 +124,17 @@ class activityControl extends BaseControl{
                 //$val['activity_title'] = mb_substr($val['activity_title'], 0,6,'utf-8');
                 $val['activity_time'] = (date('Ymd',$val['activity_begin_time'])==date('Ymd',$val['activity_end_time']))?date('m月d日',$val['activity_begin_time']).'一天':(date('m月d日',$val['activity_begin_time']).'~'.date('m月d日',$val['activity_end_time']));
                 $val['url1'] = urlBBS('activity','pastDetail',array('id'=>$val['id']));
+                $val['url'] = urlBBS('activity','collect',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
                 $val['age'] = $val['min_age'].'-'.$val['max_age'];
                 $val['city'] = getAreaName($val['activity_city']);  
+                //查看是否收藏
+                $db_collect = new Model('bbs_collect');
+                $map = array();
+                $map['activity_no'] = array('eq',$val['activity_no']);
+                $map['activity_periods'] = array('eq',$val['activity_periods']);
+                $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+                if($db_collect->where($map)->find())
+                    $val['collect'] = 1;
             }
             // p($num);
             // p($list);
@@ -147,6 +164,7 @@ class activityControl extends BaseControl{
         //活动轮播图
         $db_banner = new Model('bbs_uploads');
         $banner = $db_banner->where('upload_type=1 and item_id='.$info['activity_no'])->select();
+        //p($banner);
         //活动详情
         $info['activity_desc'] = htmlspecialchars_decode($info['activity_desc']);
         //活动时间
@@ -170,17 +188,35 @@ class activityControl extends BaseControl{
                     ->where($map)
                     ->order('activity_periods,activity_begin_time')
                     ->select();
+        //查看是否收藏
+        $db_collect = new Model('bbs_collect');
+        $map = array();
+        $map['activity_periods'] = array('eq',$info['activity_periods']);
+        $map['activity_no'] = array('eq',$info['activity_no']);
+        $map['member_id'] = array('eq',$_SESSION['userInfo']['id']); 
+        if($db_collect->where($map)->find())
+            $info['collect'] = 1;
         //推荐活动
         $map = array();
         $map['id'] = array('neq',$info['id']);
         $map['activity_end_time'] = array('gt',time());
-        $field = 'id,activity_title,activity_no,activity_periods,activity_index_pic,activity_tag,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price';
+        $field = 'id,activity_title,activity_no,activity_periods,activity_index_pic,activity_tag,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price,activity_city';
         $list = $db_activity
                 ->field($field)
                 ->where($map)
                 ->order('activity_begin_time,activity_click desc')
                 ->limit(2)
                 ->select();
+        //查看是否收藏
+        foreach ($list as &$val) {
+            $map = array();
+            $map['activity_periods'] = array('eq',$val['activity_periods']);
+            $map['activity_no'] = array('eq',$val['activity_no']);
+            $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+            if($db_collect->where($map)->find())
+                $val['collect'] = 1;
+            $val['activity_time'] = (date('Ymd',$val['activity_begin_time'])==date('Ymd',$val['activity_end_time']))?date('m月d日',$val['activity_begin_time']).'一天':(date('m月d日',$val['activity_begin_time']).'~'.date('m月d日',$val['activity_end_time']));
+        }
         //p($info);p($list);p($banner);
         Tpl::output('info',$info);
         Tpl::output('banner',$banner);
@@ -232,6 +268,7 @@ class activityControl extends BaseControl{
         Tpl::output('info',$info);
         Tpl::output('groupInfo',$groupInfo['data']);
         Tpl::output('group_arr',$group_arr);
+        Tpl::setLayout("common_login_layout");
     	Tpl::showpage("past_detail");
     }
     //收藏活动
@@ -251,7 +288,7 @@ class activityControl extends BaseControl{
         $db_activity_periods = new Model('bbs_activity_periods');
         $info = $db_activity->where($map)->find();
         if(empty($info))
-            $info = $db_activity->where($map)->find();
+            $info = $db_activity_periods->where($map)->find();
         if(empty($info))
             ajaxReturn(array('code'=>'0','msg'=>'活动不存在','control'=>'collect'));
         $db_collect = new Model('bbs_collect');
@@ -264,6 +301,7 @@ class activityControl extends BaseControl{
             $data['activity_periods'] = $activity_periods;
             $data['member_id'] = $_SESSION['userInfo']['id'];
             $data['member_name'] = $_SESSION['userInfo']['member_name'];
+            $data['add_time'] = time();
             $result = $db_collect->insert($data);
             if($result)
                 ajaxReturn(array('code'=>'200','msg'=>'收藏成功','control'=>'collect','flag'=>1));
@@ -281,6 +319,7 @@ class activityControl extends BaseControl{
     }
     //活动类型
     public function activityTypeOp(){
+        Tpl::setLayout('common_login_layout');
     	Tpl::showpage("activity_type");
     }
     //活动类型介绍
@@ -290,22 +329,27 @@ class activityControl extends BaseControl{
     }
     //宝贝视频
     public function babyVideoOp(){
+        Tpl::setLayout('common_login_layout');
     	Tpl::showpage("baby_video");
     }
     //活动排期
     public function arrangeOp(){
+        Tpl::setLayout('common_login_layout');
     	Tpl::showpage("arrange");
     }
     //明星领队
     public function starLeaderOp(){
+        Tpl::setLayout('common_login_layout');
     	Tpl::showpage("star_leader");
     }
     //领队详情
     public function leaderDetailOp(){
+        Tpl::setLayout('common_login_layout');
         Tpl::showpage('leader_detail');
     }
     //小组成员
     public function memberOp(){
+        Tpl::setLayout('common_login_layout');
         Tpl::showpage("member");
     }
     //活动报名页面

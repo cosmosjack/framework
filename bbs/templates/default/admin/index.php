@@ -46,12 +46,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </li>
 
                 <li>
-                    <a class="J_menuItem" href=""><i class="fa fa-columns"></i> <span class="nav-label">平台设置</span></a>
+                    <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=web_info';?>"><i class="fa fa-columns"></i> <span class="nav-label">平台设置</span></a>
                 </li>
 
                 <li>
                     <a href="#">
-                        <i class="fa fa-home"></i>
+                        <i class="fa fa-soccer-ball-o"></i>
                         <span class="nav-label">活动管理</span>
                         <span class="fa arrow"></span>
                     </a>
@@ -67,7 +67,13 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
                 <li>
                     <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=user_list';?>" class="J_menuItem">
-                        <i class="fa fa-columns"></i> <span class="nav-label">会员管理</span>
+                        <i class="fa fa-users"></i> <span class="nav-label">会员管理</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=order_list';?>" class="J_menuItem">
+                        <i class="fa fa-table"></i> <span class="nav-label">订单管理</span>
                     </a>
                 </li>
 

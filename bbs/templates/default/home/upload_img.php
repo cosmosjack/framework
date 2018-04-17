@@ -46,7 +46,7 @@
                 <span class="my_ra pull-right" data-no="<?php echo $val['activity_no']?>" 
                     data-periods="<?php echo $val['activity_periods']?>">
                     <?php if($val['activity_no'] == $output['activity_no']):?>
-                        <span style="background: rgb(241, 153, 49);"></span>
+                        <span style="background: rgb(226, 84, 40);"></span>
                     <?php else:?>
                         <span></span>
                     <?php endif;?>

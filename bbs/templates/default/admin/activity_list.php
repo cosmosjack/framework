@@ -152,8 +152,8 @@ defined('InCosmos') or exit('Access Invalid!');?>
     /* 展示详细的小组情况 end */
     // 更换老师
     function change_teacher(){
-        var group_id =  $("input[name='group_id']").val();
-        var activity_id = $("input[name='activity_id']").val();
+       /* var group_id =  $("input[name='group_id']").val();
+        var activity_id = $("input[name='activity_no']").val();*/
 
         $.ajax({
             url:"<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=get_teacher_list';?>",
@@ -279,6 +279,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
         var mod_state = $("#model4_btn").attr("state");
         console.log(mod_state);
         var chosen_val = $("#select_change").val(); // 选择的学生 或老师
+//        return false;
         if(mod_state == 'teacher'){
 
             var group_id =  $("input[name='group_id']").val();//小组ID
@@ -382,6 +383,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
         location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_list&is_periods=true&activity_no=';?>"+activity_no;
     }
     /* 展示其他期数列表 end */
+
+    /* 修改活动的内容 start */
+    function change_activity(activity_no,periods){
+        location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=mod_activity&activity_no=';?>"+activity_no+"&periods="+periods;
+    }
+    /* 修改活动的内容 end */
 </script>
 
 <div class="wrapper wrapper-content animated fadeInUp">
@@ -453,8 +460,10 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <td class="project-actions">
 
                                         <a href="#" onclick="add_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> 加期 </a>
-                                        <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>')" class="btn btn-danger btn-sm"><i class="fa fa-folder"></i> 期数 </a>
-                                        <?php if($val['state'] == '未开始'){echo '<a href="#" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>';}?>
+                                        <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-danger btn-sm"><i class="fa fa-folder"></i> 期数 </a>
+                                        <?php if($val['state'] == '未开始'){ ?>
+                                            <a href="#" onclick="change_activity('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
+                                        <?php }?>
                                     </td>
                                 </tr>
                             <?php }?>

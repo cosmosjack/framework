@@ -36,23 +36,23 @@
                         <img src="<?php echo $val['headimgurl']?$val['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" />
                     </div>
     				<div class="col-xs-12 overflow student_inf_txt">
-	    				<span class="col-xs-4 text-left">姓名</span>
+	    				<span class="col-xs-4 text-left">姓名:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_name']?></span>
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
-	    				<span class="col-xs-4 text-left">证件类型</span>
+	    				<span class="col-xs-4 text-left">证件类型:</span>
 	    				<span class="col-xs-8">内地身份证</span>
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
-	    				<span class="col-xs-4 text-left">证件号码</span>
+	    				<span class="col-xs-4 text-left">证件号码:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_papers_no']?></span>
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
-	    				<span class="col-xs-4 text-left">出生年月</span>
+	    				<span class="col-xs-4 text-left">出生年月:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_brithday']?></span>
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
-	    				<span class="col-xs-4 text-left">性别</span>
+	    				<span class="col-xs-4 text-left">性别:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_sex']==1?'男':'女'; ?></span>
 	    			</div>
                     <div class="col-xs-12 overflow select_mo text-center" data-id="<?php echo $val['id']?>">

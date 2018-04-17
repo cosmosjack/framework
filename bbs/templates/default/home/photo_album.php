@@ -13,7 +13,7 @@
     <div class="photo_album">
         <!--头部-->
     	<div class="reg_top overflow">
-    		<button type="button" class="btn oprev">
+    		<button type="button" class="btn ph_oprev">
 	          <span class="glyphicon glyphicon-chevron-left"></span>
 	         <?php echo $output['info']['activity_title']?>
             </button>

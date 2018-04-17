@@ -23,10 +23,10 @@
             <div class="mo_content">
                 <div class="overflow">
                    <div class="col-xs-12 avatar oveflow">
-                     <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="col-xs-3 pull-left" />
+                     <span>我的头像:</span>
                      <div class="file-box pull-right" >
                         <input type="file" class="file-btn" id="up_img" name="photo"/>
-                        <span>修改头像></span>
+                        <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="pull-left" id="userImg" />
                     </div>
                    </div>
                 </div>
@@ -48,7 +48,7 @@
                     <div class="col-xs-12 name">
                         <div class="row">
                             <span class="col-xs-4">我的地址：</span>
-                            <input type="text" class="col-xs-8 u_city" id="myAddrs" name="addr" data-key="<?php echo $output['info']['address1']?>" value="<?php echo $output['info']['address2']?>" placeholder="请选择城市" readonly=""  />
+                            <input type="text" class="col-xs-8 u_city" id="myAddrs" name="addr" data-key="<?php echo $output['info']['address1']?>" value="<?php echo $output['info']['address2']?>" placeholder="请选择城市" readonly="" onfocus="this.blur();"  />
                             <input type="hidden" id="value2" name="" />
                             <textarea placeholder="详细地址" class="col-xs-8 pull-right u_cityData data" name="address"><?php echo $output['info']['address']?></textarea>
                         </div>
@@ -74,7 +74,6 @@
             <div class="modal-content col-xs-10 point col-xs-offset-1">
                  <h4 class="col-xs-12 text-center">提示</h4>
                  <h5 class="col-xs-12 text-center point_txt"></h5>
-                 <button class="btn btn-success col-xs-8 col-xs-offset-2 aHide">确定</button>
             </div>
           </div>
         </div>

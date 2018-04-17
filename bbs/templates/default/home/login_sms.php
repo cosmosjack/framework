@@ -24,7 +24,7 @@
     			<button class="code_btn" href_url="<?php echo urlBBS('index','sendMessage')?>">验证码<span id="Time"></span></button>
     		</div>
     		<div class="col-xs-10  col-xs-offset-1 row text-center sms_btn">
-    			<div class="col-xs-12" href_url="<?php echo urlBBS('index','login_sms')?>">登录</div>
+    			<div class="col-xs-10 col-xs-offset-1" href_url="<?php echo urlBBS('index','login_sms')?>">登录</div>
     		</div>
     	</div>
     	<div class="sms_txt col-xs-12 text-center">好少年宫活动发布平台</div>
@@ -33,7 +33,6 @@
 		    <div class="modal-content col-xs-10 point col-xs-offset-1">
 		         <h4 class="col-xs-12 text-center">提示</h4>
 		         <h5 class="col-xs-12 text-center point_txt"></h5>
-		         <button class="btn btn-success col-xs-8 col-xs-offset-2 Hide">确定</button>
 		    </div>
 		  </div>
 		</div>

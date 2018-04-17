@@ -8,33 +8,6 @@
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/recom_active.css" />
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/swiper-3.4.2.min.css" />
-    <style type="text/css">
-        .recom_active .title{
-          background: #FFF;
-          overflow: auto;
-          padding: 0;
-          margin: 10px 0;
-        }
-        .recom_active .title_ul{
-          margin: 0;
-          padding: 0;
-          overflow: auto;
-          white-space: nowrap;
-        }
-        .recom_active .title_ul>li{
-          float: left;
-          list-style: none;
-          padding:6px;
-          margin-right: 10px;
-        }
-        .recom_active .session{
-            font-size: 14px;
-           border: 1px solid #e25428;
-           border-radius: 10px;
-           color:#e25428;
-           box-sizing: border-box;
-        }
-    </style>
 </head>
 <body>
     <div class="recom_active">
@@ -107,13 +80,13 @@
         <div class="pro_content">
             <div class="pta overflow container-fluid">
                 <div class="col-xs-12">
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" class="col-xs-2" /><span><?php echo $output['info']['address']?></span>
+                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" class="col-xs-2" /><span class="col-xs-10"><?php echo $output['info']['address']?></span>
                 </div>
                 <div class="col-xs-12">
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/time.png" class="col-xs-2" /><span><?php echo $output['info']['activity_time']?></span>
+                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/time.png" class="col-xs-2" /><span class="col-xs-10"><?php echo $output['info']['activity_time']?></span>
                 </div>
                 <div class="col-xs-12">
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/age.png" class="col-xs-2" /><span><?php echo $output['info']['min_age'].'~'.$output['info']['max_age']?>岁</span>
+                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/age.png" class="col-xs-2" /><span class="col-xs-10"><?php echo $output['info']['min_age'].'~'.$output['info']['max_age']?>岁</span>
                 </div>
             </div>
             <!--推荐-->
@@ -131,7 +104,7 @@
                 <div class="overflow col-xs-12 pro_recom" style="display: none;">
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
-                        <div class="overflow index_pro_Img">
+                        <div class="overflow index_pro_Img" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">
                             <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" />
                             <div class="num_periods">
                                 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />

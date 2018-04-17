@@ -21,7 +21,7 @@
 	    	 	</div>
     	 	</div>
     	 	<div class="logo text-center container-fluid">
-	    		 <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="col-xs-4 col-xs-offset-4 img-circle" />
+	    		 <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="img-circle" />
 	    		 <h4 class="col-xs-12 test"><?php echo $output['info']['nick_name']?$output['info']['nick_name']:'好少年一号';?></h4>
 	    		 <div class="grade_gender col-xs-12">
 	    		    <div class="row">

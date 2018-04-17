@@ -47,7 +47,6 @@
             <div class="modal-content col-xs-10 point col-xs-offset-1">
                  <h4 class="col-xs-12 text-center">提示</h4>
                  <h5 class="col-xs-12 text-center point_txt"></h5>
-                 <button class="btn btn-success col-xs-8 col-xs-offset-2 aHide">确定</button>
             </div>
           </div>
         </div>

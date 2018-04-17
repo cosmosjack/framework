@@ -11,7 +11,7 @@
     <div class="my_album">
     	<!--头部-->
     	<div class="reg_top overflow">
-    		<button type="button" class="btn oprev">
+    		<button type="button" class="btn my_oprev">
 	          <span class="glyphicon glyphicon-chevron-left"></span>
 	          我的相册
 	        </button>

@@ -109,7 +109,7 @@ class orderControl extends BaseControl{
             showMessage('活动不存在',urlBBS('order','index'));
         //活动轮播图
         $db_banner = new Model('bbs_uploads');
-        $banner = $db_banner->where('upload_type=1 and item_id='.$activityInfo['id'])->select();
+        $banner = $db_banner->where('upload_type=1 and item_id='.$info['activity_no'])->select();
         //活动详情
         $info['activity_desc'] = htmlspecialchars_decode($activityInfo['activity_desc']);
         //推荐活动

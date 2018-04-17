@@ -30,8 +30,8 @@
     			<input type="text" name="" placeholder="请输入验证码" class="col-xs-12" />
     			<button class="code_btn" href_url="<?php echo urlBBS('index','sendMessage')?>">验证码<span id="Time"></span></button>
     		</div>
-    		<div class="row">
-	    		<div class="col-xs-6 col-xs-offset-3 text-center reg_btn" href_url="<?php echo urlBBS('index','findpw')?>">修改密码</div>
+    		<div class="col-xs-10 col-xs-offset-1">
+	    		<div class="col-xs-10 col-xs-offset-1 text-center reg_btn" href_url="<?php echo urlBBS('index','findpw')?>">修改密码</div>
 	    	</div>
     	</div>
     	<!--提示框-->
@@ -40,7 +40,6 @@
 		    <div class="modal-content col-xs-10 point col-xs-offset-1">
 		         <h4 class="col-xs-12 text-center">提示</h4>
 		         <h5 class="col-xs-12 text-center point_txt"></h5>
-		         <button class="btn btn-success col-xs-8 col-xs-offset-2 Hide">确定</button>
 		    </div>
 		  </div>
 		</div>

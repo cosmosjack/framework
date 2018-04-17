@@ -36,39 +36,39 @@
                         <img src="<?php echo $val['headimgurl']?$val['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/children.jpg'?>" />
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">姓名</span>
+                        <span class="col-xs-4 text-left">姓名:</span>
                         <span class="col-xs-8"><?php echo $val['child_name']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">证件类型</span>
+                        <span class="col-xs-4 text-left">证件类型:</span>
                         <span class="col-xs-8">内地身份证</span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">证件号码</span>
+                        <span class="col-xs-4 text-left">证件号码:</span>
                         <span class="col-xs-8"><?php echo $val['child_papers_no']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">出生年月</span>
+                        <span class="col-xs-4 text-left">出生年月:</span>
                         <span class="col-xs-8"><?php echo $val['child_brithday']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">性别</span>
+                        <span class="col-xs-4 text-left">性别:</span>
                         <span class="col-xs-8"><?php echo $val['child_sex']==1?'男':'女' ?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">身高</span>
+                        <span class="col-xs-4 text-left">身高:</span>
                         <span class="col-xs-8"><?php echo $val['child_height']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">体重</span>
+                        <span class="col-xs-4 text-left">体重:</span>
                         <span class="col-xs-8"><?php echo $val['child_weight']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">衣服尺码</span>
+                        <span class="col-xs-4 text-left">衣服尺码:</span>
                         <span class="col-xs-8"><?php echo $val['child_size']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">特别叮嘱</span>
+                        <span class="col-xs-4 text-left">特别叮嘱:</span>
                         <span class="col-xs-8"><?php echo $val['child_remark']?></span>
                     </div>
                     <div class="col-xs-12 overflow select_mo text-center" data-id="<?php echo $val['id']?>">

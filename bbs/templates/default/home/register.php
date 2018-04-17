@@ -35,15 +35,14 @@
 			       我已阅读并同意 <span class="href_url" href_url='url'>《好少年宫活动协议》</span>
 			</div>
     	</div>
-    	<div class="row">
-    		<div class="col-xs-6 col-xs-offset-3 text-center reg_btn" href_url="<?php echo urlBBS('index','register')?>" >注册</div>
+    	<div class="col-xs-10 col-xs-offset-1">
+    		<div class="col-xs-10 col-xs-offset-1 text-center reg_btn" href_url="<?php echo urlBBS('index','register')?>" >注册</div>
     	</div>
     	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog modal-sm row" role="document">
 		    <div class="modal-content col-xs-10 point col-xs-offset-1">
 		         <h4 class="col-xs-12 text-center">提示</h4>
 		         <h5 class="col-xs-12 text-center point_txt"></h5>
-		         <button class="btn btn-success col-xs-8 col-xs-offset-2 Hide">确定</button>
 		    </div>
 		  </div>
 		</div>

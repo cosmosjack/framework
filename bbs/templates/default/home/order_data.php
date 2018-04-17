@@ -49,7 +49,7 @@
             <div class="col-xs-12 overflow">
                 <span class="price">&yen;<?php echo $output['activityInfo']['activity_price']?></span>
                 <!-- <span class="importance coupon">优惠券兑换>></span> -->
-                <span class="time pull-right">报名截止:<?php echo date('m月d日 H:i:s',$output['activityInfo']['activity_begin_time']-3600*12)?></span>
+                <span class="time pull-right">报名截止<?php echo date('m月d日',$output['activityInfo']['activity_begin_time']-3600*24)?></span>
             </div>
         </div>
         <div class="pro_content">
@@ -136,14 +136,14 @@
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
                         <div class="overflow index_pro_Img">
-                            <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" />
+                            <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'))?>')" />
                             <div class="num_periods">
                                 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
                             </div>
                             <?php if($val['total_number']-$val['already_num'] == 0):?>
-                            <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>已满额<span></div>
+                            <div class="Prompt text-right"><span>已满额<span></div>
                             <?php elseif($val['total_number']-$val['already_num'] < 5):?>
-                                <div class="col-xs-10 col-xs-offset-1 Prompt text-right"><span>即将满额<span></div>
+                                <div class="Prompt text-right"><span>即将满额<span></div>
                             <?php else:?>
                                 
                             <?php endif;?>
@@ -170,7 +170,7 @@
                                     <p class="price">&yen;<?php echo $val['activity_price']?></p>
                                 </div>
                                 <div class="row pull-left text-right">
-                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">去订票</button>
+                                    <button class="pro_btn" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'))?>')">去订票</button>
                                 </div>
                             </div>
                         </div>
@@ -178,6 +178,30 @@
                     <?php endforeach;?>
                 </div>
                 
+            </div>
+        </div>
+        <div class="bullet overflow">
+            <div class="bdsharebuttonbox col-xs-12 text-center overflow">
+            <div class="col-xs-3 overflow">
+                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                <p class="col-xs-12">微信</p>
+            </div>
+            <div class="col-xs-3 overflow">
+                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                <p class="col-xs-12">QQ空间</p>   
+            </div>
+            <div class="col-xs-3 overflow">
+                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                <p class="col-xs-12">新浪</p>
+            </div>
+            <div class="col-xs-3 overflow">
+                <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                <p class="col-xs-12">QQ</p>
+            </div>
+            <div class="col-xs-3 overflow">
+                <a href="#" class="bds_more" data-cmd="more"></a>
+                <p class="col-xs-12">其他</p>
+            </div>
             </div>
         </div>
     </div>

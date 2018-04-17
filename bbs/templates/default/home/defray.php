@@ -93,7 +93,7 @@
         </div>
         <div class="defray_manner container-fluid overflow">
             <div class="col-xs-12">
-                <span class="radio de_radio"></span>
+                <span class="radio de_radio"><span></span></span>
                 <span class="contract">我已阅读并接受<span>《国家旅游局团队境内旅游合同》</span></span>
             </div>
             <div class="de_wx col-xs-12">

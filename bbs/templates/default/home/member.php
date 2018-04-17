@@ -98,7 +98,7 @@
 	        </div> 
 	        <!--口号-->
 	        <div class="col-xs-12 me_slogan">
-	            <div class="slogan_img col-xs-4">
+	            <div class="slogan_img col-xs-6">
 	            	<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/slogan.png" />
 	            	<span>我们的口号：</span>
 	            </div>

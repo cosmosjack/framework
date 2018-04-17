@@ -17,14 +17,37 @@ class mineControl extends BaseControl{
     public function indexOp(){
         Tpl::setLayout("common_layout");
     	//查询最新的用户信息
-    	$db_user = Model('bbs_user');
+    	$db_user = new Model('bbs_user');
     	$info = $db_user->where('id='.$_SESSION['is_login'])->find();
     	//p($info);
-        Tpl::output("info",$info);
+        $db_order = new Model('bbs_order');
+        $map = array();
+        $map['member_id'] = array('eq',$info['id']);
+        //$map['order_status'] = array('eq',3);
         //查询成长记录总数,查参加活动的订单总数
-        $db_order = Model('bbs_order');
-        $count = $db_order->where('member_id='.$info['id'].' and order_status=3')->count();
-        Tpl::output("count",$count);
+        $growCount = $db_order->where($map)->count();
+        //成长相册数量
+        $albumCount = 0;
+        $list = $db_order->where($map)->field('activity_no,activity_periods')->select();
+        $db_album = new Model('bbs_album');
+        //p($list);
+        foreach ($list as $val) {
+            $map = array();
+            $map['activity_no'] = array('eq',$val['activity_no']);
+            //$map['activity_periods'] = array('eq',$val['activity_periods']);
+            $count = $db_album->where($map)->count();
+            $albumCount += $count;
+        }
+        
+        //我的收藏
+        $db_collect = new Model('bbs_collect');
+        $map = array();
+        $map['member_id'] = array('eq',$info['id']);
+        $collectCount = $db_collect->where($map)->count();
+        Tpl::output("info",$info);
+        Tpl::output("albumCount",$albumCount);
+        Tpl::output("growCount",$growCount);
+        Tpl::output("collectCount",$collectCount);
         Tpl::showpage("mine");
     }
     //我的相册
@@ -50,13 +73,13 @@ class mineControl extends BaseControl{
                 ->page($pageSize)
                 ->select();
         if(!empty($list)){
-            $db_uploads = new Model('bbs_uploads');
+            $db_album = new Model('bbs_album');
             foreach ($list as &$val) {
                 $map = array();
-                $map['upload_type'] = array('eq',2);
-                $map['item_id'] = array('eq',$val['activity_no']);
-                //$map['periods'] = array('eq',$val['activity_periods']);//测试需要，暂时屏蔽
-                $val['count'] = $db_uploads->where($map)->count();
+                $map['upload_type'] = array('eq',1);
+                $map['activity_no'] = array('eq',$val['activity_no']);
+                //$map['activity_periods'] = array('eq',$val['activity_periods']);//测试需要，暂时屏蔽
+                $val['count'] = $db_album->where($map)->count();
                 $val['url'] = urlBBS('mine','photo',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
                 $val['time'] = date('Y-m-d',$val['order_time']);
                 // $info = $db_uploads
@@ -78,22 +101,32 @@ class mineControl extends BaseControl{
             //查询活动详情
             $activity_no = $_GET['activity_no'];
             $activity_periods = $_GET['activity_periods'];
-            $db_activity = new Model('bbs_activity');
-            $db_activity_periods = new Model('bbs_activity_periods');
+            // $db_activity = new Model('bbs_activity');
+            // $db_activity_periods = new Model('bbs_activity_periods');
+            // $map = array();
+            // $map['activity_no'] = array('eq',$activity_no);
+            // $map['activity_periods'] = array('eq',$activity_periods);
+            // $info = $db_activity->where($map)->field('activity_no,activity_periods,activity_title')->find();
+            // //p($info);p($map);exit();
+            // if(empty($info)){
+            //     $info = $db_activity_periods
+            //             ->where($map)
+            //             ->field('activity_no,activity_periods,activity_title')
+            //             ->find();
+            // }
+            // if(empty($info))
+            //     showMessage('活动不存在',urlBBS('mine','album'));
+            // Tpl::output('info',$info);
+            // 查活动的领队
+            $db_apply = new Model('bbs_apply');
             $map = array();
             $map['activity_no'] = array('eq',$activity_no);
             $map['activity_periods'] = array('eq',$activity_periods);
-            $info = $db_activity->where($map)->field('activity_no,activity_periods,activity_title')->find();
-            //p($info);p($map);exit();
-            if(empty($info)){
-                $info = $db_activity_periods
-                        ->where($map)
-                        ->field('activity_no,activity_periods,activity_title')
-                        ->find();
-            }
-            if(empty($info))
-                showMessage('活动不存在',urlBBS('mine','album'));
-            Tpl::output('info',$info);
+            $teacherList = $db_apply->where($map)->field('teacher_id')->group('teacher_id')->select(); 
+            $ids = array_column($teacherList,'teacher_id');
+            Tpl::output('activity_no',$activity_no);
+            Tpl::output('activity_periods',$activity_periods);
+            Tpl::output('ids',$ids);
             Tpl::showpage('photo_album');
             exit();
         }
@@ -102,16 +135,16 @@ class mineControl extends BaseControl{
         if(empty($activity_no) || empty($activity_periods))
             ajaxReturn(array('code'=>'0','msg'=>'参数错误','control'=>'photo'));
         $pageSize = !empty($_GET['pageSize'])?$_GET['pageSize']:10;
-        $db_uploads = new Model('bbs_uploads');
+        $db_album = new Model('bbs_album');
         $map = array();
-        $map['upload_type'] = array('eq',2);
-        $map['item_id'] = array('eq',$activity_no);
-        //$map['periods'] = array('eq',$val['activity_periods']);//测试需要，暂时屏蔽
-        $count = $db_uploads->where($map)->count();
+        $map['upload_type'] = array('eq',1);
+        $map['activity_no'] = array('eq',$activity_no);
+        //$map['activity_periods'] = array('eq',$val['activity_periods']);//测试需要，暂时屏蔽
+        $count = $db_album->where($map)->count();
         if($_GET['curpage'] > ceil($count/$pageSize))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'photo'));
-        $list = $db_uploads
-                ->field('file_name,item_id,upload_time')
+        $list = $db_album
+                ->field('file_name,activity_no,upload_time')
                 ->where($map)
                 ->order('upload_time desc')
                 ->page($pageSize)
@@ -141,19 +174,19 @@ class mineControl extends BaseControl{
                     ->find();
         }
         //参加的活动,查bbs_order
-        $db_order = new Model('bbs_order');
-        $map = array();
-        $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
-        //$map['order_status'] = array('eq',3);
-        $list = $db_order
-                ->field('activity_title,activity_no,activity_periods')
-                ->where($map)
-                ->group('activity_no')
-                ->select();
+        // $db_order = new Model('bbs_order');
+        // $map = array();
+        // $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+        // //$map['order_status'] = array('eq',3);
+        // $list = $db_order
+        //         ->field('activity_title,activity_no,activity_periods')
+        //         ->where($map)
+        //         ->group('activity_no')
+        //         ->select();
         Tpl::output('activity_no',$activity_no);
         Tpl::output('activity_periods',$activity_periods);
         Tpl::output('activity_title',$info['activity_title']);
-        Tpl::output('list',$list);
+        // Tpl::output('list',$list);
         Tpl::showpage('upload_img');
         exit();
     }
@@ -165,6 +198,15 @@ class mineControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'请选择活动','control'=>'uploads'));
         if(empty($_FILES['photo']['name']))
             ajaxReturn(array('code'=>'0','msg'=>'请选择图片','control'=>'uploads'));
+        // 查活动的领队
+        $db_apply = new Model('bbs_apply');
+        $map = array();
+        $map['activity_no'] = array('eq',$activity_no);
+        $map['activity_periods'] = array('eq',$activity_periods);
+        $teacherList = $db_apply->where($map)->field('teacher_id')->group('teacher_id')->select(); 
+        $ids = array_column($teacherList,'teacher_id');
+        if(!in_array($_SESSION['userInfo']['id'], $ids))
+            ajaxReturn(array('code'=>'0','msg'=>'抱歉,您不是改活动的领队','control'=>'uploads'));
         //p($_FILES);
         //上传的图片都是在一个input框里面,要对其做处理
         foreach ($_FILES['photo']['name'] as $key => $val) {
@@ -195,15 +237,15 @@ class mineControl extends BaseControl{
                     $headimgurl = 'http://haoshaonian.oss-cn-shenzhen.aliyuncs.com'.DS.$member_img_path.'member'.DS.$upload->file_name;
                 //p($headimgurl);
                 //保存数据库
-                $db_uploads = new Model('bbs_uploads');
+                $db_album = new Model('bbs_album');
                 $data = array();
                 $data['file_name'] = $headimgurl;
                 $data['file_size'] = $val['size'];
-                $data['upload_type'] = 2;
+                $data['upload_type'] = 1;
                 $data['upload_time'] =time();
-                $data['item_id'] = $activity_no;
-                $data['periods'] = $activity_periods;
-                $result = $db_uploads->insert($data);
+                $data['activity_no'] = $activity_no;
+                $data['activity_periods'] = $activity_periods;
+                $result = $db_album->insert($data);
                 //p($data);p($result);
                 if($result)
                     $i++;
@@ -231,7 +273,61 @@ class mineControl extends BaseControl{
     }
     //我的收藏
     public function collectOp(){
-        Tpl::showpage('collect');
+        if(!isAjax()){
+            Tpl::showpage('collect');
+            exit();
+        }
+        $pageSize = !empty($_GET['pageSize'])?$_GET['pageSize']:3;
+        $db_collect = new Model('bbs_collect');
+        $map = array();
+        $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+        $count = $db_collect->where($map)->count();
+        if($_GET['curpage'] > ceil($count/$pageSize))
+            ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'collect'));
+        $collect_list = $db_collect
+                        ->field('activity_no,activity_periods')
+                        ->where($map)
+                        ->order('add_time desc')
+                        ->page($pageSize)
+                        ->select();
+        $db_activity = new Model('bbs_activity');
+        $db_activity_periods = new Model('bbs_activity_periods');
+        $list = array();
+        foreach ($collect_list as $val) {
+            $map = array();
+            $map['activity_no'] = array('eq',$val['activity_no']);
+            $map['activity_periods'] = array('eq',$val['activity_periods']);
+            $field = 'id,activity_no,activity_periods,activity_title,activity_ptitle,activity_index_pic,activity_tag,activity_city,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price';
+            $info = $db_activity->field($field)->where($map)->find();
+            if(empty($info))
+                $info = $db_activity_periods->field($field)->where($map)->find();
+            $list[] = $info;
+        }
+        if(!empty($list)){
+            foreach ($list as &$val) {
+                //$val['activity_title'] = mb_substr($val['activity_title'], 0,6,'utf-8');
+                $val['activity_time'] = (date('Ymd',$val['activity_begin_time'])==date('Ymd',$val['activity_end_time']))?date('m月d日',$val['activity_begin_time']).'一天':(date('m月d日',$val['activity_begin_time']).'~'.date('m月d日',$val['activity_end_time']));
+                $val['url1'] = urlBBS('activity','collect',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
+                $val['age'] = $val['min_age'].'-'.$val['max_age'];
+                $val['city'] = getAreaName($val['activity_city']);
+                $url = urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
+                $num = (int)$val['total_number']-(int)$val['already_num'];
+                if($num == 0){
+                    $val['top'] = '<div class="Prompt text-right"><span>已经满额<span></div>';
+                    $val['footer'] = '<button class="pro_btn btn_isabled" disabled="disabled">已售罄</button>';
+                }else if($num < 5){
+                    $val['top'] = '<div class="Prompt text-right"><span>即将满额<span></div>';
+                    $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">去订票</button>';
+                }else{
+                    //echo 'string';exit();
+                    $val['top'] = '';
+                    $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">去订票</button>';
+                }
+            }
+            ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'collect','list'=>$list));
+        }else{
+            ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'collect'));
+        }
     }
     //优惠券
     public function couponOp(){

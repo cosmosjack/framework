@@ -38,7 +38,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>活动添加 <small>完善活动的信息</small></h5>
+                    <h5>活动修改 <small>请不要频繁修改</small></h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -60,7 +60,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 <div class="ibox-content">
                     <form method="post" enctype="multipart/form-data" action="<?php echo BBS_SITE_URL.DS."index.php";?>" class="form-horizontal">
                         <input type="hidden" name="act" value="admin_activity" />
-                        <input type="hidden" name="op" value="activity_add" />
+                        <input type="hidden" name="op" value="mod_activity" />
                         <div class="form-group">
                             <label class="col-sm-2 control-label">活动标题</label>
                             <div class="col-sm-6">
@@ -113,7 +113,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <input type="file" multiple="multiple" id="detail_img2" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img2','preview2','localImage2','320px','190px');">
                                     <a style="text-align: center">
                                         <div id="localImage2">
-                                            <img id="preview2" src="<?php echo $output['data_bbs_uploads'][1]['file_name'] ?$output['data_bbs_uploads'][0]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                            <img id="preview2" src="<?php echo $output['data_bbs_uploads'][1]['file_name'] ?$output['data_bbs_uploads'][1]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner2.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
                                         </div>
                                         <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
                                         <div style="clear: both;"></div>
@@ -124,7 +124,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <input type="file" multiple="multiple" id="detail_img3" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img3','preview3','localImage3','320px','190px');">
                                     <a style="text-align: center">
                                         <div id="localImage3">
-                                            <img id="preview3" src="<?php echo $output['data_bbs_uploads'][2]['file_name'] ?$output['data_bbs_uploads'][0]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                            <img id="preview3" src="<?php echo $output['data_bbs_uploads'][2]['file_name'] ?$output['data_bbs_uploads'][2]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner2.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
                                         </div>
                                         <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
                                         <div style="clear: both;"></div>
@@ -135,7 +135,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     <input type="file" multiple="multiple" id="detail_img4" style="display: none;" name="detail_img[]" value="" onchange="javascript:setImagePreview('detail_img4','preview4','localImage4','320px','190px');">
                                     <a style="text-align: center">
                                         <div id="localImage4">
-                                            <img id="preview4" src="<?php echo $output['data_bbs_uploads'][3]['file_name'] ?$output['data_bbs_uploads'][0]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
+                                            <img id="preview4" src="<?php echo $output['data_bbs_uploads'][3]['file_name'] ?$output['data_bbs_uploads'][3]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>" style="margin:0 auto .1rem;display: block; width: 320px; height: 190px;">
                                         </div>
                                         <h4>活动介绍图 <span style="color: red;">尺寸为 320*190像素</span></h4>
                                         <div style="clear: both;"></div>
@@ -283,8 +283,15 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
                         <div class="form-group">
                             <div class="col-sm-4 col-sm-offset-2">
-                                <button class="btn btn-primary" type="submit">保存内容</button>
-                                <button class="btn btn-white" type="submit">取消</button>
+                                <input type="hidden" name="sub" value="ok"/>
+                                <input type="hidden" name="data_bbs_uploads[0][file_name]" value="<?php echo $output['data_bbs_uploads'][0]['file_name'] ?$output['data_bbs_uploads'][0]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>"/>
+                                <input type="hidden" name="data_bbs_uploads[1][file_name]" value="<?php echo $output['data_bbs_uploads'][1]['file_name'] ?$output['data_bbs_uploads'][1]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>"/>
+                                <input type="hidden" name="data_bbs_uploads[2][file_name]" value="<?php echo $output['data_bbs_uploads'][2]['file_name'] ?$output['data_bbs_uploads'][2]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>"/>
+                                <input type="hidden" name="data_bbs_uploads[3][file_name]" value="<?php echo $output['data_bbs_uploads'][3]['file_name'] ?$output['data_bbs_uploads'][3]['file_name'] :  BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/banner1.jpg';?>"/>
+                                <input type="hidden" name="activity_index_pic" value="<?php echo $output['form_data']['activity_index_pic'] ? $output['form_data']['activity_index_pic'] : BBS_RESOURCE_SITE_URL.DS."bootstrap".DS.'img/vcs.jpg';?>"/>
+                                <input type="hidden" name="activity_no" value="<?php echo $_GET['activity_no']; ?>"/>
+                                <input type="hidden" name="activity_periods" value="<?php echo $_GET['periods']; ?>"/>
+                                <button class="btn btn-primary" type="submit">确认修改</button>
                             </div>
                         </div>
                     </form>

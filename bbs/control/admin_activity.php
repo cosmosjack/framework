@@ -439,4 +439,186 @@ class admin_activityControl extends BaseAdminControl{
     }
     /* 展示期数的列表 end */
 
+    /* 活动的修改 start */
+    public function mod_activityOp(){
+        // 根据传递过来的 activity_no  和 periods   修改 activity 表 和 periods 表里的数据    如果有  mod_type == all  则将所有activity_no 都修改了  并且只有 未开始的才可以修改
+        if(isset($_POST['sub']) && $_POST['sub'] == 'ok'){
+            //先查询 activity表
+            $db_activity = new Model("bbs_activity");
+            $db_activity_periods = new Model("bbs_activity_periods");
+            if($_POST['mod_type'] == 'all'){
+                $where['activity_no'] = $_POST['activity_no'];
+            }else{
+                $where['activity_no'] = $_POST['activity_no'];
+                $where['activity_periods'] = $_POST['activity_periods'];
+            }
+
+            /* 整理要修改的数据 start */
+            $update['activity_title'] = $_POST['activity_title'];  //标题
+            $update['activity_ptitle'] = $_POST['activity_ptitle']; //副标题
+            $update['min_age'] = $_POST['min_age'];  //最小年龄
+            $update['max_age'] = $_POST['max_age'];  //最大年龄
+            $update['address'] = $_POST['address'];  //详细地址
+            $update['start_from'] = $_POST['start_from']; //出发地点
+            $update['transportation'] = $_POST['transportation']; //交通工具
+            $update['total_number'] = $_POST['total_number']; //总人数
+            $update['group_number'] = $_POST['group_number']; //小组数量
+            $update['activity_click'] = $_POST['activity_click']; //点击量
+            $update['activity_price'] = $_POST['activity_price']; //活动价格
+
+
+            $update['activity_province'] = $_POST['province']; //省份
+            $update['activity_city'] = $_POST['city']; //市
+            $update['activity_area'] = $_POST['position']; //区域
+
+            $update['activity_begin_time'] = strtotime($_POST['start_time']); //开始时间
+
+            $update['activity_end_time'] = strtotime($_POST['end_time']." 23:59:59"); //结束时间
+            $update['every_group_num'] = ceil($_POST['total_number']/$_POST['group_number']);  //默认小组数量
+
+            $update['activity_desc'] = $_POST['activity_body'];
+
+            /* 查出这个活动的信息 start */
+
+            /* 查出这个活动的信息 end */
+
+            /* 根据 file[cover_img][name]判断 封面图是否修改 start */
+            if(!empty($_FILES['cover_img']['name'])){
+                // 上传  如果失败 则退出 程序 并返回错误
+                /* 上传封面图 start */
+                $upload_file = new UploadFile();
+                $upload_file->set('default_dir',$this->bbs_upload_path);
+                $upload_file->set('max_size',1024);
+                $cover_img_result = $upload_file->upfile("cover_img",true);
+//                p($cover_img_result); // 新的封面图
+                if($cover_img_result){
+
+                    $cover_img_url = $this->img_pre_url.$this->bbs_upload_path.DS.$upload_file->file_name;
+//                    p($cover_img_url);
+                }else{
+                    $img_error = $upload_file->error;
+                    // 删除 插入的数据  $row
+                    Tpl::output("form_data",$_POST);
+                    Tpl::output("data_bbs_uploads",$_POST['data_bbs_uploads']);
+
+                    Tpl::output("error_message",array("title"=>"封面图有问题",'desc'=>$img_error));
+                    Tpl::showpage("activity_mod");
+
+                    die();
+                }
+                /* 上传封面图 end */
+                $update['activity_index_pic']  = $cover_img_url; // 封面图
+
+            }
+            /* 根据 file[cover_img][name]判断 封面图是否修改 end */
+            /* 整理要修改的数据 end */
+
+            $data_activity = $db_activity->where($where)->count();
+            if($data_activity > 0){
+//                echo 'activity表里有<br>';
+                $result = @$db_activity->where($where)->update($update);
+            }
+            $data_activity_periods = $db_activity_periods->where($where)->count();
+            if($data_activity_periods > 0){
+//                echo 'periods 表里有';
+                $result_periods = @$db_activity_periods->where($where)->update($update);
+            }
+
+            if($result || $result_periods){
+                /* 根据改变图片 start */
+                // 先查出当前 uploads 表里有多少个 图片  最多四张
+                $db_bbs_uploads = new Model("bbs_uploads");
+                $data_bbs_uploads = $db_bbs_uploads->where(array("item_id"=>$_POST['activity_no']))->limit(4)->select();
+
+                for($i=0;$i<4;$i++){
+                    //如果有传值过来 则 改变相应的 data_bbs_uplaods 里边的数据  如果 bbs_uploads 里边原来没有 则需要添加
+                    if(!empty($_FILES['detail_img']['name'][$i])){
+                        // 整理详情图 start
+                        $_FILES['banner_img']['name'] = $_FILES['detail_img']['name'][$i];
+                        $_FILES['banner_img']['type'] = $_FILES['detail_img']['type'][$i];
+                        $_FILES['banner_img']['tmp_name'] = $_FILES['detail_img']['tmp_name'][$i];
+                        $_FILES['banner_img']['error'] = $_FILES['detail_img']['error'][$i];
+                        $_FILES['banner_img']['size'] = $_FILES['detail_img']['size'][$i];
+                        // 整理详情图 end
+                        /* 上传轮播图 start */
+                        $upload_banner = new UploadFile();
+                        $upload_banner->set('default_dir',$this->bbs_upload_path);
+                        $upload_banner->set('max_size',1024);
+                        $banner_img_result = $upload_banner->upfile("banner_img",true);
+//                p($cover_img_result); // 新的封面图
+                        if($banner_img_result){
+
+                            $banner_img_url = $this->img_pre_url.$this->bbs_upload_path.DS.$upload_banner->file_name;
+//                    p($cover_img_url);
+                        }else{
+                            $img_error = $upload_banner->error;
+                            // 删除 插入的数据  $row
+                            Tpl::output("form_data",$_POST);
+                            Tpl::output("data_bbs_uploads",$_POST['data_bbs_uploads']);
+                            Tpl::output("error_message",array("title"=>"详情图图有问题",'desc'=>$img_error));
+                            Tpl::showpage("activity_mod");
+
+                            die();
+                        }
+                        /* 上传轮播图 end */
+                        if($data_bbs_uploads[$i]['id']){
+                            // 修改
+                            $update_uploads['file_name'] = $banner_img_url;
+                            $update_uploads['file_size'] = $_FILES['banner_img']['size'];
+                            $update_uploads['upload_time'] = time();
+                            $result_uploads = @$db_bbs_uploads->where(array("id"=>$data_bbs_uploads[$i]['id']))->update($update_uploads);
+                        }else{
+                            //添加
+                            $insert_uploads['file_name'] = $banner_img_url;
+                            $update_uploads['file_size'] = $_FILES['banner_img']['size'];
+                            $update_uploads['upload_time'] = time();
+                            $update_uploads['item_id'] = $_POST['activity_no'];
+                            $update_uploads['periods'] = 0;
+                            $update_uploads['upload_type'] = 1;
+                            $result_uploads = @$db_bbs_uploads->insert($insert_uploads);
+                        }
+                    }
+                }
+                /* 根据改变图片 end */
+
+                showMessage("修改成功",BBS_SITE_URL.DS."index.php?act=admin&op=activity_list");
+            }else{
+                showMessage("无任何修改",BBS_SITE_URL.DS."index.php?act=admin_activity&op=mod_activity&activity_no=".$_POST['activity_no']."&periods=".$_POST['activity_periods']);
+            }
+
+        }else{
+            $db_activity = new Model("bbs_activity");
+            $db_activity_periods = new Model("bbs_activity_periods");
+            $where['activity_no'] = $_GET['activity_no'];
+            $where['activity_periods'] = $_GET['periods'];
+            $data_activity = $db_activity->where($where)->find();
+//            p($data_activity);
+            if(!$data_activity){
+                $data_activity = $db_activity_periods->where($where)->find();
+            }
+            if(!$data_activity){
+                showMessage("没有此活动");
+                die();
+            }
+
+            $data_activity['province'] = $data_activity['activity_province'];
+            $data_activity['city'] = $data_activity['activity_city'];
+            $data_activity['start_time'] = date("Y-m-d",$data_activity['activity_begin_time']);
+            $data_activity['end_time'] = date("Y-m-d",$data_activity['activity_end_time']);
+            /* 查出活动介绍的图片 最多四张 start */
+            $db_bbs_uploads = new Model("bbs_uploads");
+            $data_bbs_uploads = $db_bbs_uploads->where(array("item_id"=>$where['activity_no']))->limit(4)->select();
+//            p($data_bbs_uploads);
+            /* 查出活动介绍的图片 最多四张 end */
+
+            Tpl::output("data_bbs_uploads",$data_bbs_uploads);
+            Tpl::output("form_data",$data_activity);
+            Tpl::showpage("activity_mod");
+
+        }
+
+
+    }
+    /* 活动的修改 end */
+
 }
