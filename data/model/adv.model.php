@@ -293,7 +293,9 @@ class advModel
     public function getApById($apId)
     {
         $apId = (int) $apId;
-        return rkcache("adv/{$apId}", array($this, 'getApByCacheId'));
+//        return rkcache("adv/{$apId}", array($this, 'getApByCacheId'));
+        return $this->getAp($apId);
+
     }
 
     /**

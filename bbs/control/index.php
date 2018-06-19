@@ -15,12 +15,17 @@ class indexControl extends BaseControl{
     }
     //首页
     public function indexOp(){
-    	Tpl::setLayout("common_layout");
+        //轮播图
+        import('function.adv');
+        $data_adv = adv_json(1037);
+
+        Tpl::setLayout("common_layout");
+        Tpl::output('data_adv',$data_adv);
         Tpl::showpage("index");
     }
     //检查登录
     public function checkLogin(){
-    	if(!empty($_SESSION['is_login'])){
+    	if(!empty($_SESSION['is_user_login'])){
     		if(isAjax())
     			ajaxReturn(array('code'=>'200','msg'=>'已经登录','control'=>'checkLogin','url'=>urlBBS()));
     		else
@@ -113,7 +118,7 @@ class indexControl extends BaseControl{
     	$data['member_phone'] = $_POST['phone'];
     	$data['member_passwd'] = encrypt($_POST['password']);
     	$data['last_login_ip'] = getIp();
-    	//$data['headimgurl'] = BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
+    	$data['headimgurl'] = BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
     	$data['add_time'] = time();
     	$result = $db_user->insert($data);
     	if($result){
@@ -201,15 +206,16 @@ class indexControl extends BaseControl{
     	$this->checkLogin();
     	if(!$_GET['code']){
     		//第一步，请求code
-    		$appid = '';
-    		$redirect_uri = BBS_SITE_URL.url('index','login_wx');
-    		$state = '';
-    		$url = "https://open.weixin.qq.com/connect/qrconnect?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_login&state=$state#wechat_redirect";
+    		$appid = 'wxa286179f364df0be';
+    		$redirect_uri = urlencode(BBS_SITE_URL.url('index','login_wx'));
+    		$state = random(6,1);
+    		// $url = "https://open.weixin.qq.com/connect/qrconnect?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_login&state=$state#wechat_redirect";
+            $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=$appid&redirect_uri=$redirect_uri&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect";
     		header("Location: ".$url);
     	}else{
     		//第二步：通过code获取access_token
-    		$appid = '';
-    		$secret = '';
+    		$appid = 'wxa286179f364df0be';
+    		$secret = '09d3bbe599337a1c943401b83dbbacac';
     		$code = $_GET['code'];
     		$get_access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
     		$data = $this->getJson($get_access_token_url);
@@ -220,19 +226,23 @@ class indexControl extends BaseControl{
     		$info = $this->getJson($get_userinfo_url);
     		//p($info);
     		//查看微信号是否绑定
-    		$data = Model('bbs_user')->where('wx_openid='.$info['openid'])->find();
+    		$data = Model('bbs_user')->where(array('wx_openid'=>$info['openid']))->find();
+            // p($info);p($data);exit();
     		if($data){
     			//保存用户信息
     			$this->saveUserInfo($data);
+                // exit('111');
     			header("Location: ".urlBBS());
     		}else{
     			$_SESSION['userInfo_wx'] = $info;
+                // exit('222');
     			header("Location: ".urlBBS('index','bind_wx'));
     		}
     	}
     } 
     //微信登录后绑定手机页面
     public function bind_wxOp(){
+
     	$this->checkLogin();
     	if(!isAjax()){
     		Tpl::showpage("bind_wx");
@@ -268,14 +278,18 @@ class indexControl extends BaseControl{
     	$data['member_passwd'] = encrypt($password);
     	$data['last_login_ip'] = getIp();
     	$data['add_time'] = time();
+        $data['is_wx'] = 1;
 
     	$data['nick_name'] = $_SESSION['userInfo_wx']['nickname'];
     	$data['member_sex'] = $_SESSION['userInfo_wx']['sex'];
-    	$data['province'] = $_SESSION['userInfo_wx']['province'];
-    	$data['city'] = $_SESSION['userInfo_wx']['city'];
+    	// $data['province'] = $_SESSION['userInfo_wx']['province'];
+    	// $data['city'] = $_SESSION['userInfo_wx']['city'];
     	$data['headimgurl'] = $_SESSION['userInfo_wx']['headimgurl']?$_SESSION['userInfo_wx']['headimgurl']:BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
     	$data['wx_openid'] = $_SESSION['userInfo_wx']['openid'];
+        // ajaxReturn(array('code'=>'0','msg'=>$data,'control'=>'bind_wx'));
+        // exit();
     	$result = $db_user->insert($data);
+
     	if($result){
     		//删掉临时表的验证码
     		$db_tmp->where(array('id'=>array('eq',$info['id'])))->delete();
@@ -289,6 +303,44 @@ class indexControl extends BaseControl{
     	}else{
     		ajaxReturn(array('code'=>'0','msg'=>'绑定失败','control'=>'bind_wx'));
     	}
+    }
+    //手机登录后绑定微信
+    public function wx_bindOp(){
+        //第二步：通过code获取access_token
+        $appid = 'wxa286179f364df0be';
+        $secret = '09d3bbe599337a1c943401b83dbbacac';
+        $code = $_GET['code'];
+        $get_access_token_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=$appid&secret=$secret&code=$code&grant_type=authorization_code";
+        $data = $this->getJson($get_access_token_url);
+        $access_token = $data['access_token'];
+        $openid = $data['openid'];
+        //第三步：通过access_token调用接口,查用户信息
+        $get_userinfo_url = "https://api.weixin.qq.com/sns/userinfo?access_token=$access_token&openid=$openid&lang=zh_CN";
+        $info = $this->getJson($get_userinfo_url);
+        // p($info);
+        $db_user = new Model('bbs_user');
+        //查看改微信号是否被绑定过
+        $data = $db_user->where(array('wx_openid'=>$info['openid']))->find();
+        if($data['id'])
+            showMessage('该微信号已经绑定',urlBBS('mine','index'));
+        // p($data);
+
+        //查看用户是否绑定了微信
+        $userinfo = $db_user->where(array('id'=>$_SESSION['userInfo']['id']))->find();
+        if($userinfo['is_wx']==1 && !empty($userinfo['wx_openid']))
+            showMessage('您已经绑定过微信',urlBBS('mine','index'));
+        $update = array();
+        $update['is_wx'] = 1;
+        $update['wx_openid'] = $info['openid'];
+        if($userinfo['headimgurl'] == BBS_SITE_URL.'/resource/bootstrap/img/logo.png')
+            $update['headimgurl'] = $info['headimgurl'];
+        $result = Model('bbs_user')->where(array('id'=>$_SESSION['userInfo']['id']))->update($update);
+        if($result){
+            showMessage('绑定成功',urlBBS('mine','index'));
+        }else{
+            showMessage('绑定失败',urlBBS('mine','index'));
+        }
+       
     }
     //密码找回
     public function findpwOp(){
@@ -334,6 +386,31 @@ class indexControl extends BaseControl{
     	
 
     }
+    //改变订单状态，用户定时任务
+    public function updateStatusOp(){
+        $db_order = new Model('bbs_order');
+        $map = array();
+        $map['order_status'] = array('eq',2);
+        $map['activity_begin_time'] = array('lt',time());
+        $order_list = $db_order
+                    ->field('id,order_status,activity_title,activity_no,activity_periods,member_id')
+                    ->where($map)
+                    ->limit(1000)
+                    ->order('activity_begin_time')
+                    ->select();
+        // p($order_list);exit();
+        $i == 0;
+        foreach ($order_list as $key => $val) {
+            $result = $db_order->where('id='.$val['id'])->update(array('order_status'=>3));
+            if($result)
+                $i++;
+        }
+        if($i){
+            $str = '改变订单状态，总共：'.count($order_list)."个，成功个数：".$i.'，更新时间：'.date("Y-m-d H:i:s",time());
+            @file_put_contents(BASE_DATA_PATH.DS.'log'.DS.'wxpay'.DS.'updateStatus_log.txt',$str.PHP_EOL,FILE_APPEND);
+        }
+        
+    }
     function getJson($url){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -346,7 +423,7 @@ class indexControl extends BaseControl{
     }
     //存用户信息
     function saveUserInfo($info){
-    	$_SESSION['is_login'] = $info['id'];//用户登录标志
+    	$_SESSION['is_user_login'] = $info['id'];//用户登录标志
     	unset($info['member_passwd']);
     	$_SESSION['userInfo'] = $info;
      	//$_SESSION['user_id'] = $info['id'];//用户id
@@ -375,5 +452,11 @@ class indexControl extends BaseControl{
     	p(encrypt($_GET['password']));
     	p(time());
     	p(random(6,0));
+    }
+    public function test1Op(){
+        showMessage('测试页面','',180);
+    }
+    public function wx_loginOp(){
+        Tpl::showpage("wx_login");
     }
 }

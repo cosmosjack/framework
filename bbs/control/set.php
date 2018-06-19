@@ -72,7 +72,7 @@ class setControl extends BaseControl{
             if (!$result)
                 ajaxReturn(array('code'=>'0','msg'=>'头像上传失败','control'=>'addManage'));
             $headimgurl = 'http://haoshaonian.oss-cn-shenzhen.aliyuncs.com'.DS.$member_img_path.'member'.DS.$upload->file_name;
-            $update['headimgurl'] = $headimgurl;
+            $update['headimgurl'] = $headimgurl.'!product-60';
             //exit($headimgurl);
         }
         $update['nick_name'] = $_POST['nick_name'];
@@ -87,10 +87,17 @@ class setControl extends BaseControl{
         $db_user = Model('bbs_user');
         $result = $db_user->where('id='.$_SESSION['userInfo']['id'])->update($update);
         //p($result);p($update);exit();
-        if($result)
+        if($result){
+            //更新session
+            $info = $db_user->where('id='.$_SESSION['userInfo']['id'])->find();
+            $_SESSION['is_user_login'] = $info['id'];//用户登录标志
+            unset($info['member_passwd']);
+            $_SESSION['userInfo'] = $info;
             ajaxReturn(array('code'=>'200','msg'=>'修改成功','control'=>'mineInfo','url'=>urlBBS('set','mineInfo')));
-        else
+        }
+        else{
             ajaxReturn(array('code'=>'0','msg'=>'修改失败','control'=>'mineInfo'));
+        }
     }
     //选择查看对象页面
     public function manageSelectOp(){
@@ -112,11 +119,12 @@ class setControl extends BaseControl{
         $db_parents = Model('bbs_parents');
         $map = array();
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
-        $list = $db_parents->where($map)->select();
-        if(!empty($list))
-            ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'manageInfo','list'=>$list));
-        else
-            ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'manageInfo'));
+        $list = $db_parents->where($map)->order('id asc')->select();
+        ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'manageInfo','list'=>$list));
+        // if(!empty($list))
+        //     ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'manageInfo','list'=>$list));
+        // else
+        //     ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'manageInfo'));
     }
     //学员身份信息管理
     public function studentInfoOp(){
@@ -133,11 +141,12 @@ class setControl extends BaseControl{
         $db_child = Model('bbs_child');
         $map = array();
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
-        $list = $db_child->where($map)->select();
-        if(!empty($list))
-            ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list));
-        else
-            ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'studentInfo'));
+        $list = $db_child->where($map)->order('id asc')->select();
+        ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list));
+        // if(!empty($list))
+        //     ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list));
+        // else
+        //     ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'studentInfo'));
     }
     //选择身份页面
     public function chooseOp(){
@@ -160,15 +169,18 @@ class setControl extends BaseControl{
         }
         if(empty($_POST['u_name']))
             ajaxReturn(array('code'=>'0','msg'=>'姓名不能为空','control'=>'addManage'));
-        if(empty($_POST['u_idnum']))
-            ajaxReturn(array('code'=>'0','msg'=>'证件号不能为空','control'=>'addManage'));
-        $reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
-        if(!preg_match($reg,$_POST['u_idnum']))
-            ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addManage'));
-        if(empty($_POST['u_born']))
-            ajaxReturn(array('code'=>'0','msg'=>'出生年月不能为空','control'=>'addManage'));
-        if(empty($_POST['u_gender']))
-            ajaxReturn(array('code'=>'0','msg'=>'性别不能为空','control'=>'addManage'));
+        // if(empty($_POST['u_idnum']))
+        //     ajaxReturn(array('code'=>'0','msg'=>'证件号不能为空','control'=>'addManage'));
+        //$reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
+        // $reg = '/^[0-9A-Za-z]{6,24}$/';//数字或者字母的组合
+        // if(!preg_match($reg,$_POST['u_idnum']))
+        //     ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addManage'));
+        // if(empty($_POST['u_born']))
+        //     ajaxReturn(array('code'=>'0','msg'=>'出生年月不能为空','control'=>'addManage'));
+        // if(empty($_POST['u_gender']))
+        //     ajaxReturn(array('code'=>'0','msg'=>'性别不能为空','control'=>'addManage'));
+        if(empty($_POST['u_relation']))
+            ajaxReturn(array('code'=>'0','msg'=>'关系不能为空','control'=>'addManage'));
         if(empty($_POST['u_phone']))
             ajaxReturn(array('code'=>'0','msg'=>'手机号不能为空','control'=>'addManage'));
         if(!isPhone($_POST['u_phone']))
@@ -177,11 +189,11 @@ class setControl extends BaseControl{
         //1979时间之前会出错
         // p(strtotime('19890120'));
         // p(strtotime($_POST['u_born']));p($_POST['u_born']);exit();
-        if(strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
-            ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
+        // if($_POST['u_idtype']==1 && strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
+        //     ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
         $db_parents = Model('bbs_parents');
         //判断是否已经添加监护人信息
-        if($_POST['id']){
+        /*if($_POST['id']){
             $map = array();
             $map['parents_papers_no'] = array('eq',$_POST['u_idnum']);
             $map['id'] = array('neq',$_POST['id']);
@@ -192,7 +204,7 @@ class setControl extends BaseControl{
             $map['parents_papers_no'] = array('eq',$_POST['u_idnum']);
             if($db_parents->where($map)->find())
                 ajaxReturn(array('code'=>'0','msg'=>'监护人已存在','control'=>'addManage'));
-        }
+        }*/
         //头像上传
         if($_FILES['photo']['name'] != ''){
             $member_img_path = 'data'.DS."upload".DS;
@@ -206,22 +218,24 @@ class setControl extends BaseControl{
             if (!$result)
                 ajaxReturn(array('code'=>'0','msg'=>'头像上传失败','control'=>'addManage'));
             $headimgurl = 'http://haoshaonian.oss-cn-shenzhen.aliyuncs.com'.DS.$member_img_path.'member'.DS.$upload->file_name;
-            $data['headimgurl'] = $headimgurl;
+            $data['headimgurl'] = $headimgurl.'!product-60';
         }
         $data['member_id'] = $_SESSION['userInfo']['id'];
         $data['member_name'] = $_SESSION['userInfo']['member_name'];
         $data['parents_name'] = $_POST['u_name'];
         $data['parents_phone'] = $_POST['u_phone'];
-        $data['parents_brithday'] = strtotime($_POST['u_born']);
-        $data['parents_papers_type'] = 1;
-        $data['parents_papers_no'] = $_POST['u_idnum'];
-        $data['parents_sex'] = $_POST['u_gender']=='男'?1:2;
+        $data['relation'] = $_POST['u_relation'];
+        // $data['parents_brithday'] = strtotime($_POST['u_born']);
+        // $data['parents_papers_type'] = $_POST['u_idtype'];
+        // $data['parents_papers_no'] = $_POST['u_idnum'];
+        // $data['parents_sex'] = $_POST['u_gender']=='男'?1:2;
         //添加的第一个数据设为默认
         if(!$db_parents->where('member_id='.$_SESSION['userInfo']['id'])->find())
             $data['is_default'] = 1;
         if($_POST['id']){
             $result = $db_parents->where('id='.$_POST['id'])->update($data);
         }else{
+            $data['headimgurl'] = $headimgurl?$headimgurl.'!product-60':BBS_SITE_URL.'/resource/bootstrap/img/logo.png';
             $result = $db_parents->insert($data);
         }
         if($result){
@@ -246,7 +260,8 @@ class setControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'姓名不能为空','control'=>'addStudent'));
         if(empty($_POST['u_idnum']))
             ajaxReturn(array('code'=>'0','msg'=>'证件号不能为空','control'=>'addStudent'));
-        $reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
+        // $reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
+        $reg = '/^[0-9A-Za-z]{6,24}$/';//数字或者字母的组合
         if(!preg_match($reg,$_POST['u_idnum']))
             ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addStudent'));
         if(empty($_POST['u_born']))
@@ -265,7 +280,7 @@ class setControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'衣服尺码不能为空','control'=>'addStudent'));
         $db_child = Model('bbs_child'); 
         //出生年月与证件号是否对应
-        if(strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
+        if($_POST['u_idtype']==1 && strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
             ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
         //判断是否已经添加学员信息
         if($_POST['id']){
@@ -293,19 +308,18 @@ class setControl extends BaseControl{
             if (!$result)
                 ajaxReturn(array('code'=>'0','msg'=>'头像上传失败','control'=>'addStudent'));
             $headimgurl = 'http://haoshaonian.oss-cn-shenzhen.aliyuncs.com'.DS.$member_img_path.'member'.DS.$upload->file_name;
-            $data['headimgurl'] = $headimgurl;
+            $data['headimgurl'] = $headimgurl.'!product-60';
         }  
         // p($_POST);
         // p($_FILES);
-        // p($result);
-        // p($ac);
         // exit();
+        
         $data['member_id'] = $_SESSION['userInfo']['id'];
         $data['member_name'] = $_SESSION['userInfo']['member_name'];
         $data['child_name'] = $_POST['u_name'];
         $data['child_phone'] = $_POST['u_phone'];
         $data['child_brithday'] = strtotime($_POST['u_born']);
-        $data['child_papers_type'] = 1;
+        $data['child_papers_type'] = $_POST['u_idtype'];
         $data['child_papers_no'] = $_POST['u_idnum'];
         $data['child_height'] = $_POST['u_height'];
         $data['child_weight'] = $_POST['u_weight'];
@@ -313,13 +327,15 @@ class setControl extends BaseControl{
         $data['child_remark'] = $_POST['u_exhort'];
         $data['child_sex'] = $_POST['u_gender']=='男'?1:2;
         //用身份证计算年龄
-        $data['child_age'] = date('Y',time())-substr($_POST['u_idnum'],6,4);
+        if($_POST['u_idtype']==1)
+            $data['child_age'] = date('Y',time())-substr($_POST['u_idnum'],6,4);
         //添加的第一个数据设为默认
         if(!$db_child->where('member_id='.$_SESSION['userInfo']['id'])->find())
             $data['is_default'] = 1;
         if($_POST['id']){
             $result = $db_child->where('id='.$_POST['id'])->update($data);
         }else{
+            $data['headimgurl'] = $headimgurl?$headimgurl.'!product-60':BBS_SITE_URL.'/resource/bootstrap/img/children.jpg';
             $result = $db_child->insert($data);
         }
         if($result){
@@ -492,9 +508,9 @@ class setControl extends BaseControl{
     }
     //检查登录
     public function checkLogin(){
-    	if(empty($_SESSION['is_login'])){
+    	if(empty($_SESSION['is_user_login'])){
     		if(isAjax())
-    			ajaxReturn(array('code'=>'0','msg'=>'请先登录','control'=>'checkLogin','url'=>urlBBS('index','login')));
+    			ajaxReturn(array('code'=>'201','msg'=>'请先登录','control'=>'checkLogin','url'=>urlBBS('index','login')));
     		else
     			header("Location: ".urlBBS('index','login'));
     			//showDialog('请先登录',urlBBS('index','login'));

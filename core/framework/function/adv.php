@@ -221,25 +221,23 @@ function adv_json($ap_id)
         }
     /* 增加区域选择 end */
     $ap_info = Model('adv')->getApById($ap_id);
+//    p($ap_info);
 //    $ap_info = Model('adv')->getInfo($ap_id,$id);
     /* 整理输出数据 start */
     $data['ap_name'] = $ap_info['ap_name'];
     $data['ap_id'] = $ap_info['ap_id'];
-//    P($ap_info);
 //    P($area_id);
     for($i=0;$i<count($ap_info['adv_list']);$i++){
          // UPLOAD_SITE_URL."/".ATTACH_ADV."/".
-        if($ap_info['adv_list'][$i]['area_id'] == "$area_id"){
-//            echo 'ddd';
-            $pic_content = unserialize($ap_info['adv_list'][$i]['adv_content']);
-            $pic     = UPLOAD_SITE_URL."/".ATTACH_ADV."/".$pic_content['adv_pic'];
-            $url     = $pic_content['adv_pic_url'];
+            $pic_content = mb_unserialize($ap_info['adv_list'][$i]['adv_content']);
+//            $pic     = UPLOAD_SITE_URL."/".ATTACH_ADV."/".$pic_content['adv_slide_pic'];  //原来的
+            $pic     = $pic_content['adv_slide_pic'];
+            $url     = $pic_content['adv_slide_url'];
             $data['adv_info'][$i]['pic'] = $pic;
             $data['adv_info'][$i]['url'] = $url;
+            $data['adv_info'][$i]['adv_id'] = $ap_info['adv_list'][$i]['adv_id'];
             $data['adv_info'][$i]['title'] = $ap_info['adv_list'][$i]['adv_title'];
-        }else{
-//            echo 'bbb';
-        }
+
     }
     if(is_array($data['adv_info']) && !empty($data['adv_info'])){
         return $data;

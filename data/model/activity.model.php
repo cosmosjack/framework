@@ -2,9 +2,6 @@
 /**
  * 活动
  *
- * 
- *
- *
  * by cosmos-jack    开发
  */
 defined('InCosmos') or exit('Access Invalid!');

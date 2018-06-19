@@ -383,12 +383,34 @@ defined('InCosmos') or exit('Access Invalid!');?>
         location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_list&is_periods=true&activity_no=';?>"+activity_no;
     }
     /* 展示其他期数列表 end */
+    /* 删除活动 将删除所有期数 start */
+    function activity_del(activity_no){
+        var r = window.confirm("您将删除此活动的所有期数,请确认清楚");
+        if (r==true)
+        {
+            location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=activity_del&activity_no=';?>"+activity_no;
+        }
+        else
+        {
+            document.write("你选择了取消删除");
+        }
+    }
+    /* 删除活动 将删除所有期数 end */
 
     /* 修改活动的内容 start */
     function change_activity(activity_no,periods){
         location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=mod_activity&activity_no=';?>"+activity_no+"&periods="+periods;
     }
     /* 修改活动的内容 end */
+
+    /* 活动的搜索功能 start */
+    function search_activity(){
+        var activity_title = $("input[name='activity_title']").val();
+        if(activity_title){
+            window.location.href = ApiUrl+'/index.php?act=admin&op=activity_list&activity_title='+activity_title;
+        }
+    }
+    /* 活动的搜索功能 end */
 </script>
 
 <div class="wrapper wrapper-content animated fadeInUp">
@@ -408,12 +430,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 <div class="ibox-content">
                     <div class="row m-b-sm m-t-sm">
                         <div class="col-md-1">
-                            <button type="button" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> 刷新</button>
+                            <button type="button" onclick="window.location.href = ApiUrl+'/index.php?act=admin&op=activity_list';" id="loading-example-btn" class="btn btn-white btn-sm"><i class="fa fa-refresh"></i> 刷新</button>
                         </div>
                         <div class="col-md-11">
                             <div class="input-group">
-                                <input type="text" placeholder="请输入活动名称" class="input-sm form-control"> <span class="input-group-btn">
-                                        <button type="button" class="btn btn-sm btn-primary"> 搜索</button> </span>
+                                <input type="text" name="activity_title" placeholder="请输入活动名称" value="<?php echo $_GET['activity_title'];?>" class="input-sm form-control"> <span class="input-group-btn">
+                                        <button type="button" onclick="search_activity();" class="btn btn-sm btn-primary"> 搜索</button> </span>
                             </div>
                         </div>
                     </div>
@@ -428,7 +450,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                         <span class="label  <?php if($val['state'] == '进行中'){echo "label-primary";}elseif($val['state'] == '已结束'){echo "label-default";}elseif($val['state'] == '未开始'){echo "label-danger";}?>"><?php echo $val['state'];?></span>
                                     </td>
                                     <td class="project-title">
-                                        <a href="project_detail.html"><?php echo $val['activity_title'];?></a>
+                                        <a href="javascript:;"><?php echo $val['activity_title'];?></a>
                                         <br/>
                                         <small>发布于 <?php echo date("Y-m-d H:i:s",$val['activity_add_time']);?> </small>
                                     </td>
@@ -459,8 +481,9 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     </td>
                                     <td class="project-actions">
 
-                                        <a href="#" onclick="add_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-primary btn-sm"><i class="fa fa-folder"></i> 加期 </a>
-                                        <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-danger btn-sm"><i class="fa fa-folder"></i> 期数 </a>
+                                        <a href="#" onclick="add_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> 加期 </a>
+                                        <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-info btn-sm"><i class="fa fa-list"></i> 期数 </a>
+                                        <a href="#" onclick="activity_del('<?php echo $val['activity_no'];?>');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> 删除 </a>
                                         <?php if($val['state'] == '未开始'){ ?>
                                             <a href="#" onclick="change_activity('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
                                         <?php }?>

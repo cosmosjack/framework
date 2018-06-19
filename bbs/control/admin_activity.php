@@ -49,6 +49,10 @@ class admin_activityControl extends BaseAdminControl{
 
             $insert['activity_no'] = "bbs_".time();
 
+            /* 分类功能 start */
+            $insert['cls_id'] = $_POST['cls_id'];
+            /* 分类功能 end */
+
 
             $db_bbs_activity = new Model("bbs_activity");
 
@@ -101,12 +105,14 @@ class admin_activityControl extends BaseAdminControl{
                     if($result_detail){
                         $detail_img_url[] = $this->img_pre_url.$this->bbs_upload_path.DS.$banner_file->file_name;
                         $tmp_img_url = $this->img_pre_url.$this->bbs_upload_path.DS.$banner_file->file_name;
+
                         /* 同时一次性整理好 下一步要插入的数据 start */
                         $tmp_upload['file_name'] = $tmp_img_url;
                         $tmp_upload['file_size'] = $_FILES[$detail_img_file.$key]['size'];
                         $tmp_upload['upload_type'] = 1;
                         $tmp_upload['upload_time'] = time();
                         $tmp_upload['item_id'] = $row;
+                        $tmp_upload['periods'] = 1;
                         $insert_upload[] =$tmp_upload;
                         /* 同时一次性整理好 下一步要插入的数据 end */
                         unset($banner_file->file_name);
@@ -365,7 +371,7 @@ class admin_activityControl extends BaseAdminControl{
             }
 
             $now_periods = $data_activity['activity_periods'];// 当前期数
-            $data_activity_periods = $db_activity_periods->where($where)->select();
+            $data_activity_periods = $db_activity_periods->where($where)->order("activity_periods asc")->select();
             $insert = $data_activity;
 
             if($data_activity_periods){
@@ -384,6 +390,8 @@ class admin_activityControl extends BaseAdminControl{
                 exit;
             }
 
+          /*  p($insert);
+            die();*/
             /* 整理要插入的数据 start */
             $insert['activity_periods']++;
             $insert['min_age'] = $_POST['min_age'];
@@ -417,8 +425,12 @@ class admin_activityControl extends BaseAdminControl{
             $db_activity = new Model("bbs_activity");
             $data_activity = $db_activity->where(array('activity_no'=>$_GET["activity_no"],'activity_periods'=>$_GET['periods']))->find();
             if(!$data_activity){
-                showMessage("无此活动");
-                die();
+                $db_activity_periods = new Model("bbs_activity_periods");
+                $data_activity = $db_activity_periods->where(array('activity_no'=>$_GET["activity_no"],'activity_periods'=>$_GET['periods']))->find();
+                if(!$data_activity){
+                    showMessage("无此活动");
+                    die();
+                }
             }
 //            p($data_activity);
             Tpl::output("data_activity",$data_activity);
@@ -434,7 +446,7 @@ class admin_activityControl extends BaseAdminControl{
         $where = array("activity_no"=>$_GET['activity_no']);
         $order = "";
         $data_periods = $db_periods->where($where)->order($order)->select();
-        p($data_periods);
+//        p($data_periods);
         Tpl::showpage("activity_list");
     }
     /* 展示期数的列表 end */
@@ -477,6 +489,8 @@ class admin_activityControl extends BaseAdminControl{
             $update['every_group_num'] = ceil($_POST['total_number']/$_POST['group_number']);  //默认小组数量
 
             $update['activity_desc'] = $_POST['activity_body'];
+            $update['cls_id'] = $_POST['cls_id'];
+
 
             /* 查出这个活动的信息 start */
 
@@ -533,6 +547,8 @@ class admin_activityControl extends BaseAdminControl{
                 for($i=0;$i<4;$i++){
                     //如果有传值过来 则 改变相应的 data_bbs_uplaods 里边的数据  如果 bbs_uploads 里边原来没有 则需要添加
                     if(!empty($_FILES['detail_img']['name'][$i])){
+
+
                         // 整理详情图 start
                         $_FILES['banner_img']['name'] = $_FILES['detail_img']['name'][$i];
                         $_FILES['banner_img']['type'] = $_FILES['detail_img']['type'][$i];
@@ -561,7 +577,7 @@ class admin_activityControl extends BaseAdminControl{
                             die();
                         }
                         /* 上传轮播图 end */
-                        if($data_bbs_uploads[$i]['id']){
+                        if(isset($data_bbs_uploads[$i]['id'])){
                             // 修改
                             $update_uploads['file_name'] = $banner_img_url;
                             $update_uploads['file_size'] = $_FILES['banner_img']['size'];
@@ -570,11 +586,12 @@ class admin_activityControl extends BaseAdminControl{
                         }else{
                             //添加
                             $insert_uploads['file_name'] = $banner_img_url;
-                            $update_uploads['file_size'] = $_FILES['banner_img']['size'];
-                            $update_uploads['upload_time'] = time();
-                            $update_uploads['item_id'] = $_POST['activity_no'];
-                            $update_uploads['periods'] = 0;
-                            $update_uploads['upload_type'] = 1;
+                            $insert_uploads['file_size'] = $_FILES['banner_img']['size'];
+                            $insert_uploads['upload_time'] = time();
+                            $insert_uploads['item_id'] = $_POST['activity_no'];
+                            $insert_uploads['periods'] = $_POST['activity_periods'];
+                            $insert_uploads['upload_type'] = 1;
+
                             $result_uploads = @$db_bbs_uploads->insert($insert_uploads);
                         }
                     }
@@ -621,4 +638,150 @@ class admin_activityControl extends BaseAdminControl{
     }
     /* 活动的修改 end */
 
+    /* 活动的删除功能 start */
+    // 删除后 订单不删除  activity 和activity_periods 表 都删除
+    public function activity_delOp(){
+        $db_activity = new Model('bbs_activity');
+        $db_activity_periods = new Model('bbs_activity_periods');
+
+        $where['activity_no'] = $_GET['activity_no'];
+        $result = $db_activity->where($where)->delete();
+        $result = $db_activity_periods->where($where)->delete();
+        showMessage("删除成功");
+    }
+
+    /* 活动的删除功能 end */
+
+    /* 活动类别列表 start */
+    public function cls_listOp(){
+
+        Tpl::showpage("cls_list");
+    }
+    /* 活动类别列表 end */
+
+    /* 活动类别列表 ajax start */
+    public function cls_listAjaxOp(){
+        $db_cls = new Model('bbs_cls');
+        /* 查询条件 start */
+        $where = array("cls_name"=>array('like',"%{$_GET['search']['value']}%"));
+        /* 查询条件 end */
+        /* 排序条件 start */
+        $column = array("id","cls_name","cls_desc","level","pid");
+        $column_key = intval($_GET['order'][0]['column']);
+        $choose_column = $column[$column_key];
+        $choose_sort = $_GET['order'][0]['dir'];
+        $order = $choose_column." ".$choose_sort;
+//        $order = "";
+//        p($order);
+        /* 排序条件 end */
+
+        $db_draw = intval($_GET['draw']);
+        $db_start = $_GET['start'] ? $_GET['start'] : 0;
+        $db_length = $_GET['length'] ? $_GET['length'] : 10;
+        $db_limit = $db_start.",".$db_length;
+        $db_total = $db_cls->where($where)->count();
+
+        $data_bbs_user = $db_cls
+//            ->table("bbs_user,area")
+//            ->field("bbs_user.id,bbs_user.member_name,bbs_user.city,bbs_user.add_time,bbs_user.integral,bbs_user.last_login_ip,bbs_user.is_teacher,bbs_user.member_phone,area.area_id,area.area_name")
+//            ->join("left")
+//            ->on($on)
+            ->where($where)
+            ->order($order)
+            ->limit($db_limit)
+            ->select();
+
+        ajaxReturn(array('draw'=>$db_draw,'recordsTotal'=>$db_total,'recordsFiltered'=>$db_total,'data'=>$data_bbs_user),"json");
+
+    }
+    /* 活动类别列表 ajax end */
+
+    /* 活动类别添加 start */
+    public function cls_addOp(){
+        if(isset($_POST['sub']) && $_POST['sub'] == 'ok'){
+            $db_cls = new Model('bbs_cls');
+            $insert['cls_name'] = $_POST['cls_name'];
+            $insert['cls_desc'] = $_POST['cls_desc'];
+            $insert['pid'] = $_POST['pid'];
+
+            if($insert['pid'] != "0"){
+                // 查出父级cls 的level
+                $data_cls = $db_cls->field("level")->where(array('id'=>$insert['pid']))->find();
+                $insert['level'] = intval($data_cls['level']+1);
+            }
+            $row =  $db_cls->insert($insert);
+            if($row){
+                /* 上传封面图 start */
+                $upload_file = new UploadFile();
+                $upload_file->set('default_dir',$this->bbs_upload_path);
+                $upload_file->set('max_size',1024);
+                $cover_img_result = $upload_file->upfile("cls_img",true);
+//                p($cover_img_result); // 新的封面图
+                if($cover_img_result){
+                    $cover_img_url = $this->img_pre_url.$this->bbs_upload_path.DS.$upload_file->file_name;
+//                    p($cover_img_url);
+                    $update['pic'] = $cover_img_url;
+                    $result = @$db_cls->where(array("id"=>$row))->update($update);
+                }
+                /* 上传封面图 end */
+                showMessage("添加成功",BBS_SITE_URL.DS.'index.php?act=admin_activity&op=cls_list');
+            }else{
+                showMessage("添加失败",'','','error');
+            }
+        }else{
+
+            Tpl::showpage("cls_add");
+        }
+    }
+    /* 活动类别列表 end */
+
+    /* 类别删除 start */
+    public function cls_delOp(){
+        $db_cls = new Model('bbs_cls');
+        $where['id'] = $_GET['id'];
+        /* 判断是否有下级没有则可以删除 start */
+        $data_cls = $db_cls->where(array('pid'=>$_GET['id']))->select();
+        if($data_cls){
+            showMessage("请先删除下级");
+            die();
+        }
+        /* 判断是否有下级没有则可以删除 end */
+        $result = $db_cls->where($where)->delete();
+        showMessage("删除成功");
+
+    }
+    /* 类别删除 end */
+
+    /* 类别类别的ajax 返回 start */
+    public function cls_ajaxOp(){
+        $db_cls = new Model('bbs_cls');
+
+        $where['level'] = 1;
+        $data_cls = $db_cls->where($where)->select();
+
+        ajaxReturn(array('control'=>'cls_ajax','code'=>200,'msg'=>'成功','data'=>$data_cls),"JSON");
+    }
+    /* 类别类别的ajax 返回 end */
+
+    /* 获取分类列表 start */
+    public function get_cls_listOp(){
+        $db_cls = new Model('bbs_cls');
+        $data_first = $db_cls
+            ->where(array('level'=>1))
+            ->order('id asc')
+            ->select();
+        $data = array();
+        for($i=0;$i<count($data_first);$i++){
+            array_push($data,$data_first[$i]);
+            $data_second = $db_cls->where(array('level'=>2,'pid'=>$data_first[$i]['id']))->order('id asc')->select();
+            if($data_second){
+                for($j=0;$j<count($data_second);$j++){
+                    array_push($data,$data_second[$j]);
+                }
+            }
+        }
+//        P($data);
+        ajaxReturn(array('control'=>'get_cls_listOp','code'=>200,'msg'=>'成功','data'=>$data),"JSON");
+    }
+    /* 获取分类列表 end */
 }
