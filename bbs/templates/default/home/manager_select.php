@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<title>少年宫-选择查看对象</title>
+	<title>好少年-选择查看对象</title>
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/manager_select.css" />
 <body>
@@ -21,14 +21,14 @@
 	        </span>
     	</div>
     	<div class="overflow manager">
-    		<div class="col-xs-12" href_url="<?php echo urlBBS('set','manageInfo')?>">
+    		<div class="col-xs-12" id="manager1" href_url="<?php echo urlBBS('set','manageInfo')?>">
     		   <div>
     		   	    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/guardian.png" />
     				<span>监护人</span>
     		   </div>
     			
     		</div>
-    		<div class="col-xs-12" href_url="<?php echo urlBBS('set','studentInfo')?>"">
+    		<div class="col-xs-12" id="manager2" href_url="<?php echo urlBBS('set','studentInfo')?>"">
 	    		<div>
 	    			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/child.png" />
 	    			<span>学员（儿童）</span>

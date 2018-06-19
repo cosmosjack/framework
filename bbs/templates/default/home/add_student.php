@@ -20,7 +20,7 @@
               <span class="glyphicon glyphicon-chevron-left"></span>
             </button>
             <span class="text-center col-xs-11 col-xs-offset-1">
-            <span class="pull-left">新增学员</span>
+            <span class="pull-left"><?php echo $output['info']['id']?'修改':'新增';?>学员</span>
             <span class="pull-right explain">说明？</span>
             </span>
         </div>
@@ -32,10 +32,9 @@
                     <div class="col-xs-12 student_inf_txt">
                         <div class="overflow userImg">
                             <span class="col-xs-4 text-left">头像:</span>
-                            <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/children.jpg';?>" />
                             <div class="file-box pull-right" >
                                 <input type="file" class="file-btn" id="up_img" name="photo"/>
-                                <span>></span>
+                                <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl']:BBS_RESOURCE_SITE_URL.'/bootstrap/img/children.jpg';?>" />
                             </div>
                             
                         </div>
@@ -48,8 +47,10 @@
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
                         <div class="overflow">
+                            <?php $arr = array('1'=>'身份证','2'=>'港澳通','3'=>'驾驶证');?>
                             <span class="col-xs-4 text-left">证件类型:</span>
-                            <span class="col-xs-8">内地身份证</span>
+                            <input type="text" name="u_paperwork" class="col-xs-8 u_paperwork" id="u_paperwork" value="<?php echo $arr[$output['info']['child_papers_type']]?>"/>
+                            <input type="hidden" name="u_idtype" id="u_idtype" value="<?php echo $output['info']['child_papers_type'];?>">
                         </div>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
@@ -61,7 +62,7 @@
                     <div class="col-xs-12 overflow student_inf_txt">
                         <div class="overflow">
                             <span class="col-xs-4 text-left">出生年月:</span>
-                            <input type="text" name="u_born" class="col-xs-8 u_born" id="appDate" value="<?php echo $output['info']['child_brithday']?>"/>
+                            <input type="text" name="u_born" class="col-xs-8 u_born" id="appDate" value="<?php echo date('Y-m-d',$output['info']['child_brithday'])?>"/>
                         </div>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">

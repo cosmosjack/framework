@@ -3,12 +3,22 @@
 <html>
 <head>
     <meta charset="<?php echo CHARSET;?>">
-    <title><?php echo $output['html_title'];?></title>
+    <title>广东好少年</title>
     <link href="<?php echo BBS_RESOURCE_SITE_URL;?>/css/skin_0.css" rel="stylesheet" type="text/css">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <style type="text/css">
+        .msg .tip{
+            min-width: 54px;
+            font-weight: bold;
+        }
+        a.btns span{
+            background-color:#FFF !important; 
+        }
+    </style>
 </head>
 <body>
-<div class="page">
-    <div class="fixed-bar">
+<div class="page" style="background: #FFF">
+    <div class="fixed-bar" style="background: #FFF">
         <div class="item-title">
             <h3><?php echo $lang['nc_shopnc_message'];?></h3>
         </div>
@@ -34,7 +44,7 @@
                         <script type="text/javascript"> window.setTimeout("javascript:location.href='<?php echo $output['url'];?>'", <?php echo $time;?>); </script>
                     <?php }else { ?>
                         <a href="javascript:history.back()" class="btns"><span>返回</span></a>
-                        <script type="text/javascript"> window.setTimeout("javascript:history.back()", <?php echo $time;?>); </script>
+                        <!-- <script type="text/javascript"> window.setTimeout("javascript:history.back()", <?php echo $time;?>); </script> -->
                     <?php } } ?></td>
             </tr>
         <?php } ?>

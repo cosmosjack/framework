@@ -275,7 +275,7 @@ $lang['ftp_port_tip'] 	= '預設連接埠是21';
 $lang['ftp_username_tip'] 	= '該帳號必需具有以下權限：讀取檔案、寫入檔案、刪除檔案、創建目錄、子目錄繼承';
 $lang['ftp_pasv_tip'] 	= '一般情況下非被動模式即可，如果存在上傳失敗問題，可嘗試打開此設置';
 $lang['ftp_attach_dir_tip'] 	= '遠程附件目錄的絶對路徑或相對於 FTP 主目錄的相對路徑，如果是根目錄請填"/"，非根目錄，請保證伺服器端該目錄已存在，結尾不需要"/"，如"/upload/33hao"';
-$lang['ftp_access_url_tip'] = '支持 HTTP 和 FTP 協議，結尾不要加斜杠“/”；如果使用 FTP 協議，FTP 伺服器必需支持 PASV 模式，為了安全起見，使用 FTP 連接的帳號不要設置可寫權限和列表權限。如果是根目錄，直接輸入域名即可，如“http://”，如果非根目錄，需要填寫域名+目錄形式，如“http:///upload/33hao”';
+$lang['ftp_access_url_tip'] = '支持 HTTP 和 FTP 協議，結尾不要加斜杠“/”；如果使用 FTP 協議，FTP 伺服器必需支持 PASV 模式，為了安全起見，使用 FTP 連接的帳號不要設置可寫權限和列表權限。如果是根目錄，直接輸入域名即可，如“http://www.33hao.com”，如果非根目錄，需要填寫域名+目錄形式，如“http://www.33hao.com/upload/33hao”';
 $lang['ftp_timeout_tip'] = '單位：秒，0 為伺服器預設';
 $lang['ftp_test_tip'] 	= '無需保存設置即可測試，請在測試通過後再保存';
 

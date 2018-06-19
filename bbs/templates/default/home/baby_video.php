@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>少年宫-宝贝视频</title>
+	<title>好少年-宝贝视频</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/baby_video.css" />

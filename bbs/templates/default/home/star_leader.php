@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>少年宫</title>
+	<title>好少年</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/star_leader.css" />
@@ -17,30 +17,16 @@
     	</div>
     	<div class="type_content">
     		<div class="row">
-    			<div class="col-xs-4 text-center click" onclick="Href('<?php echo urlBBS('activity','leaderDetail')?>')">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年一号</span>
+                <?php foreach($output['list'] as $val):?>
+    			<div class="col-xs-4 text-center click" onclick="Href('<?php echo urlBBS('activity','leaderDetail',array('id'=>$val['id']))?>')">
+                    <?php if(!empty($val['headimgurl'])):?>
+                        <img onclick="Href('<?php echo urlBBS('leaderDetail',array('id'=>$val['id']))?>')" src="<?php echo $val['headimgurl'];?>" class="img-responsive center-block" />
+                    <?php else:?>
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
+                    <?php endif;?>    				
+    				<span><?php echo $val['nick_name']?$val['nick_name']:$val['member_name'];?></span>
     			</div>
-    			<div class="col-xs-4 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年二号</span>
-    			</div>
-    			<div class="col-xs-4 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年三号</span>
-    			</div>
-    			<div class="col-xs-4 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年四号</span>
-    			</div>
-    			<div class="col-xs-4 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年五号</span>
-    			</div>
-    			<div class="col-xs-4 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="img-responsive center-block" />
-    				<span>好少年六号</span>
-    			</div>
+    			<?php endforeach;?>
     		</div>
     	</div>
     </div>

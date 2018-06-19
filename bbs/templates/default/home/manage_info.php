@@ -33,15 +33,16 @@
     					<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/remove.png" class="pull-right del" data-id="<?php echo $val['id']?>"/>
     				</div>
                     <div class="col-xs-12 user_avatar">
-                        <img src="<?php echo $val['headimgurl']?$val['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" />
+                        <img src="<?php echo $val['headimgurl']?$val['headimgurl']:BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" />
                     </div>
     				<div class="col-xs-12 overflow student_inf_txt">
 	    				<span class="col-xs-4 text-left">姓名:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_name']?></span>
 	    			</div>
-	    			<div class="col-xs-12 overflow student_inf_txt">
+	    			<!-- <div class="col-xs-12 overflow student_inf_txt">
+                        <?php $arr = array('1'=>'身份证','2'=>'港澳通','3'=>'驾驶证');?>
 	    				<span class="col-xs-4 text-left">证件类型:</span>
-	    				<span class="col-xs-8">内地身份证</span>
+	    				<span class="col-xs-8"><?php echo $arr[$val['parents_papers_type']]?></span>
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
 	    				<span class="col-xs-4 text-left">证件号码:</span>
@@ -49,12 +50,20 @@
 	    			</div>
 	    			<div class="col-xs-12 overflow student_inf_txt">
 	    				<span class="col-xs-4 text-left">出生年月:</span>
-	    				<span class="col-xs-8"><?php echo $val['parents_brithday']?></span>
-	    			</div>
-	    			<div class="col-xs-12 overflow student_inf_txt">
+	    				<span class="col-xs-8"><?php echo date('Y-m-d',$val['parents_brithday']);?></span>
+	    			</div> -->
+	    			<!-- <div class="col-xs-12 overflow student_inf_txt">
 	    				<span class="col-xs-4 text-left">性别:</span>
 	    				<span class="col-xs-8"><?php echo $val['parents_sex']==1?'男':'女'; ?></span>
-	    			</div>
+	    			</div> -->
+                    <div class="col-xs-12 overflow student_inf_txt">
+                        <span class="col-xs-4 text-left">关系:</span>
+                        <span class="col-xs-8"><?php echo $val['relation'];?></span>
+                    </div>
+                    <div class="col-xs-12 overflow student_inf_txt">
+                        <span class="col-xs-4 text-left">手机号:</span>
+                        <span class="col-xs-8"><?php echo $val['parents_phone'];?></span>
+                    </div>
                     <div class="col-xs-12 overflow select_mo text-center" data-id="<?php echo $val['id']?>">
                         <?php if($val['is_default']):?>
                         <span class="col-xs-6" disabled="disabled">

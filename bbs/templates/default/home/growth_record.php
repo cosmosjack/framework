@@ -19,47 +19,14 @@
     	</div>
     	<div class="title overflow">
            <ul class="title_ul">
-               <li class="active">全部</li>
-               <li>夏冬令营</li>
-               <li>城市实践体验</li>
-               <li>少年独立团</li>
-               <li>植树节</li>
-               <li>亲子活动</li>
+               <li class="active" data-id="0">全部</li>
+               <?php foreach($output['cls_data'] as $val):?>
+               <li data-id="<?php echo $val['id'];?>"><?php echo $val['cls_name'];?></li>
+             <?php endforeach;?>
            </ul> 
         </div>
         <div class="gr_content overflow">
-          <!--当有数据时展现-->
-        	 <div class="col-xs-12">
-        	   <div class="overflow gr_pro">
-	        	   	<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img2.jpg" class="col-xs-4 gr_img" />
-	        		<div class="col-xs-8 gr_txt">
-	        			 <p class="gr_title">
-	        			 	<span>3.12大型植树节活动</span><span class="glyphicon glyphicon-menu-right pull-right"></span>
-	        			 </p>
-	        			 <p class="vice_title">3.12植树节组织植树自然体验活动，当日好少年一号带领4名学员前往惠州西湖门口进行...</p>
-	        			 <p class="time_class"><span>2018-3-12</span><span>植树 | 体验 | 自然</span></p>
-	        		</div>
-        	   </div>
-        	</div>
-        	<div class="col-xs-12">
-        	   <div class="overflow gr_pro">
-	        	   	<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/img2.jpg" class="col-xs-4 gr_img" />
-	        		<div class="col-xs-8 gr_txt">
-	        			 <p class="gr_title">
-	        			 	<span>3.12大型植树节活动</span><span class="glyphicon glyphicon-menu-right pull-right"></span>
-	        			 </p>
-	        			 <p class="vice_title">3.12植树节组织植树自然体验活动，当日好少年一号带领4名学员前往惠州西湖门口进行...</p>
-	        			 <p class="time_class"><span>2018-3-12</span><span>植树 | 体验 | 自然</span></p>
-	        		</div>
-        	   </div>
-        	</div> 
-           <!--当无数据时展现-->
-           <!--<div class="no_data container-fluid">
-	            <div class="row">
-	                 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/null.png" class="col-xs-6 col-xs-offset-3" />
-	                 <p class="col-xs-12 text-center">还没有订单内容</p>
-	            </div>
-	        </div>-->
+           
         </div>
     </div>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/growth_record.js"></script>

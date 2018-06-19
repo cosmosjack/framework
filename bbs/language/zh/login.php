@@ -16,4 +16,4 @@ $lang['login_index_checkcode']					= '驗證碼';
 $lang['login_index_change_checkcode']			= '看不清,點擊更換驗證碼';
 $lang['login_index_back_to_homepage']			= '返回商城首頁';
 $lang['login_index_forget_password']			= '忘記了密碼';
-$lang['login_index_shopnc']						= '';
+$lang['login_index_shopnc']						= '好商城V3';

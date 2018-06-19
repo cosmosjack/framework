@@ -31,7 +31,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
         <div class="col-sm-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>基本 <small>分类，查找</small></h5>
+                    <h5>会员管理 <small>会员列表</small></h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -100,6 +100,63 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
 </div>
 
+<div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">会员信息</h4>
+                <small class="font-bold">修改会员的信息</small>
+            </div>
+            <div class="modal-body">
+
+                <form method="post" id="mod_info" action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">电话</label>
+                        <div class="col-sm-9">
+                            <input type="phone" name="member_phone" class="form-control">
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">积分</label>
+                        <div class="col-sm-9">
+                            <input type="text" name="member_integral" class="form-control"> <span class="help-block m-b-none">改变会员当前的积分</span>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">是否是领队</label>
+
+                        <div class="col-sm-9">
+                            <select name="is_teacher" class="form-control">
+                                <option value="0">不是领队</option>
+                                <option value="1">是领队</option>
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <input type="hidden" name="member_id" value="" />
+                            <input type="hidden" name="act" value="admin_user"/>
+                            <input type="hidden" name="op" value="mod_info"/>
+                            <button class="btn btn-primary" type="submit">确认修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="modal inmodal" id="myModal2" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content animated flipInY">
@@ -125,7 +182,6 @@ defined('InCosmos') or exit('Access Invalid!');?>
         </div>
     </div>
 </div>
-
 
 <script>
     /* 展示 监护人 和 儿童的认证 start */
@@ -175,6 +231,27 @@ defined('InCosmos') or exit('Access Invalid!');?>
     }
     /* 展示 监护人 和 儿童的认证 end */
 
+    /* 修改会员的信息 可以修改 是否是领队  修改积分 修改密码 start */
+    function mod_info(id,phone,is_teacher,integral){
+        // 根据ID来获取
+        console.log(id);
+        console.log(phone);
+        console.log(is_teacher);
+        console.log(integral);
+        $("input[name='member_phone']").val(phone);
+        $("input[name='member_integral']").val(integral);
+        $("input[name='member_id']").val(id);
+        if(is_teacher == 1){
+            $("select[name='is_teacher']").val(is_teacher);
+        }
+        $("#mod_info").attr('action',ApiUrl+'/index.php');
+        $("#myModal3").modal("show");
+
+    }
+
+
+    /* 修改会员的信息 可以修改 是否是领队  修改积分 修改密码 end */
+
     /* 时间戳变为 日期 start */
     function date_change(nS) {
         return new Date(parseInt(nS) * 1000).toLocaleString().replace(/:\d{1,2}$/,' ');
@@ -212,7 +289,7 @@ $(function(){
             columnDefs : [ {//列渲染，可以添加一些操作等
                 targets : 8,//表示是第8列，所以上面第8列没有对应数据列，就是在这里渲染的。
                 render : function(data, type, row) {//渲染函数
-                    var html = '&nbsp;<label type="button" class="btn btn-default btn-sm" onclick="show_info('+data.id+');"><i style="color: green;" class="fa fa-newspaper-o"></i></label>';//这里加了两个button，一个修改，一个删除
+                    var html = '&nbsp;<label type="button" class="btn btn-default btn-sm" onclick="show_info('+data.id+');"><i style="color: green;" class="fa fa-newspaper-o"></i></label><label onclick="mod_info('+data.id+','+data.member_phone+','+data.is_teacher+','+data.integral+');" class="btn btn-sm btn-success">修改</label>';//这里加了两个button，一个修改，一个删除
                     return html;//将改html语句返回，就能在表格的第8列显示出来了
                 }
             },{

@@ -28,16 +28,16 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                 </span>
                         </a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
-                            <li><a class="J_menuItem" href="#">修改头像</a>
+                            <!--<li><a class="J_menuItem" href="#">修改头像</a>
                             </li>
                             <li><a class="J_menuItem" href="#">个人资料</a>
                             </li>
                             <li><a class="J_menuItem" href="#">联系我们</a>
                             </li>
                             <li><a class="J_menuItem" href="#">信箱</a>
-                            </li>
+                            </li>-->
                             <li class="divider"></li>
-                            <li><a href="login.html">安全退出</a>
+                            <li><a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=logout';?>">安全退出</a>
                             </li>
                         </ul>
                     </div>
@@ -46,7 +46,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </li>
 
                 <li>
-                    <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=web_info';?>"><i class="fa fa-columns"></i> <span class="nav-label">平台设置</span></a>
+                    <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=web_info';?>"><i class="fa fa-columns"></i> <span class="nav-label">平台信息</span></a>
                 </li>
 
                 <li>
@@ -62,13 +62,32 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         <li>
                             <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=activity_add';?>">添加活动</a>
                         </li>
+                        <li>
+                            <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=cls_list';?>">活动类别</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=cls_add';?>">添加类别</a>
+                        </li>
                     </ul>
                 </li>
 
                 <li>
-                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=user_list';?>" class="J_menuItem">
-                        <i class="fa fa-users"></i> <span class="nav-label">会员管理</span>
+                    <a href="#">
+                        <i class="fa fa-users"></i>
+                        <span class="nav-label">会员管理</span>
+                        <span class="fa arrow"></span>
                     </a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=user_list';?>" data-index="0">会员列表</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin_user&op=search';?>">儿童查询</a>
+                        </li>
+                        <li>
+                            <a class="J_menuItem" href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin_user&op=child_list';?>">儿童列表</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>
@@ -78,57 +97,19 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 </li>
 
                 <li>
-                    <a href="mailbox.html"><i class="fa fa-envelope"></i> <span class="nav-label">信箱 </span><span class="label label-warning pull-right">16</span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a class="J_menuItem" href="mailbox.html">收件箱</a>
-                        </li>
-                        <li><a class="J_menuItem" href="mail_detail.html">查看邮件</a>
-                        </li>
-                        <li><a class="J_menuItem" href="mail_compose.html">写信</a>
-                        </li>
-                    </ul>
+                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=words_list';?>" class="J_menuItem">
+                        <i class="fa fa-book"></i> <span class="nav-label">词语管理</span>
+                    </a>
                 </li>
-
                 <li>
-                    <a href="#"><i class="fa fa-edit"></i> <span class="nav-label">表单</span><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li><a class="J_menuItem" href="form_basic.html">基本表单</a>
-                        </li>
-                        <li><a class="J_menuItem" href="form_validate.html">表单验证</a>
-                        </li>
-                        <li><a class="J_menuItem" href="form_advanced.html">高级插件</a>
-                        </li>
-                        <li><a class="J_menuItem" href="form_wizard.html">表单向导</a>
-                        </li>
-                        <li>
-                            <a href="#">文件上传 <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><a class="J_menuItem" href="form_webuploader.html">百度WebUploader</a>
-                                </li>
-                                <li><a class="J_menuItem" href="form_file_upload.html">DropzoneJS</a>
-                                </li>
-                                <li><a class="J_menuItem" href="form_avatar.html">头像裁剪上传</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">编辑器 <span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><a class="J_menuItem" href="form_editors.html">富文本编辑器</a>
-                                </li>
-                                <li><a class="J_menuItem" href="form_simditor.html">simditor</a>
-                                </li>
-                                <li><a class="J_menuItem" href="form_markdown.html">MarkDown编辑器</a>
-                                </li>
-                                <li><a class="J_menuItem" href="code_editor.html">代码编辑器</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li><a class="J_menuItem" href="suggest.html">搜索自动补全</a>
-                        </li>
-                        <li><a class="J_menuItem" href="layerdate.html">日期选择器layerDate</a>
-                        </li>
-                    </ul>
+                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin_manage&op=admin';?>" class="J_menuItem">
+                        <i class="fa fa-cogs"></i> <span class="nav-label">管理员管理</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="<?php echo BBS_SITE_URL.DS.'index.php?act=admin&op=setting';?>" class="J_menuItem">
+                        <i class="fa fa-edit"></i> <span class="nav-label">平台设置</span>
+                    </a>
                 </li>
 
             </ul>
@@ -140,7 +121,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
         <div class="row border-bottom">
             <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header"><a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" method="post" action="search_results.html">
+                    <form role="search" class="navbar-form-custom" method="post" action="">
                         <div class="form-group">
                             <input type="text" placeholder="请输入您需要查找的内容 …" class="form-control" name="top-search" id="top-search">
                         </div>

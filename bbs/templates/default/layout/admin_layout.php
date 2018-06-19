@@ -30,8 +30,8 @@
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/content.min.js?v=1.0.0"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/common.js"></script>
     <script src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/function.js"></script>
-
 </head>
+
 <?php
 /**
  * Created by 大师兄

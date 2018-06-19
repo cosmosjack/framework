@@ -201,6 +201,21 @@ defined('InCosmos') or exit('Access Invalid!');?>
                         <div class="hr-line-dashed"></div>
 
                         <div class="form-group">
+                            <label class="col-sm-2 control-label">分类选择</label>
+                            <div class="col-sm-10">
+                                <select name="cls_id" class="control-label" id="bbs_cls_select">
+                                    <option value="0">顶级类别</option>
+                                    <option value="1">夏冬令营</option>
+                                    <option value="2">城市实践</option>
+                                    <option value="3">少年独立团</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="hr-line-dashed"></div>
+
+
+                        <div class="form-group">
                             <label class="col-sm-2 control-label">活动详细地址</label>
                             <div class="col-sm-8">
                                 <input type="text"  class="form-control" value="<?php echo $output['form_data']['address'];?>" name="address"> <span class="help-block m-b-none text-danger">填写详细的活动地址</span>
@@ -378,6 +393,38 @@ defined('InCosmos') or exit('Access Invalid!');?>
     }
 
     $(function(){
+
+        /* 请求获取当前的类别列表 并根据 $_GET['pid'] 来定义默认父级 start */
+        $.ajax({
+            url:ApiUrl+"/index.php?act=admin_activity&op=get_cls_list",
+            type:"GET",
+            success:function(msg){
+                console.log(msg);
+                if(msg.code == 200){
+                    $("#bbs_cls_select").empty();
+                    var data = msg.data;
+                    var now_cls_id = "<?php echo $output['form_data']['cls_id'];?>";
+
+                    for(var i=0;i<data.length;i++){
+                        if(data[i]['id'] == parseInt(now_cls_id)){
+                            var check = 'selected';
+                        }else{
+                            var check = '';
+                        }
+                        if(data[i]['level'] > 1){
+                            $("#bbs_cls_select").append("<option "+check+" value='"+data[i]['id']+"' >---|"+data[i]['cls_name']+"</option>");
+                        }else{
+                            $("#bbs_cls_select").append("<option "+check+" value='"+data[i]['id']+"' >"+data[i]['cls_name']+"</option>");
+                        }
+                    }
+                }
+            },
+            error:function(){
+                console.log("http error");
+            }
+        });
+        /* 请求获取当前的类别列表 并根据 $_GET['pid'] 来定义默认父级 end */
+
         /* 获取是否有错误信息 start */
         var is_error = <?php if(isset($output['error_message']) && !empty($output['error_message'])){echo 1;}else{ echo 0;};?>;
 

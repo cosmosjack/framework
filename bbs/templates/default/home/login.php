@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<title>少年宫</title>
+	<title>好少年</title>
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/login.css" />
 <body>
     <div class="login container-fluid">
     	<div class="logo text-center row">
     		 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="col-xs-4 col-xs-offset-4" />
-    		 <h4 class="col-xs-12 test">好少年宫活动发布平台</h4>
+    		 <h4 class="col-xs-12 test">好少年活动发布平台</h4>
     	</div>
     	<div class="form row">
     		<div class="phone col-xs-10 col-xs-offset-1 row">

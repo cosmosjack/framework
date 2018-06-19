@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>少年宫</title>
+    <title>好少年</title>
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/modify_data.css" />
     <!--地址插件-->
@@ -26,7 +26,7 @@
                      <span>我的头像:</span>
                      <div class="file-box pull-right" >
                         <input type="file" class="file-btn" id="up_img" name="photo"/>
-                        <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="pull-left" id="userImg" />
+                        <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl']:BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="pull-left" id="userImg" />
                     </div>
                    </div>
                 </div>

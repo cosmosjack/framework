@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>少年宫</title>
+	<title>好少年</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/photo_album.css" />
@@ -13,17 +13,14 @@
     <div class="photo_album">
         <!--头部-->
     	<div class="reg_top overflow">
-    		<button type="button" class="btn ph_oprev">
+    		<button type="button" class="btn ph_oprev" href_url="<?php echo urlBBS('mine','album')?>">
 	          <span class="glyphicon glyphicon-chevron-left"></span>
-	         <?php echo $output['info']['activity_title']?>
+	         <?php echo $output['activity_title']?>
             </button>
-            <span class="col-xs-12">
-                <span class="pull-right Upload" id="UpBtn" onclick="Href('<?php echo urlBBS('mine','uploadImg',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>')">上传图片</span>
-            </span>
     	</div>
     	
-        <input type="hidden" id="no" value="<?php echo $output['info']['activity_no']?>">
-        <input type="hidden" id="periods" value="<?php echo $output['info']['activity_periods']?>">
+        <input type="hidden" id="no" value="<?php echo $output['activity_no']?>">
+        <input type="hidden" id="periods" value="<?php echo $output['activity_periods']?>">
     </div>
     <div class="ph_mask overflow">
       <div><span class="glyphicon glyphicon-chevron-left ph_out"></span></div>

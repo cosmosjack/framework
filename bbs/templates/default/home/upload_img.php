@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>少年宫-图片上传</title>
+	<title>好少年-图片上传</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/upload_img.css" />
@@ -65,6 +65,24 @@
 		    </div>
 		  </div>
 		</div>
+        <div class="Bullet">
+            <div>
+                <ul class="Bullet_ul">
+                    <?php foreach($output['group'] as $val):?>
+                    <li data-id="<?php echo $val['group_id']?>">
+                        <span class="overflow">
+                            <span class="ul_child"> 
+                            </span>第<?php echo $val['group_id']?>队
+                        </span>
+                    </li>
+                    <?php endforeach;?>
+                </ul>
+                <div class="Bullet_btn">
+                    <button class="Bullet_btn_a">取消</button>
+                    <button id="Bullet_btn_b">确定</button>
+                </div>
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/upload_img.js"></script>
 </body>

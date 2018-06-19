@@ -20,7 +20,11 @@
                     <p class="col-xs-4 text-center od_title"></p>
                     <div class="col-xs-4 overflow">
                         <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/share.png" class="pull-right share_icon">
-                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" class="pull-right collect_icon" />
+                        <?php if($output['info']['collect'] == 1):?>
+                          <img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" class="pull-right collect_icon" />
+                        <?php else:?>
+                          <img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" class="pull-right collect_icon" />
+                        <?php endif;?>
                     </div>
                 </div>
              </div>
@@ -29,7 +33,7 @@
         <div class="swiper-container">
             <div class="swiper-wrapper">
                 <?php foreach($output['banner'] as $val):?>
-                  <div class="swiper-slide"><img src="<?php echo $val['file_name'];?>" /></div>
+                  <div class="swiper-slide"><img src="<?php echo $val['file_name'];?>!product-360" /></div>
                 <?php endforeach;?>
                 <!-- <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner0.jpg" /></div>
                 <div class="swiper-slide"><img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/banner1.jpg" /></div>
@@ -62,8 +66,8 @@
             <?php if($val['total_num'] > 0):?>
             <div class="team col-xs-12 overflow">
                 <p class="col-xs-12 name">
-                    <span>战狼队</span>
-                    <span class="pull-right" onclick="Href('<?php echo urlBBS('activity','member',array('id'=>$val['group_id']))?>')">小组成员 ></span>
+                    <span><?php echo $output['group_arr'][$val['group_id']][0]['teacher_name'];?></span>
+                    <span class="pull-right" onclick="Href('<?php echo urlBBS('activity','member',array('group_id'=>$val['group_id'],'activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>')">小组成员 ></span>
                 </p>
                 <div class="col-xs-12 past_img">
                     <div class="main">
@@ -71,7 +75,7 @@
                     </div>
                     <!--最多展现4个-->
                     <?php foreach($output['group_arr'][$val['group_id']] as $v):?>
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/children.jpg" alt="<?php echo $v['child_name']?>" />
+                    <img src="<?php echo $v['child_headimgurl']?$v['child_headimgurl']:BBS_RESOURCE_SITE_URL.'/bootstrap/img/children.jpg';?>" alt="<?php echo $v['child_name']?>" />
                     <?php endforeach;?>
                 </div>
             </div>
@@ -91,107 +95,57 @@
                 </div>
                 <!--活动信息-->
                 <div class="activity_deta_info overflow col-xs-12 text-left">
-                   <div class="grade text-center">
-                     <span>点评:</span>
-                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
-                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
-                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
-                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
-                   </div>
-                   <div class="col-xs-12 Input_box">
+                    <div class="grade text-center">
+                        <span>点评:</span>
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
+                        <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_no.png" />
+                    </div>
+                    <div class="col-xs-12 Input_box">
                        <textarea class="col-xs-9"></textarea>
                        <button class="col-xs-2 pull-right"><p>发表</p>评论</button>
-                   </div> 
-                   <!--评论-->
-                   <div class="reviews col-xs-12 overflow">
-                        <div class="col-xs-2 text-center">
-                            <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="user_img" />
-                        </div>
-                        <div class="col-xs-10 review_txt">
-                            <div class="col-xs-12">
-                               <div class="col-xs-8">
-                                    <p class="user_name">好少年一号</p>
-                                    <span class="user_time">2018-3-12 20:10</span>
-                               </div>
-                               <div class="col-xs-4 degree text-right">
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                               </div>
-                            </div>
-                            <p class="col-xs-12">
-                                这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论
-                            </p>
-                            <!--回复信息-->
-                            <div class="reply col-xs-12 overflow">
-                                 <p class="col-xs-12"><span class="staff">工作人员</span>回复<span class="user">用户</span>:</p>
-                                 <span class="user_time col-xs-12">2018-3-12 20:10</span>
-                                 <p class="col-xs-12">这里是回复</p>
-                            </div>
-                        </div>
-                   </div>
-                   <div class="reviews col-xs-12 overflow">
-                        <div class="col-xs-2 text-center">
-                            <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="user_img" />
-                        </div>
-                        <div class="col-xs-10 review_txt">
-                            <div class="col-xs-12">
-                               <div class="col-xs-8">
-                                    <p class="user_name">好少年一号</p>
-                                    <span class="user_time">2018-3-12 20:10</span>
-                               </div>
-                               <div class="col-xs-4 degree text-right">
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
-                               </div>
-                            </div>
-                            <p class="col-xs-12">
-                                这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论这里是评论
-                            </p>
-                            <!--回复信息-->
-                            <div class="reply col-xs-12 overflow">
-                                 <p class="col-xs-12"><span class="staff">工作人员</span>回复<span class="user">用户</span>:</p>
-                                 <span class="user_time col-xs-12">2018-3-12 20:10</span>
-                                 <p class="col-xs-12">这里是回复</p>
-                            </div>
-                        </div>
-                   </div>
+                    </div>
+                    <input type="hidden" id="past_id" value="<?php echo $output['info']['id'];?>"> 
+                    <!--评论-->
+                    <div id="comment"></div>
+                    
                 </div>
             </div>
         </div>
-        
-    </div>
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-          <div class="modal-dialog remodal modal-sm" role="document">
-            <div class="modal-content point overflow">
-              <div class="bdsharebuttonbox col-xs-12 text-center overflow">
-                    <div class="col-xs-3 overflow">
-                        <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                        <p class="col-xs-12">QQ空间</p>
-                    </div>
-                    <div class="col-xs-3 overflow">
-                        <a href="#" class="bds_qzone col-xs-12" data-cmd="qzone" title="分享到QQ空间"></a>
-                        <p class="col-xs-12">QQ空间</p>
-                    </div>
-                    <div class="col-xs-3 overflow">
-                        <a href="#" class="bds_tsina col-xs-12" data-cmd="tsina" title="分享到新浪微博"></a>
-                        <p class="col-xs-12">新浪</p>
-                    </div>
-                    <div class="col-xs-3 overflow">
-                        <a href="#" class="bds_sqq col-xs-12" data-cmd="sqq" title="分享到QQ好友"></a>
-                        <p class="col-xs-12">QQ</p>
-                    </div>
-                    <div class="col-xs-3 overflow">
-                        <a href="#" class="bds_more col-xs-12" data-cmd="more"></a>
-                        <p class="col-xs-12">其他</p>
-                    </div>
-              </div>
+        <!--收藏弹框-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+            <div class="modal-dialog modal-sm row" role="document">
+                <div class="modal-content col-xs-10 point col-xs-offset-1">
+                    <h4 class="col-xs-12 text-center">已收藏</h4>
+                    <button class="col-xs-12 aHide">确定</button>
+                </div>
             </div>
-          </div>
         </div>
+        <!--分享弹框-->
+        <div class="share_it" id="share_it">
+            <div class="bdsharebuttonbox col-xs-12 text-center overflow">
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <p class="col-xs-12">QQ空间</p>
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_qzone col-xs-12" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <p class="col-xs-12">QQ空间</p>
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_tsina col-xs-12" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <p class="col-xs-12">新浪</p>
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_sqq col-xs-12" data-cmd="sqq" title="分享到QQ好友"></a>
+                    <p class="col-xs-12">QQ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/past_detail.js"></script>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/swiper-3.4.2.min.js"></script>
 </body>

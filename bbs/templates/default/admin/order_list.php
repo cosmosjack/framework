@@ -24,7 +24,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
         $("#order_modal_title").text("儿童详细信息");
 //        $("#order_modal_body").append('<ul class="list-group" id="child_info"><li style="background-color: #f7b6b6;" class="list-group-item"><span class="auto_li">儿童姓名</span><span class="auto_li">儿童电话</span><span class="auto_li">儿童性别</span><span class="auto_li">儿童年龄</span></li></ul>');
         for(var i=0;i<parent_obj.length;i++){
-            $("#order_modal_body").append('<div class="col-sm-4"><div class="contact-box"> <a href="profile.html"> <div class="col-sm-12"> <div class="text-center"> <img alt="image" class="img-circle m-t-xs img-responsive" src="'+parent_obj[i]['img']+'"> <div class="m-t-xs font-bold">'+parent_obj[i]['name']+'</div> </div> </div> <div class="clearfix"></div> </a> </div> </div>');
+            $("#order_modal_body").append('<div class="col-sm-4"><div class="contact-box"> <a href="javascript:;"> <div class="col-sm-12"> <div class="text-center"> <img alt="image" class="img-circle m-t-xs img-responsive" src="'+parent_obj[i]['img']+'"> <div class="m-t-xs font-bold">'+parent_obj[i]['name']+'</div><div class="m-t-xs font-bold">'+parent_obj[i]['phone']+'</div> </div> </div> <div class="clearfix"></div> </a> </div> </div>');
         }
         $("#myModal2").modal('show');
 
@@ -40,12 +40,43 @@ defined('InCosmos') or exit('Access Invalid!');?>
         $("#order_modal_title").text("儿童详细信息");
 //        $("#order_modal_body").append('<ul class="list-group" id="child_info"><li style="background-color: #f7b6b6;" class="list-group-item"><span class="auto_li">儿童姓名</span><span class="auto_li">儿童电话</span><span class="auto_li">儿童性别</span><span class="auto_li">儿童年龄</span></li></ul>');
         for(var i=0;i<child_obj.length;i++){
-            $("#order_modal_body").append('<div class="col-sm-4"><div class="contact-box"> <a href="profile.html"> <div class="col-sm-12"> <div class="text-center"> <img alt="image" class="img-circle m-t-xs img-responsive" src="'+child_obj[i]['img']+'"> <div class="m-t-xs font-bold">'+child_obj[i]['name']+'</div> </div> </div> <div class="clearfix"></div> </a> </div> </div>');
+            $("#order_modal_body").append('<div class="col-sm-4"><div class="contact-box"> <a href="javascript:;"> <div class="col-sm-12"> <div class="text-center"> <img alt="image" class="img-circle m-t-xs img-responsive" src="'+child_obj[i]['img']+'"> <div class="m-t-xs font-bold">'+child_obj[i]['name']+'</div> <div class="m-t-xs font-bold">'+child_obj[i]['phone']+'</div></div> </div> <div class="clearfix"></div> </a> </div> </div>');
         }
         $("#myModal2").modal('show');
 
     }
     /* 展示儿童信息 end */
+
+    /* 修改订单价格 start */
+    function mod_order(id,price){
+        console.log(id);
+        console.log(price);
+        $("input[name='order_id']").val(id);
+        $("input[name='order_amount']").val(price);
+        $("#mod_info").attr('action',ApiUrl+'/index.php');
+        $("#myModal3").modal('show');
+    }
+    /* 修改订单价格 end */
+
+    /* 订单搜索 start */
+    function order_search(){
+        var activity_title = $("input[name='activity_title']").val();
+        var order_state = $("select[name='order_state']").val();
+        console.log(order_state);
+        console.log(activity_title);
+        location.href = ApiUrl+'/index.php?act=admin&op=order_list&order_state='+order_state+'&activity_title='+activity_title;
+    }
+    /* 订单搜索 end */
+
+    /* 订单导出 start */
+    function order_excel(){
+        var activity_title = $("input[name='activity_title']").val();
+        var order_state = $("select[name='order_state']").val();
+        console.log(order_state);
+        console.log(activity_title);
+        location.href = ApiUrl+'/index.php?act=admin_order&op=order_excel&order_state='+order_state+'&activity_title='+activity_title;
+    }
+    /* 订单导出 end */
 </script>
 
 <body class="gray-bg">
@@ -74,9 +105,25 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     </div>
                 </div>
                 <div class="ibox-content">
-                    <div class="">
-                        <a onclick="" href="javascript:void(0);" class="btn btn-primary btn-sm">添加行</a>
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <input type="phone" name="activity_title" value="<?php echo $_GET['activity_title'];?>" placeholder="活动标题" class="form-control">
+                        </div>
+                        <div class="col-sm-2">
+                            <select class="form-control" id="order_state" name="order_state">
+                                <option value="1">未付款</option>
+                                <option value="2">付款未参加</option>
+                                <option value="3">已参加</option>
+                                <option value="4">退款中</option>
+                                <option value="5">已退款</option>
+                                <option value="6">已取消</option>
+                            </select>
+                        </div>
+                        <label class="col-sm-1 control-label btn btn-primary" onclick="order_search();">搜索</label>
+                        <label class="col-sm-1 control-label btn btn-success" onclick="window.location.href = ApiUrl+'/index.php?act=admin&op=order_list';">重置</label>
+                        <label class="col-sm-1 control-label btn btn-danger pull-right" onclick="order_excel();">导出</label>
                     </div>
+
                     <table class="table table-striped table-bordered table-hover " id="editable">
                         <thead>
                         <tr>
@@ -121,8 +168,22 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                 <td class="center"><?php echo $val['remark'];?></td>
                                 <td class="center"><?php echo $val['order_amount'];?></td>
                                 <td class="center"><?php echo date("Y-m-d H:i:s",$val['order_time']);?></td>
-                                <td class="center"><?php echo $val['order_status'];?></td>
-                                <td class="center"><?php echo "<label class='btn btn-sm btn-primary'>修改</label>";?></td>
+                                <td class="center"><?php
+                                    if($val['order_status'] == 1){
+                                        echo '<span class="text-danger">未付款</span>';
+                                    }elseif($val['order_status'] == 2){
+                                        echo '<span class="text-info">付款未参加</span>';
+                                    }elseif($val['order_status'] == 3){
+                                        echo '<span class="text-success">已参加</span>';
+                                    }elseif($val['order_status'] == 4){
+                                        echo '<span class="text-warning">退款中</span>';
+                                    }elseif($val['order_status'] == 5){
+                                        echo '<span class="text-primary">已退款</span>';
+                                    }elseif($val['order_status'] == 6){
+                                        echo '<span class="text-muted">已取消</span>';
+                                    }
+                                    ?></td>
+                                <td class="center"><?php  if($val['order_status'] ==1){echo "<label onclick='mod_order(".$val['id'].",".$val['order_amount'].");' class='btn btn-sm btn-primary'>修改</label>";}else{ echo '<label class="btn btn-sm btn-success">无</label>';} ?></td>
                             </tr>
                         <?}?>
 
@@ -221,6 +282,52 @@ defined('InCosmos') or exit('Access Invalid!');?>
     </div>
 </div>
 
-</body>
+<div class="modal inmodal" id="myModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content animated flipInY">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">会员信息</h4>
+                <small class="font-bold">修改会员的信息</small>
+            </div>
+            <div class="modal-body">
 
+                <form method="post" id="mod_info" action="" class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">订单金额</label>
+                        <div class="col-sm-9">
+                            <input type="phone" name="order_amount" class="form-control">
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+
+
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <input type="hidden" name="order_id" value="" />
+                            <input type="hidden" name="act" value="admin_order"/>
+                            <input type="hidden" name="op" value="mod_order"/>
+                            <button class="btn btn-primary" type="submit">确认修改</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+        </div>
+    </div>
+</div>
+
+</body>
+<script>
+    $(function(){
+        var order_state = "<?php echo $_GET['order_state'];?>"
+        if(order_state){
+            $("#order_state option[value='"+order_state+"']").attr("selected","selected")
+        }
+    });
+
+</script>
 </html>

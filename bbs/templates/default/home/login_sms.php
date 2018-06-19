@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-	<title>少年宫</title>
+	<title>好少年</title>
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/sms.css" />
 <body>
@@ -27,7 +27,7 @@
     			<div class="col-xs-10 col-xs-offset-1" href_url="<?php echo urlBBS('index','login_sms')?>">登录</div>
     		</div>
     	</div>
-    	<div class="sms_txt col-xs-12 text-center">好少年宫活动发布平台</div>
+    	<div class="sms_txt col-xs-12 text-center">好好少年活动发布平台</div>
     	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog modal-sm row" role="document">
 		    <div class="modal-content col-xs-10 point col-xs-offset-1">

@@ -21,7 +21,7 @@
         <div class="de_content container-fluid">
             <div class="overflow">
                 <div class="col-xs-12 teacher">
-                     <img src="<?php echo $output['info']['activity_index_pic']?>!product-60" class="col-xs-4" />
+                     <img src="<?php echo $output['info']['activity_index_pic']?>!product-360" class="col-xs-4" />
                      <div class="col-xs-8">
                         <p class="col-xs-12"><?php echo $output['info']['activity_title']?></p>
                         <div class="teacher_age col-xs-12">
@@ -74,15 +74,14 @@
                 <input type="text" name="" class="col-xs-8" id="de_mail" placeholder="请输入电子邮箱" />
             </div> -->
             <div class="col-xs-12">
-               <div class="overflow" id="tutelage">
-                   <span class="col-xs-4">监护人：</span>
-                   <span class="col-xs-8 text-right">请选择 ></span>
-               </div>
-                
-            </div>
-            <div class="col-xs-12">
                <div class="overflow" id="student">
                    <span class="col-xs-4">学员：</span>
+                   <span class="col-xs-8 text-right">请选择 ></span>
+               </div>
+            </div>
+            <div class="col-xs-12">
+               <div class="overflow" id="tutelage">
+                   <span class="col-xs-4">监护人：</span>
                    <span class="col-xs-8 text-right">请选择 ></span>
                </div>
             </div>
@@ -94,14 +93,14 @@
         <div class="defray_manner container-fluid overflow">
             <div class="col-xs-12">
                 <span class="radio de_radio"><span></span></span>
-                <span class="contract">我已阅读并接受<span>《国家旅游局团队境内旅游合同》</span></span>
+                <span class="contract">我已阅读并接受<span href_url="<?php echo urlBBS('activity','pact')?>">《国家旅游局团队境内旅游合同》</span></span>
             </div>
             <div class="de_wx col-xs-12">
                 <span>支付方式：</span>
                 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/weixin.png" class="pull-right" />
             </div>
         </div>
-        <input type="hidden" id="periods" value="<?php echo $output['info']['activity_periods']?>?>">
+        <input type="hidden" id="periods" value="<?php echo $output['info']['activity_periods']?>">
         <input type="hidden" id="no" value="<?php echo $output['info']['activity_no']?>">
         <input type="hidden" id="minAge" value="<?php echo $output['info']['min_age']?>">
         <input type="hidden" id="maxAge" value="<?php echo $output['info']['max_age']?>">

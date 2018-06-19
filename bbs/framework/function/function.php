@@ -95,14 +95,15 @@ function calc_activity(){
             @$result = $db_activity_periods->insert($tmp_data_insert);
             /* 根据相应的 activity_no 插入新的最新一期 如果没有则不删除当前这一期的 start */
             $data_activity_periods = $db_activity_periods->where(array("activity_no"=>$val['activity_no'],"activity_periods"=>array("gt",intval($val['activity_periods'])),"activity_end_time"=>array("gt",$now_time)))->order("activity_periods asc")->find();
+
             if($data_activity_periods){
                 unset($data_activity_periods['id']);
                 @$result_new_insert = $db_activity->insert($data_activity_periods);
                 if($result_new_insert){
                     @$result_old_del = $db_activity->where(array("id"=>$val['id']))->delete();// 删除 activity表的已过期的活动
-
                 }
             }
+
             /* 根据相应的 activity_no 插入新的最新一期 如果没有则不删除当前这一期的 end */
         }
     }
@@ -149,3 +150,80 @@ function randomUp($length, $numeric = 0) {
 
 }
 /* 整理小组的详情 end */
+
+
+// utf8 unserialize start
+function mb_unserialize($serial_str) {
+    $serial_str= preg_replace('!s:(\d+):"(.*?)";!se', "'s:'.strlen('$2').':\"$2\";'", $serial_str );
+    $serial_str= str_replace("\r", "", $serial_str);
+    return unserialize($serial_str);
+}
+// utf8 unserialize end
+ 
+/*
+ * 获取用户的等级，用户积分就是用户参加活动花费的钱，1块钱=1积分
+ * 通过积分判断用户的等级
+ * @param int $member_id 用户id
+ * @return int 
+ */
+function get_member_level($member_id){
+    $jifen = 0;
+    $db_bbs_order = New Model('bbs_order');
+    $map = array();
+    $map['member_id'] = array('eq',$member_id);
+    $map['order_status'] = array('eq',3);
+    $order_list = $db_bbs_order->field('member_id,order_status,order_amount')->where($map)->select();
+    if(!empty($order_list)){  
+        foreach ($order_list as $key => $val) {
+            $jifen += $val['order_amount'];
+        }
+    }
+    // p($jifen);
+    $level = 1;
+    switch (true) {
+        case $jifen<600:
+            $level = 1;
+            break;
+        case $jifen<1800:
+            $level = 2;
+            break;
+        case $jifen<3600:
+            $level = 3;
+            break;
+        case $jifen<6000:
+            $level = 4;
+            break;
+        default:
+            $level = 5;
+            break;
+    }
+    return $level;
+}
+/*查当前用户在当前活动所在的队伍信息
+ * @param int $activity_no 活动id
+ * @param int $activity_periods 活动期数
+ * @param int $member_id 用户id
+ * @return int
+ */
+function get_group($activity_no,$activity_periods,$member_id){
+    $db_apply = new Model('bbs_apply');
+    $map = array();
+    $map['activity_no'] = $activity_no;
+    $map['activity_periods'] = $activity_periods;
+    $map['teacher_id'] = $member_id;
+    //查用户是否是该活动的领队
+    $info = $db_apply->where($map)->find();
+    if(!$info){  
+        unset($map['teacher_id']);      
+        $map['member_id'] = $member_id;
+    }
+    $group = $db_apply
+            ->field('id,activity_no,activity_periods,activity_title,group_id,teacher_id,teacher_name')
+            ->where($map)
+            ->group('group_id')
+            ->order('group_id')
+            ->select();
+    return $group;
+}
+
+

@@ -4,7 +4,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-	<title>少年宫-订单</title>
+	<title>好少年-订单</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/order_deta.css" />
@@ -19,7 +19,11 @@
     	     		<p class="col-xs-4 text-center od_title"></p>
     	     		<div class="col-xs-4 overflow">
     	     			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/share.png" class="pull-right share_icon" id="share_icon">
-    	     			<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" class="pull-right collect_icon" id="collect_icon" />
+                        <?php if($output['info']['collect'] == 1):?>
+        	     			<img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" class="pull-right collect_icon" id="collect_icon" />
+                        <?php else:?>
+                            <img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$output['info']['activity_no'],'activity_periods'=>$output['info']['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" class="pull-right collect_icon" id="collect_icon" />
+                        <?php endif;?>
     	     		</div>
     	     	</div>
     	     </div>
@@ -28,7 +32,7 @@
     	<div class="swiper-container">
 		    <div class="swiper-wrapper">
                 <?php foreach($output['banner'] as $val):?>
-		        <div class="swiper-slide"><img src="<?php echo $val['file_name']?>"></div>
+		        <div class="swiper-slide"><img src="<?php echo $val['file_name']?>!product-360"></div>
 		        <?php endforeach;?>
 		    </div>
 		    <!-- 如果需要分页器 -->
@@ -116,7 +120,7 @@
                         <img src="<?php echo $val['img']?>" class="user_img" />
                         <span class="user_name"><?php echo $val['name']?></span>
                         <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/<?php echo $val['sex']==1?'child_boy':'child_girl'; ?>.png" class="gender_img" />
-                        <span class="user_age"><?php echo $val['age']?>岁</span>
+                        <!-- <span class="user_age"><?php echo $val['age']?>岁</span> -->
                     </div>
                     <?php endforeach;?>
                 </div>
@@ -136,9 +140,13 @@
                     <?php foreach($output['list'] as $val):?>
                     <div class="index_pro col-xs-12">
                         <div class="overflow index_pro_Img">
-                            <img src="<?php echo $val['activity_index_pic']?>" class="pro_img" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'))?>')" />
+                            <img src="<?php echo $val['activity_index_pic'].'!product-240'?>" class="pro_img" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'))?>')" />
                             <div class="num_periods">
-                                <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                                <?php if($val['collect'] == 1):?>
+                                <img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_s_red.png" />
+                                <?php else:?>
+                                    <img href_url="<?php echo urlBBS('activity','collect',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/collect_n.png" />
+                                <?php endif;?>
                             </div>
                             <?php if($val['total_number']-$val['already_num'] == 0):?>
                             <div class="Prompt text-right"><span>已满额<span></div>
@@ -166,7 +174,7 @@
                         <div class="overflow time_price">
                             <div class="col-xs-10 col-xs-offset-1">
                                 <div class="pull-left text-left">
-                                    <p><?php echo date('m月d日',$val['activity_begin_time'])?>到<?php echo date('m月d日',$val['activity_end_time'])?></p>
+                                    <p><?php echo $val['activity_time']?></p>
                                     <p class="price">&yen;<?php echo $val['activity_price']?></p>
                                 </div>
                                 <div class="row pull-left text-right">
@@ -180,47 +188,48 @@
                 
             </div>
         </div>
+        <!--分享弹框-->
         <div class="bullet overflow">
             <div class="bdsharebuttonbox col-xs-12 text-center overflow">
-            <div class="col-xs-3 overflow">
-                <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
-                <p class="col-xs-12">微信</p>
-            </div>
-            <div class="col-xs-3 overflow">
-                <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
-                <p class="col-xs-12">QQ空间</p>   
-            </div>
-            <div class="col-xs-3 overflow">
-                <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
-                <p class="col-xs-12">新浪</p>
-            </div>
-            <div class="col-xs-3 overflow">
-                <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
-                <p class="col-xs-12">QQ</p>
-            </div>
-            <div class="col-xs-3 overflow">
-                <a href="#" class="bds_more" data-cmd="more"></a>
-                <p class="col-xs-12">其他</p>
-            </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+                    <p class="col-xs-12">微信</p>
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+                    <p class="col-xs-12">QQ空间</p>   
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+                    <p class="col-xs-12">新浪</p>
+                </div>
+                <div class="col-xs-3 overflow">
+                    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+                    <p class="col-xs-12">QQ</p>
+                </div>
             </div>
         </div>
+        <!--收藏弹框-->
+        <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <div class="modal-dialog modal-sm row" role="document">
+            <div class="modal-content col-xs-10 point col-xs-offset-1" style="padding:15px,0;">
+                <h4 class="col-xs-12 text-center">已收藏</h4>
+                <button class="col-xs-12 aHide">确定</button>
+            </div>
+        </div>
+    </div>
     </div>
     <div class="or_footer overflow text-center">
         <span class="col-xs-6 total">订单总额：&yen;<?php echo $output['info']['order_amount']?></span>
-        <?php if($output['info']['order_status'] <= 2):?>
-        <span class="or_btn col-xs-6 cancel">取消订单</span>
+        <!-- <?php if($output['info']['order_status'] <= 2):?>
+        <span class="or_btn col-xs-6 cancel">分享</span>
         <?php else:?>
         <span class="or_btn col-xs-6" style="background: #a0a0a0">取消订单</span>
-        <?php endif;?>
+        <?php endif;?> -->
+        <span class="or_btn col-xs-6 cancel">分享</span>
         <input type="hidden" id="orderId" value="<?php echo $output['info']['id']?>">
     </div>
-    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-        <div class="modal-dialog modal-sm row" role="document">
-            <div class="modal-content col-xs-10 point col-xs-offset-1" style="padding:15px,0;">
-                
-            </div>
-        </div>
-    </div>
+    
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/order_deta.js"></script>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/swiper-3.4.2.min.js"></script>
 </body>

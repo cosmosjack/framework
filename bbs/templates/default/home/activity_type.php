@@ -3,7 +3,7 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>少年宫</title>
+	<title>好少年</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/activity_type.css" />
@@ -17,30 +17,12 @@
     	</div>
     	<div class="type_content">
     		<div class="row">
-    			<div class="col-xs-3 text-center click" onclick="Href('<?php echo urlBBS('activity','introduce')?>')">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>夏冬令营</span>
+                <?php foreach($output['list'] as $val):?>
+    			<div class="col-xs-3 text-center click" onclick="Href('<?php echo urlBBS('activity','introduce',array('id'=>$val['id']))?>')">
+    				<img src="<?php echo $val['pic']?$val['pic'].'!product-240':BBS_RESOURCE_SITE_URL.'/bootstrap/img/activitylogo_0.jpg';?>" class="img-responsive center-block" />
+    				<span><?php echo $val['cls_name']?></span>
     			</div>
-    			<div class="col-xs-3 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>城市实践</span>
-    			</div>
-    			<div class="col-xs-3 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>少年独立团</span>
-    			</div>
-    			<div class="col-xs-3 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>春秋游</span>
-    			</div>
-    			<div class="col-xs-3 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>春秋游</span>
-    			</div>
-    			<div class="col-xs-3 text-center click">
-    				<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/activitylogo_0.jpg" class="img-responsive center-block" />
-    				<span>春秋游</span>
-    			</div>
+    			<?php endforeach;?>
     		</div>
     	</div>
     </div>

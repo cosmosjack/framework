@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>少年宫-个人信息</title>
+    <title>好少年-个人信息</title>
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/mine_info.css" />
 <body>
@@ -22,7 +22,7 @@
             <div class="row">
                <div class="col-xs-12 avatar">
                  <span>我的头像：</span>
-                 <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl'].'!product-60':BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="col-xs-3 pull-right" id="view_img" />
+                 <img src="<?php echo $output['info']['headimgurl']?$output['info']['headimgurl']:BBS_RESOURCE_SITE_URL.'/bootstrap/img/logo.png'?>" class="col-xs-3 pull-right" id="view_img" />
                </div>
             </div>
             <div class="row">
