@@ -1,6 +1,18 @@
 $(function(){
-	
+	var submitflag = false;
 	var recom_active = {
+
+		Banner:function(){
+			//轮播图
+			var mySwiper = new Swiper ('.swiper-container', {
+					    direction: 'horizontal',
+					    loop: true,//是否自动切换
+					    autoplay:5000,//每隔5秒自动切换
+					    // 如果需要分页器
+					    pagination: '.swiper-pagination',
+					    autoplayDisableOnInteraction : false,//手滑都过后依然可以自动切换
+					  })
+		},
 		//页面滚动监听
 		Scroll:function(){
 			$(document).ready(function(){
@@ -37,40 +49,72 @@ $(function(){
               window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
 			  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
               // 分享
-			  $(document).on('click','.share_icon',function(){
-			  	 $('.modal').modal('show');
+			  $('.home_top').on('click','.share_icon',function(){
+			     $('#share_it').fadeIn(300);
+			  })
+			  $('.recom_active').on('click','#share_it',function(){
+			  	console.log(1)
+			     $(this).fadeOut(300);
 			  })
 			  //收藏
 			  this.Collection('.collect_icon');
 		},
+		//收藏
 		Collection:function(o){
-			$(document).on('click',o,function(){
-			  	if($(this).hasClass('on')){
-			  	  $(this).prop('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_n.png');
-			  	  $(this).removeClass('on');
-			  	}else{
-			  	  $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/collect_s_red.png');
-			  	  $(this).addClass('on');
-			  	}
-			  })
+			$('.recom_active').on('click',o,function(){
+				//防止重复提交
+				if(submitflag)
+					return false;
+				var url = $(this).attr('href_url');
+				var obj = $(this);
+				submitflag = true;
+				// var html = $('<h4 class="col-xs-12 text-center">已收藏</h4><button class="col-xs-12 aHide">确定</button>');
+				// $('.point').html(html);
+				//向后台发送请求
+		     	$.ajax({  
+		            url:url,  //请求路径，接口地址
+		            type:"post",  //请求的方式
+		            async:false,//同步  
+		            data:{},//传出的数据  
+		            dataType:"json",//返回的数据类型，常用：html/text/json  
+		            success:function(data){  //请求成功后的回调函数
+		                submitflag = false;
+		                $('.point>h4').html(data.msg);
+		                $('.modal').modal('show');
+		                // $('.point>h4').html(data.msg);
+		                // $('.modal').modal('show');
+		                if(data.code == '200'){
+		                	if(data.flag == 1){
+		                		//添加收藏
+		                		obj.attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+		                	}else if(data.flag == 2){
+		                		//取消收藏
+		                		obj.attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+		                	}else{
+		                		//没有登录
+		                		HrefDelay(data.url);
+		                	}
+		                }
+		            }  
+		        })
+				return false;
+			})
+		},
+		//页面跳转
+		jump:function(o){
+			$('.recom_active').on('click',o,function(){
+				Href($(this).attr('href_url'));
+			})
 		},
 		event:function(){
 			this.Scroll();
 			this.fn();
 			this.collect_icon();
 			this.Collection('.num_periods>img');
+			this.Banner();
+			this.jump('.index_pro_Img');
 		}
 	}
 	//函数调用
-	recom_active.event();
-	
-	//轮播图
-	var mySwiper = new Swiper ('.swiper-container', {
-			    direction: 'horizontal',
-			    loop: true,//是否自动切换
-			    autoplay:5000,//每隔5秒自动切换
-			    // 如果需要分页器
-			    pagination: '.swiper-pagination',
-			    autoplayDisableOnInteraction : false,//手滑都过后依然可以自动切换
-			  })      
+	recom_active.event();     
 })

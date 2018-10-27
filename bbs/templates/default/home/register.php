@@ -17,7 +17,7 @@
     	</div>
     	<div class="logo text-center row">
     		 <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/logo.png" class="col-xs-4 col-xs-offset-4" />
-    		 <h4 class="col-xs-12 test">好好少年活动发布平台</h4>
+    		 <h4 class="col-xs-12 test">好少年实践体验教育平台</h4>
     	</div>
     	<div class="form row">
     		<div class="phone col-xs-10 col-xs-offset-1   row">
@@ -32,7 +32,7 @@
     		</div>
     		<div class="pact text-center col-xs-10 col-xs-offset-1 row" id="pact">
 			        <span class="re_radio" id="re_radio"><span></span></span>
-			       我已阅读并同意 <span class="href_url" href_url='url'>《好好少年活动协议》</span>
+			       我已阅读并同意 <span class="href_url" href_url='url'>《好少年活动协议》</span>
 			</div>
     	</div>
     	<div class="col-xs-10 col-xs-offset-1">

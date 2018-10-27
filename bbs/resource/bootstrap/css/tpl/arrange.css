@@ -3,8 +3,7 @@ html,body{
 }
 .arrange{
   background: #EEE;
-  height: 100%;
-  font-size: '微软雅黑';
+  min-height: 100%;
 }
 .arrange .reg_top{
     height: 50px;

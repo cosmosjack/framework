@@ -8,6 +8,11 @@ function HrefDelay(url){
 		window.location.href = url;
 	},1000);
 }
+function HrefOprev(url){
+	setInterval(function(){
+		history.back(-1);
+	},1000);
+}
 $('.Hide').click(function(){
 	$('.modal').modal('hide');
 })

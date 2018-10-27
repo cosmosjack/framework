@@ -28,7 +28,7 @@ $(function(){
         },
         //进入相册
         MyClick:function(){
-           $(document).on('click','.my_content>div',function(){
+           $('.my_album').on('click','.my_content>div',function(){
            	   Href($(this).attr('href_url'));
            })
         },
@@ -52,7 +52,7 @@ $(function(){
                             // console.log(url);
                             html += '<div class="col-xs-6" href_url="'+data.list[i].url+'">';
                             html += '    <div class="album_txt overflow">';
-                            html += '       <img src="'+data.list[i].activity_index_pic+'" class="col-xs-12 my_cover" />';
+                            html += '       <img src="'+data.list[i].activity_index_pic+'!product-240" class="col-xs-12 my_cover" />';
                             html += '       <div class="overflow">';
                             html += '            <span class="album_name col-xs-9">'+data.list[i].time+'</span>';
                             html += '            <span class="album_num col-xs-3 text-right">'+data.list[i].count+'</span>';
@@ -66,8 +66,8 @@ $(function(){
                         if(page == 1){
                             html += '<div class="no_data container-fluid">';
                             html += '    <div class="row">';
-                            html += '         <img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/null.png" class="col-xs-6 col-xs-offset-3" />';
-                            html += '         <p class="col-xs-12 text-center">还没有上传图片</p>';
+                            html += '         <img style="pointer-events:none" src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/null.png" class="col-xs-6 col-xs-offset-3" />';
+                            html += '         <p class="col-xs-12 text-center">您还没有参加过活动</p>';
                             html += '    </div>';
                             html += '</div>';
                             $('.my_album').append(html);

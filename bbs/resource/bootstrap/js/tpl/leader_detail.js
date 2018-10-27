@@ -10,7 +10,6 @@ $(function(){
 				u_gra: $('.u_gra'),//用户等级
 				phone: $('.phone')//用户手机号码
 			}
-			console.log(user);
          	 /*$.ajax({  
                 url:"",  //请求路径，接口地址
                 type:"post",  //请求的方式
@@ -22,8 +21,15 @@ $(function(){
                 }  
             })  */
 		},
+		//返回上一级
+		// UpperLevel:function(){
+		// 	$('.leader_detail').on('click','.oprev',function(){
+		// 		history.back(-1);
+		// 	})
+		// },
 		event:function(){
             this.API();
+            // this.UpperLevel();//返回上一级
 		}
 	};
 	leader_detail.event();

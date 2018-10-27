@@ -1,7 +1,7 @@
 <?php
 /**
  * 买家收藏
- *by 3 3hao .com 
+ *by 3
  */
 defined('InCosmos') or exit('Access Invalid!');
 class flea_favoritesModel extends Model{

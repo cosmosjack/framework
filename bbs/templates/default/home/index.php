@@ -56,6 +56,7 @@
         	 <!--产品-->
         	
         </div>
+        <div class="foot_code"><a href="http://www.miitbeian.gov.cn">粤ICP备18047756号-1</a></div>
     </div>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/swiper-3.4.2.min.js"></script>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/home.js"></script>

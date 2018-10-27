@@ -110,9 +110,15 @@ class admin_userControl extends BaseAdminControl{
     /* 儿童的查询功能 end */
     /* 根据儿童的名字查询出相应的儿童 start */
     public function get_child_listByNameOp(){
-        $db_child = new Model('bbs_child');
-        $where['child_name'] = array('like',"%{$_GET['child_name']}%");
-        $data_child = $db_child->where($where)->select();
+        $db_child = new Model();
+        $where['child_name'] = array("like","%".$_GET['child_name']."%");
+        $sql ='SELECT DISTINCT 33hao_bbs_child.id as new_id,33hao_bbs_child.*,33hao_bbs_parents.parents_name,33hao_bbs_parents.parents_phone FROM 33hao_bbs_child LEFT JOIN 33hao_bbs_parents ON 33hao_bbs_child.member_id = 33hao_bbs_parents.member_id WHERE 33hao_bbs_child.child_name LIKE "%'.$_GET['child_name'].'%" GROUP BY new_id HAVING count(*)>0';
+        $data_child = $db_child->query($sql);
+
+        /* 查出这个儿童的监护人 查询其中一条监护人 start */
+
+        /* 查出这个儿童的监护人 查询其中一条监护人 end */
+
         if($data_child){
             ajaxReturn(array('control'=>'get_child_listByNameOp','code'=>200,'msg'=>'成功','data'=>$data_child),"JSON");
         }else{
@@ -137,7 +143,7 @@ class admin_userControl extends BaseAdminControl{
 
     /* 儿童列表功能 start */
     public function child_listOp(){
-
+        $db_child = new Model();
         $where = array();
         /* 是否有限制订单状态 start */
         /*if(isset($_GET['order_state']) && is_numeric($_GET['order_state'])){
@@ -146,17 +152,45 @@ class admin_userControl extends BaseAdminControl{
         /* 是否有限制订单状态 end */
         if(!empty($_GET['child_name'])){
             $where['child_name'] = array("like","%".$_GET['child_name']."%");
+            $sql ='SELECT DISTINCT 33hao_bbs_child.id as new_id,33hao_bbs_child.*,33hao_bbs_parents.parents_name,33hao_bbs_parents.parents_phone FROM 33hao_bbs_child LEFT JOIN 33hao_bbs_parents ON 33hao_bbs_child.member_id = 33hao_bbs_parents.member_id WHERE 33hao_bbs_child.child_name LIKE "%'.$_GET['child_name'].'%" GROUP BY new_id HAVING count(*)>0';
+            $sql_total ='SELECT count(*) FROM (SELECT DISTINCT 33hao_bbs_child.id as new_id,33hao_bbs_child.*,33hao_bbs_parents.parents_name,33hao_bbs_parents.parents_phone FROM 33hao_bbs_child LEFT JOIN 33hao_bbs_parents ON 33hao_bbs_child.member_id = 33hao_bbs_parents.member_id WHERE 33hao_bbs_child.child_name LIKE "%'.$_GET['child_name'].'%" GROUP BY new_id HAVING count(*)>0) aa';
+        }else{
+            $sql = 'SELECT DISTINCT 33hao_bbs_child.id as new_id,33hao_bbs_child.*,33hao_bbs_parents.parents_name,33hao_bbs_parents.parents_phone FROM 33hao_bbs_child LEFT JOIN 33hao_bbs_parents ON 33hao_bbs_child.member_id = 33hao_bbs_parents.member_id  GROUP BY new_id HAVING count(*)>0';
+            $sql_total = 'SELECT count(*) FROM (SELECT DISTINCT 33hao_bbs_child.id as new_id,33hao_bbs_child.*,33hao_bbs_parents.parents_name,33hao_bbs_parents.parents_phone FROM 33hao_bbs_child LEFT JOIN 33hao_bbs_parents ON 33hao_bbs_child.member_id = 33hao_bbs_parents.member_id  GROUP BY new_id HAVING count(*)>0) aa';
         }
+        $total_num = $db_child->query($sql_total);
+//        p($total_num[0]['count(*)']);
+        /* 分页 start */
+        $page = new Page();
+        $page->setTotalNum($total_num[0]['count(*)']);
+        $page->setEachNum(6);
+        $limit_start = $page->getLimitStart();
+        $limit_each = $page->getEachNum();
+//        p($page->getLimitStart());
+//        p($page->getLimitEnd());
+
+        $sql = $sql." LIMIT $limit_start , $limit_each";
+//        die();
+        /* 分页 end */
         $order = "id desc";
-        $db_child = new Model('bbs_child');
+//        $on = "bbs_child.member_id = bbs_parents.member_id";
         $data_bbs_child = $db_child
-            ->where($where)
-            ->order($order)
-            ->page(6)
-            ->select();
-//        p($data_bbs_order);
+//            ->page(6)
+            ->query($sql);
+
+//            ->table("bbs_child,bbs_parents")
+//            ->field("bbs_child.*,bbs_parents.parents_name,bbs_parents.parents_phone,bbs_parents.relation")
+//            ->join("right")
+//            ->on($on)
+//            ->where($where)
+//            ->group('id')
+//            ->having('count(*)>0')
+//            ->order($order)
+//            ->page(6)
+//            ->select();
+//        p($data_bbs_child);
         Tpl::output("data_bbs_activity",$data_bbs_child);
-        Tpl::output('fpage',$db_child->showpage());
+        Tpl::output('fpage',$page->show());
         Tpl::showpage("child_list");
     }
     /* 儿童列表功能 end */

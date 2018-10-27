@@ -347,8 +347,16 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                     type:"GET",
                                     data:{},
                                     success:function(data){
+                                        if(data.data == null){
+                                            $("#select_position").append("<option selected value='0'>全部</option>");
+                                            return false;
+                                        }
                                         for(var j=0;j<data['data'].length;j++){
-                                            $("#select_position").append("<option value='"+data['data'][j]['flea_area_id']+"'>"+data['data'][j]['flea_area_name']+"</option>");
+                                            if(data['data'][j]['flea_area_id'] == <?php echo $output['form_data']['activity_area']?$output['form_data']['activity_area']:1;?>){
+                                                $("#select_position").append("<option selected value='"+data['data'][j]['flea_area_id']+"'>"+data['data'][j]['flea_area_name']+"</option>");
+                                            }else{
+                                                $("#select_position").append("<option value='"+data['data'][j]['flea_area_id']+"'>"+data['data'][j]['flea_area_name']+"</option>");
+                                            }
                                         }
                                     }
                                 });
@@ -381,6 +389,10 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
                 }else if(name == 'select_city'){
                     $("#select_position").children().remove();
+                    if(msg.data == null){
+                        $("#select_position").append("<option selected class='select_position_op' value='0'>全部</option>");
+                        return false;
+                    }
                     for(var i=0;i<msg['data'].length;i++){
                         $("#select_position").append("<option class='select_position_op' value='"+msg['data'][i]['flea_area_id']+"'>"+msg['data'][i]['flea_area_name']+"</option>");
                     }

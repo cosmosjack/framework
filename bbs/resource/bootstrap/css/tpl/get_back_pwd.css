@@ -20,6 +20,9 @@
 	line-height: 36px;
    font-size: 18px;
 }
+.getBackPwd .form>div{
+  padding: 0px;
+}
 .getBackPwd .form input{
     background: #eeeeee;
     line-height: 40px;
@@ -37,9 +40,9 @@
   color:#FFF;
   padding: 0 30px;
   position: absolute;
-  top: calc(50% - 15px);
-  right: 16px;
-  line-height: 40px;
+  top: calc(50% - 18px);
+  right: 0;
+  line-height: 46px;
   font-size: 14px;
   background:#e25428;
   border-radius: 30px;
@@ -72,7 +75,7 @@
    padding: 10px 0;
 }
 .getBackPwd .point>h5{
-  padding: 10px;
+  padding: 5px 0;
 }
 .getBackPwd .point_txt{
   padding: 10px 0;

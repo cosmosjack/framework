@@ -3,10 +3,9 @@ html,body{
     background: #EEE;
 }
 .activity_expired{
-	font-family: '微软雅黑';
 	background: #FFF;
 	min-height: 100%;
-  margin-bottom: calc(9% + 28px);
+  padding-bottom: 64px;
 }
 .activity_expired .home_top{
   width: 100%;
@@ -47,7 +46,7 @@ html,body{
 	background: #FFF;
   margin-top: 50px;
   font-size: 14px;
-  padding: 10px 0;
+  padding-top: 10px;
 }
 .activity_expired .nav>div>div{
     border-left: 1px solid #000;
@@ -57,14 +56,13 @@ html,body{
 	border: none;
 }
 .activity_expired .active{
-    padding: 5px;
+    padding: 5px 20px;
     border-radius: 4px;
     color:#FFF;
     background: #e25428;
 }
 .activity_expired .content{
    background: #FFF;
-   margin-bottom: 16%;
 }
 .activity_expired .content>.title{
    margin-top: 5px;
@@ -96,7 +94,8 @@ html,body{
    position: absolute;
    bottom: 2px;
    left: 6%;
-   background:url('../../img/shadow.png') no-repeat 0 0;
+   background:url('../../img/img_shadow.png') no-repeat 0 0;
+   background-size:100% 100%;
    color:#FFF;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
@@ -156,9 +155,42 @@ html,body{
    border-bottom-right-radius: 20px;
 }
 .activity_expired .collect{
+   width: 25px;
+   height: 25px;
    position: absolute;
-   right: 6vw;
-   top: 4vw;
+   right: 10%;
+   top: 10px;
+}
+.activity_expired .time_price .NumPeriods{
+    margin-left: 8px;
+    color:#FFF;
+    font-size: 12px;
+  }
+.activity_expired .point{
+  border-radius: 10px !important;
+  padding: 10px 0;
+  padding-top:0; 
+  overflow: hidden; 
+}
+.activity_expired .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #e25428;
+   padding: 15px 0;
+}
+.activity_expired .point>h5{
+  padding: 10px;
+}
+.activity_expired .point_txt{
+  padding: 10px 0;
+}
+.activity_expired .point>button{
+  border: none;
+  padding: 4px;
+  font-size: 16px;
+  letter-spacing: 4px;
+  box-sizing: border-box;
+  background: #FFF;
 }
 @media screen and (max-height: 568px) {
    .activity_expired .pro_tit{

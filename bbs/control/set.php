@@ -80,10 +80,10 @@ class setControl extends BaseControl{
         $update['address'] = $_POST['address'];
         $arr = explode('-',$_POST['address1']);
         $update['province'] = $arr[0];
-        $update['city'] = $arr[1];
-        $update['area'] = $arr[2];
-        if(!empty($_POST['member_sex']))
-            $update['member_sex'] = $_POST['member_sex'];
+        $update['city'] = $arr[1]?$arr[1]:0;
+        $update['area'] = $arr[2]?$arr[2]:0;
+        // if(!empty($_POST['member_sex']))
+        //     $update['member_sex'] = $_POST['member_sex'];
         $db_user = Model('bbs_user');
         $result = $db_user->where('id='.$_SESSION['userInfo']['id'])->update($update);
         //p($result);p($update);exit();
@@ -138,11 +138,20 @@ class setControl extends BaseControl{
             Tpl::showpage("student_info"); 
             exit();
         }
+        /*查该活动用户已经报名的学员 start*/
+        $db_apply = new Model('bbs_apply');
+        $map = array();
+        $map['activity_no'] = $_POST['activity_no'];
+        $map['activity_periods'] = $_POST['activity_periods'];
+        $children = $db_apply->where($map)->group('child_id')->select();
+        $children_arr = array_column($children, 'child_id');
+        /*查该活动用户已经报名的学员 end*/
         $db_child = Model('bbs_child');
         $map = array();
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+        $map['id'] = array('not in',$children_arr);
         $list = $db_child->where($map)->order('id asc')->select();
-        ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list));
+        ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list,'children_arr'=>$children_arr));
         // if(!empty($list))
         //     ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'studentInfo','list'=>$list));
         // else
@@ -261,9 +270,9 @@ class setControl extends BaseControl{
         if(empty($_POST['u_idnum']))
             ajaxReturn(array('code'=>'0','msg'=>'证件号不能为空','control'=>'addStudent'));
         // $reg = '/^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/';
-        $reg = '/^[0-9A-Za-z]{6,24}$/';//数字或者字母的组合
-        if(!preg_match($reg,$_POST['u_idnum']))
-            ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addStudent'));
+        // $reg = '/^[0-9A-Za-z]{6,24}$/';//数字或者字母的组合
+        // if(!preg_match($reg,$_POST['u_idnum']))
+        //     ajaxReturn(array('code'=>'0','msg'=>'证件号格式不对','control'=>'addStudent'));
         if(empty($_POST['u_born']))
             ajaxReturn(array('code'=>'0','msg'=>'出生年月不能为空','control'=>'addStudent'));
         if(empty($_POST['u_gender']))
@@ -278,23 +287,25 @@ class setControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'体重不能为空','control'=>'addStudent'));
         if(empty($_POST['u_clothes']))
             ajaxReturn(array('code'=>'0','msg'=>'衣服尺码不能为空','control'=>'addStudent'));
+        if(empty($_POST['u_exhort']))
+            ajaxReturn(array('code'=>'0','msg'=>'学员身体情况不能为空','control'=>'addStudent'));
         $db_child = Model('bbs_child'); 
         //出生年月与证件号是否对应
-        if($_POST['u_idtype']==1 && strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
-            ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
+        // if($_POST['u_idtype']==1 && strtotime(substr($_POST['u_idnum'],6,8)) != strtotime($_POST['u_born']))  
+        //     ajaxReturn(array('code'=>'0','msg'=>'身份证信息与出生年月不符','control'=>'addStudent'));
         //判断是否已经添加学员信息
-        if($_POST['id']){
-            $map = array();
-            $map['child_papers_no'] = array('eq',$_POST['u_idnum']);
-            $map['id'] = array('neq',$_POST['id']);
-            if($db_child->where($map)->find())
-                ajaxReturn(array('code'=>'0','msg'=>'学员已存在','control'=>'addStudent'));
-        }else{
-            $map = array();
-            $map['child_papers_no'] = array('eq',$_POST['u_idnum']);
-            if($db_child->where($map)->find())
-                ajaxReturn(array('code'=>'0','msg'=>'学员已存在','control'=>'addStudent'));
-        }
+        // if($_POST['id']){
+        //     $map = array();
+        //     $map['child_papers_no'] = array('eq',$_POST['u_idnum']);
+        //     $map['id'] = array('neq',$_POST['id']);
+        //     if($db_child->where($map)->find())
+        //         ajaxReturn(array('code'=>'0','msg'=>'学员已存在','control'=>'addStudent'));
+        // }else{
+        //     $map = array();
+        //     $map['child_papers_no'] = array('eq',$_POST['u_idnum']);
+        //     if($db_child->where($map)->find())
+        //         ajaxReturn(array('code'=>'0','msg'=>'学员已存在','control'=>'addStudent'));
+        // }
         //头像上传
         if($_FILES['photo']['name'] != ''){
             $member_img_path = 'data'.DS."upload".DS;
@@ -327,8 +338,10 @@ class setControl extends BaseControl{
         $data['child_remark'] = $_POST['u_exhort'];
         $data['child_sex'] = $_POST['u_gender']=='男'?1:2;
         //用身份证计算年龄
-        if($_POST['u_idtype']==1)
-            $data['child_age'] = date('Y',time())-substr($_POST['u_idnum'],6,4);
+        // if($_POST['u_idtype']==1)
+        //     $data['child_age'] = date('Y',time())-substr($_POST['u_idnum'],6,4);
+        //用出生日期计算年龄
+        $data['child_age'] = date('Y',time())-substr($_POST['u_born'],0,4);
         //添加的第一个数据设为默认
         if(!$db_child->where('member_id='.$_SESSION['userInfo']['id'])->find())
             $data['is_default'] = 1;

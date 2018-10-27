@@ -1,7 +1,7 @@
 <?php
 /**
  * 上传文件模型
- *by 3 3hao .com 
+ *by 3
  */
 defined('InCosmos') or exit('Access Invalid!');
 

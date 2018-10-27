@@ -49,11 +49,12 @@ html,body{
   width: 80px;
   height: 80px;
   padding: 0 !important;
+  background: #FFF;
 }
 .mine_info .avatar>span{
   line-height: 80px;
   padding-left:15px;
-  font-size: 3.5vw;
+  font-size: 14px;
   color:#a0a0a0; 
 }
 .mine_info .test>span{
@@ -97,6 +98,20 @@ html,body{
   line-height: 50px;
   color:#a0a0a0;
   margin-left: 10px;
+}
+.mine_info .view_img{
+   position: fixed;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background: rgba(0,0,0,0.8);
+   display: none;
+   z-index: 120;
+}
+.mine_info .view_img>img{
+  margin-top: 25%;
+  background: #FFF;
 }
 @media screen and (max-height: 568px) {
  .mine_info .avatar img{

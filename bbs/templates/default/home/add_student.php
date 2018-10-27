@@ -61,7 +61,7 @@
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
                         <div class="overflow">
-                            <span class="col-xs-4 text-left">出生年月:</span>
+                            <span class="col-xs-4 text-left">出生日期:</span>
                             <input type="text" name="u_born" class="col-xs-8 u_born" id="appDate" value="<?php echo date('Y-m-d',$output['info']['child_brithday'])?>"/>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
                         <div class="overflow">
-                            <span class="col-xs-4 text-left">体重:</span>
+                            <span class="col-xs-4 text-left">体型:</span>
                             <input type="text" name="u_weight" class="col-xs-8 u_weight" value="<?php echo $output['info']['child_weight']?>"/>
                         </div>
                     </div>
@@ -97,7 +97,7 @@
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
                         <div class="overflow">
-                            <span class="col-xs-4 text-left">特别叮嘱:</span>
+                            <span class="col-xs-4 text-left">学员身体情况:</span>
                             <textarea class="col-xs-8 u_exhort" name="u_exhort"><?php echo $output['info']['child_remark']?></textarea>
                         </div>
                     </div>

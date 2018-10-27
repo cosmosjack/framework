@@ -4,7 +4,7 @@ html,body{
 }
 .home{
   min-height: 100%;
-  margin-bottom: calc(9% + 28px);
+  padding-bottom:64px;
   background: #EEE;
 }
 .home .home_top{
@@ -54,19 +54,32 @@ html,body{
 }
 .home .swiper-slide img{
   width: 100%;
-  height: 32%;
+  height: 55vw !important;
 }
 .home .swiper-pagination-bullet-active{
-    background: #ec9b82;
+  background: #e25428 !important;
 }
-.home .nav {
+.home .swiper-pagination-bullet{
+  background: #FFF;
+  opacity: 1 !important;
+}
+.home .nav{
   padding: 10px 0;
   background: #FFF;
 }
+.home .nav img{
+  width: 60%;
+  margin: 0 20%;
+  margin-bottom: 4px;
+}
 .home .nav img ,.home .nav span{
-   font-size: 14px;
    padding-left:0 !important;
    padding-right: 0 !important; 
+}
+.home .nav span{
+  margin-top: 4px;
+  font-size: 12px;
+  color:#666;
 }
 .home .content{
    margin-top:10px;
@@ -74,7 +87,7 @@ html,body{
 }
 .home .content>.title{
    margin-top: 5px;
-   padding: 6px 0;
+   padding-top: 10px;
 }
 .home .content .index_pro{
    padding: 12px 0;
@@ -103,7 +116,8 @@ html,body{
    position: absolute;
    bottom: 2px;
    left: 6%;
-   background:url('../../img/shadow.png') no-repeat 0 0;
+   background:url('../../img/img_shadow.png') no-repeat 0 0;
+   background-size: 100% 100%;
    color:#FFF;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
@@ -140,6 +154,15 @@ html,body{
 }
 .home .time_price div>div>p{
   margin: 0;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.home .time_price .NumPeriods{
+   margin-left: 8px;
+   color:#FFF;
+   font-size: 14px;
 }
 .home .price{
   color:#ffff55;
@@ -187,6 +210,9 @@ html,body{
   margin-left: 5px;
 }
 @media screen and (max-height: 568px) {
+    .home{
+      padding-bottom:52px;
+    } 
    .home .num_periods>img{
       width: 25px;
       height: 25px;
@@ -199,26 +225,70 @@ html,body{
    } 
    .home .pro_tit{
     font-size: 12px;
-    padding-bottom: 0;
+    padding: 4px 0;
     color:#FFF;
    }
-  .home .content .index_pro{
-    padding: 10px 0;
+    .home .content .index_pro{
+      padding: 10px 0;
+    }
+    .home .index_pro_Img{
+      position: relative;
+      margin-bottom: 2px;
+    }
+    .home .content .pro_img{
+      margin-top: 5px;
+    }
+
+    
+    .home .pro_btn{
+      padding: 6px 20px;
+    }
+    .home .nav span{
+      font-size: 12px;
+    }
+    .home .num_periods{
+      top: 6px;
+    }
+    .home .time_price .NumPeriods{
+      font-size: 12px;
+    }
+}
+@media screen and (min-height: 790px){
+  .home .pro_tit{
+    padding-bottom: 12px; 
   }
-  .home .index_pro_Img{
-    position: relative;
-    margin-bottom: 2px;
-  }
-  .home .content .pro_img{
-    margin-top: 5px;
-  }
-  .home .pro_btn{
-    padding: 6px 20px;
-  }
-  .home .nav span{
-    font-size: 12px;
-  }
-  .home .num_periods{
-    top: 6px;
-  }
+}
+.home .point{
+  border-radius: 10px !important;
+  padding: 10px 0;
+  padding-top:0; 
+  overflow: hidden; 
+}
+.home .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #e25428;
+   padding: 15px 0;
+}
+.home .point>h5{
+  padding: 10px;
+}
+.home .point_txt{
+  padding: 10px 0;
+}
+.home .point>button{
+  border: none;
+  padding: 4px;
+  font-size: 16px;
+  letter-spacing: 4px;
+  box-sizing: border-box;
+  background: #FFF;
+}
+.home .foot_code{
+  background: #FFF;
+  font-size: 12px;
+  text-align: center;
+}
+.home .foot_code>a{
+  color:#aaa;
 }

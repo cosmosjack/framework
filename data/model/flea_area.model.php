@@ -1,7 +1,7 @@
 <?php
 /**
  * 地区管理
- *by 3 3hao .com 
+ *by 3
  */
 defined('InCosmos') or exit('Access Invalid!');
 class flea_areaModel{	

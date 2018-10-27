@@ -3,7 +3,6 @@ html,body{
 }
 .id_manage{
   background: #EEE;
-  font-size: '微软雅黑';
   min-height: 100%;
 }
 .id_manage .reg_top{
@@ -62,6 +61,7 @@ html,body{
   border-radius: 50%;
   border: 1px solid #f19931;
   margin-left: 15px;
+  background: #FFF;
 }
 .id_manage .student_inf>div>img{
   width: 25px;
@@ -79,7 +79,7 @@ html,body{
    padding: 5px 15px;
 }
 .id_manage .student_inf_txt>span:nth-child(2){
-   color:#e25428;
+   color:#a0a0a0;
 }
 .id_manage .push_student{
    border: 1px dashed #a0a0a0;
@@ -118,6 +118,7 @@ html,body{
 }
 .id_manage .point>button{
    outline: none;
+   margin-bottom: 10px;
 }
 .id_manage .point>h4{
     color:#FFF;

@@ -1,4 +1,5 @@
 $(function(){
+    var data_form = new FormData();
 	var modify_data = {
 		//上传图片
         Up_img:function(){
@@ -26,44 +27,52 @@ $(function(){
                     reader.readAsDataURL(file);    
                     //监听文件读取结束后事件    
                     reader.onloadend = function (e) {
-                        console.log(e.target.result)
-                        $('.avatar>img').attr("src",e.target.result);
+                        // console.log(e.target.result)
+                        $('#userImg').attr("src",e.target.result);
                     };    
+                    data_form.append('photo',file); 
                 } 
             });
         },
         //跳转页面
     	Url_click:function(){
-            $(document).on('click','.management',function(){
+            $('.management').click(function(){
                 Href(SITEURL+'/index.php?act=set&op=manageSelect');
             })
     	},
 		//完成按钮
         Btn_click:function(){
             $('.mo_btn').click(function(){
-            	var u_img = $('.avatar>img').attr('src');
-            	var u_name = $('.u_name').val();//昵称
-            	var u_phone = $('.u_phone').val();//手机号码
-            	var u_city = $('.u_city').val();//城市
-            	var u_cityData = $('.u_cityData').val();//详细地址
-            	var phone_reg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
-            	if(u_name == ''){
-            		$('.point_txt').html('请填写昵称');
-            		$('.modal').modal('show');
-            	}else if(u_phone == ''){
-            		$('.point_txt').html('请填写手机号码');
+                var u_img = $('.avatar>img').attr('src');
+                var u_name = $('.u_name').val();//昵称
+                var u_phone = $('.u_phone').val();//手机号码
+                var u_city = $('.u_city').val();//城市
+                var u_cityData = $('.u_cityData').val();//详细地址
+                var phone_reg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
+                if(u_name == ''){
+                    $('.point_txt').html('请填写昵称');
                     $('.modal').modal('show');
-            	}else if(!phone_reg.test(u_phone)){
-            		$('.point_txt').html('手机格式不正确');
+                }else if(u_phone == ''){
+                    $('.point_txt').html('请填写手机号码');
                     $('.modal').modal('show');
-            	}else if(u_city == ''){
-            		$('.point_txt').html('请选择城市');
+                }else if(!phone_reg.test(u_phone)){
+                    $('.point_txt').html('手机格式不正确');
                     $('.modal').modal('show');
-            	}else{
-            		console.log(u_img,u_name,u_phone,u_city,u_cityData);
+                }else if(u_city == ''){
+                    $('.point_txt').html('请选择城市');
+                    $('.modal').modal('show');
+                }else{
+                    // console.log(u_img,u_name,u_phone,u_city,u_cityData);
                     //$('#address1').val($('#myAddrs').attr('data-key'));
-		         	 //发送请求
-                    var data_form = new FormData(document.getElementById("submitForm"));
+                     //发送请求
+                    // var data_form = new FormData(document.getElementById("submitForm"));
+                    
+                    data_form.append('nick_name',u_name);
+                    data_form.append('member_phone',u_phone); 
+                    data_form.append('address1',$('#address1').val());
+                    data_form.append('address',u_cityData);
+
+                    //此处的请求太慢了
                     //console.log(data_form);return false;
                     $.ajax({
                         type:"POST", 
@@ -72,17 +81,21 @@ $(function(){
                         url:SITEURL+"/index.php?act=set&op=editInfo",  //请求路径，接口地址
                         data:data_form, 
                         success: function(data){
+                            //重置form,避免重复上传  
+                            data_form = new FormData();
                             $('.point_txt').html(data.msg);
                             $('.modal').modal('show');
                             if(data.code == '200')
-                                HrefDelay(data.url);
+                                HrefOprev();
                         },
                         error:function(e){
+                            //重置form,避免重复上传  
+                            data_form = new FormData();
                             $('.point_txt').html('错误');
                             $('.modal').modal('show');
                         }
                     });  
-            	}
+                }
             })
         },
         //选择地址

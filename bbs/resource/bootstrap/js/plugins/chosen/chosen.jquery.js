@@ -145,7 +145,7 @@
             this.disable_search = this.options.disable_search || false;
             this.enable_split_word_search = this.options.enable_split_word_search != null ? this.options.enable_split_word_search : true;
             this.group_search = this.options.group_search != null ? this.options.group_search : true;
-            this.search_contains = this.options.search_contains || false;
+            this.search_contains = this.options.search_contains || true;
             this.single_backstroke_delete = this.options.single_backstroke_delete != null ? this.options.single_backstroke_delete : true;
             this.max_selected_options = this.options.max_selected_options || Infinity;
             this.inherit_select_classes = this.options.inherit_select_classes || false;
@@ -531,6 +531,7 @@
                 var $this, chosen;
                 $this = $(this);
                 chosen = $this.data('chosen');
+                console.log(chosen);
                 if (options === 'destroy' && chosen) {
                     chosen.destroy();
                 } else if (!chosen) {
@@ -1181,6 +1182,7 @@
             if (this.is_multiple) {
                 h = 0;
                 w = 0;
+                console.log('输出')
                 style_block = "position:absolute; left: -1000px; top: -1000px; display:none;";
                 styles = ['font-size', 'font-style', 'font-weight', 'font-family', 'line-height', 'text-transform', 'letter-spacing'];
                 for (_i = 0, _len = styles.length; _i < _len; _i++) {

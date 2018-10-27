@@ -3,7 +3,6 @@ html,body{
 }
 .manager_select{
   background: #EEE;
-  font-size: '微软雅黑';
   min-height: 100%;
 }
 .manager_select .reg_top{
@@ -44,6 +43,9 @@ html,body{
   color:#e25428;
   font-size: 14px;
   letter-spacing: 4px;
+}
+.manager_select .point{
+   padding: 0;
 }
 .manager_select .explain_txt>p{
    color:#e25428;

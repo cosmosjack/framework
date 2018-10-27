@@ -25,7 +25,10 @@ class mineControl extends BaseControl{
         $map['member_id'] = array('eq',$info['id']);
         $map['order_status'] = array('eq',3);
         //查询成长记录总数,查参加活动的订单总数
-        $growCount = $db_order->where($map)->count();
+        // $growCount = $db_order->where($map)->group('activity_no,activity_periods')->count();
+        $sql = "select count(id) as num from (SELECT id FROM 33hao_bbs_order WHERE `member_id`={$info['id']} and `order_status`=3 GROUP BY `activity_no`,`activity_periods`) a";
+        $growCount = $db_order->query($sql);//p($teacherCount);
+        $growCount = $growCount?$growCount[0]['num']:0;
         //成长相册数量
         $albumCount = $growCount;
         // $list = $db_order->where($map)->field('activity_no,activity_periods')->select();
@@ -77,7 +80,7 @@ class mineControl extends BaseControl{
         $map = array();
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
         $map['order_status'] = array('eq',3);
-        $count = $db_order->where($map)->group('activity_no')->count();
+        $count = $db_order->where($map)->count();
         if($_GET['curpage'] > ceil($count/$pageSize))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'album'));
         $list = $db_order
@@ -208,19 +211,11 @@ class mineControl extends BaseControl{
         $activity_no = $_GET['activity_no'];
         $activity_periods = $_GET['activity_periods'];
         //$activity_title = $_GET['activity_title'];
-        $db_activity = new Model('bbs_activity');
-        $db_activity_periods = new Model('bbs_activity_periods');
+        $db_order = new Model('bbs_order');
         $map = array();
         $map['activity_no'] = array('eq',$activity_no);
         $map['activity_periods'] = array('eq',$activity_periods);
-        $info = $db_activity->where($map)->field('activity_no,activity_periods,activity_title')->find();
-        //p($info);p($map);exit();
-        if(empty($info)){
-            $info = $db_activity_periods
-                    ->where($map)
-                    ->field('activity_no,activity_periods,activity_title')
-                    ->find();
-        }
+        $info = $db_order->where($map)->field('activity_no,activity_periods,activity_title')->find();
         //参加的活动,查bbs_order
         // $db_order = new Model('bbs_order');
         // $map = array();
@@ -233,8 +228,8 @@ class mineControl extends BaseControl{
         //         ->select();
         
         /*获取领队老师的所在的小组，可能有多个 start*/
-        $db_apply = new Model('bbs_apply');
         $map = array();
+        $db_apply = new Model('bbs_apply');
         $map['activity_no'] = $activity_no;
         $map['activity_periods'] = $activity_periods;
         $map['teacher_id'] = $_SESSION['userInfo']['id'];
@@ -349,30 +344,32 @@ class mineControl extends BaseControl{
         $count = $db_order->where($map)->count();
         if($_GET['curpage'] > ceil($count/$pageSize))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'growRecord'));
-        $order_list = $db_order->field('activity_no,activity_periods')->where($map)->order('order_time desc')->select();
+        $order_list = $db_order->field('id,activity_no,activity_periods,activity_title,
+        activity_index_pic,activity_begin_time,activity_address,activity_cls_id')->where($map)->group('activity_no,activity_periods')->order('order_time desc')->select();
         //p($order_list);
-        $db_activity = new Model('bbs_activity');
-        $db_activity_periods = new Model('bbs_activity_periods');
-        $list = array();
-        foreach ($order_list as $val) {
-            $map = array();
-            $map['activity_no'] = array('eq',$val['activity_no']);
-            $map['activity_periods'] = array('eq',$val['activity_periods']);
-            $field = 'id,activity_no,activity_periods,activity_title,activity_ptitle,activity_index_pic,
-            activity_tag,activity_begin_time';
-            $info = $db_activity->field($field)->where($map)->find();
-            if(empty($info))
-                $info = $db_activity_periods->field($field)->where($map)->find();
-            $list[] = $info;
-        }
+        //$db_activity = new Model('bbs_activity');
+        //$db_activity_periods = new Model('bbs_activity_periods');
+        //$list = array();
+        // foreach ($order_list as $val) {
+        //     $map = array();
+        //     $map['activity_no'] = array('eq',$val['activity_no']);
+        //     $map['activity_periods'] = array('eq',$val['activity_periods']);
+        //     $field = 'id,activity_no,activity_periods,activity_title,activity_ptitle,activity_index_pic,
+        //     activity_tag,activity_begin_time';
+        //     $info = $db_activity->field($field)->where($map)->find();
+        //     if(empty($info))
+        //         $info = $db_activity_periods->field($field)->where($map)->find();
+        //     $list[] = $info;
+        // }
         //p($list);
-        if(!empty($list)){
-            foreach ($list as &$val) {
+        if(!empty($order_list)){
+            foreach ($order_list as &$val) {
                 $val['activity_title'] = '【第'.$val['activity_periods'].'期】'.$val['activity_title'];
                 $val['url'] = urlBBS('mine','growDetail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
                 $val['time'] = date('Y-n-j',$val['activity_begin_time']);
+                $val['activity_ptitle'] = $val['activity_address'];
             }
-            ajaxReturn(array('code'=>'200','msg'=>'加载数据','control'=>'growRecord','list'=>$list));
+            ajaxReturn(array('code'=>'200','msg'=>'加载数据'.$count,'control'=>'growRecord','list'=>$order_list));
         }else{
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'growRecord'));
         }
@@ -385,23 +382,17 @@ class mineControl extends BaseControl{
             showMessage('参数错误',getenv(HTTP_REFERER));
         $db_activity = new Model('bbs_activity');
         $db_activity_periods = new Model('bbs_activity_periods');
+        $db_order = new Model('bbs_order');
         $map = array();
         $map['activity_no'] = array('eq',$activity_no);
         $map['activity_periods'] = array('eq',$activity_periods);
-        $info = $db_activity->where($map)->find();
+        $info = $db_order->where($map)->find();
         if(empty($info))
-            $info = $db_activity_periods->where($map)->find();
-        if(empty($info))
-            showMessage('活动不存在',getenv(HTTP_REFERER));
+            showMessage('订单不存在',getenv(HTTP_REFERER));
         //活动轮播图
         $db_banner = new Model('bbs_uploads');
         $banner = $db_banner->where('upload_type=1 and item_id='.$info['activity_no'])->select();
         //p($banner);
-        //点击量加1
-        $update = array();
-        $update['activity_click'] = array('exp','activity_click+1');
-        $db_activity->where($map)->update($update);
-        $db_activity_periods->where($map)->update($update);
         //队伍
         $db_apply = new Model('bbs_apply');
         $groupInfo = calc_group($info['activity_no'],$info['activity_periods']);
@@ -428,7 +419,6 @@ class mineControl extends BaseControl{
             $info['collect'] = 1;
         //p($group_arr);
         //活动足迹
-        $db_order = new Model('bbs_order');
         $map = array();
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
         // $map['activity_no'] = array('neq',$info['activity_no']);
@@ -436,7 +426,7 @@ class mineControl extends BaseControl{
         $map['order_status'] = array('eq',3);
         $field = 'id,activity_no,activity_periods,activity_title,activity_index_pic,
             activity_tag,activity_begin_time';
-        $order_list = $db_order->field($field)->where($map)->limit(2)->select();
+        $order_list = $db_order->field($field)->where($map)->group('activity_no,activity_periods')->limit(2)->select();
         $db_album = new Model('bbs_album');
         foreach ($order_list as &$val) {
             $map = array();
@@ -467,7 +457,7 @@ class mineControl extends BaseControl{
         // }
         //推荐活动
         $map = array();
-        $map['id'] = array('neq',$info['id']);
+        $map['activity_no'] = array('neq',$info['activity_no']);
         $map['activity_end_time'] = array('gt',time());
         $field = 'id,activity_title,activity_no,activity_periods,activity_index_pic,activity_tag,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price,activity_city';
         $list = $db_activity
@@ -603,7 +593,7 @@ class mineControl extends BaseControl{
         $pageSize = !empty($_POST['pageSize'])?$_POST['pageSize']:3;
         $map = array();
         $map['teacher_id'] = array('eq',$_SESSION['userInfo']['id']);
-        $count = $db_apply->where($map)->group('activity_no,activity_periods')->count();
+        $count = $db_apply->where($map)->count();
         if($_GET['curpage'] > ceil($count/$pageSize))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'leader'));
         $apply_list = $db_apply
@@ -615,17 +605,14 @@ class mineControl extends BaseControl{
                 ->select();
         if(empty($apply_list))
             ajaxReturn(array('code'=>'0','msg'=>'暂无数据','control'=>'leader'));
-        $db_activity = new Model('bbs_activity');
-        $db_activity_periods = new Model('bbs_activity_periods');
+        $db_order = new Model('bbs_order');
         $list = array();
         foreach($apply_list as $val){
             $map = array();
             $map['activity_no'] = array('eq',$val['activity_no']);
             $map['activity_periods'] = array('eq',$val['activity_periods']);
-            $field = 'id,activity_no,activity_periods,activity_title,activity_ptitle,activity_index_pic,activity_tag,activity_begin_time,activity_end_time';
-            $info = $db_activity->field($field)->where($map)->find();
-            if(empty($info))
-                $info = $db_activity_periods->field($field)->where($map)->find();
+            $field = 'id,activity_no,activity_periods,activity_title,activity_address,activity_index_pic,activity_begin_time,activity_end_time';
+            $info = $db_order->field($field)->where($map)->find();
             if(!empty($info))
                 $list[] = $info;
         }
@@ -645,8 +632,7 @@ class mineControl extends BaseControl{
     public function reviewsOp(){
         if(!isAjax()){
             //查活动详情
-            $db_activity = new Model('bbs_activity');
-            $db_activity_periods = new Model('bbs_activity_periods');
+            $db_order = new Model('bbs_order');
             $activity_no = $_GET['activity_no'];
             $activity_periods = $_GET['activity_periods'];
             if(empty($activity_no) || empty($activity_periods))
@@ -654,9 +640,7 @@ class mineControl extends BaseControl{
             $map = array();
             $map['activity_no'] = array('eq',$activity_no);
             $map['activity_periods'] = array('eq',$activity_periods);
-            $info = $db_activity_periods->where($map)->find();
-            if(empty($info))
-                $info = $db_activity->where($map)->find();
+            $info = $db_order->where($map)->find();
             if(empty($info))
                 showMessage('活动不存在',getenv(HTTP_REFERER));
             //轮播图

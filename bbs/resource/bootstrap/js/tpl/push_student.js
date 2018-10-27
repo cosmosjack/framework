@@ -1,20 +1,20 @@
 $(function(){
+    var data_form = new FormData();
 	var push_student = {
         
         //性别选择
         gender:function(){
         	var gindex = 2;
             $('.u_gender').click(function(){
-            	console.log(1)
             	var ged_html = $('<div class="col-xs-12 ged"><button class="btn ln btn-default col-xs-4 col-xs-offset-1">男</button><button class="btn ln btn-default col-xs-4 col-xs-offset-2">女</button><button class="btn btn-primary col-xs-8 col-xs-offset-2 btn_ged">确定</button></div>');
             	//$('.point').children().remove();
             	$('.point').html(ged_html);
         		$('.modal').modal('show');
             });
-            $(document).on('click','.ln',function(){
+            $('.push_student').on('click','.ln',function(){
                  gindex = $(this).index();
         	})
-            $(document).on('click','.btn_ged',function(){
+            $('.push_student').on('click','.btn_ged',function(){
             	if(gindex <= 1){
                   $('.u_gender').val($('.ged>button:eq('+  gindex +')')[0].innerHTML);
                   $('.u_gender').attr('data-id',gindex+1);
@@ -23,15 +23,41 @@ $(function(){
                   $('.modal').modal('hide');
         	})
         },
-
+        //体重选择
+        weight:function(){
+            var arr = ['偏瘦','中等','偏胖'];
+            var oindex = 0;
+            //弹框
+            $('.u_weight').click(function(){
+                $('.point').children().remove();
+                for(var i=0;i<arr.length;i++){
+                    var obj_val = $('<div class="col-xs-6 ra text-left"><span class="radio"><span></span></span><span>'+ arr[i] +'</span></div>');
+                    $('.point').append(obj_val);
+                }
+                var btn_html = $('<div class="overflow col-xs-12"><button class="up down btn btn-default col-xs-5">取消</button><button class="wdet btn btn-primary col-xs-5 col-xs-offset-2">确定</button></div>');
+                $('.point').append(btn_html);
+                $('.modal').modal('show');
+            })
+            //确定按钮
+            $('.push_student').on('click','.wdet',function(){
+                 $('.u_weight').val($('.radio:eq('+ oindex +')').siblings('span').html());
+                 $('.modal').modal('hide');
+            })
+            //选中按钮
+            $('.push_student').on('click','.radio',function(){
+                oindex = $(this).parent('div').index();
+                $(this).find('span').addClass('radio_active');
+                $(this).parent('div').siblings('div').find('.radio').find('span').removeClass('radio_active');
+            })
+        },
         //选择衣服尺码
         clothes:function(){
-        	var arr = ['S','M','L','XL','XXL','XXXL','XXXXL'];
+        	var arr = ['S(110-130cm)','M(131-150cm)','L(151-160cm)','XL(161-175cm)','XXL(175-185cm)'];
         	var oindex = 0;
         	$('.u_clothes').click(function(){
         		$('.point').children().remove();
         		for(var i=0;i<arr.length;i++){
-        			var obj_val = $('<div class="col-xs-12 ra text-left"><span class="radio"><span></span></span><span>'+ arr[i] +'</span></div>');
+        			var obj_val = $('<div class="col-xs-10 ra text-left"><span class="radio"><span></span></span><span>'+ arr[i] +'</span></div>');
                     $('.point').append(obj_val);
         		}
         		var btn_html = $('<div class="overflow col-xs-12"><button class="up down btn btn-default col-xs-5">取消</button><button class="det btn btn-primary col-xs-5 col-xs-offset-2">确定</button></div>');
@@ -40,12 +66,12 @@ $(function(){
         		
         	})
             //确定按钮
-        	$(document).on('click','.det',function(){
+        	$('.push_student').on('click','.det',function(){
                  $('.u_clothes').val($('.radio:eq('+ oindex +')').siblings('span').html());
                  $('.modal').modal('hide');
         	})
         	//选中按钮
-        	$(document).on('click','.radio',function(){
+        	$('.push_student').on('click','.radio',function(){
         		 oindex = $(this).parent('div').index();
         		$(this).find('span').addClass('radio_active');
         		$(this).parent('div').siblings('div').find('.radio').find('span').removeClass('radio_active');
@@ -54,41 +80,40 @@ $(function(){
 
         //关闭提示框
         down_click:function(){
-        	$(document).on('click','.down',function(){
+        	$('.push_student').on('click','.down',function(){
         		$('.modal').modal('hide');
         	})
         },
 
         //完成按钮
         btn_click:function(){
-        	var html = $('<h4>提示</h4><h5 class="point_txt"></h5><button class="btn btn-primary down col-xs-10 col-xs-offset-1">确定</button>');
+        	var html = $('<h4>提示</h4><h5 class="point_txt"></h5>');
         	$('.btn>button').click(function(){
-        		//$('.point').children().remove();
+                console.log(0)
         		$('.point').html(html);
         		var u_name = $('.u_name').val();//姓名
+                var u_idtype = $('#u_paperwork').val();//证件类型
         		var u_idnum = $('.u_idnum').val();//证件号码
         		var u_born = $('.u_born').val();//出生年月
         		var u_gender = $('.u_gender').val();//性别
                 var u_phone = $('.u_phone').val();//手机号
                 var phone_reg = /(^1[3|4|5|7|8]\d{9}$)|(^09\d{8}$)/;
-                var u_phone = $('.u_phone').val();//手机号
         		var u_height = $('.u_height').val();//身高
         		var u_weight = $('.u_weight').val();//体重
         		var u_clothes = $('.u_clothes').val();//衣服尺码
         		var u_exhort = $('.u_exhort').val();//特别叮嘱
-        		var Regu_idnum = /^\d{6}(18|19|20)?\d{2}(0[1-9]|1[012])(0[1-9]|[12]\d|3[01])\d{3}(\d|[xX])$/;
                 var id = $('#flag').val();
         		if(u_name == ''){
                     $('.point_txt').html('姓名不能为空');
                     $('.modal').modal('show');
-        		}else if (u_idnum == '') {
+        		}else if(u_idtype == ''){
+                    $('.point_txt').html('证件类型不能为空');
+                    $('.modal').modal('show');
+                }else if (u_idnum == '') {
         			$('.point_txt').html('证件号码不能为空');
                     $('.modal').modal('show');
-        		}else if (!Regu_idnum.test(u_idnum)) {
-        			$('.point_txt').html('证件号码不正确');
-                    $('.modal').modal('show');
         		}else if (u_born == '') {
-        			$('.point_txt').html('出生年月不能为空');
+        			$('.point_txt').html('出生日期不能为空');
                     $('.modal').modal('show');
         		}else if (u_gender == '') {
         			$('.point_txt').html('性别不能为空');
@@ -103,31 +128,47 @@ $(function(){
         			$('.point_txt').html('身高不能为空');
                     $('.modal').modal('show');
         		}else if (u_weight == '') {
-        			$('.point_txt').html('体重不能为空');
+        			$('.point_txt').html('体型不能为空');
                     $('.modal').modal('show');
         		}else if (u_clothes == '') {
         			$('.point_txt').html('衣服尺码不能为空');
                     $('.modal').modal('show');
         		}else{
-                    var data_form = new FormData(document.getElementById("submitForm"));
-                    //console.log(data_form);return false;
+                    // console.log(typeof(document.getElementById("submitForm")));
+                    //console.log();
+                    data_form.append('id',$('#flag').val());
+                    data_form.append('u_name',u_name);
+                    data_form.append('u_idtype',$('#u_idtype').val());
+                    data_form.append('u_idnum',u_idnum);
+                    data_form.append('u_born',u_born);
+                    data_form.append('u_gender',u_gender);
+                    data_form.append('u_phone',u_phone);
+                    data_form.append('u_height',u_height);
+                    data_form.append('u_weight',u_weight);
+                    data_form.append('u_clothes',u_clothes);
+                    data_form.append('u_exhort',u_exhort);
                     $.ajax({
-                        type:"POST", 
-                        processData:false,
-                        contentType:false,     
-                        url:SITEURL+"/index.php?act=set&op=addStudent",  //请求路径，接口地址
-                        data:data_form, 
-                        success: function(data){
+                         type:"POST",
+                         processData:false,
+                         contentType:false,
+                         url:SITEURL+"/index.php?act=set&op=addStudent",  //请求路径，接口地址
+                         data:data_form,
+                         success: function(data){
+                            //重置form,避免重复上传  
+                            data_form = new FormData();
+                            // console.log(data);
                             $('.point_txt').html(data.msg);
                             $('.modal').modal('show');
                             if(data.code == '200')
-                                HrefDelay(data.url);
-                        },
-                        error:function(e){
+                                HrefOprev();
+                         },
+                         error:function(e){
+                            //重置form,避免重复上传  
+                            data_form = new FormData();
                             $('.point_txt').html('错误');
                             $('.modal').modal('show');
-                        }
-                    });   
+                         }
+                    });
         		}
         	})
         },
@@ -206,11 +247,42 @@ $(function(){
                     reader.readAsDataURL(file);    
                     //监听文件读取结束后事件    
                     reader.onloadend = function (e) {
-                        console.log(e.target.result)
-                        $('.userImg>img').attr("src",e.target.result);
+                        // console.log(e.target.result)
+                        $('.userImg').find('div').find('img').attr("src",e.target.result);
                     };    
+                    data_form.append('photo',file); 
                 } 
             });
+        },
+        //证件选择
+        Paperwork:function(){
+            $('#u_paperwork').click(function(){
+                var arr = ['身份证','港澳居民身份证','护照'];
+                var arrid = ['1','2','3'];
+                var oindex = 0;
+            
+                $('.point').children().remove();
+                for(var i=0;i<arr.length;i++){
+                    var obj_val = $('<div class="col-xs-12 ra text-left"><span class="radio" data-id="'+arrid[i]+'"><span></span></span><span>'+ arr[i] +'</span></div>');
+                    $('.point').append(obj_val);
+                }
+                var btn_html = $('<div class="overflow col-xs-12"><button class="up down btn btn-default col-xs-5">取消</button><button class="btn btn-primary col-xs-5 col-xs-offset-2" id="paperwork_btn">确定</button></div>');
+                $('.point').append(btn_html);
+                $('.modal').modal('show');
+                
+            })
+            //确定按钮
+            $('.push_student').on('click','#paperwork_btn',function(){
+                 $('#u_paperwork').val($('.radio:eq('+ oindex +')').siblings('span').html());
+                 $('.modal').modal('hide');
+                 $('#u_idtype').val($('.radio:eq('+ oindex +')').attr('data-id'));
+            })
+            //选中按钮
+            $('.push_student').on('click','.radio',function(){
+                 oindex = $(this).parent('div').index();
+                $(this).find('span').addClass('radio_active');
+                $(this).parent('div').siblings('div').find('.radio').find('span').removeClass('radio_active');
+            })
         },
 		//函数调用
 		event:function(){
@@ -221,6 +293,8 @@ $(function(){
             this.gender();
             this.explain();
             this.up_img();
+            this.weight();
+            this.Paperwork();
 		}
 	};
 	push_student.event();

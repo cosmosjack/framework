@@ -272,7 +272,8 @@ class indexControl extends BaseControl{
     		ajaxReturn(array('code'=>'0','msg'=>'验证码不正确','control'=>'bind_wx'));
     	if(time()-$info['send_time'] > 120)
     		ajaxReturn(array('code'=>'0','msg'=>'验证码失效','control'=>'bind_wx'));
-    	$password = random(6,0);
+    	// $password = random(6,0);
+        $password = 123456; 
     	$data['member_name'] = 'hsn_'.$_POST['phone'];//账号用 hsn_手机号
     	$data['member_phone'] = $_POST['phone'];
     	$data['member_passwd'] = encrypt($password);
@@ -386,31 +387,6 @@ class indexControl extends BaseControl{
     	
 
     }
-    //改变订单状态，用户定时任务
-    public function updateStatusOp(){
-        $db_order = new Model('bbs_order');
-        $map = array();
-        $map['order_status'] = array('eq',2);
-        $map['activity_begin_time'] = array('lt',time());
-        $order_list = $db_order
-                    ->field('id,order_status,activity_title,activity_no,activity_periods,member_id')
-                    ->where($map)
-                    ->limit(1000)
-                    ->order('activity_begin_time')
-                    ->select();
-        // p($order_list);exit();
-        $i == 0;
-        foreach ($order_list as $key => $val) {
-            $result = $db_order->where('id='.$val['id'])->update(array('order_status'=>3));
-            if($result)
-                $i++;
-        }
-        if($i){
-            $str = '改变订单状态，总共：'.count($order_list)."个，成功个数：".$i.'，更新时间：'.date("Y-m-d H:i:s",time());
-            @file_put_contents(BASE_DATA_PATH.DS.'log'.DS.'wxpay'.DS.'updateStatus_log.txt',$str.PHP_EOL,FILE_APPEND);
-        }
-        
-    }
     function getJson($url){
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url);
@@ -454,7 +430,11 @@ class indexControl extends BaseControl{
     	p(random(6,0));
     }
     public function test1Op(){
-        showMessage('测试页面','',180);
+        $model_apply = Model('bbs_apply');
+        if(!empty($_GET['order_id'])){
+            $result = $model_apply->afterPay($_GET['order_id']);
+            p($result);
+        }
     }
     public function wx_loginOp(){
         Tpl::showpage("wx_login");

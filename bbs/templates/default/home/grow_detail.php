@@ -41,7 +41,8 @@
         </div>
 		<div class="odpro_title overflow">
 			<div class="col-xs-12">
-				<span class="city">【<?php echo getAreaName($output['info']['activity_city'])?>】</span><?php echo $output['info']['activity_title']?><?php echo '第'.$output['info']['activity_periods'].'期';?>
+				<span class="city">【第<?php echo $output['info']['activity_periods']?>期】</span>
+                <?php echo $output['info']['activity_title']; ?>
 			</div>
 		</div>
         <div class="pro_class overflow">
@@ -49,7 +50,7 @@
              <div class="place col-xs-12 overflow">
              	<div>
              		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" />
-             		<div><?php echo $output['info']['address']?></div>
+             		<div><?php echo $output['info']['activity_address']?></div>
              	</div>
              	<div>
              		<img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/time.png" />

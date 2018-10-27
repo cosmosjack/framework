@@ -85,7 +85,7 @@ class activityControl extends BaseControl{
                 }
                 //查看活动状态
                 if($val['activity_begin_time'] > time()){
-                    $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">未开始</button>';
+                    $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">报名中</button>';
                 }else if($val['activity_begin_time'] < time() && $val['activity_end_time'] > time()){
                     $val['footer'] = '<button class="pro_btn" href_url="'.$url.'">进行中</button>';
                 }else if($val['activity_end_time'] < time()){
@@ -177,7 +177,7 @@ class activityControl extends BaseControl{
                 $val['activity_tag'] = '';
                 //查看活动状态
                 if($val['activity_begin_time'] > time()){
-                    $val['footer'] = '未开始';
+                    $val['footer'] = '报名中';
                 }else if($val['activity_begin_time'] < time() && $val['activity_end_time'] > time()){
                     $val['footer'] = '进行中';
                 }else if($val['activity_end_time'] < time()){
@@ -235,17 +235,30 @@ class activityControl extends BaseControl{
         $update['activity_click'] = array('exp','activity_click+1');
         $db_activity->where($map)->update($update);
         $db_activity_periods->where($map)->update($update);
-        //其他期数
+
+        /*查所有可报名期数的活动 start*/
         //$db_activity_periods = new Model('bbs_activity_periods');
         $map = array();
-        $map['activity_periods'] = array('neq',$info['activity_periods']);
+        // $map['activity_periods'] = array('neq',$info['activity_periods']);
         $map['activity_no'] = array('eq',$info['activity_no']);
-        $map['activity_begin_time'] = array('gt',time()+3600*12);
+        // $map['activity_begin_time'] = array('gt',time()+3600*12);
         $periods = $db_activity_periods
-                    ->field('id,activity_no,activity_periods,activity_begin_time,activity_end_time')
+                    ->field('activity_no,activity_periods,activity_begin_time,activity_end_time')
                     ->where($map)
                     ->order('activity_periods,activity_begin_time')
                     ->select();
+        if(!empty($periods)){
+            $activity_first = $db_activity
+                    ->field('activity_no,activity_periods,activity_begin_time,activity_end_time')
+                    ->where($map)
+                    ->order('activity_periods,activity_begin_time')
+                    ->find();
+            if(!in_array($activity_first, $periods, true) && !empty($activity_first)){
+                array_unshift($periods, $activity_first);
+            }
+        }
+        /*查所有可报名期数的活动 end*/
+
         //查看是否收藏
         $db_collect = new Model('bbs_collect');
         $map = array();
@@ -280,12 +293,117 @@ class activityControl extends BaseControl{
             $val['activity_time'] = (date('Ymd',$val['activity_begin_time'])==date('Ymd',$val['activity_end_time']))?date('n月j日',$val['activity_begin_time']).'一天':(date('n月j日',$val['activity_begin_time']).'~'.date('n月j日',$val['activity_end_time']));
         }
         //p($info);p($list);p($banner);
+        $info['address'] = getAreaName($info['activity_province']).getAreaName($info['activity_city']).getAreaName($info['activity_area']).$info['address'];
+        Tpl::output('info',$info);
+        Tpl::output('banner',$banner);
+        Tpl::output('periods',$periods);
+        Tpl::output('list',$list);
+        /*微信分享 start*/
+        $wx = new Wx();
+        $data = $wx->init();
+        Tpl::output("data",$data);
+        /*微信分享 end*/
+        Tpl::setLayout("common_login_layout");
+    	Tpl::showpage("recom_active");
+    }
+
+    public function detail1Op(){
+        exit();
+        //p($_GET['id']);
+        $activity_no = $_GET['activity_no'];
+        $activity_periods = $_GET['activity_periods'];
+        if(empty($activity_no) || empty($activity_periods))
+            showMessage('参数错误',getenv(HTTP_REFERER));
+        $db_activity = new Model('bbs_activity');
+        $db_activity_periods = new Model('bbs_activity_periods');
+        $map = array();
+        $map['activity_no'] = array('eq',$activity_no);
+        $map['activity_periods'] = array('eq',$activity_periods);
+        $info = $db_activity->where($map)->find();
+        if(empty($info))
+            $info = $db_activity_periods->where($map)->find();
+        if(empty($info))
+            showMessage('活动不存在',getenv(HTTP_REFERER));
+        //活动轮播图
+        $db_banner = new Model('bbs_uploads');
+        $banner = $db_banner->where('upload_type=1 and item_id='.$info['activity_no'])->select();
+        //p($banner);
+        //活动详情
+        $info['activity_desc'] = htmlspecialchars_decode($info['activity_desc']);
+        //活动时间
+        if(date('Ymd',$info['activity_begin_time']) == date('Ymd',$info['activity_end_time']))
+            $info['activity_time'] = date('n月j日',$info['activity_begin_time']).'一天';
+        else
+            $info['activity_time'] = date('n月j日',$info['activity_begin_time']).'~'.date('n月j日',$info['activity_end_time']);
+        //点击量加1
+        $update = array();
+        $update['activity_click'] = array('exp','activity_click+1');
+        $db_activity->where($map)->update($update);
+        $db_activity_periods->where($map)->update($update);
+
+        /*查所有可报名期数的活动 start*/
+        //$db_activity_periods = new Model('bbs_activity_periods');
+        $map = array();
+        // $map['activity_periods'] = array('neq',$info['activity_periods']);
+        $map['activity_no'] = array('eq',$info['activity_no']);
+        $map['activity_begin_time'] = array('gt',time()+3600*12);
+        $periods = $db_activity_periods
+            ->field('activity_no,activity_periods,activity_begin_time,activity_end_time')
+            ->where($map)
+            ->order('activity_periods,activity_begin_time')
+            ->select();
+        if(!empty($periods)){
+            $activity_first = $db_activity
+                ->field('activity_no,activity_periods,activity_begin_time,activity_end_time')
+                ->where($map)
+                ->order('activity_periods,activity_begin_time')
+                ->find();
+            if(!in_array($activity_first, $periods, true) && !empty($activity_first)){
+                array_unshift($periods, $activity_first);
+            }
+        }
+        /*查所有可报名期数的活动 end*/
+
+        //查看是否收藏
+        $db_collect = new Model('bbs_collect');
+        $map = array();
+        $map['activity_periods'] = array('eq',$info['activity_periods']);
+        $map['activity_no'] = array('eq',$info['activity_no']);
+        $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+        if($db_collect->where($map)->find())
+            $info['collect'] = 1;
+        //推荐活动
+        $map = array();
+        $map['id'] = array('neq',$info['id']);
+        $map['activity_end_time'] = array('gt',time());
+        $field = 'id,activity_title,activity_no,activity_periods,activity_index_pic,activity_tag,address,min_age,max_age,activity_begin_time,activity_end_time,total_number,already_num,activity_price,activity_city';
+        $list = $db_activity
+            //->table('bbs_activity,bbs_collect')
+            ->field($field)
+            ->where($map)
+            //->join('left')
+            //->on('bbs_activity.activity_no=bbs_collect.activity_no and bbs_activity.activity_periods=bbs_collect.activity_periods and member_id='.$_SESSION['userInfo']['id'])
+            ->order('activity_begin_time,activity_click desc')
+            ->limit(2)
+            ->select();
+        //p($list);
+        foreach ($list as &$val) {
+            $map = array();
+            $map['activity_periods'] = array('eq',$val['activity_periods']);
+            $map['activity_no'] = array('eq',$val['activity_no']);
+            $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
+            //查看是否收藏
+            if($db_collect->where($map)->find())
+                $val['collect'] = 1;
+            $val['activity_time'] = (date('Ymd',$val['activity_begin_time'])==date('Ymd',$val['activity_end_time']))?date('n月j日',$val['activity_begin_time']).'一天':(date('n月j日',$val['activity_begin_time']).'~'.date('n月j日',$val['activity_end_time']));
+        }
+        //p($info);p($list);p($banner);
         Tpl::output('info',$info);
         Tpl::output('banner',$banner);
         Tpl::output('periods',$periods);
         Tpl::output('list',$list);
         Tpl::setLayout("common_login_layout");
-    	Tpl::showpage("recom_active");
+        Tpl::showpage("recom_active1");
     }
     //往期活动详情
     public function pastDetailOp(){
@@ -575,13 +693,31 @@ class activityControl extends BaseControl{
             ajaxReturn(array('code'=>'0','msg'=>'票数不够,还有'.($info['total_number']-$info['already_num']).'张票','control'=>'ajaxDefray'));
         $db_order = new Model('bbs_order');
         //查看是否报名
-        $map = array();
-        $map['activity_no'] = array('eq',$info['activity_no']);
-        $map['activity_periods'] = array('eq',$info['activity_periods']);
-        $map['member_id'] = $_SESSION['userInfo']['id'];
-        $map['order_status'] = array('elt',3);
-        if($db_order->where($map)->field('id')->find())
-            ajaxReturn(array('code'=>'0','msg'=>'您已经报过名了','control'=>'ajaxDefray'));
+        // $map = array();
+        // $map['activity_no'] = array('eq',$info['activity_no']);
+        // $map['activity_periods'] = array('eq',$info['activity_periods']);
+        // $map['member_id'] = $_SESSION['userInfo']['id'];
+        // $map['order_status'] = array('elt',3);
+        // if($db_order->where($map)->field('id')->find())
+        //     ajaxReturn(array('code'=>'0','msg'=>'您已经报过名了','control'=>'ajaxDefray'));
+
+        /*查小孩写信息，之后写入数据库 start*/
+        $db_bbs_child = new Model('bbs_child');
+        foreach ($_POST['students'] as $key => &$val) {
+            $child_info = $db_bbs_child->where(array('id'=>$val['id']))->find();
+            if(empty($child_info)){
+                ajaxReturn(array('code'=>'0','msg'=>'儿童信息错误','control'=>'ajaxDefray'));
+                exit();
+            }
+            $val['papers_no'] = $child_info['child_papers_no'];
+            $val['staff'] = $child_info['staff'];
+            $val['remark'] = $child_info['child_remark'];
+            if(empty($child_info['child_remark'])){
+                ajaxReturn(array('code'=>'0','msg'=>'请在身份信息管理中填写'.$child_info['child_name'].'的身体情况','control'=>'ajaxDefray'));
+                exit();
+            }
+        }
+        /*查小孩写信息，之后写入数据库 end*/
         //exit('111');
         $data = array();
         $data['code'] = randomUp(8,0);//确认码，随机英文大写加数字
@@ -604,8 +740,8 @@ class activityControl extends BaseControl{
         $data['childs_arr'] = serialize($_POST['students']);
         $data['parents_arr'] = serialize($_POST['parents']);
         $data['remark'] = $_POST['remark'];
-        $pay_no = 'HSN_'.date("YmdHis").mt_rand(100,999);
-        $data['pay_no'] = $pay_no;
+        // $pay_no = 'HSN_'.date("YmdHis").mt_rand(100,999);
+        // $data['pay_no'] = $pay_no;
         // p($data);
         $result = $db_order->insert($data);
         //p($data);

@@ -2,8 +2,7 @@ html,body{
 	height: 100%;
 }
 .about_us{
-	font-family: '微软雅黑';
-	height: 100%;
+	min-height: 100%;
 	background: #EEE;
 }
 .about_us .reg_top{

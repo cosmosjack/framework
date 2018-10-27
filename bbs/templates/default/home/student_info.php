@@ -49,7 +49,7 @@
                         <span class="col-xs-8"><?php echo $val['child_papers_no']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">出生年月:</span>
+                        <span class="col-xs-4 text-left">出生日期:</span>
                         <span class="col-xs-8"><?php echo date('Y-m-d',$val['child_brithday']);?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
@@ -61,7 +61,7 @@
                         <span class="col-xs-8"><?php echo $val['child_height']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">体重:</span>
+                        <span class="col-xs-4 text-left">体型:</span>
                         <span class="col-xs-8"><?php echo $val['child_weight']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
@@ -69,7 +69,7 @@
                         <span class="col-xs-8"><?php echo $val['child_size']?></span>
                     </div>
                     <div class="col-xs-12 overflow student_inf_txt">
-                        <span class="col-xs-4 text-left">特别叮嘱:</span>
+                        <span class="col-xs-4 text-left">学员身体情况:</span>
                         <span class="col-xs-8"><?php echo $val['child_remark']?></span>
                     </div>
                     <div class="col-xs-12 overflow select_mo text-center" data-id="<?php echo $val['id']?>">

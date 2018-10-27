@@ -15,12 +15,12 @@ html,body{
 .photo_album .ph_oprev{
    width: 50%;
    position: absolute;
-   top: 0;
+   top: 9px;
    left: 0;
    border: none;
    background: none;
    color:#FFF;
-   line-height: 36px;
+   /*line-height: 36px;*/
    font-size: 16px;
    z-index: 100;
    overflow: hidden;
@@ -35,14 +35,28 @@ html,body{
   font-size: 18px;
 }
 .photo_album .ph_content>img{
-  padding:0;
-  height:25%;
-  padding:3px;
+  width: 100%;
+  padding: 0;
+  height: 25%;
+  padding: 3px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  height: auto;
+  font-size: 20px;
+  color: #686868;
+  flex-direction: column;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
 }
 .photo_album .ph_content{
-   padding: 10px;
-   background: #FFF;
-
+  padding: 10px;
+  background: #FFF;
+  z-index: 50;
+  column-count: 2;
+  column-gap: 0;
 }
 .photo_album .ph_content p{
   margin: 0;
@@ -59,12 +73,17 @@ html,body{
    display: none;
    z-index: 200;
 }
+.ph_img div{
+  text-align: center;
+}
 .ph_mask img{
   padding:0;
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  background: #FFF;
 }
 .ph_mask .swiper-container{
-   margin-top: 30%;
+  /*margin-top: 10%;*/
 }
 .ph_mask .swiper-wrapper,.ph_mask.swiper-slide{
   height: auto !important;

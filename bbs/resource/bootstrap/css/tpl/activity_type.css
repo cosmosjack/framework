@@ -32,7 +32,8 @@ html,body{
   font-size: 14px;
 }
 .activity_type .type_content img{
-  max-width: 80%;
+  width: 80px;
+  height: 80px;
   border-radius: 10px;
   margin-bottom: 10px;
 }

@@ -3,7 +3,6 @@ html,body{
 }
 .push_student{
   background: #EEE;
-  font-size: '微软雅黑';
   min-height: 100%;
 }
 .push_student .reg_top{
@@ -50,9 +49,7 @@ html,body{
 }
 .push_student .student>div{
   width: 100%;
-  border-radius: 10px;
   background: #FFF;
-  margin: 10px 0;
   padding: 5px 0;
 }
 .push_student .student_inf img{
@@ -68,6 +65,9 @@ html,body{
 .push_student .student_inf_txt>div{
   border-bottom: 1px solid #eee;
   padding: 5px 15px;
+}
+.push_student .student_inf_txt>div:nth-child(1){
+  padding: 2px 15px;
 }
 .push_student .student_inf_txt span{
   padding: 0;
@@ -85,6 +85,7 @@ html,body{
 .push_student .btn>button{
    border: none;
    background: none;
+   cursor: pointer;
    background:#e25428;
    color:#FFF;
    border-radius: 20px;
@@ -106,13 +107,16 @@ html,body{
     margin-top: 0;
     padding: 10px;
 }
+.push_student .point>h5{
+  padding: 10px 0;
+}
  .push_student .ra>span{
-  line-height: 30px;
+  line-height: 40px;
   margin-left: 10px;
 }
 .push_student .radio{
   width: 20px;
-  border: 1px solid #000;
+  border: 1px solid #e25428;
   border-radius: 50%;
   height: 20px;
   padding: 2px;
@@ -121,7 +125,7 @@ html,body{
 }
 .push_student .radio .radio_active{
    display: block;
-   background: #1c87f4;
+   background: #e25428;
    width: 100%;
    height: 100%;
    border-radius: 50%;
@@ -153,7 +157,7 @@ html,body{
   width: 20px;
   border-radius: 50%;
 }
-.push_student .userImg>img{
+.push_student .userImg img{
   width: 12vw;
   height: 12vw;
   border: 1px solid #e25428;
@@ -190,6 +194,10 @@ html,body{
 .push_student .btn-primary{
    background: #e25428;
    border-color: #e25428;
+}
+.push_student .btn-primary:active{
+  background: #e25428;
+  border-color: #e25428;
 }
 .push_student .down,.push_student .btn_ged{
   margin-bottom: 10px;

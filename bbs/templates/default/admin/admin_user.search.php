@@ -85,7 +85,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     /* 展示modal start */
                     $("#group_detail").empty();
                     for(var i=0;i<msg.data.length;i++){
-                        $("#group_detail").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-3"><a href="javascript:void(0);">'+msg.data[i].child_name+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+msg.data[i].child_phone+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+msg.data[i].child_age+'</a></li><li class="col-sm-3"><a href='+ApiUrl+'/index.php?act=admin_user&op=search&child_id='+msg.data[i].id+'>查询</a></li></ul></div>');
+                        $("#group_detail").append('<div class="stand_ul row"><ul class="col-sm-12"> <li class="col-sm-2"><a href="javascript:void(0);">'+msg.data[i].child_name+'</a></li> <li class="col-sm-3"><a href="javascript:void(0);">'+msg.data[i].child_papers_no+'</a></li> <li class="col-sm-1"><a href="javascript:void(0);">'+msg.data[i].child_age+'</a></li><li class="col-sm-2"><a href="javascript:void(0);">'+msg.data[i].parents_name+'</a></li><li class="col-sm-2"><a href="javascript:void(0);">'+msg.data[i].parents_phone+'</a></li><li class="col-sm-2"><a href='+ApiUrl+'/index.php?act=admin_user&op=search&child_id='+msg.data[i].id+'>查询</a></li></ul></div>');
                     }
 
                     $("#myModal3").modal("show");
@@ -212,10 +212,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
             <div class="modal-body">
                 <div class="stand_ul row">
                     <ul class="col-sm-12">
-                        <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">参赛儿童</a></li>
-                        <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">儿童电话</a></li>
-                        <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">儿童年龄</a></li>
-                        <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">操作</a></li>
+                        <li class="col-sm-2"><a class="stand_title" href="javascript:void(0);">参赛儿童</a></li>
+                        <li class="col-sm-3"><a class="stand_title" href="javascript:void(0);">证件号</a></li>
+                        <li class="col-sm-1"><a class="stand_title" href="javascript:void(0);">年龄</a></li>
+                        <li class="col-sm-2"><a class="stand_title" href="javascript:void(0);">监护人</a></li>
+                        <li class="col-sm-2"><a class="stand_title" href="javascript:void(0);">电话</a></li>
+                        <li class="col-sm-2"><a class="stand_title" href="javascript:void(0);">操作</a></li>
                     </ul>
                 </div>
 

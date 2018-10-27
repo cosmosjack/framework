@@ -4,8 +4,6 @@ $(function(){
 	var order = {
 		//ajax加载数据
 		loadPage:function(){
-			console.log(page);
-			console.log(flag);
 	 		if(flag){
 	 			return false;
 	 		}
@@ -14,7 +12,7 @@ $(function(){
 			$.ajax({  
                 url:SITEURL+"/index.php?act=order&op=listPage&curpage="+page,  //请求路径，接口地址
                 type:"post",  //请求的方式
-                async:false,//同步  
+                //            async:false,//同步  
                 data:{orderStatus:1,pageSize:objH},//传出的数据  
                 dataType:"json",//返回的数据类型，常用：html/text/json  
                 success:function(data){  //请求成功后的回调函数
@@ -26,7 +24,7 @@ $(function(){
                 			html += '<div class="order_pro overflow">';
 				        	html += ' 	<div class="col-xs-12 overflow">';
 				        	html += ' 		<div class="orpro_img col-xs-4 overflow" href_url="'+data.list[i].url+'">';
-				        	html += ' 			<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/img2.jpg" class="col-xs-12" />';
+				        	html += ' 			<img src="'+data.list[i].activity_index_pic+'!product-360" class="col-xs-12" />';
 				        	html += ' 		</div>';
 				        	html += ' 		<div class="col-xs-5 order_pro_txt" href_url="'+data.list[i].url+'">';
 				        	html += ' 			<p class="pro_title">'+data.list[i].activity_title+'</p>';
@@ -57,7 +55,7 @@ $(function(){
                 		if(page == 1){
                 			html += '<div class="no_data container-fluid">';
 					        html += '    <div class="row">';
-					        html += '         <img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/null.png" class="col-xs-6 col-xs-offset-3" />';
+					        html += '         <img style="pointer-events:none" src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/null.png" class="col-xs-6 col-xs-offset-3" />';
 					        html += '         <p class="col-xs-12 text-center">还没有订单内容</p>';
 					        html += '    </div>';
 					        html += '</div>';
@@ -105,7 +103,7 @@ $(function(){
         //添加减少票数
         down_up:function(){
         	//减少
-        	$(document).on('click','.down',function(){
+        	$('.order').on('click','.down',function(){
         		var sum = Number($(this).siblings('span').html());
         		if(sum == 0){
                     $(this).siblings('span').html(0);
@@ -114,7 +112,7 @@ $(function(){
         		}
         	})
         	//添加
-        	$(document).on('click','.up',function(){
+        	$('.order').on('click','.up',function(){
         		var sum = Number($(this).siblings('span').html());
         		if(sum >= 100){
                     $(this).siblings('span').html(100);
@@ -132,7 +130,7 @@ $(function(){
         },
         //页面跳转
         Jump:function(obj){
-        	$(document).on('click',obj,function(){
+        	$('.order').on('click',obj,function(){
         		//console.log($(this).attr('href_url'))
         		Href($(this).attr('href_url'));
         		return false;

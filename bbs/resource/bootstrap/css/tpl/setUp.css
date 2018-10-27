@@ -2,7 +2,6 @@ html,body,.setUp{
   width: 100%;
   height: 100%;
   background: #EEE;
-  font-size: '微软雅黑';
 }
 .setUp .reg_top{
     height: 50px;
@@ -37,7 +36,7 @@ html,body,.setUp{
   font-size: 16px;
   border-bottom: 1px solid #EEE;
 }
-.setUp .content>div:nth-child(4){
+.setUp .content>div:last-child{
   border-top: 10px solid #EEE;
 }
 .setUp .out_btn{
@@ -50,6 +49,7 @@ html,body,.setUp{
    background:#e25428;
    letter-spacing: 2px;
    color:#FFF;
+   font-size: 16px;
 }
 .setUp .point{
   border-radius: 10px !important;
@@ -61,7 +61,7 @@ html,body,.setUp{
    color:#FFF;
    margin-top: 0;
    background: #e25428;
-   padding: 10px 0;
+   padding: 15px 0;
 }
 .setUp .point>h5{
   padding: 10px;
@@ -71,7 +71,7 @@ html,body,.setUp{
 }
 .setUp .point>button{
   border: none;
-  padding: 10px;
+  padding: 4px;
   font-size: 16px;
   letter-spacing: 4px;
   box-sizing: border-box;
@@ -86,5 +86,8 @@ html,body,.setUp{
 @media screen and (max-height: 568px) {
  .setUp .content>div{
   font-size: 14px;
+ }
+ .setUp .point>h4{
+  padding: 10px 0;
  }
 }

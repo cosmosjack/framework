@@ -32,24 +32,16 @@ defined('InCosmos') or exit('Access Invalid!');?>
                 <div class="ibox-title">
                     <h5>儿童列表</h5>
                     <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="table_data_tables.html#">选项1</a>
-                            </li>
-                            <li><a href="table_data_tables.html#">选项2</a>
-                            </li>
-                        </ul>
-                        <a class="close-link">
-                            <i class="fa fa-times"></i>
-                        </a>
+
                     </div>
                 </div>
                 <div class="ibox-content">
+                    <div class="form-group">
+                        <div class="col-sm-2">
+                            <input class="form-control" name="child_name" value="<?php echo $_GET['child_name'];?>" placeholder="输入儿童姓名">
+                        </div>
+                        <label class="col-sm-1 control-label btn btn-primary" onclick="child_search();">搜索</label>
+                    </div>
                     <table class="table table-striped table-bordered table-hover " id="editable">
                         <thead>
                         <tr>
@@ -59,6 +51,9 @@ defined('InCosmos') or exit('Access Invalid!');?>
                             <th>年龄</th>
                             <th>尺寸</th>
                             <th>会员</th>
+                            <th>监护人</th>
+                            <th>监护人电话</th>
+                            <th>关系</th>
                             <th>业务员</th>
                             <th>操作</th>
                         </tr>
@@ -72,6 +67,9 @@ defined('InCosmos') or exit('Access Invalid!');?>
                                 <td class="center"><?php echo $val['child_age'];?></td>
                                 <td class="center"><?php echo $val['child_size'];?></td>
                                 <td><?php echo $val['member_name'];?></td>
+                                <td><?php echo $val['parents_name'];?></td>
+                                <td><?php echo $val['parents_phone'];?></td>
+                                <td><?php echo $val['relation']?$val['relation']:"未知";?></td>
                                 <td><input class="form-control" type="text" name="child_staff_<?php echo $val['id']; ?>" value="<?php echo $val['staff'];?>"/></td>
                                 <td><label class="btn btn-sm btn-primary" onclick="mod_staff('<?php echo $val['id']; ?>')">修改</label></td>
 
@@ -114,6 +112,16 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
             }
         })
+    }
+
+    // 搜索儿童
+    function child_search(){
+        var child_name = $("input[name='child_name']").val();
+        if(child_name){
+            window.location.href=ApiUrl+"/index.php?act=admin_user&op=child_list&child_name="+child_name;
+        }else{
+            swal({title:"儿童搜索",text:"请输入儿童姓名",type:"error"});
+        }
     }
 
 </script>

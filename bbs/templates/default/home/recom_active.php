@@ -3,7 +3,8 @@
 <html>
 <head>
 	<meta charset="utf-8" />
-	<title>好少年-活动详情</title>
+	<title>好少年-<?php echo $output['info']['activity_title']?></title>
+    <meta name="description" content="<?php echo $output['info']['activity_ptitle']?>"/>
 	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
 </head>
     <link rel="stylesheet" type="text/css" href="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/css/tpl/recom_active.css" />
@@ -65,14 +66,18 @@
         <div class="overflow" style="background: #FFF">
             <div class="col-xs-12 pad_none">
                 <?php if(!empty($output['periods'])):?>
-                <span>其他期数：</span>
+                <span>活动选期：</span>
                 <div class="title overflow col-xs-12">
                    <ul class="title_ul text-center">
                     <?php foreach($output['periods'] as $val):?>
-                        <li class="session" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">
-                            <div>
-                                <p><?php echo date('m月d',$val['activity_begin_time'])?>~<?php echo date('m月d',$val['activity_end_time'])?></p>
-                                    <p>报名中</p>
+                        <li class="session <?php if($val['activity_periods'] == $output['info']['activity_periods']) echo 'active'?>" onclick="Href('<?php echo urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']))?>')">
+                            <div <?php if($val['activity_periods'] == $output['info']['activity_periods']) echo 'style="color:#f5f5f5"'?> >
+                                <p><?php echo date('m月d日',$val['activity_begin_time'])?>~<?php echo date('m月d日',$val['activity_end_time'])?></p>
+                                    <?php if($val['activity_begin_time'] > time()+3600*12):?>
+                                    <p>第<?php echo $val['activity_periods']?>期 报名中</p>
+                                    <?php else:?>
+                                    <p>第<?php echo $val['activity_periods']?>期 报名已截止</p>
+                                    <?php endif;?>
                             </div>
                         </li>
                     <?php endforeach;?>
@@ -204,5 +209,81 @@
     </div>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/recom_active.js"></script>
     <script type="text/javascript" src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/js/tpl/swiper-3.4.2.min.js"></script>
+    <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.1.0.js"></script>
+<script type="text/javascript">
+    wx.config({
+        debug: false,
+        appId:'wxa286179f364df0be',
+        timestamp: '<?php echo $output['data']['timestamp'];?>',
+        nonceStr: '<?php echo $output['data']['noncestr'];?>',
+        signature: '<?php echo $output['data']['signature'];?>',
+        jsApiList: [
+            'checkJsApi',
+            'onMenuShareTimeline',
+            'onMenuShareAppMessage',
+            'onMenuShareQQ',
+            'onMenuShareWeibo',
+            'hideMenuItems',
+            'showMenuItems',
+            'hideAllNonBaseMenuItem',
+            'showAllNonBaseMenuItem',
+            'translateVoice',
+            'startRecord',
+            'stopRecord',
+            'onRecordEnd',
+            'playVoice',
+            'pauseVoice',
+            'stopVoice',
+            'uploadVoice',
+            'downloadVoice',
+            'chooseImage',
+            'previewImage',
+            'uploadImage',
+            'downloadImage',
+            'getNetworkType',
+            'openLocation',
+            'getLocation',
+            'hideOptionMenu',
+            'showOptionMenu',
+            'closeWindow',
+            'scanQRCode',
+            'chooseWXPay',
+            'openProductSpecificView',
+            'addCard',
+            'chooseCard',
+            'openCard'
+        ]
+    });
+
+    wx.ready(function () {
+
+
+        var shareData = typeof(shareData) === 'undefined' ? {
+            title: '好少年-<?php echo $output['info']['activity_title']?>',
+            desc: '<?php echo $output['info']['activity_ptitle']?>',
+            link: '<?php echo $output['data']['url'];?>',
+            imgUrl: '<?php echo $output['banner'][0]['file_name']?>!product-360'
+        } : shareData;
+
+        wx.onMenuShareAppMessage(shareData);
+        wx.onMenuShareTimeline(shareData);
+    });
+
+    wx.error(function (res) {
+        alert(res.errMsg);
+    });
+</script>
+
+<script>
+   /* wx.config({
+        debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        appId: '', // 必填，公众号的唯一标识
+        timestamp: , // 必填，生成签名的时间戳
+        nonceStr: '', // 必填，生成签名的随机串
+        signature: '',// 必填，签名，见附录1
+        jsApiList: [] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+    });*/
+
+</script>
 </body>
 </html>

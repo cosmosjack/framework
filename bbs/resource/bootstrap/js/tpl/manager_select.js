@@ -10,14 +10,15 @@ $(function(){
 			})
 		},
 		//页面跳转
-		Url_click:function(){
-			$(document).on('click','.manager>div',function(){
+		Url_click:function(o){
+			$(o).click(function(){
 				Href($(this).attr('href_url'));
 			})
 		},
 		event:function(){
 			this.Explain();
-			this.Url_click();
+			this.Url_click('#manager1');
+			this.Url_click('#manager2');
 		}
 	};
 	manager_select.event();

@@ -90,9 +90,9 @@ html,body{
   padding: 0 5px;
   margin: 0;
   font-size: 14px;
-  text-overflow: ellipsis;
-  overflow: hidden;
   white-space: nowrap;
+  overflow : hidden;
+  text-overflow: ellipsis;
 }
 @media screen and (max-height: 568px) {
   .my_album .reg_top>span{

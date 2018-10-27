@@ -20,7 +20,7 @@ $(function(){
         },
         //勾选使用优惠券
         use_click:function(){
-        	$(document).on('click','.use_img',function(){
+        	$('.coupon').on('click','.use_img',function(){
 
         		if($(this).hasClass('coupon_use')){
         	     	$(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/coupon_n.png');

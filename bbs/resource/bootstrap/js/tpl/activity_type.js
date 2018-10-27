@@ -1,7 +1,7 @@
 $(function(){
 	var activity_type = {
 		click:function(){
-           $(document).on('click','.click',function(){
+           $('.activity_type').on('click','.click',function(){
               	console.log($(this).index())
               	//Href(url);//url路径暂时未写
            })

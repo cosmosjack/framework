@@ -1,7 +1,7 @@
 $(function(){
 	var star_leader = {
 		click:function(){
-           $(document).on('click','.click',function(){
+           $('.star_leader').on('click','.click',function(){
               	console.log($(this).index())
               	//Href(url);//url路径暂时未写
            })

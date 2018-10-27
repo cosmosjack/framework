@@ -104,14 +104,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
                     swal({title:"小组信息",text:msg.msg,type:"error"});
                     return false;
                 }
-
             },
             error:function(){
                 swal({title:"小组信息",text:"网络请求出错",type:"error"});
                 console.log("http error");
             }
         });
-
     }
     /* 展示当前的小组  end */
 
@@ -384,11 +382,12 @@ defined('InCosmos') or exit('Access Invalid!');?>
     }
     /* 展示其他期数列表 end */
     /* 删除活动 将删除所有期数 start */
-    function activity_del(activity_no){
-        var r = window.confirm("您将删除此活动的所有期数,请确认清楚");
+    function activity_del(activity_no,periods){
+        // var r = window.confirm("您将删除此活动的所有期数,请确认清楚");
+        var r = window.confirm("您将删除此期活动,请确认清楚");
         if (r==true)
         {
-            location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=activity_del&activity_no=';?>"+activity_no;
+            location.href = "<?php echo BBS_SITE_URL.DS.'index.php?act=admin_activity&op=activity_del&activity_no=';?>"+activity_no+'&periods='+periods;
         }
         else
         {
@@ -483,7 +482,7 @@ defined('InCosmos') or exit('Access Invalid!');?>
 
                                         <a href="#" onclick="add_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-primary btn-sm"><i class="fa fa-plus"></i> 加期 </a>
                                         <a href="#" onclick="show_periods('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-info btn-sm"><i class="fa fa-list"></i> 期数 </a>
-                                        <a href="#" onclick="activity_del('<?php echo $val['activity_no'];?>');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> 删除 </a>
+                                        <a href="#" onclick="activity_del('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> 删除 </a>
                                         <?php if($val['state'] == '未开始'){ ?>
                                             <a href="#" onclick="change_activity('<?php echo $val['activity_no'];?>','<?php echo $val['activity_periods'];?>');" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> 编辑 </a>
                                         <?php }?>

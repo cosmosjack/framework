@@ -631,7 +631,7 @@ tfoot label { +display: inline-block; +float:left; +line-height:38px; /* IE */}
 #prompt ul {}
 #prompt ul li { line-height:26px; color:#888; background: url(../images/sky/bg_position.gif) no-repeat -628px -888px; padding-left:24px;}
 
-.msgbg { background: url(../images/System.gif) scroll no-repeat 80px 0px; width: 250px;}
+.msgbg { background: url(../images/logo.png) scroll no-repeat 80px 0px; width: 250px;background-size:contain;background-color: :#FFF;}
 .msg .tip { line-height: 32px; color:#555; }
 .msg .tip2 { line-height: 32px; color:#999; }
 

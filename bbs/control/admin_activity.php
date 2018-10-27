@@ -645,8 +645,23 @@ class admin_activityControl extends BaseAdminControl{
         $db_activity_periods = new Model('bbs_activity_periods');
 
         $where['activity_no'] = $_GET['activity_no'];
-        $result = $db_activity->where($where)->delete();
+        $where['activity_periods'] = $_GET['periods'];
         $result = $db_activity_periods->where($where)->delete();
+
+        /*删除所选期数，若还有其他期数，则同步到activity表 start*/
+        $info = $db_activity_periods->where(array('activity_no'=>$where['activity_no']))->order('activity_periods desc')->find();
+        if(!empty($info)){
+            unset($info['id']);
+            $result = $db_activity->where($where)->update($info);
+            // if(!empty($periods_info)){
+            //     unset($periods_info['id']);
+            //     $db_activity->insert($periods_info);
+            // }
+        }else{
+            $result = $db_activity->where($where)->delete();
+        }
+        /*删除所选期数，若还有其他期数，则同步到activity表 end*/
+
         showMessage("删除成功");
     }
 

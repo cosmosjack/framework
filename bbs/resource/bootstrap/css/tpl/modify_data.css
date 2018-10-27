@@ -42,21 +42,23 @@ h1{
 .modify_data .avatar>div{
   font-size: 16px;
   position: absolute;
-  top: calc(50% - 13px);
+  top: calc(80px - 65px);
   right: 0;
 }
 .modify_data .avatar img{
   border: 1px solid #e25428;
   border-radius: 50%;
-  margin-left: 15px;
-  width: 80px;
+  margin-right: 15px;
+  width: 65px;
+  height: 65px;
   padding: 0 !important;
+  background: #FFF;
 }
 .modify_data .avatar>span{
   line-height: 80px;
   padding-left:15px;
   font-size: 14px;
-  color:#000; 
+  color:#a0a0a0; 
 }
 .modify_data .test>span{
     margin-left: 8px;
@@ -150,6 +152,7 @@ h1{
   padding: 5px 10px;
 }
 .modify_data .file-btn{
+  z-index: 100;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -162,17 +165,10 @@ h1{
   -khtml-opacity: 0;
   opacity: 0;
 }
-.modify_data .mo_form{
-  background: #FFF;
-}
-.modify_data .point .btn-success{
-   background: none;
-   border: 1px solid #e25428;
-   color:#000;
-}
 @media screen and (max-height: 568px) {
   .modify_data .avatar img{
-    width: 60px;
+    width: 45px;
+    height: 45px;
   }
   .modify_data .avatar>span{
     line-height: 60px;

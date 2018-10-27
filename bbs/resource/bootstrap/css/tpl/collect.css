@@ -83,7 +83,7 @@ html,body,.collect{
    font-size: 12px;
 }
 .collect .time_price div>div{
-   width: 50%;
+   width: 54%;
 }
 .collect .time_price div>div>p{
   margin: 0;
@@ -118,28 +118,12 @@ html,body,.collect{
   background: #ccc !important;
   color:#FFF !important;
 }
-.collect .num_periods{
-  position: absolute;
-  left: calc(6% + 1px);
-  top: 9px;
-  border-top-left-radius: 10px;
-  border-bottom-right-radius: 20px;
-  padding: 2px 5px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-.collect .num_periods>img{
-  width: 30px;
-  height: 30px;
-  margin-left: 5px;
-}
+.collect .time_price .NumPeriods{
+    margin-left: 8px;
+    color:#FFF;
+    font-size: 12px;
+  }
 @media screen and (max-height: 568px) {
-   .collect .num_periods>img{
-      width: 25px;
-      height: 25px;
-      margin-left: 5px;
-    }
    .collect .time_price{
      padding-top: 12px;
      padding-bottom: 0;
@@ -165,6 +149,6 @@ html,body,.collect{
     margin-top: 5px;
   }
   .collect .price{
-  font-size: 18px;
-}
+    font-size: 18px;
+  }
 }

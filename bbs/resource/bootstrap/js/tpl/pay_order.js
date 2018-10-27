@@ -44,10 +44,11 @@ $(function(){
                 // $('.modal').modal('hide');//关闭弹框
                 if(data.code == '200'){
                   submitflag = false;
-                  $('.de_point').append(html);
-                  $('.modal').modal('show');
-                  window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
-                  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                  Href(data.url);
+                  // $('.de_point').append(html);
+                  // $('.modal').modal('show');
+                  // window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
+                  // with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
                 }else{
                   submitflag = false;
                   $('.de_point').append(ohtml);

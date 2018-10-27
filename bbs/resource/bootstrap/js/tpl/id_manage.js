@@ -5,7 +5,7 @@ $(function(){
 
         //删除学员
         Del:function(){
-            $(document).on('click','.del',function(){
+            $('.id_manage').on('click','.del',function(){
                 id = $(this).attr('data-id');
                 flag = $(this).parent('div').parent('div').parent('div');
                 console.log(id);
@@ -19,7 +19,7 @@ $(function(){
         },
         //确定删除按钮
         del_btn:function(){
-            $(document).on('click','.del_btn',function(){
+            $('.id_manage').on('click','.del_btn',function(){
                 $.ajax({  
                     url:SITEURL+"/index.php?act=set&op=deletInfo",  //请求路径，接口地址
                     type:"post",  //请求的方式
@@ -40,21 +40,23 @@ $(function(){
         },
         //取消按钮
         Hide_u:function(){
-            $(document).on('click','.Hide_u',function(){
+            $('.id_manage').on('click','.Hide_u',function(){
                 $('.modal').modal('hide');
             })
         },  
         //设置默认
         Select:function(){
-            $(document).on('click','.select_img',function(){
+            $('.id_manage').on('click','.select_mo>span',function(){
+                if($(this).index() != 0){return};
+
                 if($(this).hasClass('Select_true')){
                     //$(this).removeClass('Select_true');
                     //$(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/false_0.png');
                 }else{
                     $(this).addClass('Select_true');
-                    $(this).attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/true_0.png');
+                    $(this).find('img').attr('src',BBS_RESOURCE_SITE_URL+'/bootstrap/img/true_0.png');
                 }
-                id = $(this).parent('span').parent('div').attr('data-id');
+                id = $(this).parent('div').attr('data-id');
                 $.ajax({  
                     url:SITEURL+"/index.php?act=set&op=default",  //请求路径，接口地址
                     type:"post",  //请求的方式

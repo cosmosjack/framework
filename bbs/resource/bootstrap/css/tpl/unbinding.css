@@ -41,7 +41,8 @@ html,body{
   color:#f48c12;
 }
 .unbinding .phone{
-   border-top:1px solid #eee; 
+   border-top:1px solid #eee;
+   border-bottom:1px solid #eee; 
    min-height: 48px;
 }
 .unbinding .unbin_btn>div{
@@ -55,16 +56,18 @@ html,body{
 }
 .unbinding .point{
   padding: 10px 0;
+  border-radius: 10px !important;
   padding-top:0; 
+  overflow: hidden;
 }
 .unbinding .point>h4{
    color:#FFF;
    margin-top: 0;
-   background: #2871f8;
+   background: #e25428;
    padding: 10px 0;
 }
 .unbinding .point>h5{
-  padding: 10px;
+  padding: 5px;
 }
 .unbinding .point_txt{
   padding: 10px 0;
@@ -82,12 +85,12 @@ html,body{
 }
 .unbinding .binding_btn{
   position: absolute;
-  top: 0;
+  top: -2px;
   right:0;
   border: none;
   color:#FFF;
   outline:none;
-  padding: 0 30px;
+  padding: 4px 30px;
   border-radius: 30px;
   background:#e25428;
 }
@@ -97,7 +100,10 @@ html,body{
      font-size: 16px;
   }
   .unbinding .unbin_btn>div{
-    line-height: 30px;
+    line-height: 35px;
     font-size: 14px;
+  }
+  .unbinding .binding_btn{
+    padding: 2px 25px;
   }
 }

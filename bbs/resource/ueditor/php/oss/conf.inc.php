@@ -1,10 +1,10 @@
 <?php
 //个人测试
 //ACCESS_ID
-define('OSS_ACCESS_ID','###');
+define('OSS_ACCESS_ID','LTAIJdTtL1hzbViq');
 
 //ACCESS_KEY
-define('OSS_ACCESS_KEY', '###');
+define('OSS_ACCESS_KEY', 'R5FmNAlsjdQcMYfFwDfF8ON55xjT6q');
 
 
 

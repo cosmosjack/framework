@@ -93,6 +93,7 @@ $(function(){
 	                dataType:"json",//返回的数据类型，常用：html/text/json  
 	                success:function(data){  //请求成功后的回调函数
 	                    //console.log(typeof data);
+	                    // alert(JSON.stringify(data.msg));
 						$('.point_txt').html(data.msg);
 						$('.modal').modal('show');
 	                    if(data.code == '200')

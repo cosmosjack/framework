@@ -1,10 +1,51 @@
 html,body{
   height: 100%;
 }
+.past_detail .review_txt .ReDiv{
+  position: relative;
+  margin:0 15px;
+  padding:0px; 
+  overflow: hidden;
+}
+.past_detail .review_txt textarea{
+  width: 100%;
+  resize: none;
+  padding: 5px;
+  border-radius: 5px;
+  height: 44px;
+  padding-right: 30px;
+  border-color:#e25428;
+}
+.past_detail .ReplyCancel{
+   position: absolute;
+   right: 1px;
+   top: 1px;
+   padding: 0 5px;
+   line-height: 42px;
+   background: #EEE;
+   border-top-right-radius: 5px;
+   border-bottom-right-radius: 5px;
+   color:#a0a0a0;
+}
+.past_detail .ellipsis{
+  padding: 5px 0 !important;
+}
+.past_detail .ellipsis>span{
+  background: #EEE;
+  padding: 5px;
+  margin-left: 15px;
+}
+.past_detail .ReplyBtn{
+   border: none;
+   border-radius: 5px;
+   line-height: 44px;
+   padding: 0px;
+   background: #e25428;
+   color:#FFF;
+   vertical-align: 2px;
+}
 .past_detail{
   background: #eee;
-  font-family: '微软雅黑';
-  margin-bottom: 40px;
   min-height: 100%;
 }
 .past_detail .home_top{
@@ -38,13 +79,17 @@ html,body{
 }
 .past_detail .swiper-slide img{
     width: 100%;
-    height: 32%;
+    height: 50vw !important;
 }
 .past_detail .swiper-wrapper,.past_detail .swiper-slide{
    height: auto !important;
 }
+.past_detail .swiper-pagination-bullet{
+   background: #FFF !important;
+   opacity: 1 !important;
+}
 .past_detail .swiper-pagination-bullet-active{
-    background: #e25428;
+    background: #e25428 !important;
 }
 .past_detail .odpro_title{
    padding: 5px 0;
@@ -105,7 +150,8 @@ html,body{
   margin-top: 5px;
 }
 .past_detail .past_img img{
-   width: 14vw;
+   width: 30px;
+   height: 30px;
    border-radius: 50%;
    border: 1px solid #f19931;
    padding: 2px;
@@ -114,13 +160,9 @@ html,body{
 }
 .past_detail .past_img .main{
    float: left;
-   margin-right: 2vw;
+   margin-right: 8px;
    border-right: 1px solid #EEE;
    padding-right: 10px;
-}
-.past_detail .past_img>span{
-   height: 15vw;
-   border-left: 1px solid #EEE;
 }
 .past_detail .pro_content{
     margin-top: 10px;
@@ -128,10 +170,7 @@ html,body{
 }
 .past_detail .pro_content>div>div{
     padding: 8px 0;
-    font-size: 3.5vw;
-}
-.past_detail .pro_content>div>div>span{
-   line-height: 8vw;
+    font-size: 14px;
 }
 .past_detail .eventdetails{
     border-top: 10px solid #EEE;
@@ -141,7 +180,7 @@ html,body{
 }
 .past_detail .re_nav>div{
     border-left: 1px solid #000;
-    font-size: 3.5vw;
+    font-size: 14px;
     padding: 0;
 }
 .past_detail .re_nav>div:nth-child(1){
@@ -153,38 +192,13 @@ html,body{
     color:#FFF;
     border-radius: 5px;
 }
-.past_detail  .index_pro{
-   padding: 10px 0;
-   background: url('../../img/bg.png') no-repeat 0 0;
-   background-size: contain;
-   margin-bottom: 5vw;
-}
-.past_detail  .pro_img{
-   padding: 0;
-   border-radius: 10px;
-   border: 1px solid #f48c12;
-}
-.past_detail .index_pro_Img{
-    position: relative;
-    margin-bottom: 10px;
-}
-.past_detail .mask{
-   font-size: 10px;
-   overflow: hidden;
-   position: absolute;
-   bottom: 0;
-   left: 0;
-   background:url('../../img/shadow.png') no-repeat 0 0;
-   color:#FFF;
-   border-bottom-left-radius: 10px;
-   border-bottom-right-radius: 10px;
-}
 .past_detail .grade>img{
-   width: 5vw;
+   width: 16px;
 }
 .past_detail .reviews{
   padding: 10px 0;
   margin-bottom: 10px;
+  border-bottom: 1px dashed #e25428;
 }
 .past_detail .reviews>div{
    padding: 0;
@@ -193,20 +207,26 @@ html,body{
   padding: 0;
 }
 .past_detail .degree>img{
-  width: 10px;
+  width: 12px;
 }
 .past_detail .user_img{
-   width: 10vw;
+   width: 40px;
+   height: 40px;
    border-radius: 50%;
    border: 1px solid #e25428;
 }
 .past_detail .review_txt{
-   border-left: 1px solid #e25428;
-   font-size: 3.5vw;
+   font-size: 14px;
+}
+.past_detail .review_txt>p{
+  font-size: 12px;
 }
 .past_detail .user_name{
    color:#e25428;
    margin: 0;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
 }
 .past_detail .user_time{
   color:#a0a0a0;
@@ -214,7 +234,10 @@ html,body{
 .past_detail .reply>p{
     margin: 0;
 }
-.past_detail .reply>p>span{
+.past_detail .reply>p:nth-child(2),.past_detail .reply>span{
+  font-size: 12px;
+}
+.past_detail .reply>p>span,.past_detail .reply>span>span{
   color:#e25428;
 }
 .past_detail .review_txt>div{
@@ -227,73 +250,57 @@ html,body{
    text-overflow: ellipsis;
    white-space: nowrap;
 }
-.past_detail .pro_tit{
-    font-size: 3.5vw;
-    padding-bottom: 4vw;
-}
-.past_detail .city,.past_detail .past{
+.past_detail .city{
    color:#e25428;
-}
-.past_detail .time_price{
-   padding-top: 2vw;
-   padding-bottom: 2vw;
-   font-size: 3.5vw;
-}
-.past_detail .time_price div>div{
-   width: 50%;
-}
-.past_detail .time_price div>div>p{
-    margin: 0;
-}
-.past_detail .price{
-    color:#f48c12;
-    font-size: 5vw;
-}
-.past_detail .pro_btn{
-   border: none;
-   border-radius: 30px;
-   background-image:linear-gradient(#e4aa46,#f48c12);
-   padding: 2vw 8vw;
-   color:#FFF;
-   margin-top: 1vw;
-}
-.past_detail .Prompt{
-   position: absolute;
-   left: 0;
-   top: 10vw;
-   padding:0;
-}
-.past_detail .Prompt>span{
-   background: #ff583c;
-   color:#FFF;
-   font-size: 4vw;
-   padding: 6px 8px;
-   border-top-left-radius: 10px;
-   border-bottom-left-radius: 10px;
 }
 .past_detail .activity_deta_info,.past_detail .pro_recom{
   display: none;
 }
 .past_detail .point{
-  padding: 10px 5px;
+  border-radius: 10px !important;
+  padding: 10px 0;
   padding-top:0; 
+  overflow: hidden; 
 }
-.remodal{
+.past_detail .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #e25428;
+   padding: 15px 0;
+}
+.past_detail .point>button{
+  border: none;
+  padding: 4px;
+  font-size: 16px;
+  letter-spacing: 4px;
+  box-sizing: border-box;
+  background: #FFF;
+}
+.past_detail .share_it{
   margin: 0 !important;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.8);
+  display: none;
+  z-index: 500;
 }
-.remodal>div{
+.past_detail .share_it>div{
   border:none;
   border-radius: 0px !important;
   font-size: 3vw;
   padding: 0;
 }
-.remodal .bdsharebuttonbox{
+.past_detail .bdsharebuttonbox{
   padding: 0;
+  background: #FFF;
 }
-.remodal .bdsharebuttonbox p{
+.past_detail .bdsharebuttonbox p{
   padding: 0px;
 }
-.remodal .bdshare-button-style0-32 a{
+.past_detail .bdshare-button-style0-32 a{
   padding: 0;
   margin: 10px calc(50% - 16px);
 }
@@ -302,7 +309,7 @@ html,body{
 }
 .past_detail .Input_box>textarea{
   border: 1px solid #e25428;
-  border-radius: 10px;
+  border-radius: 5px;
   resize: none;
   padding:8px;
   height: 50px;
@@ -315,21 +322,16 @@ html,body{
   padding: 5px;
   border: none;
   background: #e25428;
-  border-radius: 10px;
+  border-radius: 5px;
   color:#FFF;
+}
+.activityContent img{
+  width: 100% !important;
+  height: auto !important;
 }
 @media screen and (max-height: 568px) {
 .past_detail .pro_content>div>div>span{
    line-height: 20px;
-}
-.past_detail .time_price{
-   padding-top: 8px;
-   padding-bottom: 0vw;
-   font-size: 14px;
-} 
-.past_detail .pro_tit{
-    font-size: 14px;
-    padding-bottom: 0vw;
 }
 .past_detail .home_top span{
   font-size: 16px;
@@ -338,9 +340,9 @@ html,body{
   font-size:12px;
 }
 .past_detail .Input_box>textarea{
-  height: 40px;
+  height: 44px;
 }
 .past_detail .Input_box>button{
-  padding: 3px;
+  padding: 2px;
 }
 }

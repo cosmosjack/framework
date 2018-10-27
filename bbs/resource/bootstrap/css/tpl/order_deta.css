@@ -1,7 +1,6 @@
 .order_deta{
   background: #eee;
-  font-family: '微软雅黑';
-  margin-bottom: 40px;
+  padding-bottom: 44px;
 }
 .order_deta .home_top{
 	width: 100%;
@@ -33,10 +32,14 @@
 }
 .order_deta .swiper-slide img{
     width: 100%;
-    height: 32%
+    height: 55vw;
+}
+.order_deta .swiper-pagination-bullet{
+   background: #FFF !important;
+   opacity: 1 !important;
 }
 .order_deta .swiper-pagination-bullet-active{
-    background: #ec9b82;
+    background: #e25428 !important;
 }
 .order_deta .swiper-wrapper,.order_deta .swiper-slide{
    height: auto !important;
@@ -115,6 +118,7 @@
 }
 .order_deta .user_img{
    width: 30px;
+   height: 30px;
    border: 1px solid #e25428;
    border-radius: 50%;
 }
@@ -169,7 +173,8 @@
    position: absolute;
    bottom: 0;
    left: 6%;
-   background:url('../../img/shadow.png') no-repeat 0 0;
+   background:url('../../img/img_shadow.png') no-repeat 0 0;
+   background-size:100% 100%;
    color:#FFF;
    border-bottom-left-radius: 10px;
    border-bottom-right-radius: 10px;
@@ -257,6 +262,30 @@
   height: 30px;
   margin-left: 5px;
 }
+.order_deta .point{
+  border-radius: 10px !important;
+  padding: 10px 0;
+  padding-top:0; 
+  overflow: hidden; 
+}
+.order_deta .point>h4{
+   color:#FFF;
+   margin-top: 0;
+   background: #e25428;
+   padding: 15px 0;
+}
+.order_deta .point>button{
+  border: none;
+  padding: 4px;
+  font-size: 16px;
+  letter-spacing: 4px;
+  box-sizing: border-box;
+  background: #FFF;
+}
+.activityContent img{
+  width: 100% !important;
+  height: auto !important;
+}
 @media screen and (max-height: 568px) {
   .order_deta .num_periods>img{
       width: 25px;
@@ -305,22 +334,25 @@
     background: #ec9b82;
     color:#FFF;
 }
-.remodal{
-  margin: 0 !important;
+.order_deta .bullet{
+   position: fixed;
+   top: 0;
+   left: 0;
+   background: rgba(0,0,0,0.8);
+   width: 100%;
+   height: 100%;
+   z-index: 200;
+   display: none;
 }
-.remodal>div{
-  border:none;
-  border-radius: 0px !important;
-  font-size: 3vw;
+.order_deta .bullet .bdsharebuttonbox,.order_deta .bullet .bdsharebuttonbox>div{
   padding: 0;
+  background: #FFF;
+  z-index: 500;
 }
-.point .bdsharebuttonbox,.point .bdsharebuttonbox>div{
-  padding: 0;
-}
-.point .bdsharebuttonbox p{
+.order_deta .bullet .bdsharebuttonbox p{
   padding: 0px;
 }
-.point .bdshare-button-style0-32 a{
+.order_deta .bullet .bdshare-button-style0-32 a{
   padding: 0;
   margin: 10px calc(50% - 16px);
 }

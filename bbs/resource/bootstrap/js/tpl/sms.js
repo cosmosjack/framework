@@ -5,12 +5,6 @@ $(function(){
             Countdown:60,//倒计时时间
             code_state:'1234'//后台请求回来的验证码
 		},
-		//返回上一级
-		oPrev:function(){
-			$('.oprev').click(function(){
-				window.history.go(-1);
-			})
-		},
 		time:function(){
 			var self = this;
 			$('.code_btn').prop('disabled',true);
@@ -105,7 +99,6 @@ $(function(){
         },
         //函数的调用
 		event:function(){
-			this.oPrev();
 			this.login_sms();
 			this.login();
 		}

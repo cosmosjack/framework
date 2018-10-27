@@ -61,7 +61,8 @@ class orderControl extends BaseControl{
         //p($db_order->showpage());
         //p($list);
         foreach ($list as &$val) {
-            $val['url'] = urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
+            // $val['url'] = urlBBS('activity','detail',array('activity_no'=>$val['activity_no'],'activity_periods'=>$val['activity_periods']));
+            $val['url'] = urlBBS('order','orderDetail',array('id'=>$val['id']));
             if($orderStatus == 1)
                 $val['url1'] = urlBBS('order','payOrder',array('id'=>$val['id']));
             else
@@ -84,7 +85,7 @@ class orderControl extends BaseControl{
         $map['id'] = array('eq',$id);
         $map['member_id'] = array('eq',$_SESSION['userInfo']['id']);
         $info = $db_order
-                ->field('id,code,activity_time,activity_no,activity_periods,order_amount,childs_arr,parents_arr,order_time,parents_arr,order_status')
+                ->field('id,code,activity_time,activity_begin_time,activity_title,activity_address,activity_no,activity_periods,order_amount,order_num,childs_arr,parents_arr,order_time,parents_arr,order_status,remark')
                 ->where($map)
                 ->find();
         if(empty($info))
@@ -105,8 +106,8 @@ class orderControl extends BaseControl{
                         ->where($map)
                         ->find();
         }
-        if(empty($activityInfo))
-            showMessage('活动不存在',getenv(HTTP_REFERER));
+        // if(empty($activityInfo))
+        //     showMessage('活动不存在',getenv(HTTP_REFERER));
         //活动轮播图
         $db_banner = new Model('bbs_uploads');
         $banner = $db_banner->where('upload_type=1 and item_id='.$info['activity_no'])->select();
@@ -266,11 +267,14 @@ class orderControl extends BaseControl{
             showMessage('订单不存在',getenv(HTTP_REFERER));
         // p($info);
         // p(intval($info['order_amount']*100));
+        //因为后台有修改订单金额的功能 ，所以要重新生成订单号
+        $pay_no = 'HSN_'.date("YmdHis").mt_rand(100,999);
+        $db_order->where($map)->update(array('pay_no'=>$pay_no));
         //调用微信支付
         $wx_api_path = BASE_DATA_PATH.DS."api".DS."payment".DS."wxpay_jsapi".DS;
         include($wx_api_path."wxpay_jsapi.php");
         $wx_pay = new wxpay_jsapi();
-        $wx_pay->setConfig('orderSn',$info['pay_no']);
+        $wx_pay->setConfig('orderSn',$pay_no);
         $wx_pay->setConfig('orderInfo',$info['activity_title']);
         $wx_pay->setConfig('orderFee',intval($info['order_amount']*100));
         echo($wx_pay->paymentHtml());

@@ -86,6 +86,9 @@ html,body{
    font-size: 14px;
    padding-left: 2px;
    width: 100%;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
 }
 .order_paid .price_sum>div{
 	margin-top: 6px;
@@ -106,6 +109,11 @@ html,body{
    position: absolute;
    bottom: 0;
    left: 0;
+}
+.order_paid .orderImg{
+  display: block;
+   width: 30px;
+   margin:5px auto;
 }
 @media screen and (max-height: 568px) {
   .order_paid .price_sum>p ,.order_paid .price_sum>div{

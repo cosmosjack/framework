@@ -4,8 +4,8 @@ html,body{
 .mine{
 	background: #eee;
 	width: 100%;
-	margin-bottom: calc(9% + 28px);
-	min-height: calc(100% - (9% + 28px));
+    padding-bottom: 64px;
+    min-height:100%;
 }
 .mine .top{
     background: url('../../img/background.jpg') no-repeat 0 0;
@@ -26,17 +26,21 @@ html,body{
 	font-size: 14px;
 }
 .mine .logo>img{
-	padding-left: 0 !important;
-	padding-right: 0 !important;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
 	background: #FFF;
 }
 .mine .logo>h4{
 	margin-top: 10px !important;
-	letter-spacing: 3px;
+	letter-spacing: 1px;
 }
 .mine .grade_gender{
 	font-size: 14px;
     line-height: 20px;
+}
+.mine .grade_gender>.row{
+	margin-bottom: 5px;
 }
 .mine .grade_gender img{
 	max-width: 25px;
@@ -47,10 +51,14 @@ html,body{
     margin-top: 8px;
     margin-bottom: 8px;
     font-size: 14px;
-    line-height: 50px;
+    line-height: 10vw;
+    padding: 2vw 15px;
 }
 .mine .ID>div{
 	padding: 0;
+}
+.mine .ID>div>img{
+	width: 10vw;
 }
 .mine .ID>.text-right{
     font-size: 22px;
@@ -80,7 +88,7 @@ html,body{
 }
 .mine .enter>div{
 	position: absolute;
-	top: 20px;
+	top: 25px;
 	right:0;
 }
 .mine .enter>div>span:nth-child(2){
@@ -114,10 +122,20 @@ html,body{
    border-right: 1px solid #a0a0a0;
 }
 @media screen and (max-height: 568px) {
+	.mine{
+	    padding-bottom: 52px;
+	}
 	.mine .txt>div{
 		margin-top: 12px;
 	}
 	.mine .point>button{
 		padding: 5px;
+	}
+	.mine .logo>img{
+		width: 80px;
+		height: 80px;
+	}
+	.mine .enter>div{
+		top: 20px;
 	}
 }

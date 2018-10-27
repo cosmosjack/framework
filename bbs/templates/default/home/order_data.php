@@ -40,32 +40,31 @@
 		</div>
 		<div class="odpro_title overflow">
 			<div class="col-xs-7">
-				<span class="city">【<?php echo getAreaName($output['activityInfo']['activity_city'])?>】</span><?php echo $output['activityInfo']['activity_title']?>
+				<span class="city">【第<?php echo $output['info']['activity_periods']?>期】</span><?php echo $output['info']['activity_title']?>
 			</div>
+            <?php if(!empty($output['activityInfo'])):?>
 			<div class="col-xs-5">
 				<span>参与人数：</span><span class="join"><?php echo $output['activityInfo']['already_num']?></span>/<span><?php echo $output['activityInfo']['total_number']?></span>
 			</div>
+            <?php endif;?>
 		</div>
         <div class="pro_class overflow">
              <p class="col-xs-12">亲子活动 | 成长 | 挑战活动</p>
         </div>
         <div class="price_time overflow">
             <div class="col-xs-12 overflow">
-                <span class="price">&yen;<?php echo $output['activityInfo']['activity_price']?></span>
+                <span class="price">&yen;<?php echo number_format($output['info']['order_amount']/$output['info']['order_num'],2)?></span>
                 <!-- <span class="importance coupon">优惠券兑换>></span> -->
-                <span class="time pull-right">报名截止<?php echo date('m月d日',$output['activityInfo']['activity_begin_time']-3600*24)?></span>
+                <span class="time pull-right">报名截止<?php echo date('m月d日',$output['info']['activity_begin_time']-3600*24)?></span>
             </div>
         </div>
         <div class="pro_content">
             <div class="pta overflow container-fluid">
                 <div class="col-xs-12">
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" class="col-xs-2" /><span><?php echo $output['activityInfo']['address']?></span>
+                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/place.png" class="col-xs-2" /><span><?php echo $output['info']['activity_address']?></span>
                 </div>
                 <div class="col-xs-12">
                     <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/time.png" class="col-xs-2" /><span><?php echo $output['info']['activity_time']?></span>
-                </div>
-                <div class="col-xs-12">
-                    <img src="<?php echo BBS_RESOURCE_SITE_URL;?>/bootstrap/img/age.png" class="col-xs-2" /><span><?php echo $output['activityInfo']['min_age']?>~<?php echo $output['activityInfo']['max_age']?>岁</span>
                 </div>
             </div>
             <div class="order_info overflow container-fluid">
@@ -79,6 +78,10 @@
                         <span>联系人：</span>
                         <span><?php echo $parents[0]['name']?></span>
                         <span class="user_phone"><?php echo $parents[0]['phone']?></span>
+                    </div>
+                    <div>
+                        <span>备注信息：</span>
+                        <span><?php echo $output['info']['remark']?></span>
                     </div>
                     <!--订单状态-->
                     
@@ -133,7 +136,8 @@
                 </div>
                 <!--活动信息-->
                 <div class="activityContent overflow col-xs-12 text-left">
-                    <span>活动信息</span>
+                    <!-- <span>活动信息</span> -->
+                    <?php echo $output['info']['activity_desc'];?>
                 </div>
                 <!--推荐活动-->
                 <div class="overflow col-xs-12 pro_recom" style="display: none;">

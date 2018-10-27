@@ -1,6 +1,17 @@
 $(function(){
 	var submitflag = false;
 	var order_deta = {
+        //轮播图
+		Banner:function(){
+			var mySwiper = new Swiper ('.swiper-container', {
+					    direction: 'horizontal',
+					    loop: true,//是否自动切换
+					    autoplay:5000,//每隔5秒自动切换
+					    // 如果需要分页器
+					    pagination: '.swiper-pagination',
+					    autoplayDisableOnInteraction : false,//手滑都过后依然可以自动切换
+					  })   
+		},
 		//页面滚动监听
 		Scroll:function(){
 			$(document).ready(function(){
@@ -62,49 +73,86 @@ $(function(){
 	            })  
 			})
 		},
+		//分享订单
+		ShareOrder:function(){
+      		// var html = $('<img src="'+BBS_RESOURCE_SITE_URL+'/bootstrap/img/paysuccess.png" /><h4>支付成功</h4><p class="prompt">分享我的活动报名即刻获取优惠券！</p><div class="overflow"><div class="bdsharebuttonbox col-xs-12 text-center overflow"><div class="col-xs-3 overflow"><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><p class="col-xs-12">微信</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_tsina col-xs-12" data-cmd="tsina" title="分享到新浪微博"></a><p class="col-xs-12">新浪</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_sqq col-xs-12" data-cmd="sqq" title="分享到QQ好友"></a><p class="col-xs-12">QQ</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_more col-xs-12" data-cmd="more"></a><p class="col-xs-12">其他</p></div></div>')
+      		$('.cancel').click(function(){
+      			// $('.point').html(html);
+                // $('.modal').modal('show');
+                window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
+                with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+      			$('.bullet').fadeIn(300);
+      		})
+		},
 		//分享功能
 		Share:function(){
-			$('#share_icon').click(function(){
-				$('.point').children().remove();
-				window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
-			 	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
-				var html = $('<div class="bdsharebuttonbox col-xs-12 text-center overflow"><div class="col-xs-3 overflow"><a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a><p class="col-xs-12">微信</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a><p class="col-xs-12">QQ空间</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a><p class="col-xs-12">新浪</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a><p class="col-xs-12">QQ</p></div><div class="col-xs-3 overflow"><a href="#" class="bds_more" data-cmd="more"></a><p class="col-xs-12">其他</p></div></div>');
-				$('.point').append(html);
-				$('.modal').modal('show');
-			})
-			this.Collection('#collect_icon')
+		    window._bd_share_config={"common":{"bdSnsKey":{},"bdText":"","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"32"},"share":{}};
+		    with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+		    function block(o){
+                $('.order_deta').on('click',o,function(){
+			    	$('.bullet').fadeIn(300);
+			    	return false;
+			    })
+		    }
+		    function none(o){
+                $('.order_deta').on('click',o,function(){
+					$('.bullet').fadeOut(300);
+					return false;
+				})
+		    };
+		    block('#share_icon');
+		    block('.bdsharebuttonbox');
+			none('.bullet');
 		},
 		//收藏按钮
-		Collection:function(o){
-			$(document).on('click',o,function(){
-				if($(this).hasClass('RemoveClass')){
-					$(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
-					$(this).removeClass('RemoveClass');
-				}else{
-		            $(this).attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
-					$(this).addClass('RemoveClass');
-				}
+		Collection1:function(o){
+			$('.order_deta').on('click',o,function(){
+				//防止重复提交
+				if(submitflag)
+					return false;
+				var url = $(this).attr('href_url');
+				var obj = $(this);
+				submitflag = true;
+				//向后台发送请求
+		     	$.ajax({  
+		            url:url,  //请求路径，接口地址
+		            type:"post",  //请求的方式
+		            async:false,//同步  
+		            data:{},//传出的数据  
+		            dataType:"json",//返回的数据类型，常用：html/text/json  
+		            success:function(data){  //请求成功后的回调函数
+		                submitflag = false;
+		                $('.point>h4').html(data.msg);
+		                $('.modal').modal('show');
+		                if(data.code == '200'){
+		                	if(data.flag == 1){
+		                		//添加收藏
+		                		obj.attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_s_red.png');
+		                	}else if(data.flag == 2){
+		                		//取消收藏
+		                		obj.attr('src',BBS_RESOURCE_SITE_URL + '/bootstrap/img/collect_n.png');
+		                	}else{
+		                		//没有登录
+		                		HrefDelay(data.url);
+		                	}
+		                }
+		            }  
+		        })
 				return false;
 			}) 
 		},
 		event:function(){
+			this.Banner();
 			this.Scroll();
 			this.fn();
-			this.Cancel();
+			this.ShareOrder();
 			this.Share();
-			this.Collection('.num_periods>img');
+			this.Collection1('#collect_icon');
+			this.Collection1('.num_periods>img');
 		}
 	}
 	//函数调用
 	order_deta.event();
 	
-	//轮播图
-	var mySwiper = new Swiper ('.swiper-container', {
-			    direction: 'horizontal',
-			    loop: true,//是否自动切换
-			    autoplay:5000,//每隔5秒自动切换
-			    // 如果需要分页器
-			    pagination: '.swiper-pagination',
-			    autoplayDisableOnInteraction : false,//手滑都过后依然可以自动切换
-			  })   
+	
 })

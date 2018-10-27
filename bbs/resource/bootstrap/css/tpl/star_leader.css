@@ -25,7 +25,8 @@
   font-size: 14px;
 }
 .star_leader .type_content img{
-  max-width: 80%;
+  width: 80%;
+  height: 24vw;
   border-radius: 10px;
   margin-bottom: 10px;
 }

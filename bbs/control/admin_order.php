@@ -44,13 +44,68 @@ class admin_orderControl extends BaseAdminControl{
             ->order($order)
 //            ->page(6)
             ->select();
-        if($data_bbs_order){
-            $this->createExcel($data_bbs_order);
+        $data = array();
+        foreach($data_bbs_order as $key=>$val){
+            $data_bbs_order[$key]['child_info'] = unserialize($val['childs_arr']);
+            $data_bbs_order[$key]['parent_info'] = unserialize($val['parents_arr']);
+            $data_bbs_order[$key]['activity_price'] = floatval($val['order_amount']/$val['order_num']); // 单价
+
+            foreach($data_bbs_order[$key]['child_info'] as $k=>$v){
+                $db_child = new Model('bbs_child');
+                $info = $db_child->where(array('id'=>$v['id']))->find();
+                if(!empty($info)){
+                    if($info['child_sex'] ==1){
+                        $sex = '男';
+                    }elseif($info['child_sex']==2){
+                        $sex = '女';
+                    }else{
+                        $sex = '保密';
+                    }
+                    $data_bbs_order[$key]['child_name'] = $info['child_name'];
+                    $data_bbs_order[$key]['child_sex'] = $sex;
+                    $data_bbs_order[$key]['child_age'] = $info['child_age'];
+                    $data_bbs_order[$key]['papers_no'] = $info['child_papers_no'];
+                    $data_bbs_order[$key]['child_height'] = $info['child_height'];
+                    $data_bbs_order[$key]['child_weight'] = $info['child_weight'];
+                    $data_bbs_order[$key]['child_size'] = $info['child_size'];
+                    $data_bbs_order[$key]['child_remark'] = $info['child_remark'];
+                    $data_bbs_order[$key]['staff'] = $info['staff'];
+                }else{
+                    if($v['sex'] ==1){
+                        $sex = '男';
+                    }elseif($v['sex']==2){
+                        $sex = '女';
+                    }else{
+                        $sex = '保密';
+                    }
+                    $data_bbs_order[$key]['child_name'] = $v['name'];
+                    $data_bbs_order[$key]['child_sex'] = $sex;
+                    $data_bbs_order[$key]['child_age'] = $v['age'];
+                    $data_bbs_order[$key]['child_size'] = $v['size'];
+                    $data_bbs_order[$key]['child_remark'] = $v['remark'];
+                    $data_bbs_order[$key]['papers_no'] = $v['papers_no'];
+                    $data_bbs_order[$key]['staff'] = $v['staff'];
+
+                    $data_bbs_order[$key]['child_height'] = $v['height'];
+                    $data_bbs_order[$key]['child_weight'] = $v['weight'];
+                }
+
+                
+
+                $data_bbs_order[$key]['parent_name'] = $data_bbs_order[$key]['parent_info'][0]['name'];
+                $data_bbs_order[$key]['parent_phone'] = $data_bbs_order[$key]['parent_info'][0]['phone'];
+                $data_bbs_order[$key]['parent_relation'] = $data_bbs_order[$key]['parent_info'][0]['relation'];
+                $data_temp = $data_bbs_order[$key];
+                array_push($data,$data_temp);
+            }
+        }
+        if($data && !empty($data)){
+//            p($data);
+//            die();
+            $this->createExcel($data);
         }else{
             showMessage("没有任何数据,不能导出Excel");
         }
-
-
     }
     /* 订单导出 end */
 
@@ -85,12 +140,28 @@ class admin_orderControl extends BaseAdminControl{
         $excel_data[0][] = array('styleid'=>'s_title','data'=>'会员名字');
 
         $excel_data[0][] = array('styleid'=>'s_title','data'=>'票数');
+
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童性别');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童年龄');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童尺码');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童身高');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童体型');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'儿童身体情况');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'证件号码');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'业务员');
+        
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'监护人');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'监护人电话');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'监护人关系');
+
 //        $excel_data[0][] = array('styleid'=>'s_title','data'=>'参加人员');
-        $excel_data[0][] = array('styleid'=>'s_title','data'=>'订单金额');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'活动价格');
         $excel_data[0][] = array('styleid'=>'s_title','data'=>'订单状态');
         $excel_data[0][] = array('styleid'=>'s_title','data'=>'支付码');
         $excel_data[0][] = array('styleid'=>'s_title','data'=>'备注');
-
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'支付时间');
+        $excel_data[0][] = array('styleid'=>'s_title','data'=>'下单时间');
         //data
         foreach ((array)$data as $k=>$v){
             $tmp = array();
@@ -106,9 +177,25 @@ class admin_orderControl extends BaseAdminControl{
             $tmp[] = array('data'=>$v['activity_cls_id']);//活动开始时间
             $tmp[] = array('data'=>$v['member_id']);//活动结束时间
             $tmp[] = array('data'=>$v['member_name']);//活动地点
-            $tmp[] = array('data'=>$v['order_num']);//活动地点
+            // $tmp[] = array('data'=>$v['order_num']);//票数
+            $tmp[] = array('data'=>1);//票数
 
-            $tmp[] = array('data'=>$v['order_amount']);//备注
+            $tmp[] = array('data'=>$v['child_name']);//儿童
+            $tmp[] = array('data'=>$v['child_sex']);//儿童性别
+            $tmp[] = array('data'=>$v['child_age']);//年龄
+            $tmp[] = array('data'=>$v['child_size']);//尺寸
+            $tmp[] = array('data'=>$v['child_height']);// 学员身高
+            $tmp[] = array('data'=>$v['child_weight']);// 学员体型
+            $tmp[] = array('data'=>$v['child_remark']);//身体情况
+            $tmp[] = array('data'=>$v['papers_no']);//证件号码
+            $tmp[] = array('data'=>$v['staff']);// 员工
+            
+            $tmp[] = array('data'=>$v['parent_name']);//监护人
+            $tmp[] = array('data'=>$v['parent_phone']);//监护人电话
+            $tmp[] = array('data'=>$v['parent_relation']);//关系
+
+
+            $tmp[] = array('data'=>$v['activity_price']);//单价
 //            $tmp[] = array('data'=>$v['confirm_arr']);//参加人员
             // 1.未付款 2.已付款未参加 3.已付款已参加 4.退款中 5.已退款 6.已取消
             switch($v['order_status']){
@@ -134,7 +221,8 @@ class admin_orderControl extends BaseAdminControl{
             };
             $tmp[] = array('data'=>$v['pay_no']);//支付码
             $tmp[] = array('data'=>$v['remark']);//备注
-
+            $tmp[] = array('data'=>substr($v['pay_no'], 4,8));//支付时间
+            $tmp[] = array('data'=>date('Y-m-d',$v['order_time']));//下单时间
 
             $excel_data[] = $tmp;
         }

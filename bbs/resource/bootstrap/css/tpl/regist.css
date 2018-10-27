@@ -46,17 +46,17 @@
 	color:#FFF;
 	padding: 0 30px;
 	position: absolute;
-	top: calc(50% - 15px);
+	top: calc(50% - 18px);
 	right: 16px;
-	line-height: 40px;
+	line-height: 46px;
 	font-size: 14px;
 	background:#e25428;
 	border-radius: 30px;
 }
 .regist .pact{
 	margin-top: 20px;
-    font-size: 14px;
-    line-height: 20px;
+  font-size: 14px;
+  line-height: 20px;
 }
 .regist .pact>span{
 	color:#e25428;
@@ -88,7 +88,7 @@
    padding: 10px 0;
 }
 .regist .point>h5{
-  padding: 10px;
+  padding: 5px;
 }
 .regist .point_txt{
   padding: 10px 0;
@@ -118,5 +118,12 @@
   .regist .code>button{
     top: calc(50% - 10px);
     line-height: 30px;
+  }
+  .regist .pact{
+    font-size: 12px;
+  }
+  .regist .re_radio{
+    width: 15px;
+    height: 15px;
   }
 }

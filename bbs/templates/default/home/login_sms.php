@@ -27,7 +27,7 @@
     			<div class="col-xs-10 col-xs-offset-1" href_url="<?php echo urlBBS('index','login_sms')?>">登录</div>
     		</div>
     	</div>
-    	<div class="sms_txt col-xs-12 text-center">好好少年活动发布平台</div>
+    	<div class="sms_txt col-xs-12 text-center">好少年活动发布平台</div>
     	<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog modal-sm row" role="document">
 		    <div class="modal-content col-xs-10 point col-xs-offset-1">

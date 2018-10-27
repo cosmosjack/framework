@@ -3,7 +3,6 @@ html,body{
 }
 .student_id{
   background: #EEE;
-  font-size: '微软雅黑';
   min-height: 100%;
 }
 .student_id .reg_top{
@@ -61,6 +60,7 @@ html,body{
   border-radius: 50%;
   border: 1px solid #f19931;
   margin-left: 15px;
+  background: #FFF;
 }
 .student_id .student_inf>div>img{
   width: 25px;
@@ -124,6 +124,7 @@ html,body{
 }
 .student_id .point>button{
    outline: none;
+   margin-bottom: 10px;
 }
 .student_id .point>h4{
     color:#FFF;
@@ -156,4 +157,9 @@ html,body{
    background-color:#e25428;
    border-color:#e25428;
    color:#FFF;
+}
+@media screen and (max-height: 568px) {
+  .student_id .student{
+    font-size: 12px;
+  }
 }

@@ -1,6 +1,9 @@
-html,body,.defray{
+html,body{
     height: 100%;
     background: #EEE;
+}
+.defray{
+  padding-bottom:40px; 
 }
 .defray .pad_none{
     padding: 0;
@@ -130,7 +133,7 @@ html,body,.defray{
 	background: #FFF;
 }
 .defray .de_user>div{
-	padding: 8px 15px;
+	padding: 12px 15px;
 	border-bottom: 1px solid #EEE;
 }
 .defray .de_user span{
@@ -190,7 +193,7 @@ html,body,.defray{
 .de_btn .total{
 	background: #a0a0a0;
 	color:#FFF;
-	padding: 10px 0;
+	padding: 20px 0;
 	font-size: 14px;
 }
 .de_btn .total>span{
@@ -199,7 +202,7 @@ html,body,.defray{
 .de_btn .go_debtn{
 	background: #e25428;
 	color:#FFF;
-	padding: 10px 0;
+	padding:20px 0;
 	font-size: 14px;
 }
 .de_point{
@@ -232,28 +235,37 @@ html,body,.defray{
 .de_point .de_radio{
    position: relative;
 }
+.defray .de_radio>span{
+   display: block;
+   width: 90%;
+   height: 89%;
+   margin: 5%;
+   border-radius: 50%;
+}
 .de_point .de_select{
-   height: 150px;
+   /*height: 70vw;*/
    overflow-y: auto;
    overflow-x: hidden;
    margin-bottom: 40px;
 }
 .de_point .de_select>div{
   border-bottom: 1px solid #EEE;
-  padding: 8px 0;
+  padding: 15px 5px;
+  border-radius: 10px;
 }
 .de_point .de_Radio_select>h4{
    color:#e25428;
 }
-.de_point .de_rai,.de_point .de_strai,.de_point .de_strai_size{
+.de_point .de_rai,.de_point .de_strai,.de_point .de_strai_size,.de_point .de_strai_weight,.de_point .de_strai_idtype,.de_point .de_strai_gender{
   position: relative;
   border-radius: 50%;
   display: block;
   width: 18px;
   height: 18px;
   border: 1px solid #e25428;
+  margin-top: 2px;
 }
-.de_point .de_rai>span,.de_point .de_strai>span,.de_point .de_strai_size>span{
+.de_strai_gender>span,.de_point .de_rai>span,.de_point .de_strai>span,.de_point .de_strai_size>span,.de_point .de_strai_weight>span,.de_point .de_strai_idtype>span{
   display: block;
   border-radius: 50%;
   width: 80%;
@@ -265,18 +277,23 @@ html,body,.defray{
   right:0;
   margin: auto;
 }
+.de_point .gender_active{
+  background: #e25428;
+}
 .de_point .avtImg,.de_point .st_Img{
   width: 30px;
   height: 30px;
   border-radius: 50%;
   border: 1px solid #e25428;
   margin-right: 10px;
+  background: #FFF;
 }
 .de_point .de_push{
   color:#a0a0a0;
+  margin-bottom: 20px;
 }
 .de_point .selbtn{
-  position: absolute;
+  /*position: absolute;*/
   bottom: 0;
   left: 0;
   width: 100%;
@@ -289,6 +306,10 @@ html,body,.defray{
    border-radius: 10px;
    width: 40%;
    padding: 10px 0;
+}
+.de_point .selbtn>button>a{
+  color:#FFF;
+  display: block;
 }
 .de_point .ra_det{
    background: #e25428;
@@ -319,7 +340,6 @@ html,body,.defray{
 }
 .de_student{
   font-size: 14px;
-  height: 200px;
   overflow-y: auto;
   margin-bottom: 30px;
 }
@@ -365,9 +385,13 @@ html,body,.defray{
   height: 40px;
   border: 1px solid #e25428;
   border-radius: 50%;
+  background: #FFF;
 }
 .de_student .userImg{
    line-height: 40px;
+}
+.de_student .userImg>span{
+  line-height: 40px !important;
 }
 .de_student .file-box{
     display: inline-block;
@@ -433,4 +457,7 @@ html,body,.defray{
    .defray .teacher>img{
     min-height: 60px;
    }
+   .de_btn .total,.de_btn .go_debtn{
+    padding: 15px 0;
+  }
 }
