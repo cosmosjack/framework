@@ -1,14 +1,4 @@
 <?php
-/**
- * 公共方法  v3-b12
- *
- * 公共方法
- *
- * by cosmos-jack  运营版
- */
-
-
-
 defined('InCosmos') or exit('Access Invalid!');
 /*
  * 获取此站总的用户人数
@@ -450,6 +440,7 @@ function showMessage($msg,$url='',$show_type='html',$msg_type='succ',$is_show=1,
 			 * 指定为指定项目目录下的error模板文件
 			 */
             Tpl::setDir('');
+
 			Tpl::output('html_title',Language::get('nc_html_title'));
 			Tpl::output('msg',$msg);
 			Tpl::output('url',$url);
@@ -1135,9 +1126,6 @@ function C($key){
                 if (isset($key[2])){
                         return $GLOBALS['setting_config'][$key[0]][$key[1]][$key[2]];
                 }else{
-                    echo $key[0];
-                    echo '<hr>';
-                    echo $key[1];
 //                    p($GLOBALS['setting_config'][$key[0]][$key[1]]);
                         return $GLOBALS['setting_config'][$key[0]][$key[1]];
                 }
@@ -1792,18 +1780,20 @@ function halt($error){
 function get_obj_instance($class, $method='', $args = array()){
 	static $_cache = array();
 	$key = $class.$method.(empty($args) ? null : md5(serialize($args)));
+
 	if (isset($_cache[$key])){
 		return $_cache[$key];
 	}else{
 		if (class_exists($class)){
 			$obj = new $class;
+            new Cache();
 			if (method_exists($obj,$method)){
 				if (empty($args)){
 					$_cache[$key] = $obj->$method();
 				}else{
-					$_cache[$key] = call_user_func_array(array(&$obj, $method), $args);
-				}
-			}else{
+                    $_cache[$key] = call_user_func_array(array(&$obj, $method), $args);
+                }
+            }else{
 				$_cache[$key] = $obj;
 			}
 			return $_cache[$key];
@@ -1847,6 +1837,7 @@ function array_under_reset($array, $key, $type=1){
  */
 function rkcache($key, $callback = false)
 {
+//    die();
     if (C('cache_open')) {
         $cacher = Cache::getInstance('cacheredis');
     } else {
@@ -2703,5 +2694,134 @@ function http($url, $data='', $method='GET'){
     curl_close($curl); // 关闭CURL会话
     return $tmpInfo; // 返回数据
 }
+
+// 模拟 IP 访问
+// 调用
+/*$url = 'http://www.example.com/server.php';
+$data = array();
+// 设置IP
+$header = array(
+    'CLIENT-IP: 192.168.1.100',
+    'X-FORWARDED-FOR: 192.168.1.100'
+);
+// 设置来源
+$referer = 'http://www.csdn.net/';
+$response = doCurl($url, $data, $header, $referer, 5);
+echo $response;*/
+ function doCurl($url, $data=array(), $header=array(), $referer='', $timeout=30){
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+     curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // 对认证证书来源的检查
+     curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false); // 从证书中检查SSL加密算法是否存在
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+    // 模拟来源
+    curl_setopt($ch, CURLOPT_REFERER, $referer);
+    $response = curl_exec($ch);
+    if($error=curl_error($ch)){
+        die($error);
+    }
+    curl_close($ch);
+    return $response;
+}
+
+/* HTTPS请求　start */
+function curl_post_https($url,$data,$js_json=false,$is_put=false,$header=false,$is_header=false){ // 模拟提交数据函数
+    $curl = curl_init(); // 启动一个CURL会话
+    curl_setopt($curl, CURLOPT_URL, $url); // 要访问的地址
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0); // 对认证证书来源的检查
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 1); // 从证书中检查SSL加密算法是否存在
+
+    curl_setopt($curl, CURLOPT_USERAGENT, $_SERVER['HTTP_USER_AGENT']); // 模拟用户使用的浏览器
+    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1); // 使用自动跳转
+    curl_setopt($curl, CURLOPT_AUTOREFERER, 1); // 自动设置Referer
+    //如果是 json的 则
+    if($js_json){
+//        curl_setopt($curl,CURLOPT_HTTPHEADER,array("Accept: application/json"));
+        curl_setopt($curl,CURLOPT_HTTPHEADER,array("Content-type: application/json"));
+    }
+    if($header){
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $header);//定义header
+    }
+    if($is_put){
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "PUT"); //定义请求类型，当然那个提交类型那一句就不需要了
+    }else{
+        curl_setopt($curl, CURLOPT_POST, 1); // 发送一个常规的Post请求
+    }
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $data); // Post提交的数据包
+    curl_setopt($curl, CURLOPT_TIMEOUT, 30); // 设置超时限制防止死循环
+    if($is_header){
+        curl_setopt($curl, CURLOPT_HEADER, 1); // 显示返回的Header区域内容
+    }else{
+        curl_setopt($curl, CURLOPT_HEADER, 0); // 显示返回的Header区域内容
+    }
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1); // 获取的信息以文件流的形式返回
+    $tmpInfo = curl_exec($curl); // 执行操作
+    if (curl_errno($curl)) {
+        $error = curl_error($curl);//捕抓异常
+        curl_close($curl); // 关闭CURL会话
+        return array('code'=>0,'data'=>$error);
+    }
+    curl_close($curl); // 关闭CURL会话
+    return array('code'=>200,'data'=>$tmpInfo);
+
+}
+/* HTTPS请求　end */
+
+/* 模拟session 请求 start */
+function session_curl($url, $cookie = 0, $post = 0, $referer = 0, $header = 0, $ua = 0, $nobaody = 0)
+{
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    $klsf[] = "Accept:*/*";
+    $klsf[] = "Accept-Encoding:gzip,deflate,sdch";
+    $klsf[] = "Accept-Language:zh-CN,zh;q=0.8";
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $klsf);
+    if ($post) {
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post));
+    }
+    if ($header) {
+        curl_setopt($ch, CURLOPT_HEADER, TRUE);
+    }
+
+    curl_setopt($ch, CURLOPT_COOKIE, $cookie);
+    if ($referer) {
+        if ($referer == 1) {
+            curl_setopt($ch, CURLOPT_REFERER, "http://m.qzone.com/infocenter?g_f=");
+        } else {
+            curl_setopt($ch, CURLOPT_REFERER, $referer);
+        }
+    }
+    if ($ua) {
+        curl_setopt($ch, CURLOPT_USERAGENT, $ua);
+    } else {
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Linux; U; Android 4.0.4; es-mx; HTC_One_X Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0');
+    }
+    if ($nobaody) {
+        curl_setopt($ch, CURLOPT_NOBODY, 1);//主要头部
+//curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);//跟随重定向
+    }
+    curl_setopt($ch, CURLOPT_ENCODING, "gzip");
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+    $ret = curl_exec($ch);
+    if (curl_errno($ch)) {
+        $error = curl_error($ch);//捕抓异常
+        curl_close($ch); // 关闭CURL会话
+        return array('code'=>0,'data'=>$error);
+    }
+    curl_close($ch);
+    return array('code'=>200,'data'=>$ret);
+}
+
+/* 模拟session 请求 end */
+
+
 
 
