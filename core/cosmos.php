@@ -67,7 +67,7 @@ $_GET['act'] = $_GET['act'] ? strtolower($_GET['act']) : ($_POST['act'] ? strtol
 $_GET['op'] = $_GET['op'] ? strtolower($_GET['op']) : ($_POST['op'] ? strtolower($_POST['op']) : null);
 
 //print_r($config);
-if (empty($_GET['act'])){
+if(empty($_GET['act'])){
     require_once(BASE_CORE_PATH.'/framework/core/route.php');
     new Route($config);
 }
